@@ -1,5 +1,5 @@
 package parcoursdb
 
-sealed trait TBoolean
-sealed trait TTrue extends TBoolean
-sealed trait TFalse extends TBoolean
+sealed trait Count
+sealed trait Zero extends Count
+sealed trait Once extends Count

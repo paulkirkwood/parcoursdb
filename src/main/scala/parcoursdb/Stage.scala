@@ -1,21 +1,11 @@
 package parcoursdb
 
-import org.joda.time.DateTime._
-
-sealed trait StageCategory
-case object Prologue extends StageCategory
-case object RoadStage extends StageCategory
-case object TeamTimeTrial extends StageCategory
-case object IndividualTimeTrial extends StageCategory
-case object MountainTimeTrial extends StageCategory
-case object RestDay extends StageCategory
-
-case class Stage(
-  category : StageCategory,
-     start : Location,
-    finish : Option[Location],
-    length : Option[Double],
-      cols : Set[Col]) {
+sealed trait Stage
+sealed trait RacingStage extends Stage {
+  def start: Location
+  def finish: Location
+  def length: Double
+  def cols: Set[Col]
 
   def isSummitFinish:Boolean = {
     val climbs:List[Col] = cols.toList.sortWith(_.summitKM < _.summitKM)
@@ -23,76 +13,83 @@ case class Stage(
   }
 
   private def lastClimb(xs: List[Col]): Boolean = xs match {
-    case head :: Nil  => head.summitKM == length.getOrElse(0)
+    case head :: Nil  => head.summitKM == length
     case head :: tail => lastClimb(tail)
     case _ => false
   }
-
-} 
-
-trait StageBuilderMethods {
-  type CategoryAdded  <: TBoolean
-  type StartAdded     <: TBoolean
-  type FinishAdded    <: TBoolean
-  type LengthAdded    <: TBoolean
 }
 
-class StageBuilder[M <: StageBuilderMethods](
-         category : Option[StageCategory] = None,
-            start : Option[Location] = None,
-           finish : Option[Location] = None,
-           length : Option[Double] = None,
-             cols : Set[Col] = Set.empty) {
+case class Prologue(start: Location,
+                    finish: Location,
+                    length: Double,
+                    cols: Set[Col]) extends RacingStage
 
-  def withCategory(c:StageCategory)(implicit ev: M#CategoryAdded =:= TFalse) = {
-    new StageBuilder[M {type CategoryAdded = TTrue}](Some(c), start, finish, length, cols)
-  }
+case class RoadStage(start: Location,
+                     finish: Location,
+                     length: Double,
+                     cols: Set[Col]) extends RacingStage
 
-  def withStart(s:Location)(implicit ev: M#StartAdded =:= TFalse) = {
-    new StageBuilder[M {type StartAdded = TTrue}](category, Some(s), finish, length, cols)
-  }
+case class TeamTimeTrial(start: Location,
+                         finish: Location,
+                        length: Double,
+                        cols: Set[Col]) extends RacingStage
 
-  def withFinish(f:Location)(implicit ev: M#FinishAdded =:= TFalse) = {
-    new StageBuilder[M {type FinishAdded = TTrue}](category, start, Some(f), length, cols)
-  }
+case class IndividualTimeTrial(start: Location,
+                               finish: Location,
+                               length: Double,
+                               cols: Set[Col]) extends RacingStage
 
-  def withLength(l:Double)(implicit ev: M#LengthAdded =:= TFalse) = {
-    new StageBuilder[M {type LengthAdded = TTrue}](category, start, finish, Some(l), cols)
-  }
+case class RestDay(location: Option[Location] = None) extends Stage
+
+object StageBuilder {
+  def apply() = new StageBuilder[Zero,Zero,Zero]()
+}
+
+case class StageBuilder[WithStartTracking <: Count,
+                        WithFinishTracking <: Count,
+                        WithLengthTracking <: Count](start: Option[Location] = None,
+                                                     finish: Option[Location] = None,
+                                                     length: Option[Double] = None,
+                                                     cols : Set[Col] = Set.empty) {
+
+    type IsOnce[T] = =:=[T, Once]
+    type IsZero[T] = =:=[T, Zero]
+
+    def withStart[S <: WithStartTracking: IsZero](s: Location) = {
+      copy[Once,WithFinishTracking,WithLengthTracking](start=Some(s))
+    }
+
+    def withFinish[F <: WithFinishTracking: IsZero](f: Location) = {
+      copy[WithStartTracking,Once,WithLengthTracking](finish=Some(f))
+    }
+
+    def withLength[L <: WithLengthTracking: IsZero](l: Double) = {
+      copy[WithStartTracking,WithFinishTracking,Once](length = Some(l))
+    }
 
   def withCol(c:Col) = {
-    new StageBuilder[StageBuilderMethods { type CategoryAdded = M#CategoryAdded
-                                           type StartAdded = M#StartAdded
-                                           type FinishAdded = M#FinishAdded
-                                           type LengthAdded = M#LengthAdded }
-    ](category, start, finish, length, cols + c)
+    new StageBuilder[WithStartTracking,WithFinishTracking,WithLengthTracking](start,finish,length,cols + c)
   }
 
   def withCols(c:Set[Col]) = {
-    new StageBuilder[StageBuilderMethods { type CategoryAdded = M#CategoryAdded
-                                           type StartAdded = M#StartAdded
-                                           type FinishAdded = M#FinishAdded
-                                           type LengthAdded = M#LengthAdded }
-    ](category, start, finish, length, cols ++ c)
+    new StageBuilder[WithStartTracking,WithFinishTracking,WithLengthTracking](start,finish,length,cols ++ c)
   }
 
-  def ~[X](f:StageBuilder[M] => X):X = f(this)
-
-  def build()(implicit ev1: M#StartAdded =:= TTrue,
-                       ev2: M#CategoryAdded =:= TTrue): Stage = {
-    Stage(category.get,start.get,finish,length,cols)
-  }
-}
-
-object StageBuilder {
-  type EmptyBuilder = StageBuilderMethods {
-    type CategoryAdded = TFalse
-    type StartAdded = TFalse
-    type FinishAdded = TFalse
-    type LengthAdded = TFalse
+  def prologue[S <: WithStartTracking : IsOnce, L <: WithLengthTracking : IsOnce] = {
+    Prologue(start.get,finish.getOrElse(start.get),length.get,cols)
   }
 
-  def apply(): StageBuilder[StageBuilder.EmptyBuilder] = {
-    new StageBuilder[EmptyBuilder](None,None,None,None,Set.empty)
+  def roadStage[S <: WithStartTracking : IsOnce,
+                F <: WithFinishTracking : IsOnce,
+                L <: WithLengthTracking : IsOnce] = {
+    RoadStage(start.get,finish.get,length.get,cols)
+  }
+
+  def teamTimeTrial[S <: WithStartTracking : IsOnce, L <: WithLengthTracking : IsOnce] = {
+    TeamTimeTrial(start.get,finish.getOrElse(start.get),length.get,cols)
+  }
+
+  def individualTimeTrial[S <: WithStartTracking : IsOnce, L <: WithLengthTracking : IsOnce] = {
+    IndividualTimeTrial(start.get,finish.getOrElse(start.get),length.get,cols)
   }
 }

@@ -22,6 +22,7 @@ object RaceUtils {
     case TourOfLombardy       => "Il Lombardia"
     case ParisNice            => "Paris-Nice"
     case TirrenoAdriatico     => "Tirreno Adriatico"
+    case CriteriumDuDauphine  => "Criterium du Dauphine"
     case TourDeFrance         => "Le Tour de France"
     case TourOfItaly          => "Giro d'Italia"
     case TourOfSpain          => "Vuelta a Espana"
@@ -29,7 +30,7 @@ object RaceUtils {
 
   def country(r:Race): Country = r match {
     case StradeBianche | MilanSanRemo | TourOfLombardy | TirrenoAdriatico | TourOfItaly => Italy
-    case ParisRoubaix | GrandPrixDePoulay | ParisTours | ParisNice | TourDeFrance => France
+    case ParisRoubaix | GrandPrixDePoulay | ParisTours | ParisNice | CriteriumDuDauphine | TourDeFrance => France
     case AmstelGoldRace => Netherlands
     case SanSebastianClassic | TourOfSpain => Spain
     case GrandPrixDeQuebec | GrandPrixDeMontreal => Canada

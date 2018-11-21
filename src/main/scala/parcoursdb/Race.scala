@@ -37,6 +37,7 @@ case object TourOfLombardy extends AutumnClassic
 sealed trait StageRace extends Race
 case object ParisNice extends StageRace
 case object TirrenoAdriatico extends StageRace
+case object CriteriumDuDauphine extends StageRace
 
 sealed trait GrandTour extends StageRace
 case object TourDeFrance extends GrandTour
