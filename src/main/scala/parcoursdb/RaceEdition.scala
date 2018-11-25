@@ -82,27 +82,18 @@ sealed trait StageRaceTrait {
   def cols: String = {
     val cols:Seq[Col] = racingStages.flatMap(_.cols)
     val categories:Seq[Seq[Col]] = Seq(
-      cols.collect { case c:HorsCategoryCol => c },
-      cols.collect { case c:CategoryOneCol => c },
-      cols.collect { case c:CategoryTwoCol => c },
-      cols.collect { case c:CategoryThreeCol => c },
-      cols.collect { case c:CategoryFourCol => c }
+      cols.collect { case c if c.category == HC => c },
+      cols.collect { case c if c.category == C1 => c },
+      cols.collect { case c if c.category == C2 => c },
+      cols.collect { case c if c.category == C3 => c },
+      cols.collect { case c if c.category == C4 => c }
     )
     var buf = new ListBuffer[String]()
     for (c <- categories) {
       if ( c.size > 0 ) {
-        buf += s"${c.size} ${ColUtils.category_name(c(0))}"
+        buf += s"${c.size} ${ColUtils.category_name(c(0).category)}"
       }
     }
-    //val hc = cols.collect { case c:HorsCategoryCol => c }
-    //val c1 = cols.collect { case c:CategoryOneCol => c }
-    //val c2 = cols.collect { case c:CategoryTwoCol => c }
-    //val c3 = cols.collect { case c:CategoryThreeCol => c }
-    //val c4 = cols.collect { case c:CategoryFourCol => c }
-    //var buf = new ListBuffer[String]()
-    //if (hc.size > 0) {
-    //  buf += s"${hc.size} ${ColUtils.category_name(hc(0))}"
-   // }
 
     return buf.mkString(", ")
   }
@@ -118,101 +109,95 @@ case class StageRaceEdition(race:StageRace,
 // 4. A rest day cannot follow a rest day
 // 5. There are no date gaps between the stages
 
-case class StageRaceEditionBuilder[WithPrologueTracking <: Count,
-                                   WithRoadStageTracking <: Count,
-                                   WithTeamTimeTrialTracking <: Count,
-                                   WithIndividualTimeTrialTracking <: Count,
-                                   WithRestDayTracking <: Count,
-                                   WithLastStageTracking <: Count](
+sealed trait StageRaceBuilderMethods {
+  type TPrologue <: TBoolean
+  type TRoadStage <: TBoolean
+  type TTeamTimeTrial <: TBoolean
+  type TIndividualTimeTrial <: TBoolean
+  type TRestDay <: TBoolean
+  type TSplitStages <: TBoolean
+  type TAMAndPMStages <: TBoolean
+}
+
+class StageRaceEditionBuilder[M <: StageRaceBuilderMethods](
   race:StageRace,
   date: LocalDateTime,
   stageNumber: Integer,
   stages: Seq[(LocalDateTime,String,Stage)] ){
 
-  type IsOnce[T] = =:=[T, Once]
-  type IsZero[T] = =:=[T, Zero]
+  type && [A <: TBoolean, B <: TBoolean] = A#If[B, TFalse]
+  type || [A <: TBoolean, B <: TBoolean] = A#If[TTrue, B]
+  type Not [A <: TBoolean] = A#If[TFalse, TTrue]
 
-  def withPrologue[P <: WithPrologueTracking : IsZero,
-                   S <: WithRoadStageTracking : IsZero,
-                   T <: WithTeamTimeTrialTracking : IsZero,
-                   I <: WithIndividualTimeTrialTracking : IsZero,
-                   R <: WithRestDayTracking : IsZero,
-                   L <: WithLastStageTracking](stage: Prologue) = {
-    StageRaceEditionBuilder[Once,
-         WithRoadStageTracking,
-         WithTeamTimeTrialTracking,
-         WithIndividualTimeTrialTracking,
-         WithRestDayTracking,
-         WithLastStageTracking](race,date.plusDays(1),stageNumber,stages :+ (date,"P",stage))
+  def withPrologue(stage: Prologue)(implicit ev: Not[M#TPrologue] && Not[M#TRoadStage] && Not[M#TTeamTimeTrial] && Not[M#TIndividualTimeTrial] =:= TTrue) = {
+    new StageRaceEditionBuilder[M {type TPrologue = TTrue}](race, date.plusDays(1), stageNumber, stages :+ (date,"P",stage))
   }
 
-  def withRoadStage[P <: WithPrologueTracking,
-                    S <: WithRoadStageTracking,
-                    T <: WithTeamTimeTrialTracking,
-                    I <: WithIndividualTimeTrialTracking,
-                    R <: WithRestDayTracking,
-                    L <: WithLastStageTracking](stage: RoadStage) = {
-    StageRaceEditionBuilder[WithPrologueTracking,
-         Once,
-         WithTeamTimeTrialTracking,
-         WithIndividualTimeTrialTracking,
-         Zero,
-         Once](race,date.plusDays(1),stageNumber+1,stages :+ (date,stageNumber.toString,stage))
+  def withRoadStage(stage: RoadStage) = {
+    new StageRaceEditionBuilder[M {type TRoadStage = TTrue; type TRestDay = TFalse }](
+      race, date.plusDays(1), stageNumber+1, stages :+ (date,stageNumber.toString,stage))
   }
 
-  def withTeamTimeTrial[P <: WithPrologueTracking,
-                        S <: WithRoadStageTracking,
-                        T <: WithTeamTimeTrialTracking,
-                        I <: WithIndividualTimeTrialTracking,
-                        R <: WithRestDayTracking,
-                        L <: WithLastStageTracking](stage: TeamTimeTrial) = {
-    StageRaceEditionBuilder[WithPrologueTracking,
-         WithRoadStageTracking,
-         Once,
-         WithIndividualTimeTrialTracking,
-         Zero,
-         Once](race,date.plusDays(1),stageNumber+1,stages :+ (date,stageNumber.toString,stage))
+  def withTeamTimeTrial(stage: TeamTimeTrial) = {
+    new StageRaceEditionBuilder[M {type TTeamTimeTrial = TTrue; type TRestDay = TFalse}](
+      race,date.plusDays(1),stageNumber+1,stages :+ (date,stageNumber.toString,stage))
   }
 
-  def withIndividualTimeTrial[P <: WithPrologueTracking,
-                              S <: WithRoadStageTracking,
-                              T <: WithTeamTimeTrialTracking,
-                              I <: WithIndividualTimeTrialTracking,
-                              R <: WithRestDayTracking,
-                              L <: WithLastStageTracking](stage: IndividualTimeTrial) = {
-    StageRaceEditionBuilder[WithPrologueTracking,
-         WithRoadStageTracking,
-         WithTeamTimeTrialTracking,
-         Once,
-         Zero,
-         Once](race,date.plusDays(1),stageNumber+1,stages :+ (date,stageNumber.toString,stage))
+  def withIndividualTimeTrial(stage: IndividualTimeTrial) = {
+    new StageRaceEditionBuilder[M {type TIndividualTimeTrial = TTrue; type TRestDay = TFalse}](
+      race,date.plusDays(1),stageNumber+1,stages :+ (date,stageNumber.toString,stage))
   }
 
-  def withRestDay[P <: WithPrologueTracking,
-                  S <: WithRoadStageTracking : IsOnce,
-                  T <: WithTeamTimeTrialTracking,
-                  I <: WithIndividualTimeTrialTracking,
-                  R <: WithRestDayTracking : IsZero,
-                  L <: WithLastStageTracking](stage: RestDay) = {
-    StageRaceEditionBuilder[WithPrologueTracking,
-         WithRoadStageTracking,
-         WithTeamTimeTrialTracking,
-         WithIndividualTimeTrialTracking,
-         Once,
-         Zero](race,date.plusDays(1),stageNumber,stages :+ (date,"",stage))
+  def withRestDay(stage: RestDay)(implicit ev:(M#TRoadStage || M#TTeamTimeTrial || M#TIndividualTimeTrial) && Not[M#TRestDay] =:= TTrue) = {
+    new StageRaceEditionBuilder[M {type TRestDay = TTrue}](
+      race,date.plusDays(1),stageNumber,stages :+ (date,"",stage))
   }
 
-  def build[P <: WithPrologueTracking,
-            R <: WithRoadStageTracking : IsOnce,
-            T <: WithTeamTimeTrialTracking,
-            I <: WithIndividualTimeTrialTracking,
-            L <: WithLastStageTracking : IsOnce]:StageRaceEdition = {
+  def withAMStage(stage: RacingStage)(implicit ev: M#TAMAndPMStages =:= TFalse) = {
+    new StageRaceEditionBuilder[M {type TAMAndPMStages = TTrue}](
+      race, date, stageNumber + 1, stages :+ (date,stageNumber.toString,stage))
+  }
+
+  def withPMStage(stage: RacingStage)(implicit ev: M#TAMAndPMStages =:= TTrue) = {
+    new StageRaceEditionBuilder[M {type TAMAndPMStages = TFalse}](
+      race, date.plusDays(1), stageNumber + 1, stages :+ (date,stageNumber.toString,stage))
+  }
+
+  def a(stage: RacingStage)(implicit ev: M#TSplitStages =:= TTrue) = {
+    new StageRaceEditionBuilder[M {type TSplitStages} ](race,
+                                date,
+                                stageNumber,
+                                stages :+ (date, s"${stageNumber}a", stage))
+  }
+
+  def b(stage: RacingStage)(implicit ev: M#TSplitStages =:= TTrue) = {
+    new StageRaceEditionBuilder[M { type TSplitStages }](race,
+                                date,
+                                stageNumber,
+                                stages :+ (date, s"${stageNumber}b", stage))
+  }
+
+  def c(stage: RacingStage)(implicit ev: M#TSplitStages =:= TTrue) = {
+    new StageRaceEditionBuilder(race,
+                                date.plusDays(1),
+                                stageNumber,
+                                stages :+ (date, s"${stageNumber}c", stage))
+  }
+
+  def build()(implicit ev: M#TRoadStage && Not[M#TRestDay] && Not[M#TAMAndPMStages] =:= TTrue):StageRaceEdition = {
     StageRaceEdition(race,stages)
   }
 }
 
 object StageRaceEditionBuilder {
   def apply(race:StageRace,date:LocalDateTime) = {
-    new StageRaceEditionBuilder[Zero,Zero,Zero,Zero,Zero,Zero](race,date,1,Seq[(LocalDateTime,String,Stage)]())
+    new StageRaceEditionBuilder[StageRaceBuilderMethods { type TPrologue = TFalse
+                                                          type TRoadStage = TFalse 
+                                                          type TTeamTimeTrial = TFalse 
+                                                          type TIndividualTimeTrial = TFalse 
+                                                          type TRestDay = TFalse 
+                                                          type TSplitStages = TTrue
+                                                          type TAMAndPMStages = TFalse }
+    ](race,date,1,Seq[(LocalDateTime,String,Stage)]())
   }
 }

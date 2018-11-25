@@ -40,4 +40,38 @@ class StageRaceEditionTests extends FunSuite {
     assert(col.height === 2178 )
 
   }
+
+  test("2017 Giro d'Italia composition") {
+    val giro = Giro2017.giro
+    assert(giro.length.toInt === 3614)
+    assert(giro.roadStages.size == 19)
+    assert(giro.restDays.size == 3)
+    assert(giro.teamTimeTrials.size == 0)
+    assert(giro.individualTimeTrials.size == 2)
+
+    assert(giro.summitFinishes == 4)
+    val col:Col = giro.highPoint.get
+    assert(col.name === "Passo dello Stelvio")
+    assert(col.height === 2758 )
+  }
+
+  test("2016 Giro d'Italia composition") {
+    val giro = Giro2016.giro
+    assert(giro.length.toInt === 3467)
+    assert(giro.roadStages.size == 18)
+    assert(giro.restDays.size == 3)
+    assert(giro.teamTimeTrials.size == 0)
+    assert(giro.individualTimeTrials.size == 3)
+
+    assert(giro.summitFinishes == 6)
+    val col:Col = giro.highPoint.get
+    assert(col.name === "Colle dell'Agnello")
+    assert(col.height === 2744 )
+  }
+
+  test("Paris Nice") {
+    val parisNice = ParisNice2018.parisNice
+    println(parisNice)
+    assert(parisNice.restDays.size == 0)
+  }
 }

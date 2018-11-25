@@ -1,161 +1,112 @@
 package parcoursdb
 
-object ColBuilder {
-  def apply() = new ColBuilder[Zero,Zero,Zero,Zero,Zero,Zero]()
+sealed trait ColCategory
+case object HC extends ColCategory
+case object C1 extends ColCategory
+case object C2 extends ColCategory
+case object C3 extends ColCategory
+case object C4 extends ColCategory
+case object Uncategorised extends ColCategory
+
+case class Col(name:String,
+               category: ColCategory,
+               height:Double,
+               summitKM:Double,
+               length:Option[Double],
+               averageGradient:Option[Double],
+               maximumGradient:Option[Double])
+
+sealed trait ColBuilderMethods {
+  type TName <: TBoolean
+  type TCategory <: TBoolean
+  type THeight <: TBoolean
+  type TSummitKM <: TBoolean
+  type TLength <: TBoolean
+  type TAverageGradient <: TBoolean
+  type TMaximumGradient <: TBoolean
+  type TAllowHC <: TBoolean
+  type TAllowUncategorised <: TBoolean
 }
 
-sealed trait Col {
-  def name: String
-  def height: Double
-  def summitKM: Double
-}
-
-case class HorsCategoryCol(name:String,
-                           height:Double,
-                           summitKM:Double,
-                           length:Option[Double],
-                           averageGradient:Option[Double],
-                           maximumGradient:Option[Double]) extends Col
-
-case class CategoryOneCol(name:String,
-                           height:Double,
-                           summitKM:Double,
-                           length:Option[Double],
-                           averageGradient:Option[Double],
-                           maximumGradient:Option[Double]) extends Col
-
-case class CategoryTwoCol(name:String,
-                           height:Double,
-                           summitKM:Double,
-                           length:Option[Double],
-                           averageGradient:Option[Double],
-                           maximumGradient:Option[Double]) extends Col
-
-case class CategoryThreeCol(name:String,
-                           height:Double,
-                           summitKM:Double,
-                           length:Option[Double],
-                           averageGradient:Option[Double],
-                           maximumGradient:Option[Double]) extends Col
-
-case class CategoryFourCol(name:String,
-                           height:Double,
-                           summitKM:Double,
-                           length:Option[Double],
-                           averageGradient:Option[Double],
-                           maximumGradient:Option[Double]) extends Col
-
-case class UncategorisedCol(name:String,
-                           height:Double,
-                           summitKM:Double,
-                           length:Option[Double],
-                           averageGradient:Option[Double],
-                           maximumGradient:Option[Double]) extends Col
-
-case class ColBuilder[WithNameTracking <: Count,
-                      WithHeightTracking <: Count,
-                      WithSummitKMTracking <: Count,
-                      WithLengthTracking <: Count,
-                      WithAverageGradientTracking <: Count,
-                      WithMaximumGradientTracking <: Count](
+class ColBuilder[M <: ColBuilderMethods](
   name: Option[String] = None,
+  category: Option[ColCategory] = None,
   height: Option[Double] = None,
   summitKM: Option[Double] = None,
   length: Option[Double] = None,
   averageGradient: Option[Double] = None,
   maximumGradient: Option[Double] = None) {
 
-  type IsOnce[T] = =:=[T, Once]
-  type IsZero[T] = =:=[T, Zero]
- 
-  def withName[N <: WithNameTracking : IsZero](n: String) = {
-    copy[Once,
-         WithHeightTracking,
-         WithSummitKMTracking,
-         WithLengthTracking,
-         WithAverageGradientTracking,
-         WithMaximumGradientTracking](name = Some(n))
+  type && [A <: TBoolean, B <: TBoolean] = A#If[B, TFalse]
+
+  def withName(name: String)(implicit ev: M#TName =:= TFalse) = {
+    new ColBuilder[M {type TName = TTrue}](Some(name),category,height,summitKM,length,averageGradient,maximumGradient)
   }
 
-  def withHeight[H <: WithHeightTracking : IsZero](h: Double) = {
-    copy[WithNameTracking,
-         Once,
-         WithSummitKMTracking,
-         WithLengthTracking,
-         WithAverageGradientTracking,
-         WithMaximumGradientTracking](height = Some(h))
+  def withCategory(category: ColCategory)(implicit ev: M#TCategory =:= TFalse) = {
+    new ColBuilder[M {type TCategory = TTrue}](name,Some(category),height,summitKM,length,averageGradient,maximumGradient)
   }
 
-  def withSummitKM[S <: WithSummitKMTracking : IsZero](s: Double) = {
-    copy[WithNameTracking,
-         WithHeightTracking,
-         Once,
-         WithLengthTracking,
-         WithAverageGradientTracking,
-         WithMaximumGradientTracking](summitKM = Some(s))
+  def withHeight(height: Double)(implicit ev: M#THeight =:= TFalse) = {
+    new ColBuilder[M {type THeight = TTrue}](name,category,Some(height),summitKM,length,averageGradient,maximumGradient)
   }
 
-  def withLength[L <: WithLengthTracking : IsZero](l: Double) = {
-    copy[WithNameTracking,
-         WithHeightTracking,
-         WithSummitKMTracking,
-         Once,
-         WithAverageGradientTracking,
-         WithMaximumGradientTracking](length = Some(l))
+  def withSummitKM(summitKM: Double)(implicit ev: M#TSummitKM =:= TFalse) = {
+    new ColBuilder[M {type TSummitKM = TTrue}](name,category,height,Some(summitKM),length,averageGradient,maximumGradient)
   }
 
-  def withAverageGradient[A <: WithAverageGradientTracking : IsZero](a: Double) = {
-    copy[WithNameTracking,
-         WithHeightTracking,
-         WithSummitKMTracking,
-         WithLengthTracking,
-         Once,
-         WithMaximumGradientTracking](averageGradient = Some(a))
+  def withLength(length: Double)(implicit ev: M#TLength =:= TFalse) = {
+    new ColBuilder[M {type TLength = TTrue}](name,category,height,summitKM,Some(length),averageGradient,maximumGradient)
   }
 
-  def withMaximumGradient[A <: WithMaximumGradientTracking : IsZero](m: Double) = {
-    copy[WithNameTracking,
-         WithHeightTracking,
-         WithSummitKMTracking,
-         WithLengthTracking,
-         WithAverageGradientTracking,
-         Once](maximumGradient = Some(m))
+  def withAverageGradient(averageGradient: Double)(implicit ev: M#TAverageGradient =:= TFalse) = {
+    new ColBuilder[M {type TAverageGradient = TTrue}](name,category,height,summitKM,length,Some(averageGradient),maximumGradient)
   }
 
-  def hc[N <: WithNameTracking : IsOnce,
-         H <: WithHeightTracking : IsOnce,
-         S <: WithSummitKMTracking : IsOnce] = {
-    HorsCategoryCol(name.get, height.get, summitKM.get, length, averageGradient, maximumGradient)
+  def withMaximumGradient(maximumGradient: Double)(implicit ev: M#TMaximumGradient =:= TFalse) = {
+    new ColBuilder[M {type TMaximumGradient = TTrue}](name,category,height,summitKM,length,averageGradient,Some(maximumGradient))
   }
 
-  def c1[N <: WithNameTracking : IsOnce,
-         H <: WithHeightTracking : IsOnce,
-         S <: WithSummitKMTracking : IsOnce] = {
-    CategoryOneCol(name.get, height.get, summitKM.get, length, averageGradient, maximumGradient)
+  def build()(implicit ev:M#TName && M#TCategory && M#THeight && M#TSummitKM =:= TTrue):Col = {
+    Col(name.get, category.get, height.get, summitKM.get, length, averageGradient, maximumGradient)
   }
 
-  def c2[N <: WithNameTracking : IsOnce,
-         H <: WithHeightTracking : IsOnce,
-         S <: WithSummitKMTracking : IsOnce] = {
-    CategoryTwoCol(name.get, height.get, summitKM.get, length, averageGradient, maximumGradient)
-  }
+}
 
-  def c3[N <: WithNameTracking : IsOnce,
-         H <: WithHeightTracking : IsOnce,
-         S <: WithSummitKMTracking : IsOnce] = {
-    CategoryThreeCol(name.get, height.get, summitKM.get, length, averageGradient, maximumGradient)
+object ColBuilder {
+  def apply(race:StageRace) = race match {
+    case TourDeFrance | CriteriumDuDauphine => 
+      new ColBuilder[ColBuilderMethods { type TName               = TFalse
+                                         type TCategory           = TFalse
+                                         type THeight             = TFalse
+                                         type TSummitKM           = TFalse
+                                         type TLength             = TFalse
+                                         type TAverageGradient    = TFalse
+                                         type TMaximumGradient    = TFalse
+                                         type TAllowHC            = TTrue
+                                         type TAllowUncategorised = TFalse }
+      ]()
+    case TourOfItaly | TourOfSpain | ParisNice =>
+      new ColBuilder[ColBuilderMethods { type TName               = TFalse
+                                         type TCategory           = TFalse
+                                         type THeight             = TFalse
+                                         type TSummitKM           = TFalse
+                                         type TLength             = TFalse
+                                         type TAverageGradient    = TFalse
+                                         type TMaximumGradient    = TFalse
+                                         type TAllowHC            = TFalse
+                                         type TAllowUncategorised = TFalse }
+      ]()
+    case _ =>
+      new ColBuilder[ColBuilderMethods { type TName               = TFalse
+                                         type TCategory           = TFalse
+                                         type THeight             = TFalse
+                                         type TSummitKM           = TFalse
+                                         type TLength             = TFalse
+                                         type TAverageGradient    = TFalse
+                                         type TMaximumGradient    = TFalse
+                                         type TAllowHC            = TFalse
+                                         type TAllowUncategorised = TTrue }
+      ]()
   }
-
-  def c4[N <: WithNameTracking : IsOnce,
-         H <: WithHeightTracking : IsOnce,
-         S <: WithSummitKMTracking : IsOnce] = {
-    CategoryFourCol(name.get, height.get, summitKM.get, length, averageGradient, maximumGradient)
-  }
-
-  def uncategorised[N <: WithNameTracking : IsOnce,
-                    H <: WithHeightTracking : IsOnce,
-                    S <: WithSummitKMTracking : IsOnce] = {
-    UncategorisedCol(name.get, height.get, summitKM.get, length, averageGradient, maximumGradient)
-  }
-
 }

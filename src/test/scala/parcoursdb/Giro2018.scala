@@ -13,7 +13,7 @@ object Giro2018 {
 
     // Stage 2 05-05-2018
     val stage2Cols = Set[Col](
-      ColBuilder().withName("Zikhrow Ya'Aqov").withHeight(162).withSummitKM(91).c4
+      ColBuilder(TourOfItaly).withName("Zikhrow Ya'Aqov").withHeight(162).withSummitKM(91).withCategory(C4).build()
     )
 
     val stage2:RoadStage = StageBuilder().
@@ -24,7 +24,7 @@ object Giro2018 {
 
     // Stage 3 06-05-2018
     val stage3Cols = Set[Col](
-      ColBuilder().withName("Faran River").withHeight(322).withSummitKM(127.8).c4
+      ColBuilder(TourOfItaly).withName("Faran River").withHeight(322).withSummitKM(127.8).withCategory(C4).build()
     )
 
     val stage3:RoadStage = StageBuilder().
@@ -35,8 +35,8 @@ object Giro2018 {
 
     // Stage 4 08-05-2018
     val stage4Cols = Set[Col](
-      ColBuilder().withName("Pietre Calde").withHeight(779).withSummitKM(86.4).c4,
-      ColBuilder().withName("Vizzini").withHeight(595).withSummitKM(154.5).c4
+      ColBuilder(TourOfItaly).withName("Pietre Calde").withHeight(779).withSummitKM(86.4).withCategory(C4).build(),
+      ColBuilder(TourOfItaly).withName("Vizzini").withHeight(595).withSummitKM(154.5).withCategory(C4).build()
     )
 
     val stage4:RoadStage = StageBuilder().
@@ -47,8 +47,8 @@ object Giro2018 {
 
     // Stage 5 09-05-2018
     val stage5Cols = Set[Col](
-      ColBuilder().withName("Santa Margherita di Belice").withHeight(430).withSummitKM(90.7).c4,
-      ColBuilder().withName("Partanna").withHeight(405).withSummitKM(111.8).c4
+      ColBuilder(TourOfItaly).withName("Santa Margherita di Belice").withHeight(430).withSummitKM(90.7).withCategory(C4).build(),
+      ColBuilder(TourOfItaly).withName("Partanna").withHeight(405).withSummitKM(111.8).withCategory(C4).build()
     )
 
     val stage5:RoadStage = StageBuilder().
@@ -59,7 +59,7 @@ object Giro2018 {
 
     // Stage 6 10-05-2018
     val stage6Cols = Set[Col](
-      ColBuilder().withName("Mount Etna").withHeight(1736).withSummitKM(190).c1
+      ColBuilder(TourOfItaly).withName("Mount Etna").withHeight(1736).withSummitKM(190).withCategory(C1).build()
     )
 
     val stage6:RoadStage = StageBuilder().
@@ -76,7 +76,7 @@ object Giro2018 {
 
     // Stage 8 12-05-2018
     val stage8Cols = Set[Col](
-      ColBuilder().withName("Montevergine Di Mercogliano").withHeight(1260).withSummitKM(209).c2
+      ColBuilder(TourOfItaly).withName("Montevergine Di Mercogliano").withHeight(1260).withSummitKM(209).withCategory(C2).build()
     )
 
     val stage8:RoadStage = StageBuilder().
@@ -87,8 +87,8 @@ object Giro2018 {
 
     // Stage 9 13-05-2018
     val stage9Cols = Set[Col](
-      ColBuilder().withName("Roccaraso").withHeight(1252).withSummitKM(108.1).c2,
-      ColBuilder().withName("Calascio").withHeight(1190).withSummitKM(192.9).c2
+      ColBuilder(TourOfItaly).withName("Roccaraso").withHeight(1252).withSummitKM(108.1).withCategory(C2).build(),
+      ColBuilder(TourOfItaly).withName("Calascio").withHeight(1190).withSummitKM(192.9).withCategory(C2).build()
     )
 
     val stage9:RoadStage = StageBuilder().
@@ -99,9 +99,9 @@ object Giro2018 {
 
     // Stage 10 15-05-2018
     val stage10Cols = Set[Col](
-      ColBuilder().withName("Forte Delia Creta").withHeight(1254).withSummitKM(21.8).c2,
-      ColBuilder().withName("Bruzzolana").withHeight(523).withSummitKM(61.2).c3,
-      ColBuilder().withName("Annifo").withHeight(895).withSummitKM(213.5).c4
+      ColBuilder(TourOfItaly).withName("Forte Delia Creta").withHeight(1254).withSummitKM(21.8).withCategory(C2).build(),
+      ColBuilder(TourOfItaly).withName("Bruzzolana").withHeight(523).withSummitKM(61.2).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Annifo").withHeight(895).withSummitKM(213.5).withCategory(C4).build()
     )
 
     val stage10:RoadStage = StageBuilder().
@@ -112,9 +112,9 @@ object Giro2018 {
 
     // Stage 11 16-05-2018
     val stage11Cols = Set[Col](
-      ColBuilder().withName("Passo Cornello").withHeight(814).withSummitKM(41.7).c3,
-      ColBuilder().withName("Valico di Pietra Rossa").withHeight(674).withSummitKM(97.5).c3,
-      ColBuilder().withName("Osimo").withHeight(265).withSummitKM(156).c4
+      ColBuilder(TourOfItaly).withName("Passo Cornello").withHeight(814).withSummitKM(41.7).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Valico di Pietra Rossa").withHeight(674).withSummitKM(97.5).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Osimo").withHeight(265).withSummitKM(156).withCategory(C4).build()
     )
 
     val stage11:RoadStage = StageBuilder().
@@ -125,7 +125,7 @@ object Giro2018 {
 
     // Stage 12 17-05-2018
     val stage12Cols = Set[Col](
-      ColBuilder().withName("Tre Monti").withHeight(252).withSummitKM(206.6).c4
+      ColBuilder(TourOfItaly).withName("Tre Monti").withHeight(252).withSummitKM(206.6).withCategory(C4).build()
     )
 
     val stage12:RoadStage = StageBuilder().
@@ -136,7 +136,7 @@ object Giro2018 {
 
     // Stage 13 18-05-2018
     val stage13Cols = Set[Col](
-      ColBuilder().withName("Montello").withHeight(242).withSummitKM(160.7).c4
+      ColBuilder(TourOfItaly).withName("Montello").withHeight(242).withSummitKM(160.7).withCategory(C4).build()
     )
 
     val stage13:RoadStage = StageBuilder().
@@ -147,11 +147,11 @@ object Giro2018 {
 
     // Stage 14 19-05-2018
     val stage14Cols = Set[Col](
-      ColBuilder().withName("Monte di Ragogna").withHeight(494).withSummitKM(43.3).c3,
-      ColBuilder().withName("Avaglio").withHeight(738).withSummitKM(106).c3,
-      ColBuilder().withName("Passo Duron").withHeight(1609).withSummitKM(142.5).c2,
-      ColBuilder().withName("Sella Valcalda Ravascletto").withHeight(958).withSummitKM(165.8).c3,
-      ColBuilder().withName("Monte Zoncolan").withHeight(1730).withSummitKM(186).c1
+      ColBuilder(TourOfItaly).withName("Monte di Ragogna").withHeight(494).withSummitKM(43.3).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Avaglio").withHeight(738).withSummitKM(106).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Passo Duron").withHeight(1609).withSummitKM(142.5).withCategory(C2).build(),
+      ColBuilder(TourOfItaly).withName("Sella Valcalda Ravascletto").withHeight(958).withSummitKM(165.8).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Monte Zoncolan").withHeight(1730).withSummitKM(186).withCategory(C1).build()
     )
 
     val stage14:RoadStage = StageBuilder(). 
@@ -162,10 +162,10 @@ object Giro2018 {
 
     // Stage 15 20-05-2018
     val stage15Cols = Set[Col](
-      ColBuilder().withName("Passo della Mauria").withHeight(1301).withSummitKM(48.4).c3,
-      ColBuilder().withName("Passo Tre Croci").withHeight(1805).withSummitKM(110.6).c2,
-      ColBuilder().withName("Passo di Sant'Antonio").withHeight(1470).withSummitKM(146.9).c2,
-      ColBuilder().withName("Costalissoio (Bosco dei Giavi)").withHeight(1300).withSummitKM(160.6).c2
+      ColBuilder(TourOfItaly).withName("Passo della Mauria").withHeight(1301).withSummitKM(48.4).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Passo Tre Croci").withHeight(1805).withSummitKM(110.6).withCategory(C2).build(),
+      ColBuilder(TourOfItaly).withName("Passo di Sant'Antonio").withHeight(1470).withSummitKM(146.9).withCategory(C2).build(),
+      ColBuilder(TourOfItaly).withName("Costalissoio (Bosco dei Giavi)").withHeight(1300).withSummitKM(160.6).withCategory(C2).build()
     )
 
     val stage15:RoadStage = StageBuilder().
@@ -185,7 +185,7 @@ object Giro2018 {
       withStart(Location("Riva del Garda")).
       withFinish(Location("Iseo")).
       withLength(149.5).
-      withCols(Set[Col](ColBuilder().withName("Lodrino").withHeight(736).withSummitKM(71.5).c3)).
+      withCols(Set[Col](ColBuilder(TourOfItaly).withName("Lodrino").withHeight(736).withSummitKM(71.5).withCategory(C3).build())).
       roadStage
 
     // Stage 18 24-05-2018
@@ -193,15 +193,15 @@ object Giro2018 {
       withStart(Location("Abbiategrasso")).
       withFinish(Location("Prato Nevoso")).
       withLength(196).
-      withCols(Set[Col](ColBuilder().withName("Pratonevoso").withHeight(1607).withSummitKM(196).c1)).
+      withCols(Set[Col](ColBuilder(TourOfItaly).withName("Pratonevoso").withHeight(1607).withSummitKM(196).withCategory(C1).build())).
       roadStage
 
     // Stage 19 25-05-2018
     val stage19Cols = Set[Col](
-      ColBuilder().withName("Colle del Lys").withHeight(1311).withSummitKM(48.9).c2,
-      ColBuilder().withName("Colle delle Finestre").withHeight(2178).withSummitKM(110.7).c1,
-      ColBuilder().withName("Sestriere").withHeight(2035).withSummitKM(138.4).c3,
-      ColBuilder().withName("Bardonecchia").withHeight(1908).withSummitKM(184).c1
+      ColBuilder(TourOfItaly).withName("Colle del Lys").withHeight(1311).withSummitKM(48.9).withCategory(C2).build(),
+      ColBuilder(TourOfItaly).withName("Colle delle Finestre").withHeight(2178).withSummitKM(110.7).withCategory(C1).build(),
+      ColBuilder(TourOfItaly).withName("Sestriere").withHeight(2035).withSummitKM(138.4).withCategory(C3).build(),
+      ColBuilder(TourOfItaly).withName("Bardonecchia").withHeight(1908).withSummitKM(184).withCategory(C1).build()
     )
 
     val stage19:RoadStage = StageBuilder().
@@ -212,9 +212,9 @@ object Giro2018 {
 
     // Stage 20 26-05-2018
     val stage20Cols = Set[Col](
-      ColBuilder().withName("Col Tsecore (Col du Mont-Tseuc)").withHeight(1623).withSummitKM(146.5).c1,
-      ColBuilder().withName("Col de Saint-Pantaleon").withHeight(1664).withSummitKM(185.8).c1,
-      ColBuilder().withName("Cervinia").withHeight(2001).withSummitKM(214).c1
+      ColBuilder(TourOfItaly).withName("Col Tsecore (Col du Mont-Tseuc)").withHeight(1623).withSummitKM(146.5).withCategory(C1).build(),
+      ColBuilder(TourOfItaly).withName("Col de Saint-Pantaleon").withHeight(1664).withSummitKM(185.8).withCategory(C1).build(),
+      ColBuilder(TourOfItaly).withName("Cervinia").withHeight(2001).withSummitKM(214).withCategory(C1).build()
    )
 
     val stage20:RoadStage = StageBuilder().
