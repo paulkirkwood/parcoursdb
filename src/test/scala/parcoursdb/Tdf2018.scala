@@ -105,9 +105,6 @@ object TourDeFrance2018 {
   // Stage 9 15-07-2018
   val stage9:RoadStage = StageBuilder().withStart(Location("Arras")).withFinish(Location("Roubaix")).withLength(156.5).roadStage
  
-  // Rest Day #1 16-07-2018
-  val restDay1:RestDay = RestDay(Some(Location("Annency")))
-
   // Stage 10 17-07-2018
   val stage10Cols = Set[Col](
     ColBuilder(TourDeFrance).withName("Col de Bluffy").withSummitKM(19).withHeight(622).withLength(1.5).withAverageGradient(5.6).withCategory(C4).build(),
@@ -166,9 +163,6 @@ object TourDeFrance2018 {
  
   val stage15:RoadStage = StageBuilder().withStart(Location("Millau")).withFinish(Location("Carcassonne")).withLength(181.5).withCols(stage15Cols).roadStage
  
-  // Rest Day 2 23-07-2018
-  val restDay2:RestDay = RestDay(Some(Location("Lourdes")))
-
   // Stage 16 24-07-2018
   val stage16Cols = Set[Col](
     ColBuilder(TourDeFrance).withName("Cote de Fanjeaux").withSummitKM(25).withHeight(348).withLength(2.4).withAverageGradient(4.9).withCategory(C4).build(),
@@ -245,14 +239,14 @@ object TourDeFrance2018 {
     withRoadStage(stage7).
     withRoadStage(stage8).
     withRoadStage(stage9).
-    withRestDay(restDay1).
+    withRestDay(Location("Annency")).
     withRoadStage(stage10).
     withRoadStage(stage11).
     withRoadStage(stage12).
     withRoadStage(stage13).
     withRoadStage(stage14).
     withRoadStage(stage15).
-    withRestDay(restDay2).
+    withRestDay(Location("Lourdes")).
     withRoadStage(stage16).
     withRoadStage(stage17).
     withRoadStage(stage18).

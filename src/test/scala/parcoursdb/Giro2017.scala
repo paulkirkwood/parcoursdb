@@ -228,21 +228,21 @@ object Giro2017 {
       withRoadStage(stage1).
       withRoadStage(stage2).
       withRoadStage(stage3).
-      withRestDay(RestDay()).
+      withRestDay().
       withRoadStage(stage4).
       withRoadStage(stage5).
       withRoadStage(stage6).
       withRoadStage(stage7).
       withRoadStage(stage8).
       withRoadStage(stage9).
-      withRestDay(RestDay()).
+      withRestDay().
       withIndividualTimeTrial(stage10).
       withRoadStage(stage11).
       withRoadStage(stage12).
       withRoadStage(stage13).
       withRoadStage(stage14).
       withRoadStage(stage15).
-      withRestDay(RestDay()).
+      withRestDay().
       withRoadStage(stage16).
       withRoadStage(stage17).
       withRoadStage(stage18).
