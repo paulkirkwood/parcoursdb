@@ -69,9 +69,8 @@ class StageRaceEditionTests extends FunSuite {
     assert(col.height === 2744 )
   }
 
-  test("Paris Nice") {
+  test("2018 Paris-Nice composition") {
     val parisNice = ParisNice2018.parisNice
-    println(parisNice)
     assert(parisNice.restDays.size == 0)
   }
 }
