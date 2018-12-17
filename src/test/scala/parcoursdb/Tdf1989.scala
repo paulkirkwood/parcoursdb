@@ -1,6 +1,7 @@
 package parcoursdb
 
-import java.time.LocalDateTime
+import java.time.LocalDate
+import StageRaceState._
 
 object TourDeFrance1989 { 
 
@@ -8,25 +9,21 @@ object TourDeFrance1989 {
 
     implicit val country:Country = France
 
-    val hostCity = Location("Luxembourg City")(Luxembourg)
+    val luxembourgCity = Location("Luxembourg City")(Luxembourg)
 
-    val prologue:Prologue = StageBuilder().
-      withStart(hostCity).
-      withFinish(hostCity).
-      withLength(7.8).prologue
+    val composition = for {
 
-    val stage1:RoadStage = StageBuilder().
-      withStart(hostCity).
-      withFinish(hostCity).
-      withLength(135.5).roadStage
+      _ <- prologue(luxembourgCity, 7.8)
 
-    val stage2:TeamTimeTrial = StageBuilder().
-      withStart(hostCity).
-      withLength(46).teamTimeTrial
+      // Stage 1 (AM)
+      _ <- criterium(luxembourgCity, 135.5)
+
+      // Stage 2 (PM)
+      _ <- teamTimeTrial(luxembourgCity, 46)
  
-    StageRaceEditionBuilder(TourDeFrance,LocalDateTime.of(1989,7,1,0,0)).
-      withPrologue(prologue).
-      am(stage1).
-      pm(stage2).build
+    } yield()
+
+    val result = composition.exec(StageRaceState(TourDeFrance,LocalDate.of(1989,7,1),1,Seq[Stage]()))
+    StageRaceEdition(TourDeFrance, result.stages)
   }
 }

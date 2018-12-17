@@ -17,7 +17,6 @@ class StageRaceEditionTests extends FunSuite {
       "21 stages: 19 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial), 2 rest days")
 
     assert(tdf.summitFinishes === 4)
-
     val col:Col = tdf.highPoint.get
     assert(col.name === "Col du Portet")
     assert(col.height === 2215 )
@@ -28,7 +27,7 @@ class StageRaceEditionTests extends FunSuite {
 
   test("2018 Giro d'Italia composition") {
     val giro = Giro2018.giro
-    assert(giro.length.toInt === 3385)
+    assert(giro.length.toInt === 3572)
     assert(giro.roadStages.size == 19)
     assert(giro.restDays.size == 3)
     assert(giro.teamTimeTrials.size == 0)

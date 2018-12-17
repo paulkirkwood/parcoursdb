@@ -1,6 +1,7 @@
 package parcoursdb
 
-import java.time.LocalDateTime
+import java.time.LocalDate
+import StageRaceState._
 
 object TourDeFrance2018 { 
 
@@ -8,250 +9,132 @@ object TourDeFrance2018 {
 
   implicit val country:Country = France
 
-  // Stage 1 07-07-2018
-  val stage1:RoadStage = StageBuilder().
-    withStart(Location("Noirmoutier-en-l'Îe")).
-    withFinish(Location("Fontenay-le-Comte")).
-    withLength(201).
-    withCol(ColBuilder(TourDeFrance).withName("Cote de Vix").withHeight(30).withLength(0.7).withSummitKM(173).withAverageGradient(4.2).withCategory(C4).build()).roadStage
+    val composition = for {
 
-  // Stage 2 08-07-2018
-  val stage2:RoadStage = StageBuilder().
-    withStart(Location("Mouilleron-Saint-Germain")).
-    withFinish(Location("La Roche-sur-Yon")).
-    withLength(182.5).
-    withCol(ColBuilder(TourDeFrance).withName("Cote de Pouzauges").withHeight(202).withLength(1).withSummitKM(28).withAverageGradient(3.9).withCategory(C4).build()).roadStage
- 
-  // Stage 3 09-07-2018
-  val stage3:TeamTimeTrial = StageBuilder().
-    withStart(Location("Cholet")).
-    withLength(35.5).teamTimeTrial
- 
-  // Stage 4 10-07-2018
-  val stage4Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote de Saint-Jean-la-Poterie").withHeight(79).withLength(0.8).withSummitKM(135.5).withAverageGradient(7.8).withCategory(C4).build()
-  )
- 
-  val stage4:RoadStage = StageBuilder().
-    withStart(Location("La Baule")).
-    withFinish(Location("Sarzeau")).
-    withLength(195).withCols(stage4Cols).roadStage
- 
-  // Stage 5 11-07-2018
-  val stage5Cols = Set[Col](
-    ColBuilder(TourDeFrance)
-      .withName("Cote de Kaliforn")
-      .withHeight(209)
-      .withLength(1.7)
-      .withSummitKM(106)
-      .withAverageGradient(7.1).withCategory(C4).build()
-    ,
-    ColBuilder(TourDeFrance)
-      .withName("Cote de Trimen")
-      .withHeight(223)
-      .withLength(1.6)
-      .withSummitKM(113)
-      .withAverageGradient(5.6).withCategory(C4).build()
-    ,
-    ColBuilder(TourDeFrance)
-      .withName("Cote de la Roche du Feu")
-      .withHeight(221)
-      .withLength(1.9)
-      .withSummitKM(140.5)
-      .withAverageGradient(6.6).withCategory(C3).build()
-    ,
-    ColBuilder(TourDeFrance)
-      .withName("Cote de Menez Quelerc'h")
-      .withHeight(210)
-      .withLength(3)
-      .withSummitKM(159.5)
-      .withAverageGradient(6.2).withCategory(C3).build()
-    ,
-    ColBuilder(TourDeFrance)
-      .withName("Cote de la montagne de Locranan")
-      .withHeight(233)
-      .withLength(2.2)
-      .withSummitKM(184.5)
-      .withAverageGradient(5.9).withCategory(C3).build()
-  )
- 
-  val stage5:RoadStage = StageBuilder().withStart(Location("Lorient")).withFinish(Location("Quimper")).withLength(204.5).withCols(stage5Cols).roadStage
- 
-  // Stage 6 12-07-2018
-  val stage6Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote de Ploudiry").withSummitKM(44).withHeight(128).withLength(1.5).withAverageGradient(7).withCategory(C3).build(),
-    ColBuilder(TourDeFrance).withName("Cote de Roc'h Trevezel").withSummitKM(68.5).withHeight(340).withLength(2.5).withAverageGradient(3.5).withCategory(C4).build(),
-    ColBuilder(TourDeFrance).withName("Mur-de-Bretagne").withHeight(293).withSummitKM(165).withLength(2).withAverageGradient(6.9).withCategory(C3).build(),
-    ColBuilder(TourDeFrance).withName("Mur-de-Bretagne").withHeight(293).withLength(2).withSummitKM(181).withAverageGradient(6.9).withCategory(C3).build()
-  )
- 
-  val stage6:RoadStage = StageBuilder().withStart(Location("Brest")).withFinish(Location("Mûr-de-Bretagne")).withLength(181).withCols(stage6Cols).roadStage
- 
-  // Stage 7 13-07-2018
-  val stage7Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote du Buisson de Perseigne").withSummitKM(120).withHeight(235).withLength(1.5).withAverageGradient(6.9).withCategory(C4).build()
-  )
- 
-  val stage7:RoadStage = StageBuilder().withStart(Location("Fougres")).withFinish(Location("Chartres")).withLength(231).withCols(stage7Cols).roadStage
- 
-  // Stage 8 14-07-2018
-  val stage8Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote de Pacy-sur-Eure").withSummitKM(35).withHeight(135).withLength(2).withAverageGradient(4.3).withCategory(C4).build(),
-    ColBuilder(TourDeFrance).withName("Cote de Feuquerolles").withHeight(134).withSummitKM(71.5).withLength(2.3).withAverageGradient(4.3).withCategory(C4).build()
-  )
- 
-  val stage8:RoadStage = StageBuilder().withStart(Location("Dreux")).withFinish(Location("Amiens")).withLength(181).withCols(stage8Cols).roadStage
- 
-  // Stage 9 15-07-2018
-  val stage9:RoadStage = StageBuilder().withStart(Location("Arras")).withFinish(Location("Roubaix")).withLength(156.5).roadStage
- 
-  // Stage 10 17-07-2018
-  val stage10Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Col de Bluffy").withSummitKM(19).withHeight(622).withLength(1.5).withAverageGradient(5.6).withCategory(C4).build(),
-    ColBuilder(TourDeFrance).withName("Col de la Croix Fry").withSummitKM(43).withHeight(1477).withLength(11.3).withAverageGradient(7).withCategory(C1).build(),
-    ColBuilder(TourDeFrance).withName("Montee du plateau des Glieres").withSummitKM(68.5).withHeight(1390).withLength(6).withAverageGradient(11.2).withCategory(HC).build(),
-    ColBuilder(TourDeFrance).withName("Col de Romme").withHeight(1297).withLength(8.8).withSummitKM(130).withAverageGradient(8.9).withCategory(C1).build(),
-    ColBuilder(TourDeFrance).withName("Col de la Colombiere").withHeight(1618).withLength(7.5).withSummitKM(144).withAverageGradient(8.5).withCategory(C1).build()
-  )
- 
-  val stage10:RoadStage = StageBuilder().withStart(Location("Annecy")).withFinish(Location("Le Grand-Bornard")).withLength(158.5).withCols(stage10Cols).roadStage
- 
-  // Stage 11 18-07-2018
-  val stage11Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Montee de Bisanne").withSummitKM(26).withHeight(1723).withLength(12.4).withAverageGradient(8.2).withCategory(HC).build(),
-    ColBuilder(TourDeFrance).withName("Col du Pre").withHeight(1748).withSummitKM(57.5).withLength(12.6).withAverageGradient(7.7).withCategory(HC).build(),
-    ColBuilder(TourDeFrance).withName("Cormet de Roselend").withHeight(1968).withSummitKM(70).withLength(5.7).withAverageGradient(6.5).withCategory(C2).build(),
-    ColBuilder(TourDeFrance).withName("La Rosiere").withHeight(1855).withLength(17.6).withSummitKM(108.5).withAverageGradient(5.8).withCategory(C1).build()
-  )
- 
-  val stage11:RoadStage = StageBuilder().withStart(Location("Albertville")).withFinish(Location("La Rosiere")).withLength(108.5).withCols(stage11Cols).roadStage
- 
-  // Stage 12 19-07-2018
-  val stage12Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Col de la Madeleine").withSummitKM(53.5).withHeight(2000).withLength(25.3).withAverageGradient(6.2).withCategory(HC).build(),
-    ColBuilder(TourDeFrance).withName("Lacets de Montvernier").withSummitKM(83).withHeight(782).withLength(3.4).withAverageGradient(8.2).withCategory(C2).build(),
-    ColBuilder(TourDeFrance).withName("Col de la Croix de Fer").withHeight(2067).withSummitKM(121).withLength(29).withAverageGradient(5.2).withCategory(HC).build(),
-    ColBuilder(TourDeFrance).withName("Alpe d'Huez").withHeight(1850).withLength(13.8).withSummitKM(175.5).withAverageGradient(8.1).withCategory(HC).build(),
-  )
- 
-  val stage12:RoadStage = StageBuilder().withStart(Location("Bourg-Saint-Maurice")).withFinish(Location("L'Alpe d'Huez")).withLength(175.5).withCols(stage12Cols).roadStage
- 
-  // Stage 13 20-07-2018
-  val stage13Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote de Brie").withSummitKM(32.5).withHeight(450).withLength(2.4).withAverageGradient(6.9).withCategory(C3).build(),
-    ColBuilder(TourDeFrance).withName("Cote de Sainte-Eulalie").withSummitKM(109.5).withHeight(298).withLength(1.5).withAverageGradient(4.9).withCategory(C4).build()
-  )
- 
-  val stage13:RoadStage = StageBuilder().withStart(Location("Le Bourg-d'Oisans")).withFinish(Location("Valence")).withLength(169.5).withCols(stage13Cols).roadStage
- 
-  // Stage 14 21-07-2018
-  val stage14Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote du Grand Chataignier").withSummitKM(81).withHeight(321).withLength(1).withAverageGradient(7.4).withCategory(C4).build(),
-    ColBuilder(TourDeFrance).withName("Col de la Croix de Berthel").withSummitKM(129).withHeight(1088).withLength(9.1).withAverageGradient(5.3).withCategory(C2).build(),
-    ColBuilder(TourDeFrance).withName("Col du Pont sans Eau").withHeight(1084).withSummitKM(142).withLength(3.3).withAverageGradient(6.3).withCategory(C3).build(),
-    ColBuilder(TourDeFrance).withName("Cote de la Croix Neuve").withHeight(1055).withLength(3).withSummitKM(186.5).withAverageGradient(10.2).withCategory(C2).build()
-  )
- 
-  val stage14:RoadStage = StageBuilder().withStart(Location("Saint-Paul-Trois-Chateaux")).withFinish(Location("Mende")).withLength(188).withCols(stage14Cols).roadStage
- 
-  // Stage 15 22-07-2018
-  val stage15Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote de Luzencon").withSummitKM(9).withHeight(538).withLength(3.1).withAverageGradient(5.9).withCategory(C3).build(),
-    ColBuilder(TourDeFrance).withName("Col de Sie").withSummitKM(64.5).withHeight(928).withLength(10.2).withAverageGradient(4.9).withCategory(C2).build(),
-    ColBuilder(TourDeFrance).withName("Pic de Nore").withHeight(1205).withSummitKM(140).withLength(12.3).withAverageGradient(6.3).withCategory(C1).build()
-  )
- 
-  val stage15:RoadStage = StageBuilder().withStart(Location("Millau")).withFinish(Location("Carcassonne")).withLength(181.5).withCols(stage15Cols).roadStage
- 
-  // Stage 16 24-07-2018
-  val stage16Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Cote de Fanjeaux").withSummitKM(25).withHeight(348).withLength(2.4).withAverageGradient(4.9).withCategory(C4).build(),
-    ColBuilder(TourDeFrance).withName("Cote de Pamiers").withHeight(417).withSummitKM(72).withLength(2.3).withAverageGradient(5.8).withCategory(C4).build(),
-    ColBuilder(TourDeFrance).withName("Col de Portet d'Aspet").withHeight(1069).withSummitKM(155.5).withLength(5.4).withAverageGradient(7.1).withCategory(C2).build(),
-    ColBuilder(TourDeFrance).withName("Col de Mente").withHeight(1349).withSummitKM(171).withLength(6.9).withAverageGradient(8.1).withCategory(C1).build(),
-    ColBuilder(TourDeFrance).withName("Col du Portillon").withHeight(1292).withSummitKM(208).withLength(8.3).withAverageGradient(7.1).withCategory(C1).build()
-  )
- 
-  val stage16:RoadStage = StageBuilder().
-    withStart(Location("Carcassonne")).
-    withFinish(Location("Bagneres-de-Luchon")).
-    withLength(218).
-    withCols(stage16Cols).roadStage
- 
-  // Stage 17 25-07-2018
-  val stage17Cols = Set[Col](
-    ColBuilder(TourDeFrance).withName("Monte de Peyragudes").withHeight(1645).withLength(14.9).withSummitKM(15).withAverageGradient(6.7).withCategory(C1).build(),
-    ColBuilder(TourDeFrance).withName("Col de Val Louron-Azet").withHeight(1580).withSummitKM(37).withLength(7.4).withAverageGradient(8.3).withCategory(C1).build(),
-    ColBuilder(TourDeFrance).withName("Col du Portet").withHeight(2215).withLength(16).withSummitKM(65).withAverageGradient(8.7).withCategory(HC).build()
-  )
- 
-  val stage17:RoadStage = StageBuilder().
-    withStart(Location("Bagneres-de-Luchon")).
-    withFinish(Location("Saint-Lary-Soulan (Col de Portet)")).
-    withLength(65).
-    withCols(stage17Cols).roadStage
+      // Stage 1 07-07-2018
+      _ <- roadStage("Noirmoutier-en-l'Îe", "Fontenay-le-Comte", 201)
+      //_ <- c4("Cote de Vix", height=30, length=0.7, summitKM=173, averageGradient=4.2)
 
-  // Stage 18 26-07-2018
-  val stage18:RoadStage = StageBuilder().
-    withStart(Location("Trie-sur-Basie")).
-    withFinish(Location("Pau")).
-    withLength(171).
-    withCol(
-      ColBuilder(TourDeFrance).
-      withName("Cote de Madiran").
-      withSummitKM(53.5).
-      withHeight(260).
-      withLength(1.2).
-      withAverageGradient(7).withCategory(C4).build()).
-    withCol(
-      ColBuilder(TourDeFrance).
-      withName("Cote d'Anos").
-      withHeight(304).
-      withSummitKM(152.5).
-      withLength(2.1).
-      withAverageGradient(4.6).withCategory(C4).build()).
-    roadStage
+      // Stage 2 08-07-2018
+      _ <- roadStage("Mouilleron-Saint-Germain", "La Roche-sur-Yon", 182.5)
+      //_ <- c4("Cote de Pouzauges", height=202, length=1, summitKM=28, averageGradient=3.9)
  
-  // Stage 19 27-07-2018
-  val stage19Cols = Set[Col](
-   ColBuilder(TourDeFrance).withName("Cote de Loucrup").withSummitKM(7).withHeight(532).withLength(1.8).withAverageGradient(7.2).withCategory(C4).build(),
-   ColBuilder(TourDeFrance).withName("Cote de Capvern-les-Bains").withSummitKM(40).withHeight(604).withLength(3.4).withAverageGradient(5.1).withCategory(C4).build(),
-   ColBuilder(TourDeFrance).withName("Col d'Aspin").withHeight(1490).withLength(12).withSummitKM(78.5).withAverageGradient(6.5).withCategory(C1).build(),
-   ColBuilder(TourDeFrance).withName("Col du Tourmalet").withHeight(2115).withLength(17.1).withSummitKM(108).withAverageGradient(7.3).withCategory(HC).build(),
-   ColBuilder(TourDeFrance).withName("Col de Borderes").withHeight(1156).withLength(8.6).withSummitKM(159.5).withAverageGradient(5.8).withCategory(C2).build(),
-   ColBuilder(TourDeFrance).withName("Col d'Aubisque").withHeight(1709).withLength(16.6).withSummitKM(180.5).withAverageGradient(4.9).withCategory(HC).build())
+      // Stage 3 09-07-2018
+      _ <- teamTimeTrial(Location("Cholet"),35.5)
  
-  val stage19:RoadStage = StageBuilder().withStart(Location("Lourdes")).withFinish(Location("Laruns")).withLength(200.5).withCols(stage19Cols).roadStage
+      // Stage 4 10-07-2018
+      _ <- roadStage("La Baule", "Sarzeau", 195 )
+      //_ <- c4("Cote de Saint-Jean-la-Poterie", height=79, length=0.8, summitKM=135.5, averageGradient=7.8)
+ 
+      // Stage 5 11-07-2018
+      _ <- roadStage("Lorient", "Quimper", 204.5)
+      //_ <- c4("Cote de Kaliforn", height=209, length=1.7, summitKM=106, averageGradient=7.1)
+      //_ <- c4("Cote de Trimen", height=223, length=1.6, summitKM=113, averageGradient=5.6)
+      //_ <- c3("Cote de la Roche du Feu", height=221, length=1.9, summitKM=140.5, averageGradient=6.6)
+      //_ <- c3("Cote de Menez Quelerc'h", height=210, length=3, summitKM=159.5, averageGradient=6.2)
+      //_ <- c3("Cote de la montagne de Locranan", height=233, length=2.2, summitKM=184.5, averageGradient=5.9)
+ 
+      // Stage 6 12-07-2018
+      _ <- roadStage("Brest", "Mûr-de-Bretagne", 181)
+      //_ <- c3("Cote de Ploudiry", summitKM=44, height=128, length=1.5, averageGradient=7)
+      //_ <- c4("Cote de Roc'h Trevezel", summitKM=68.5, height=340, length=2.5, averageGradient=3.5)
+      //_ <- c3("Mur-de-Bretagne", height=293, summitKM=165, length=2, averageGradient=6.9)
+      //_ <- c3("Mur-de-Bretagne", height=293, summitKM=181, length=2, averageGradient=6.9)
+ 
+      // Stage 7 13-07-2018
+      _ <- roadStage("Fougres", "Chartres", 231)
+      //_ <- c4("Cote du Buisson de Perseigne", summitKM=120, height=235, length=1.5, AverageGradient=6.9)
+ 
+      // Stage 8 14-07-2018
+      _ <- roadStage("Dreux", "Amiens", 181 )
+      //_ <- c4("Cote de Pacy-sur-Eure", summitKM=35, height=135, length=2, AverageGradient=4.3)
+      //_ <- c4("Cote de Feuquerolles", height=134, summitKM=71.5, length=2.3, averageGradient=4.3)
+ 
+      // Stage 9 15-07-2018
+      _ <- roadStage("Arras", "Roubaix", 156.5)
 
-  // Stage 20 28-07-2018
-  val stage20:IndividualTimeTrial = StageBuilder().withStart(Location("Saint-Pee-sur-Nivelle")).withFinish(Location("Espelette")).withLength(31).individualTimeTrial
+      // Rest day 16-07-2018
+      _ <- restDay("Annecy")
+
+      // Stage 10 17-07-2018
+      _ <- roadStage("Annecy", "Le Grand-Bornard", 158.5)
+      //_ <- c4("Col de Bluffy", summitKM=19, height=622, length=1.5, averageGradient=5.6)
+      //_ <- c1("Col de la Croix Fry", summitKM=43, height=1477, length=11.3, averageGradient=7)
+      //_ <- hc("Montee du plateau des Glieres", summitKM=68.5, height=1390, length=6, averageGradient=11.2)
+      //_ <- c1("Col de Romme", height=1297, length=8.8, summitKM=130, averageGradient=8.9)
+      //_ <- c1("Col de la Colombiere", height=1618, length=7.5, summitKM=144, averageGradient=8.5)
  
-  // Stage 21 29-07-2018
-  val stage21:RoadStage = StageBuilder().withStart(Location("Houilles")).withFinish(Location("Paris")).withLength(116).roadStage
+      // Stage 11 18-07-2018
+      _ <- roadStage("Albertville", "La Rosiere", 108.5)
+      //_ <- hc("Montee de Bisanne", summitKM=26, height=1723, length=12.4, averageGradient=8.2)
+      //_ <- hc("Col du Pre", height=1748, summitKM=57.5, length=12.6, averageGradient=7.7)
+      //_ <- c2("Cormet de Roselend", height=1968, summitKM=70, length=5.7, averageGradient=6.5)
+      //_ <- c1("La Rosiere", height=1855, length=17.6, summitKM=108.5, averageGradient=5.8)
  
-  StageRaceEditionBuilder(TourDeFrance,LocalDateTime.of(2018,7,7,0,0)).
-    withRoadStage(stage1).
-    withRoadStage(stage2).
-    withTeamTimeTrial(stage3).
-    withRoadStage(stage4).
-    withRoadStage(stage5).
-    withRoadStage(stage6).
-    withRoadStage(stage7).
-    withRoadStage(stage8).
-    withRoadStage(stage9).
-    withRestDay(Location("Annency")).
-    withRoadStage(stage10).
-    withRoadStage(stage11).
-    withRoadStage(stage12).
-    withRoadStage(stage13).
-    withRoadStage(stage14).
-    withRoadStage(stage15).
-    withRestDay(Location("Lourdes")).
-    withRoadStage(stage16).
-    withRoadStage(stage17).
-    withRoadStage(stage18).
-    withRoadStage(stage19).
-    withIndividualTimeTrial(stage20).
-    withRoadStage(stage21).build
-}
+      // Stage 12 19-07-2018
+      _ <- roadStage("Bourg-Saint-Maurice", "L'Alpe d'Huez", 175.5)
+      //_ <- hc("Col de la Madeleine", summitKM=53.5, height=2000, length=25.3, averageGradient=6.2)
+      //_ <- c2("Lacets de Montvernier", summitKM=83, height=782, length=3.4, averageGradient=8.2)
+      //_ <- hc("Col de la Croix de Fer", height=2067, summitKM=121, length=29, averageGradient=5.2)
+      //_ <- hc("Alpe d'Huez", height=1850, length=13.8, summitKM=175.5, averageGradient=8.1)
+ 
+      // Stage 13 20-07-2018
+      _ <- roadStage("Le Bourg-d'Oisans", "Valence", 169.5)
+      //_ <- c3("Cote de Brie", summitKM=32.5, height=450, length=2.4, averageGradient=6.9)
+      //_ <- c4("Cote de Sainte-Eulalie", summitKM=109.5, height=298, length=1.5, averageGradient=4.9)
+ 
+      // Stage 14 21-07-2018
+      _ <- roadStage("Saint-Paul-Trois-Chateaux", "Mende", 188)
+      //_ <- c4("Cote du Grand Chataignier", summitKM=81, height=321, length=1, averageGradient=7.4)
+      //_ <- c2("Col de la Croix de Berthel", summitKM=129, height=1088, length=9.1, averageGradient=5.3)
+      //_ <- c3("Col du Pont sans Eau", height=1084, summitKM=142, length=3.3, averageGradient=6.3)
+      //_ <- c2("Cote de la Croix Neuve", height=1055, length=3, summitKM=186.5, averageGradient=10.2)
+ 
+      // Stage 15 22-07-2018
+      _ <- roadStage("Millau", "Carcassonne", 181.5)
+      //_ <- c3("Cote de Luzencon", summitKM=9, height=538, length=3.1, averageGradient=5.9)
+      //_ <- c2("Col de Sie", summitKM=64.5, height=928, length=10.2, averageGradient=4.9)
+      //_ <- c1("Pic de Nore", height=1205, summitKM=140, length=12.3, averageGradient=6.3)
+ 
+      // Rest day 23-07-2018
+      _ <- restDay("Lourdes")
+
+      // Stage 16 24-07-2018
+      _ <- roadStage("Carcassonne", "Bagneres-de-Luchon", 218)
+      //_ <- c4("Cote de Fanjeaux", summitKM=25, height=348, length=2.4, averageGradient=4.9)
+      //_ <- c4("Cote de Pamiers", Height=417, summitKM=72, length=2.3, averageGradient=5.8)
+      //_ <- c2("Col de Portet d'Aspet", height=1069, summitKM=155.5, length=5.4, averageGradient=7.1)
+      //_ <- c1("Col de Mente", height=1349, summitKM=171, length=6.9, averageGradient=8.1)
+      //_ <- c1("Col du Portillon", height=1292, summitKM=208, length=8.3, averageGradient=7.1)
+ 
+      // Stage 17 25-07-2018
+      _ <- roadStage("Bagneres-de-Luchon", "Saint-Lary-Soulan (Col de Portet)", 65)
+      //_ <- c1("Monte de Peyragudes", height=1645, length=14.9, summitKM=15, averageGradient=6.7)
+      //_ <- c1("Col de Val Louron-Azet", height=1580, summitKM=37, length=7.4, averageGradient=8.3)
+      //_ <- hc("Col du Portet", height=2215, length=16, summitKM=65, averageGradient=8.7)
+ 
+      // Stage 18 26-07-2018
+      _ <- roadStage("Trie-sur-Basie", "Pau", 171) 
+      //_ <- c4("Cote de Madiran", summitKM=53.5, height=260, length=1.2, averageGradient=7)
+      //_ <- c4("Cote d'Anos", height=304, summitKM=152.5, length=2.1, averageGradient=4.6)
+ 
+      // Stage 19 27-07-2018
+      _ <- roadStage("Lourdes", "Laruns", 200.5)
+      //_ <- c4("Cote de Loucrup", summitKM=7, height=532, length=1.8, averageGradient=7.2)
+      //_ <- c4("Cote de Capvern-les-Bains", summitKM=40, height=604, length=3.4, averageGradient=5.1)
+      //_ <- c1("Col d'Aspin", height=1490, length=12, summitKM=78.5, averageGradient=6.5)
+      //_ <- hc("Col du Tourmalet", height=2115, length=17.1, summitKM=108, averageGradient=7.3)
+      //_ <- c2("Col de Borderes", height=1156, length=8.6, summitKM=159.5, averageGradient=5.8)
+      //_ <- hc("Col d'Aubisque", height=1709, length=16.6, summitKM=180.5, averageGradient=4.9)
+ 
+      // Stage 20 28-07-2018
+      _ <- individualTimeTrial("Saint-Pee-sur-Nivelle", "Espelette", 31)
+ 
+      // Stage 21 29-07-2018
+      _ <- roadStage("Houilles", "Paris", 116)
+    } yield()
+
+    val result = composition.exec(StageRaceState(TourDeFrance,LocalDate.of(2018,7,7),1,Seq[Stage]()))
+    StageRaceEdition(TourDeFrance, result.stages)
+  }
 }

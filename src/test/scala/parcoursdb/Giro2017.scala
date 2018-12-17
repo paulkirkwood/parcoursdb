@@ -1,6 +1,7 @@
 package parcoursdb
 
-import java.time.LocalDateTime
+import java.time.LocalDate
+import StageRaceState._
 
 object Giro2017 {
 
@@ -8,246 +9,122 @@ object Giro2017 {
 
     implicit val country:Country = Italy
 
-    val stage1Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Multeddu").withHeight(182).withSummitKM(68).withCategory(C4).build(),
-      ColBuilder(TourOfItaly).withName("Trinità d’Agultu").withHeight(362).withSummitKM(90.2).withCategory(C4).build(),
-      ColBuilder(TourOfItaly).withName("San Pantaleo").withSummitKM(185.1).withHeight(215).withCategory(C4).build()
-    )
+    val composition = for {
 
-    val stage1:RoadStage = StageBuilder().
-      withStart(Location("Alghero")).
-      withFinish(Location("Olbia")).
-      withLength(206).
-      withCols(stage1Cols).
-      roadStage
+      // Stage 1
+      _ <- roadStage("Alghero", "Olbia", 206)
+      //_ <- c4("Multeddu", height=182, summitKM=68)
+      //_ <- c4("Trinità d’Agultu", height=362, summitKM=90.2)
+      //_ <- c4("San Pantaleo", summitKM=185.1, height=215)
 
-    val stage2Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Genina Silana").withHeight(1002).withSummitKM(174.1).withCategory(C2).build()
-    )
+      // Stage 2
+      _ <- roadStage("Olbia", "Tortolì", 221)
+      //_ <- c2("Genina Silana", height=1002, summitKM=174.1)
 
-    val stage2:RoadStage = StageBuilder().
-      withStart(Location("Olbia")).
-      withFinish(Location("Tortolì")).
-      withLength(221).
-      withCols(stage2Cols).roadStage
+      // Stage 3
+      _ <- roadStage("Tortolì", "Cagliari", 148)
+      //_ <- c4("Capo Boi", height=126, summitKM=107)
 
-    val stage3Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Capo Boi").withHeight(126).withSummitKM(107).withCategory(C4).build()
-    )
+      // Rest Day #1
+      _ <- restDay()
 
-    val stage3:RoadStage = StageBuilder().
-      withStart(Location("Tortolì")).
-      withFinish(Location( "Cagliari")).
-      withLength(148).
-      withCols(stage3Cols).roadStage
+      // Stage 4
+      _ <- roadStage("Cefalu", "Etna", 181)
+      //_ <- c2("Portella Femmina Morta", height=1524, summitKM=90)
+      //_ <- c1("Etna (Rif. Sapienza)", height=1892, summitKM=181)
 
-    val stage4Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Portella Femmina Morta").withHeight(1524).withSummitKM(90).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Etna (Rif. Sapienza)").withHeight(1892).withSummitKM(181).withCategory(C1).build()
-    )
+      // Stage 5
+      _ <- roadStage("Pedara", "Messina", 159)
+      //_ <- c4("Andronico-Sant'Alfio", height=878, summitKM=38.4)
 
-    val stage4:RoadStage = StageBuilder().
-      withStart(Location("Cefalu")).
-      withFinish( Location("Etna")).
-      withLength(181).
-      withCols(stage4Cols).roadStage
+      // Stage 6
+      _ <- roadStage("Reggio Calabria", "Terme Luigiane", 217)
+      //_ <- c4("Barritteri", height=543, summitKM=36.6)
+      //_ <- c4("Fuscaldo-BV.SP.30", height=156, summitKM=193.3)
 
-    val stage5Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Andronico-Sant'Alfio").withHeight(878).withSummitKM(38.4).withCategory(C4).build()
-    )
+      // Stage 7
+      _ <- roadStage("Castrovillari", "Alberobello (Valle D'Itria)", 224)
+      //_ <- c4("Bosco delle Pianelle", height=457, summitKM=154.1)
 
-    val stage5:RoadStage = StageBuilder().
-      withStart(Location("Pedara")).
-      withFinish(Location("Messina")).
-      withLength(159).
-      withCols(stage5Cols).roadStage
+      // Stage 8
+      _ <- roadStage("Molfetta", "Peschici", 189)
+      //_ <- c2("Monte Sant'Angelo", height=747, summitKM=100.7)
+      //_ <- c4("Coppa Santa Tecla", height=362, summitKM=143)
 
-    val stage6Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Barritteri").withHeight(543).withSummitKM(36.6).withCategory(C4).build(),
-      ColBuilder(TourOfItaly).withName("Fuscaldo-BV.SP.30").withHeight(156).withSummitKM(193.3).withCategory(C4).build()
-    )
+      // Stage 9
+      _ <- roadStage("Montenero di Bisaccia", "Blockhaus", 149)
+      //_ <- c1("Blockhaus", height=1665, summitKM=149)
 
-    val stage6:RoadStage = StageBuilder().
-      withStart(Location("Reggio Calabria")).
-      withFinish(Location("Terme Luigiane")).
-      withLength(217).
-      withCols(stage6Cols).roadStage
+      // Rest Day #2
+      _ <- restDay()
 
-    val stage7:RoadStage = StageBuilder().
-      withStart(Location("Castrovillari")).
-      withFinish(Location("Alberobello (Valle D'Itria)")).
-      withLength(224).
-      withCol(ColBuilder(TourOfItaly).withName("Bosco delle Pianelle").withHeight(457).withSummitKM(154.1).withCategory(C4).build()).
-      roadStage
+      // Stage 10
+      _ <- individualTimeTrial("Foligno", "Montefalco", 39.8)
 
-    val stage8Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Monte Sant'Angelo").withHeight(747).withSummitKM(100.7).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Coppa Santa Tecla").withHeight(362).withSummitKM(143).withCategory(C4).build()
-    )
+      // Stage 11
+      _ <- roadStage("Firenze (Ponte a Ema)", "Bagno di Romagna", 161)
+      //_ <- c2("Passo della Consuma", height=1060, summitKM=31.8)
+      //_ <- c3("Passo della Calla", height=1295, summitKM=64.2)
+      //_ <- c3("Passo del Carnaio", height=770, summitKM=102.4)
+      //_ <- c2("Monte Fumaiolo", height=1347, summitKM=135.8)
 
-    val stage8:RoadStage = StageBuilder().
-      withStart(Location("Molfetta")).
-      withFinish(Location("Peschici")).
-      withLength(189).
-      withCols(stage8Cols).roadStage
+      // Stage 12
+      _ <- roadStage("Forlì", "Reggio Emilia", 234)
+      //_ <- c2("Colla di Casaglia", height=913, summitKM=62.9)
+      //_ <- c3("Valico Appenninco", height=731, summitKM=110.4)
 
-    val stage9Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Blockhaus").withHeight(1665).withSummitKM(149).withCategory(C1).build()
-    )
+      // Stage 13
+      _ <- roadStage("Reggio Emilia", "Tortona", 167)
 
-    val stage9:RoadStage = StageBuilder().
-      withStart(Location("Montenero di Bisaccia")).
-      withFinish(Location("Blockhaus)")).
-      withLength(149).
-      withCols(stage9Cols).roadStage
+      // Stage 14
+      _ <- roadStage("Castellania", "Oropa (Biella)", 131)
+      //_ <- c1("Oropa (Biella)", height=1142, summitKM=131)
 
-    val stage10:IndividualTimeTrial = StageBuilder().
-      withStart(Location("Foligno")).
-      withFinish(Location("Montefalco")).
-      withLength(39.8).
-      individualTimeTrial
+      // Stage 15
+      _ <- roadStage("Valdengo", "Bergamo", 199)
+      //_ <- c2("Miragolo San Salvatore", height=931, summitKM=159.3)
+      //_ <- c2("Selvino", height=948, summitKM=170.8)
 
-    val stage11Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Passo della Consuma").withHeight(1060).withSummitKM(31.8).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Passo della Calla").withHeight(1295).withSummitKM(64.2).withCategory(C3).build(),
-      ColBuilder(TourOfItaly).withName("Passo del Carnaio").withHeight(770).withSummitKM(102.4).withCategory(C3).build(),
-      ColBuilder(TourOfItaly).withName("Monte Fumaiolo").withHeight(1347).withSummitKM(135.8).withCategory(C2).build()
-    )
+      // Rest Day #3
+      _ <- restDay()
 
-    val stage11:RoadStage = StageBuilder().
-      withStart(Location("Firenze (Ponte a Ema)")).
-      withFinish(Location("Bagno di Romagna")).
-      withLength(161).
-      withCols(stage11Cols).roadStage
+      // Stage 16
+      _ <- roadStage("Rovetta", "Bormio", 222)
+      //_ <- c1("Passo del Mortirolo", height=1854, summitKM=84.5)
+      //_ <- c1("Passo dello Stelvio", height=2758, summitKM=143.5)
+      //_ <- c1("Umbrailpass Giogo di Santa Maria", height=2502, summitKM=202.5)
 
-    val stage12Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Colla di Casaglia").withHeight(913).withSummitKM(62.9).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Valico Appenninco").withHeight(731).withSummitKM(110.4).withCategory(C3).build()
-    )
+      // Stage 17
+      _ <- roadStage("Tirano", "Canazei (Val di Fassa)", 219)
+      //_ <- c2("Aprica", height=1173, summitKM=15.1)
+      //_ <- c2("Passo del Tonale", height=1883, summitKM=60.2)
+      //_ <- c3("Giovo", height=615, summitKM=137)
 
-    val stage12:RoadStage = StageBuilder().
-      withStart(Location("Forlì")).
-      withFinish(Location("Reggio Emilia")).
-      withLength(234).
-      withCols(stage12Cols).roadStage
+      // Stage 18
+      _ <- roadStage("Moena (Val di Fassa)", "Ortisei/St. Ulrich (Val Gardena)", 137)
+      //_ <- c1("Passo Portdoi", height=2293, summitKM=26)
+      //_ <- c2("Passo Valparola", height=2200, summitKM=57.2)
+      //_ <- c2("Passo Gardena", height=2121, summitKM=85.3)
+      //_ <- c3("Passo di Pinei Panidersattel", height=1437, summitKM=108.8)
+      //_ <- c1("Pontives", height=1103, summitKM=133)
 
-    val stage13:RoadStage = StageBuilder().
-      withStart(Location("Reggio Emilia")).
-      withFinish(Location("Tortona")).
-      withLength(167).roadStage
+      // Stage 19
+      _ <- roadStage("San Candido/Innichen", "Piancavallo (Monte Jafferau)", 191)
+      //_ <- c3("P.S.O M. Croce Comelico", height=1636, summitKM=13.9)
+      //_ <- c2("Sella Chianzutan", height=955, summitKM=104.7)
+      //_ <- c1("Piancavallo", height=1290, summitKM=191)
 
-    val stage14:RoadStage = StageBuilder(). 
-      withStart(Location("Castellania")).
-      withFinish(Location("Oropa (Biella)")).
-      withLength(131).
-      withCol(ColBuilder(TourOfItaly).withName("Oropa (Biella)").withHeight(1142).withSummitKM(131).withCategory(C1).build()).
-      roadStage
+      // Stage 20
+      _ <- roadStage("Pordenone", "Asiago", 190)
+      //_ <- c4("Muro di Ca'Del Poggio", height=242, summitKM=37.3)
+      //_ <- c4("Monte Grappa", height=1620, summitKM=127.7)
+      //_ <- c1("Foza", height=1086, summitKM=175.2)
 
-    val stage15Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Miragolo San Salvatore").withHeight(931).withSummitKM(159.3).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Selvino").withHeight(948).withSummitKM(170.8).withCategory(C3).build()
-    )
+      // Stage 21
+      _ <- individualTimeTrial("Monza", "Milano", 29.3)
+    } yield()
 
-    val stage15:RoadStage = StageBuilder().
-      withStart(Location("Valdengo")).
-      withFinish(Location("Bergamo")).
-      withLength(199).
-      withCols(stage15Cols).roadStage
-
-    val stage16Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Passo del Mortirolo").withHeight(1854).withSummitKM(84.5).withCategory(C1).build(),
-      ColBuilder(TourOfItaly).withName("Passo dello Stelvio").withHeight(2758).withSummitKM(143.5).withCategory(C1).build(),
-      ColBuilder(TourOfItaly).withName("Umbrailpass Giogo di Santa Maria").withHeight(2502).withSummitKM(202.5).withCategory(C1).build()
-    )
-
-    val stage16:RoadStage = StageBuilder().
-      withStart(Location("Rovetta")).
-      withFinish(Location("Bormio")).
-      withLength(222).
-      withCols(stage16Cols).roadStage
-
-    val stage17Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Aprica").withHeight(1173).withSummitKM(15.1).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Passo del Tonale").withHeight(1883).withSummitKM(60.2).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Giovo").withHeight(615).withSummitKM(137).withCategory(C3).build()
-    )
-
-    val stage17:RoadStage = StageBuilder().
-      withStart(Location("Tirano")).
-      withFinish(Location("Canazei (Val di Fassa)")).
-      withLength(219).
-      withCols(Set[Col](ColBuilder(TourOfItaly).withName("Lodrino").withHeight(736).withSummitKM(71.5).withCategory(C3).build())).
-      roadStage
-
-    val stage18Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Passo Portdoi").withHeight(2293).withSummitKM(26).withCategory(C1).build(),
-      ColBuilder(TourOfItaly).withName("Passo Valparola").withHeight(2200).withSummitKM(57.2).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Passo Gardena").withHeight(2121).withSummitKM(85.3).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Passo di Pinei Panidersattel").withHeight(1437).withSummitKM(108.8).withCategory(C3).build(),
-      ColBuilder(TourOfItaly).withName("Pontives").withHeight(1103).withSummitKM(133).withCategory(C1).build()
-    )
-
-    val stage18:RoadStage = StageBuilder().
-      withStart(Location("Moena (Val di Fassa)")).
-      withFinish(Location("Ortisei/St. Ulrich (Val Gardena)")).
-      withLength(137).
-      withCols(stage18Cols).
-      roadStage
-
-    val stage19Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("P.S.O M. Croce Comelico").withHeight(1636).withSummitKM(13.9).withCategory(C3).build(),
-      ColBuilder(TourOfItaly).withName("Sella Chianzutan").withHeight(955).withSummitKM(104.7).withCategory(C2).build(),
-      ColBuilder(TourOfItaly).withName("Piancavallo").withHeight(1290).withSummitKM(191).withCategory(C1).build()
-    )
-
-    val stage19:RoadStage = StageBuilder().
-      withStart(Location("San Candido/Innichen")).
-      withFinish(Location("Piancavallo (Monte Jafferau)")).
-      withLength(191).
-      withCols(stage19Cols).roadStage
-
-    // Stage 20 26-05-2018
-    val stage20Cols = Set[Col](
-      ColBuilder(TourOfItaly).withName("Muro di Ca'Del Poggio").withHeight(242).withSummitKM(37.3).withCategory(C4).build(),
-      ColBuilder(TourOfItaly).withName("Monte Grappa").withHeight(1620).withSummitKM(127.7).withCategory(C1).build(),
-      ColBuilder(TourOfItaly).withName("Foza").withHeight(1086).withSummitKM(175.2).withCategory(C1).build()
-   )
-
-    val stage20:RoadStage = StageBuilder().
-      withStart(Location("Pordenone")).
-      withFinish(Location("Asiago")).
-      withLength(190).
-      withCols(stage20Cols).roadStage
-
-    val stage21:IndividualTimeTrial = StageBuilder().
-      withStart(Location("Monza")).
-      withFinish(Location("Milano")).
-      withLength(29.3).individualTimeTrial
-
-    StageRaceEditionBuilder(TourOfItaly,LocalDateTime.of(2018,5,5,0,0)).
-      withRoadStage(stage1).
-      withRoadStage(stage2).
-      withRoadStage(stage3).
-      withRestDay().
-      withRoadStage(stage4).
-      withRoadStage(stage5).
-      withRoadStage(stage6).
-      withRoadStage(stage7).
-      withRoadStage(stage8).
-      withRoadStage(stage9).
-      withRestDay().
-      withIndividualTimeTrial(stage10).
-      withRoadStage(stage11).
-      withRoadStage(stage12).
-      withRoadStage(stage13).
-      withRoadStage(stage14).
-      withRoadStage(stage15).
-      withRestDay().
-      withRoadStage(stage16).
-      withRoadStage(stage17).
-      withRoadStage(stage18).
-      withRoadStage(stage19).
-      withRoadStage(stage20).
-      withIndividualTimeTrial(stage21).build
+    val result = composition.exec(StageRaceState(TourOfItaly, LocalDate.of(2018,5,5), 1, Seq[Stage]()))
+    StageRaceEdition(TourOfItaly, result.stages)
   }
 }
