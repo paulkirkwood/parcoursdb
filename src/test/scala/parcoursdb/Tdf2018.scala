@@ -13,42 +13,42 @@ object TourDeFrance2018 {
 
       // Stage 1 07-07-2018
       _ <- roadStage("Noirmoutier-en-l'Îe", "Fontenay-le-Comte", 201)
-      //_ <- c4("Cote de Vix", height=30, length=0.7, summitKM=173, averageGradient=4.2)
+      _ <- c4("Cote de Vix", height=30, length=0.7, summitKM=173, averageGradient=4.2)
 
       // Stage 2 08-07-2018
       _ <- roadStage("Mouilleron-Saint-Germain", "La Roche-sur-Yon", 182.5)
-      //_ <- c4("Cote de Pouzauges", height=202, length=1, summitKM=28, averageGradient=3.9)
+      _ <- c4("Cote de Pouzauges", height=202, length=1, summitKM=28, averageGradient=3.9)
  
       // Stage 3 09-07-2018
       _ <- teamTimeTrial(Location("Cholet"),35.5)
  
       // Stage 4 10-07-2018
       _ <- roadStage("La Baule", "Sarzeau", 195 )
-      //_ <- c4("Cote de Saint-Jean-la-Poterie", height=79, length=0.8, summitKM=135.5, averageGradient=7.8)
+      _ <- c4("Cote de Saint-Jean-la-Poterie", height=79, length=0.8, summitKM=135.5, averageGradient=7.8)
  
       // Stage 5 11-07-2018
       _ <- roadStage("Lorient", "Quimper", 204.5)
-      //_ <- c4("Cote de Kaliforn", height=209, length=1.7, summitKM=106, averageGradient=7.1)
-      //_ <- c4("Cote de Trimen", height=223, length=1.6, summitKM=113, averageGradient=5.6)
-      //_ <- c3("Cote de la Roche du Feu", height=221, length=1.9, summitKM=140.5, averageGradient=6.6)
-      //_ <- c3("Cote de Menez Quelerc'h", height=210, length=3, summitKM=159.5, averageGradient=6.2)
-      //_ <- c3("Cote de la montagne de Locranan", height=233, length=2.2, summitKM=184.5, averageGradient=5.9)
+      _ <- c4("Cote de Kaliforn", height=209, length=1.7, summitKM=106, averageGradient=7.1)
+      _ <- c4("Cote de Trimen", height=223, length=1.6, summitKM=113, averageGradient=5.6)
+      _ <- c3("Cote de la Roche du Feu", height=221, length=1.9, summitKM=140.5, averageGradient=6.6)
+      _ <- c3("Cote de Menez Quelerc'h", height=210, length=3, summitKM=159.5, averageGradient=6.2)
+      _ <- c3("Cote de la montagne de Locranan", height=233, length=2.2, summitKM=184.5, averageGradient=5.9)
  
       // Stage 6 12-07-2018
       _ <- roadStage("Brest", "Mûr-de-Bretagne", 181)
-      //_ <- c3("Cote de Ploudiry", summitKM=44, height=128, length=1.5, averageGradient=7)
-      //_ <- c4("Cote de Roc'h Trevezel", summitKM=68.5, height=340, length=2.5, averageGradient=3.5)
-      //_ <- c3("Mur-de-Bretagne", height=293, summitKM=165, length=2, averageGradient=6.9)
-      //_ <- c3("Mur-de-Bretagne", height=293, summitKM=181, length=2, averageGradient=6.9)
+      _ <- c3("Cote de Ploudiry", summitKM=44, height=128, length=1.5, averageGradient=7)
+      _ <- c4("Cote de Roc'h Trevezel", summitKM=68.5, height=340, length=2.5, averageGradient=3.5)
+      _ <- c3("Mur-de-Bretagne", height=293, summitKM=165, length=2, averageGradient=6.9)
+      _ <- c3("Mur-de-Bretagne", height=293, summitKM=181, length=2, averageGradient=6.9)
  
       // Stage 7 13-07-2018
       _ <- roadStage("Fougres", "Chartres", 231)
-      //_ <- c4("Cote du Buisson de Perseigne", summitKM=120, height=235, length=1.5, AverageGradient=6.9)
+      _ <- c4("Cote du Buisson de Perseigne", summitKM=120, height=235, length=1.5, averageGradient=6.9)
  
       // Stage 8 14-07-2018
       _ <- roadStage("Dreux", "Amiens", 181 )
-      //_ <- c4("Cote de Pacy-sur-Eure", summitKM=35, height=135, length=2, AverageGradient=4.3)
-      //_ <- c4("Cote de Feuquerolles", height=134, summitKM=71.5, length=2.3, averageGradient=4.3)
+      _ <- c4("Cote de Pacy-sur-Eure", summitKM=35, height=135, length=2, averageGradient=4.3)
+      _ <- c4("Cote de Feuquerolles", height=134, summitKM=71.5, length=2.3, averageGradient=4.3)
  
       // Stage 9 15-07-2018
       _ <- roadStage("Arras", "Roubaix", 156.5)
@@ -58,74 +58,74 @@ object TourDeFrance2018 {
 
       // Stage 10 17-07-2018
       _ <- roadStage("Annecy", "Le Grand-Bornard", 158.5)
-      //_ <- c4("Col de Bluffy", summitKM=19, height=622, length=1.5, averageGradient=5.6)
-      //_ <- c1("Col de la Croix Fry", summitKM=43, height=1477, length=11.3, averageGradient=7)
-      //_ <- hc("Montee du plateau des Glieres", summitKM=68.5, height=1390, length=6, averageGradient=11.2)
-      //_ <- c1("Col de Romme", height=1297, length=8.8, summitKM=130, averageGradient=8.9)
-      //_ <- c1("Col de la Colombiere", height=1618, length=7.5, summitKM=144, averageGradient=8.5)
+      _ <- c4("Col de Bluffy", summitKM=19, height=622, length=1.5, averageGradient=5.6)
+      _ <- c1("Col de la Croix Fry", summitKM=43, height=1477, length=11.3, averageGradient=7)
+      _ <- hc("Montee du plateau des Glieres", summitKM=68.5, height=1390, length=6, averageGradient=11.2)
+      _ <- c1("Col de Romme", height=1297, length=8.8, summitKM=130, averageGradient=8.9)
+      _ <- c1("Col de la Colombiere", height=1618, length=7.5, summitKM=144, averageGradient=8.5)
  
       // Stage 11 18-07-2018
       _ <- roadStage("Albertville", "La Rosiere", 108.5)
-      //_ <- hc("Montee de Bisanne", summitKM=26, height=1723, length=12.4, averageGradient=8.2)
-      //_ <- hc("Col du Pre", height=1748, summitKM=57.5, length=12.6, averageGradient=7.7)
-      //_ <- c2("Cormet de Roselend", height=1968, summitKM=70, length=5.7, averageGradient=6.5)
-      //_ <- c1("La Rosiere", height=1855, length=17.6, summitKM=108.5, averageGradient=5.8)
+      _ <- hc("Montee de Bisanne", summitKM=26, height=1723, length=12.4, averageGradient=8.2)
+      _ <- hc("Col du Pre", height=1748, summitKM=57.5, length=12.6, averageGradient=7.7)
+      _ <- c2("Cormet de Roselend", height=1968, summitKM=70, length=5.7, averageGradient=6.5)
+      _ <- c1("La Rosiere", height=1855, length=17.6, summitKM=108.5, averageGradient=5.8)
  
       // Stage 12 19-07-2018
       _ <- roadStage("Bourg-Saint-Maurice", "L'Alpe d'Huez", 175.5)
-      //_ <- hc("Col de la Madeleine", summitKM=53.5, height=2000, length=25.3, averageGradient=6.2)
-      //_ <- c2("Lacets de Montvernier", summitKM=83, height=782, length=3.4, averageGradient=8.2)
-      //_ <- hc("Col de la Croix de Fer", height=2067, summitKM=121, length=29, averageGradient=5.2)
-      //_ <- hc("Alpe d'Huez", height=1850, length=13.8, summitKM=175.5, averageGradient=8.1)
+      _ <- hc("Col de la Madeleine", summitKM=53.5, height=2000, length=25.3, averageGradient=6.2)
+      _ <- c2("Lacets de Montvernier", summitKM=83, height=782, length=3.4, averageGradient=8.2)
+      _ <- hc("Col de la Croix de Fer", height=2067, summitKM=121, length=29, averageGradient=5.2)
+      _ <- hc("Alpe d'Huez", height=1850, length=13.8, summitKM=175.5, averageGradient=8.1)
  
       // Stage 13 20-07-2018
       _ <- roadStage("Le Bourg-d'Oisans", "Valence", 169.5)
-      //_ <- c3("Cote de Brie", summitKM=32.5, height=450, length=2.4, averageGradient=6.9)
-      //_ <- c4("Cote de Sainte-Eulalie", summitKM=109.5, height=298, length=1.5, averageGradient=4.9)
+      _ <- c3("Cote de Brie", summitKM=32.5, height=450, length=2.4, averageGradient=6.9)
+      _ <- c4("Cote de Sainte-Eulalie", summitKM=109.5, height=298, length=1.5, averageGradient=4.9)
  
       // Stage 14 21-07-2018
       _ <- roadStage("Saint-Paul-Trois-Chateaux", "Mende", 188)
-      //_ <- c4("Cote du Grand Chataignier", summitKM=81, height=321, length=1, averageGradient=7.4)
-      //_ <- c2("Col de la Croix de Berthel", summitKM=129, height=1088, length=9.1, averageGradient=5.3)
-      //_ <- c3("Col du Pont sans Eau", height=1084, summitKM=142, length=3.3, averageGradient=6.3)
-      //_ <- c2("Cote de la Croix Neuve", height=1055, length=3, summitKM=186.5, averageGradient=10.2)
+      _ <- c4("Cote du Grand Chataignier", summitKM=81, height=321, length=1, averageGradient=7.4)
+      _ <- c2("Col de la Croix de Berthel", summitKM=129, height=1088, length=9.1, averageGradient=5.3)
+      _ <- c3("Col du Pont sans Eau", height=1084, summitKM=142, length=3.3, averageGradient=6.3)
+      _ <- c2("Cote de la Croix Neuve", height=1055, length=3, summitKM=186.5, averageGradient=10.2)
  
       // Stage 15 22-07-2018
       _ <- roadStage("Millau", "Carcassonne", 181.5)
-      //_ <- c3("Cote de Luzencon", summitKM=9, height=538, length=3.1, averageGradient=5.9)
-      //_ <- c2("Col de Sie", summitKM=64.5, height=928, length=10.2, averageGradient=4.9)
-      //_ <- c1("Pic de Nore", height=1205, summitKM=140, length=12.3, averageGradient=6.3)
+      _ <- c3("Cote de Luzencon", summitKM=9, height=538, length=3.1, averageGradient=5.9)
+      _ <- c2("Col de Sie", summitKM=64.5, height=928, length=10.2, averageGradient=4.9)
+      _ <- c1("Pic de Nore", height=1205, summitKM=140, length=12.3, averageGradient=6.3)
  
       // Rest day 23-07-2018
       _ <- restDay("Lourdes")
 
       // Stage 16 24-07-2018
       _ <- roadStage("Carcassonne", "Bagneres-de-Luchon", 218)
-      //_ <- c4("Cote de Fanjeaux", summitKM=25, height=348, length=2.4, averageGradient=4.9)
-      //_ <- c4("Cote de Pamiers", Height=417, summitKM=72, length=2.3, averageGradient=5.8)
-      //_ <- c2("Col de Portet d'Aspet", height=1069, summitKM=155.5, length=5.4, averageGradient=7.1)
-      //_ <- c1("Col de Mente", height=1349, summitKM=171, length=6.9, averageGradient=8.1)
-      //_ <- c1("Col du Portillon", height=1292, summitKM=208, length=8.3, averageGradient=7.1)
+      _ <- c4("Cote de Fanjeaux", summitKM=25, height=348, length=2.4, averageGradient=4.9)
+      _ <- c4("Cote de Pamiers", height=417, summitKM=72, length=2.3, averageGradient=5.8)
+      _ <- c2("Col de Portet d'Aspet", height=1069, summitKM=155.5, length=5.4, averageGradient=7.1)
+      _ <- c1("Col de Mente", height=1349, summitKM=171, length=6.9, averageGradient=8.1)
+      _ <- c1("Col du Portillon", height=1292, summitKM=208, length=8.3, averageGradient=7.1)
  
       // Stage 17 25-07-2018
       _ <- roadStage("Bagneres-de-Luchon", "Saint-Lary-Soulan (Col de Portet)", 65)
-      //_ <- c1("Monte de Peyragudes", height=1645, length=14.9, summitKM=15, averageGradient=6.7)
-      //_ <- c1("Col de Val Louron-Azet", height=1580, summitKM=37, length=7.4, averageGradient=8.3)
-      //_ <- hc("Col du Portet", height=2215, length=16, summitKM=65, averageGradient=8.7)
+      _ <- c1("Monte de Peyragudes", height=1645, length=14.9, summitKM=15, averageGradient=6.7)
+      _ <- c1("Col de Val Louron-Azet", height=1580, summitKM=37, length=7.4, averageGradient=8.3)
+      _ <- hc("Col du Portet", height=2215, length=16, summitKM=65, averageGradient=8.7)
  
       // Stage 18 26-07-2018
       _ <- roadStage("Trie-sur-Basie", "Pau", 171) 
-      //_ <- c4("Cote de Madiran", summitKM=53.5, height=260, length=1.2, averageGradient=7)
-      //_ <- c4("Cote d'Anos", height=304, summitKM=152.5, length=2.1, averageGradient=4.6)
+      _ <- c4("Cote de Madiran", summitKM=53.5, height=260, length=1.2, averageGradient=7)
+      _ <- c4("Cote d'Anos", height=304, summitKM=152.5, length=2.1, averageGradient=4.6)
  
       // Stage 19 27-07-2018
       _ <- roadStage("Lourdes", "Laruns", 200.5)
-      //_ <- c4("Cote de Loucrup", summitKM=7, height=532, length=1.8, averageGradient=7.2)
-      //_ <- c4("Cote de Capvern-les-Bains", summitKM=40, height=604, length=3.4, averageGradient=5.1)
-      //_ <- c1("Col d'Aspin", height=1490, length=12, summitKM=78.5, averageGradient=6.5)
-      //_ <- hc("Col du Tourmalet", height=2115, length=17.1, summitKM=108, averageGradient=7.3)
-      //_ <- c2("Col de Borderes", height=1156, length=8.6, summitKM=159.5, averageGradient=5.8)
-      //_ <- hc("Col d'Aubisque", height=1709, length=16.6, summitKM=180.5, averageGradient=4.9)
+      _ <- c4("Cote de Loucrup", summitKM=7, height=532, length=1.8, averageGradient=7.2)
+      _ <- c4("Cote de Capvern-les-Bains", summitKM=40, height=604, length=3.4, averageGradient=5.1)
+      _ <- c1("Col d'Aspin", height=1490, length=12, summitKM=78.5, averageGradient=6.5)
+      _ <- hc("Col du Tourmalet", height=2115, length=17.1, summitKM=108, averageGradient=7.3)
+      _ <- c2("Col de Borderes", height=1156, length=8.6, summitKM=159.5, averageGradient=5.8)
+      _ <- hc("Col d'Aubisque", height=1709, length=16.6, summitKM=180.5, averageGradient=4.9)
  
       // Stage 20 28-07-2018
       _ <- individualTimeTrial("Saint-Pee-sur-Nivelle", "Espelette", 31)

@@ -4,7 +4,13 @@ import scala.collection.mutable.ListBuffer
 
 case class StageRaceEdition(race:StageRace, stages:Seq[Stage]) {
 
-  def racingStages:Seq[RacingStage] = stages.collect { case s: RacingStage => s } 
+  def racingStages:Seq[RacingStage] = stages.collect {
+    case p: Prologue => p
+    case r: RoadStage => r
+    case t: TeamTimeTrial => t
+    case i: IndividualTimeTrial => i
+  } 
+
   def restDays:Seq[RestDay] = stages.collect { case s: RestDay => s }
 
   def start:Location = racingStages(0).start
@@ -12,19 +18,19 @@ case class StageRaceEdition(race:StageRace, stages:Seq[Stage]) {
 
   def length:Double = racingStages.map(_.length).sum
   
-  def prologue:Option[RacingStage] = racingStages.find(_.category == Prologue)
+  def prologue:Option[Prologue] = stages.collectFirst { case p:Prologue => p }
   def prologueKMs:Double = prologue match {
     case Some(prologue) => prologue.length
     case None => 0
   }
   
-  def roadStages:Seq[RacingStage] = racingStages.filter(_.isRoadStage)
+  def roadStages:Seq[RoadStage] = stages.collect { case r:RoadStage => r }
   def roadStageKMs:Double = roadStages.map(_.length).sum
 
-  def teamTimeTrials:Seq[RacingStage] = racingStages.filter(_.isTeamTimeTrial)
+  def teamTimeTrials:Seq[TeamTimeTrial] = stages.collect { case t:TeamTimeTrial => t }
   def teamTimeTrialKMs:Double = teamTimeTrials.map(_.length).sum
 
-  def individualTimeTrials:Seq[RacingStage] = racingStages.filter(_.isIndividualTimeTrial)
+  def individualTimeTrials:Seq[IndividualTimeTrial] = stages.collect { case i:IndividualTimeTrial => i }
   def individualTimeTrialKMs:Double = individualTimeTrials.map(_.length).sum
 
   def summitFinishes:Integer = racingStages.filter(_.isSummitFinish).size

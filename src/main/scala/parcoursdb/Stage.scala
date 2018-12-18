@@ -6,34 +6,14 @@ sealed trait Stage {
   def date: LocalDate
 }
 
-sealed trait RacingStageCategory
-case object Prologue extends RacingStageCategory
-case object RoadStage extends RacingStageCategory
-case object TeamTimeTrial extends RacingStageCategory
-case object IndividualTimeTrial extends RacingStageCategory
+case class RestDay(date: LocalDate, location: Option[Location] = None) extends Stage
 
-case class RacingStage(date:LocalDate,
-                       category:RacingStageCategory,
-                       id:String,
-                       start:Location,
-		       finish:Location,
-		       length:Double,
-		       cols:Set[Col]) extends Stage {
-
-  def isRoadStage:Boolean = category match {
-    case RoadStage => true
-    case _ => false
-  }
-
-  def isTeamTimeTrial:Boolean = category match {
-    case TeamTimeTrial => true
-    case _ => false
-  }
-
-  def isIndividualTimeTrial:Boolean = category match {
-    case IndividualTimeTrial => true
-    case _ => false
-  }
+sealed trait RacingStage extends Stage {
+  def id: String
+  def start: Location
+  def finish: Location
+  def length: Double
+  def cols: Set[Col]
 
   def isSummitFinish:Boolean = {
     val climbs:List[Col] = cols.toList.sortWith(_.summitKM < _.summitKM)
@@ -47,4 +27,13 @@ case class RacingStage(date:LocalDate,
   }
 }
 
-case class RestDay(date: LocalDate, location: Option[Location] = None) extends Stage
+case class Prologue(date:LocalDate, start:Location, finish:Location, length:Double) extends RacingStage {
+  def id = "P"
+  def cols = Set.empty[Col]
+}
+
+case class RoadStage(date:LocalDate, id:String, start:Location, finish:Location, length:Double, cols:Set[Col]) extends RacingStage
+
+case class TeamTimeTrial(date:LocalDate, id:String, start:Location, finish:Location, length:Double, cols:Set[Col]) extends RacingStage
+
+case class IndividualTimeTrial(date:LocalDate, id:String, start:Location, finish:Location, length:Double, cols:Set[Col]) extends RacingStage
