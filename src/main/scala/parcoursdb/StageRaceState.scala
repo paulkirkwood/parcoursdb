@@ -137,7 +137,7 @@ object StageRaceState {
         case p:Prologue => p
         case d:RestDay => d
       }
-      producedValue <- put(s.copy(s.race,s.date.plusDays(1), s.stageID, s.stages.updated(s.stages.size - 1, stage)))
+      producedValue <- put(s.copy(s.race,s.date, s.stageID, s.stages.updated(s.stages.size - 1, stage)))
     } yield producedValue
   }
 }
