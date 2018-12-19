@@ -1,0 +1,23 @@
+1,7 July,Noirmoutier-en-l'Îe to Fontenay-le-Comte,201.0 km,Road stage
+2,8 July,Mouilleron-Saint-Germain to La Roche-sur-Yon,182.5 km,Road stage
+3,9 July,Cholet,35.5 km,Team time trial
+4,10 July,La Baule to Sarzeau,195.0 km,Road stage
+5,11 July,Lorient to Quimper,204.5 km,Road stage
+6,12 July,Brest to Mûr-de-Bretagne,181.0 km,Road stage
+7,13 July,Fougres to Chartres,231.0 km,Road stage
+8,14 July,Dreux to Amiens,181.0 km,Road stage
+9,15 July,Arras to Roubaix,156.5 km,Road stage
+,16 July,Rest day,Annecy
+10,17 July,Annecy to Le Grand-Bornard,158.5 km,Road stage
+11,18 July,Albertville to La Rosiere,108.5 km,Road stage
+12,19 July,Bourg-Saint-Maurice to L'Alpe d'Huez,175.5 km,Road stage
+13,20 July,Le Bourg-d'Oisans to Valence,169.5 km,Road stage
+14,21 July,Saint-Paul-Trois-Chateaux to Mende,188.0 km,Road stage
+15,22 July,Millau to Carcassonne,181.5 km,Road stage
+,23 July,Rest day,Lourdes
+16,24 July,Carcassonne to Bagneres-de-Luchon,218.0 km,Road stage
+17,25 July,Bagneres-de-Luchon to Saint-Lary-Soulan (Col de Portet),65.0 km,Road stage
+18,26 July,Trie-sur-Basie to Pau,171.0 km,Road stage
+19,27 July,Lourdes to Laruns,200.5 km,Road stage
+20,28 July,Saint-Pee-sur-Nivelle to Espelette,31.0 km,Individual time trial
+21,29 July,Houilles to Paris,116.0 km,Road stage

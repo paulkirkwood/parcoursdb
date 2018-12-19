@@ -1,0 +1,24 @@
+1,4 May,Jerusalem (Israel),9.7 km,Individual time trial
+2,5 May,Haifa (Israel) to Tel Aviv (Israel),167.0 km,Road stage
+3,6 May,Beersheba (Israel) to Eilat (Israel),229.0 km,Road stage
+,7 May,Rest day
+4,8 May,Catania to Caltagirone,202.0 km,Road stage
+5,9 May,Agrigento to Santa Ninfa (Valle del Belice),153.0 km,Road stage
+6,10 May,Caltanissetta to Mount Etna,169.0 km,Road stage
+7,11 May,Pizzo to Praira a Mare,159.0 km,Road stage
+8,12 May,Praira a Mare to Montevergine Di Mercogliano,209.0 km,Road stage
+9,13 May,Pesco Sannita to Gran Sasso d'Italia (Campo Imperatore),225.0 km,Road stage
+,14 May,Rest day
+10,15 May,Penne to Gualdo Tadino,244.0 km,Road stage
+11,16 May,Assisi to Osimo,156.0 km,Road stage
+12,17 May,Osimo to Imola,214.0 km,Road stage
+13,18 May,Ferrara to Nervesa della Battaglia,180.0 km,Road stage
+14,19 May,San Vito al Tagliamento to Monte Zoncolan,186.0 km,Road stage
+15,20 May,Tolmezzo to Sappada,176.0 km,Road stage
+,21 May,Rest day
+16,22 May,Trento to Rovereto,34.2 km,Individual time trial
+17,23 May,Riva del Garda to Iseo,149.5 km,Road stage
+18,24 May,Abbiategrasso to Prato Nevoso,196.0 km,Road stage
+19,25 May,Venaria Reale to Bardonecchia (Monte Jafferau),185.0 km,Road stage
+20,26 May,Susa to Cervinia,214.0 km,Road stage
+21,27 May,Rome,115.0 km,Road stage

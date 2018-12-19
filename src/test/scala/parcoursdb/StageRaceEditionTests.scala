@@ -3,6 +3,7 @@ package parcoursdb
 import org.scalatest.prop.TableDrivenPropertyChecks
 import org.scalatest.{FunSuite, Matchers}
 import scala.math
+import scala.io.Source
 
 class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
 
@@ -107,5 +108,22 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2016, "11 Cat. 1, 12 Cat. 2, 10 Cat. 3, 5 Cat. 4"),
       (parisNice2018, "7 Cat. 1, 11 Cat. 2, 8 Cat. 3")
     ).forEvery {case (race,result) => StageRaceUtils.cols(race) shouldEqual result }
+  }
+
+  test("Race route") {
+    Table[StageRaceEdition](
+      ("Race"),
+      (tdf2018),
+      (giro2018),
+      (giro2017),
+      (giro2016),
+      (parisNice2018)
+    ).forEvery {case (stageRace) =>
+      val raceName:String = RaceUtils.name(stageRace.race)
+      val year:Int = stageRace.firstStage.date.getYear()
+      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${year}.txt"))
+      val result = source.getLines.toList
+      source.close()
+      StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)) shouldEqual result }
   }
 }

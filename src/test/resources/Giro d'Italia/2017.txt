@@ -1,0 +1,24 @@
+1,5 May,Alghero to Olbia,206.0 km,Road stage
+2,6 May,Olbia to Tortolì,221.0 km,Road stage
+3,7 May,Tortolì to Cagliari,148.0 km,Road stage
+,8 May,Rest day
+4,9 May,Cefalu to Etna,181.0 km,Road stage
+5,10 May,Pedara to Messina,159.0 km,Road stage
+6,11 May,Reggio Calabria to Terme Luigiane,217.0 km,Road stage
+7,12 May,Castrovillari to Alberobello (Valle D'Itria),224.0 km,Road stage
+8,13 May,Molfetta to Peschici,189.0 km,Road stage
+9,14 May,Montenero di Bisaccia to Blockhaus,149.0 km,Road stage
+,15 May,Rest day
+10,16 May,Foligno to Montefalco,39.8 km,Individual time trial
+11,17 May,Firenze (Ponte a Ema) to Bagno di Romagna,161.0 km,Road stage
+12,18 May,Forlì to Reggio Emilia,234.0 km,Road stage
+13,19 May,Reggio Emilia to Tortona,167.0 km,Road stage
+14,20 May,Castellania to Oropa (Biella),131.0 km,Road stage
+15,21 May,Valdengo to Bergamo,199.0 km,Road stage
+,22 May,Rest day
+16,23 May,Rovetta to Bormio,222.0 km,Road stage
+17,24 May,Tirano to Canazei (Val di Fassa),219.0 km,Road stage
+18,25 May,Moena (Val di Fassa) to Ortisei/St. Ulrich (Val Gardena),137.0 km,Road stage
+19,26 May,San Candido/Innichen to Piancavallo (Monte Jafferau),191.0 km,Road stage
+20,27 May,Pordenone to Asiago,190.0 km,Road stage
+21,28 May,Monza to Milano,29.3 km,Individual time trial

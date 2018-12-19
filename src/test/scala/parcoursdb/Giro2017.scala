@@ -124,7 +124,7 @@ object Giro2017 {
       _ <- individualTimeTrial("Monza", "Milano", 29.3)
     } yield()
 
-    val result = composition.exec(StageRaceState(TourOfItaly, LocalDate.of(2018,5,5), 1, Seq[Stage]()))
+    val result = composition.exec(StageRaceState(TourOfItaly, LocalDate.of(2017,5,5), 1, Seq[Stage]()))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 }

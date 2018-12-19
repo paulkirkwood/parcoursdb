@@ -73,7 +73,7 @@ object StageRaceUtils {
     return buf.mkString(", ")
   }
 
-  def route(race:StageRaceEdition)(implicit country:Country) : String = {
-    race.stageChronology.map(StageUtils.stageDescription(_)(country)).mkString("\n")
+  def route(race:StageRaceEdition)(implicit country:Country) : List[String] = {
+    race.stageChronology.map(StageUtils.stageDescription(_)(country)).toList
   }
 }

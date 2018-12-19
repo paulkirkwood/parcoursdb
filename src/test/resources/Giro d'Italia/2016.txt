@@ -1,0 +1,24 @@
+1,6 May,Apeldoorn (Netherlands),9.8 km,Individual time trial
+2,7 May,Arnhem (Netherlands) to Nijmegen (Netherlands),190.0 km,Road stage
+3,8 May,Nijmegen (Netherlands) to Arnhem (Netherlands),190.0 km,Road stage
+,9 May,Rest day
+4,10 May,Catanzaro to Praia a Mare,200.0 km,Road stage
+5,11 May,Praia a Mare to Benevento,233.0 km,Road stage
+6,12 May,Ponte to Roccaraso (Aremogna),157.0 km,Road stage
+7,13 May,Sulmona to Foligno,211.0 km,Road stage
+8,14 May,Foligno to Arezzo,186.0 km,Road stage
+9,15 May,Chianti Classico Stage,40.5 km,Individual time trial
+,16 May,Rest day
+10,17 May,Campi Bisenzio to Sestola,219.0 km,Road stage
+11,18 May,Modena to Asolo,227.0 km,Road stage
+12,19 May,Noale to Bibione,182.0 km,Road stage
+13,20 May,Palmanova to Cividale del Friuli,170.0 km,Road stage
+14,21 May,Alpago (Farra) to Corvara,210.0 km,Road stage
+15,22 May,Castelrotto to Alpe di Siusi/Seiseralm,10.8 km,Individual time trial
+,23 May,Rest day
+16,24 May,Bressanone to Andalo,132.0 km,Road stage
+17,25 May,Molveno to Cassano d'Adda,196.0 km,Road stage
+18,26 May,Muggio to Pinerolo,244.0 km,Road stage
+19,27 May,Pinerolo to Risoul,162.0 km,Road stage
+20,28 May,Guillestre to Sant'Anna di Vinadio,134.0 km,Road stage
+21,29 May,Cuneo to Torino,163.0 km,Road stage
