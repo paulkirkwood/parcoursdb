@@ -50,7 +50,7 @@ case class StageRaceEdition(race:StageRace, stages:Seq[Stage]) {
   def summitFinishes:Integer = racingStages.filter(_.isSummitFinish).size
 
   def highPoint:Option[Col] = racingStages.flatMap(_.cols).sortWith(_.height > _.height).headOption
-  def longestStage:Option[RacingStage] = racingStages.sortWith(_.length > _.length).headOption
+  def longestStage:RacingStage = racingStages.sortWith(_.length < _.length).last
 }
 
 // Stage Race Rules

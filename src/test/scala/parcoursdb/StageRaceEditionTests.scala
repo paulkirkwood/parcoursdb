@@ -87,6 +87,17 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
     }
   }
 
+  test("Longest stage") {
+    Table[StageRaceEdition, Double](
+      ("Race", "Length"),
+      (tdf2018, 231),
+      (giro2018, 244),
+      (giro2017, 234),
+      (giro2016, 244),
+      (parisNice2018, 210)
+    ).forEvery {case (race,result) => scala.math.rint(race.longestStage.length) shouldEqual result }
+  }
+
   test("Climbs by category") {
     Table[StageRaceEdition, String](
       ("Race", "Cols by category"),
