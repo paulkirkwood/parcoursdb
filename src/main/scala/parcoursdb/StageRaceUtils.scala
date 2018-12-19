@@ -1,9 +1,9 @@
 package parcoursdb
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.format.TextStyle;
-import java.util.Locale;
+import java.time.LocalDate
+import java.time.Month
+import java.time.format.TextStyle
+import java.util.Locale
 import scala.collection.mutable.ListBuffer
 
 object StageRaceUtils {
@@ -71,5 +71,9 @@ object StageRaceUtils {
     }
 
     return buf.mkString(", ")
+  }
+
+  def route(race:StageRaceEdition)(implicit country:Country) : String = {
+    race.stageChronology.map(StageUtils.stageDescription(_)(country)).mkString("\n")
   }
 }

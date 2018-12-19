@@ -43,7 +43,6 @@ class StageRaceEditionTests extends FunSuite {
     val col:Col = giro.highPoint.get
     assert(col.name === "Colle delle Finestre")
     assert(col.height === 2178 )
-
   }
 
   test("2017 Giro d'Italia composition") {
