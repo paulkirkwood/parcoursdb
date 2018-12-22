@@ -146,7 +146,6 @@ object TourDeFranceEditions {
     val wasquehal      = Location("Wasquehal")(France)
 
     val composition = for {
-
       _ <- prologue(luxembourgCity, 7.8)
       _ <- morningStage
       _ <- criterium(luxembourgCity, 135.5)
@@ -175,6 +174,44 @@ object TourDeFranceEditions {
     } yield()
 
     val result = composition.exec(StageRaceState.init(TourDeFrance,LocalDate.of(1989,7,1)))
+    StageRaceEdition(TourDeFrance, result.stages)
+  }
+
+  def tdf1990:StageRaceEdition = {
+
+    val besancon = Location("Besancon")(France)
+    val saintGervais = Location("Saint-Gervais")(France)
+    val geneva = Location("Geneva")(Switzerland)
+
+    val composition = for {
+      _ <- prologue("Futuroscope", 6.3)
+      _ <- morningStage
+      _ <- criterium("Futuroscope", 138.5)
+      _ <- teamTimeTrial("Futuroscope", 44.5)
+      _ <- roadStage("Poitiers", "Nantes", 233)
+      _ <- roadStage("Nantes", "Mont Saint-Michel", 203)
+      _ <- roadStage("Avranches", "Rouen", 301)
+      _ <- restDay("Rouen")
+      _ <- roadStage("Sarrebourg", "Vittel", 202.5)
+      _ <- individualTimeTrial("Vittel", "Epinal", 61.5)
+      _ <- roadStage("Epinal", "Besancon", 181.5)
+      _ <- roadStage(besancon, geneva, 196)
+      _ <- roadStage(geneva, saintGervais, 118.5)
+      _ <- roadStage("Saint-Gervais", "Alpe d'Huez", 182.5)
+      _ <- individualTimeTrial("Fontaine", "Villard-de-Lans", 33.5)
+      _ <- restDay("Villard-de-Lans")
+      _ <- roadStage("Villard-de-Lans", "Saint-Etienne", 149)
+      _ <- roadStage("Le Puy-en-Velay", "Millau", 205)
+      _ <- roadStage("Millau", "Revel", 170)
+      _ <- roadStage("Blagnac", "Luz Ardiden", 215)
+      _ <- roadStage("Lourdes", "Pau", 150)
+      _ <- roadStage("Pau", "Bordeaux", 202)
+      _ <- roadStage("Castillon-la-Bataille", "Limoges", 182.5)
+      _ <- individualTimeTrial("Lac de Vassiviere", 45.5)
+      _ <- roadStage("Bretigny-sur-Orge", "Paris", 182.5)
+    } yield()
+
+    val result = composition.exec(StageRaceState.init(TourDeFrance,LocalDate.of(1990,6,30)))
     StageRaceEdition(TourDeFrance, result.stages)
   }
 }

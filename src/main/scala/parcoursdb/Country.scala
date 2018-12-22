@@ -10,4 +10,5 @@ case object Italy extends Country
 case object Luxembourg extends Country // 1989 Tour de France start
 case object Netherlands extends Country
 case object Spain extends Country
+case object Switzerland extends Country
 case object UnitedKingdom extends Country

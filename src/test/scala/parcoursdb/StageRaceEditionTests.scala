@@ -8,6 +8,7 @@ import scala.io.Source
 class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
 
   val tdf1989       = TourDeFranceEditions.tdf1989
+  val tdf1990       = TourDeFranceEditions.tdf1990
   val tdf2018       = TourDeFranceEditions.tdf2018
   val giro2018      = GiroEditions.giro2018
   val giro2017      = GiroEditions.giro2017
@@ -20,6 +21,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
     Table[StageRaceEdition, String](
       ("Race", "Dates"),
       (tdf1989, "1-23 July"),
+      (tdf1990, "30 June-22 July"),
       (tdf2018, "7-29 July"),
       (giro2018, "4-27 May"),
       (giro2017, "5-28 May"),
@@ -33,6 +35,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
     Table[StageRaceEdition, Double](
       ("Race", "Length"),
       (tdf1989, 3285),
+      (tdf1990, 3404),
       (tdf2018, 3351),
       (giro2018, 3572),
       (giro2017, 3614),
@@ -45,6 +48,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Race composition") {
     Table[StageRaceEdition, Int, Int, Int, Int](
       ("Race", "Road stages", "Team Time Trials", "Individual Time Trials", "Rest Days"),
+      (tdf1989, 17, 1, 3, 2),
+      (tdf1990, 17, 1, 3, 2),
       (tdf2018, 19, 1, 1, 2),
       (giro2018, 19, 0, 2, 3),
       (giro2017, 19, 0, 2, 3), 
@@ -126,6 +131,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
     Table[StageRaceEdition](
       ("Race"),
       (tdf1989),
+      (tdf1990),
       (tdf2018),
       (giro2018),
       (giro2017),
