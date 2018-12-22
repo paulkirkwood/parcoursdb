@@ -3,12 +3,12 @@ package parcoursdb
 import java.time.LocalDate
 import StageRaceState._
 
-object ParisNice2018 {
+object ParisNiceEditions {
 
   implicit val country:Country = France
   val nice:Location = Location("Nice")
 
-  def parisNice:StageRaceEdition = {
+  def parisNice2018:StageRaceEdition = {
 
     val composition = for {
       // Stage 1
@@ -63,7 +63,7 @@ object ParisNice2018 {
 
     } yield()
 
-    val result = composition.exec(StageRaceState(ParisNice,LocalDate.of(2018,3,4),1,Seq[Stage]()))
+    val result = composition.exec(StageRaceState.init(ParisNice,LocalDate.of(2018,3,4)))
     StageRaceEdition(ParisNice, result.stages)
   }
 }

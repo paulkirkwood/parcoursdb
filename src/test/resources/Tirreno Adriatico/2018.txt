@@ -1,0 +1,7 @@
+1,3 March,Lido di Camaiore,21.5 km,Team time trial
+2,4 March,Camaiore to Follonica,172.0 km,Road stage
+3,5 March,Follonica to Trevi,239.0 km,Road stage
+4,6 March,Foligno to Sarnano Sassotetto,219.0 km,Road stage
+5,7 March,Castelraimondo to Filottrano,178.0 km,Road stage
+6,8 March,Numana to Fano,153.0 km,Road stage
+7,9 March,San Benedetto del Tronto,10.1 km,Individual time trial

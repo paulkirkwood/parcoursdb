@@ -1,0 +1,24 @@
+P,1 July,Luxembourg City (Grand Duchy of Luxembourg),7.8 km,Individual time trial
+1,2 July,Luxembourg City (Grand Duchy of Luxembourg),135.5 km,Road stage
+2,2 July,Luxembourg City (Grand Duchy of Luxembourg),46.0 km,Team time trial
+3,3 July,Luxembourg City (Grand Duchy of Luxembourg) to Spa (Belgium),241.0 km,Road stage
+4,4 July,Liege (Belgium) to Wasquehal,255.0 km,Road stage
+,5 July,Rest day,Dinard
+5,6 July,Dinard to Rennes,73.0 km,Individual time trial
+6,7 July,Rennes to Futuroscope,259.0 km,Road stage
+7,8 July,Poitiers to Bordeaux,258.5 km,Road stage
+8,9 July,Labastide-d'Armagnac to Pau,157.0 km,Road stage
+9,10 July,Pau to Cauterets,147.0 km,Road stage
+10,11 July,Cauterets to Superbagneres,136.0 km,Road stage
+11,12 July,Luchon to Blagnac,158.5 km,Road stage
+12,13 July,Toulouse to Montpellier,242.0 km,Road stage
+13,14 July,Montpellier to Marseille,179.0 km,Road stage
+14,15 July,Marseille to Gap,240.0 km,Road stage
+15,16 July,Gap to Orcieres-Merlette,39.0 km,Individual time trial
+,17 July,Rest day,Orcieres-Merlette
+16,18 July,Gap to Briancon,175.0 km,Road stage
+17,19 July,Briancon to Alpe d'Huez,165.0 km,Road stage
+18,20 July,Le Bourg-d'Oisans to Villard-de-Lans,91.5 km,Road stage
+19,21 July,Villard-de-Lans to Aix-les-Bains,125.0 km,Road stage
+20,22 July,Aix-les-Bains to L'Isle-d'Abeau,130.0 km,Road stage
+21,23 July,Versailles to Paris,24.5 km,Individual time trial

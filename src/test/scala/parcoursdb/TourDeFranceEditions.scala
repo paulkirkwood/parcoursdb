@@ -3,11 +3,11 @@ package parcoursdb
 import java.time.LocalDate
 import StageRaceState._
 
-object TourDeFrance2018 { 
-
-  def tdf:StageRaceEdition = {
+object TourDeFranceEditions {
 
   implicit val country:Country = France
+
+  def tdf2018:StageRaceEdition = {
 
     val composition = for {
 
@@ -134,7 +134,47 @@ object TourDeFrance2018 {
       _ <- roadStage("Houilles", "Paris", 116)
     } yield()
 
-    val result = composition.exec(StageRaceState(TourDeFrance,LocalDate.of(2018,7,7),1,Seq[Stage]()))
+    val result = composition.exec(StageRaceState.init(TourDeFrance,LocalDate.of(2018,7,7)))
+    StageRaceEdition(TourDeFrance, result.stages)
+  }
+
+  def tdf1989:StageRaceEdition = {
+
+    val luxembourgCity = Location("Luxembourg City")(Luxembourg)
+    val spa            = Location("Spa")(Belgium)
+    val liege          = Location("Liege")(Belgium)
+    val wasquehal      = Location("Wasquehal")(France)
+
+    val composition = for {
+
+      _ <- prologue(luxembourgCity, 7.8)
+      _ <- morningStage
+      _ <- criterium(luxembourgCity, 135.5)
+      _ <- teamTimeTrial(luxembourgCity, 46)
+      _ <- roadStage(luxembourgCity, spa, 241)
+      _ <- roadStage(liege, wasquehal, 255)
+      _ <- restDay("Dinard")
+      _ <- individualTimeTrial("Dinard", "Rennes", 73)
+      _ <- roadStage("Rennes", "Futuroscope", 259)
+      _ <- roadStage("Poitiers", "Bordeaux", 258.5)
+      _ <- roadStage("Labastide-d'Armagnac", "Pau", 157)
+      _ <- roadStage("Pau", "Cauterets", 147)
+      _ <- roadStage("Cauterets", "Superbagneres", 136)
+      _ <- roadStage("Luchon", "Blagnac", 158.5)
+      _ <- roadStage("Toulouse", "Montpellier", 242)
+      _ <- roadStage("Montpellier", "Marseille", 179)
+      _ <- roadStage("Marseille", "Gap", 240)
+      _ <- individualTimeTrial("Gap", "Orcieres-Merlette", 39)
+      _ <- restDay("Orcieres-Merlette")
+      _ <- roadStage("Gap", "Briancon", 175)
+      _ <- roadStage("Briancon", "Alpe d'Huez", 165)
+      _ <- roadStage("Le Bourg-d'Oisans", "Villard-de-Lans", 91.5)
+      _ <- roadStage("Villard-de-Lans", "Aix-les-Bains", 125)
+      _ <- roadStage("Aix-les-Bains", "L'Isle-d'Abeau", 130)
+      _ <- individualTimeTrial("Versailles", "Paris", 24.5)
+    } yield()
+
+    val result = composition.exec(StageRaceState.init(TourDeFrance,LocalDate.of(1989,7,1)))
     StageRaceEdition(TourDeFrance, result.stages)
   }
 }

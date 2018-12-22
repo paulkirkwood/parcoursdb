@@ -7,6 +7,6 @@ case class Location(name:String)(implicit val country:Country) {
 object Location {
   def shortName(l:Location)(implicit country:Country) : String = {
     if (l.country == country) l.name
-    else s"${l.name} (${l.country})"
+    else s"${l.name} (${CountryUtils.name(l.country)})"
   }
 }
