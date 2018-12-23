@@ -1,0 +1,24 @@
+P,30 June,Futuroscope,6.3 km,Individual time trial
+1,1 July,Futuroscope,138.5 km,Road stage
+2,1 July,Futuroscope,44.5 km,Team time trial
+3,2 July,Poitiers to Nantes,233.0 km,Road stage
+4,3 July,Nantes to Mont Saint-Michel,203.0 km,Road stage
+5,4 July,Avranches to Rouen,301.0 km,Road stage
+,5 July,Rest day,Rouen
+6,6 July,Sarrebourg to Vittel,202.5 km,Road stage
+7,7 July,Vittel to Epinal,61.5 km,Individual time trial
+8,8 July,Epinal to Besancon,181.5 km,Road stage
+9,9 July,Besancon to Geneva (Switzerland),196.0 km,Road stage
+10,10 July,Geneva (Switzerland) to Saint-Gervais,118.5 km,Road stage
+11,11 July,Saint-Gervais to Alpe d'Huez,182.5 km,Road stage
+12,12 July,Fontaine to Villard-de-Lans,33.5 km,Individual time trial
+,13 July,Rest day,Villard-de-Lans
+13,14 July,Villard-de-Lans to Saint-Etienne,149.0 km,Road stage
+14,15 July,Le Puy-en-Velay to Millau,205.0 km,Road stage
+15,16 July,Millau to Revel,170.0 km,Road stage
+16,17 July,Blagnac to Luz Ardiden,215.0 km,Road stage
+17,18 July,Lourdes to Pau,150.0 km,Road stage
+18,19 July,Pau to Bordeaux,202.0 km,Road stage
+19,20 July,Castillon-la-Bataille to Limoges,182.5 km,Road stage
+20,21 July,Lac de Vassiviere,45.5 km,Individual time trial
+21,22 July,Bretigny-sur-Orge to Paris,182.5 km,Road stage

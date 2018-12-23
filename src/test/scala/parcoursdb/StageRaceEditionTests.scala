@@ -9,6 +9,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
 
   val tdf1989       = TourDeFranceEditions.tdf1989
   val tdf1990       = TourDeFranceEditions.tdf1990
+  val tdf1991       = TourDeFranceEditions.tdf1991
   val tdf2018       = TourDeFranceEditions.tdf2018
   val giro2018      = GiroEditions.giro2018
   val giro2017      = GiroEditions.giro2017
@@ -22,6 +23,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       ("Race", "Dates"),
       (tdf1989, "1-23 July"),
       (tdf1990, "30 June-22 July"),
+      (tdf1991, "6-28 July"),
       (tdf2018, "7-29 July"),
       (giro2018, "4-27 May"),
       (giro2017, "5-28 May"),
@@ -36,6 +38,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       ("Race", "Length"),
       (tdf1989, 3285),
       (tdf1990, 3404),
+      (tdf1991, 3914),
       (tdf2018, 3351),
       (giro2018, 3572),
       (giro2017, 3614),
@@ -50,6 +53,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       ("Race", "Road stages", "Team Time Trials", "Individual Time Trials", "Rest Days"),
       (tdf1989, 17, 1, 3, 2),
       (tdf1990, 17, 1, 3, 2),
+      (tdf1991, 19, 1, 2, 1),
       (tdf2018, 19, 1, 1, 2),
       (giro2018, 19, 0, 2, 3),
       (giro2017, 19, 0, 2, 3), 
@@ -107,6 +111,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Longest stage") {
     Table[StageRaceEdition, Double](
       ("Race", "Length"),
+      (tdf1991, 286),
       (tdf2018, 231),
       (giro2018, 244),
       (giro2017, 234),
@@ -132,6 +137,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       ("Race"),
       (tdf1989),
       (tdf1990),
+      (tdf1991),
       (tdf2018),
       (giro2018),
       (giro2017),

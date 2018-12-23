@@ -1,0 +1,24 @@
+P,6 July,Lyon,5.4 km,Individual time trial
+1,7 July,Lyon,114.5 km,Road stage
+2,7 July,Bron to Chassieu,36.5 km,Team time trial
+3,8 July,Villeurbanne to Dijon,210.5 km,Road stage
+4,9 July,Dijon to Reims,286.0 km,Road stage
+5,10 July,Reims to Valenciennes,149.5 km,Road stage
+6,11 July,Arras to Le Havre,259.0 km,Road stage
+7,12 July,Le Havre to Argentan,167.0 km,Road stage
+8,13 July,Argentan to Alencon,73.0 km,Individual time trial
+9,14 July,Alencon to Rennes,161.0 km,Road stage
+10,15 July,Rennes to Quimper,207.5 km,Road stage
+11,16 July,Quimper to Saint-Herblain,246.0 km,Road stage
+,17 July,Rest day,Pau
+12,18 July,Pau to Jaca (Spain),192.0 km,Road stage
+13,19 July,Jaca (Spain) to Val Louron,232.0 km,Road stage
+14,20 July,St Gaudens to Castres,172.5 km,Road stage
+15,21 July,Albi to Ales,235.0 km,Road stage
+16,22 July,Ales to Gap,215.0 km,Road stage
+17,23 July,Gap to Alpe d'Huez,125.0 km,Road stage
+18,24 July,Le Bourg-d'Oisans to Morzine,255.0 km,Road stage
+19,25 July,Morzine to Aix-les-Bains,177.0 km,Road stage
+20,26 July,Aix-les-Bains to Macon,160.0 km,Road stage
+21,27 July,Lugny to Macon,57.0 km,Individual time trial
+22,28 July,Melun to Paris,178.0 km,Road stage

@@ -41,6 +41,14 @@ object StageRaceState {
     roadStage(Location(start),Location(finish),length)
   }
 
+  def roadStage(start:Location, finish:String, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
+    roadStage(start,Location(finish),length)
+  }
+
+  def roadStage(start:String, finish:Location, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
+    roadStage(Location(start),finish,length)
+  }
+
   def roadStage(start:Location, finish:Location, length: Double) : State[StageRaceState, Unit] = {
     for {
       s <- get[StageRaceState]

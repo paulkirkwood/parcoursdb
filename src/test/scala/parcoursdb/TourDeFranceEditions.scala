@@ -214,4 +214,40 @@ object TourDeFranceEditions {
     val result = composition.exec(StageRaceState.init(TourDeFrance,LocalDate.of(1990,6,30)))
     StageRaceEdition(TourDeFrance, result.stages)
   }
+
+  def tdf1991:StageRaceEdition = {
+
+    val jaca = Location("Jaca")(Spain)
+
+    val composition = for {
+      _ <- prologue("Lyon", 5.4)
+      _ <- morningStage
+      _ <- criterium("Lyon", 114.5)
+      _ <- teamTimeTrial("Bron", "Chassieu", 36.5)
+      _ <- roadStage("Villeurbanne", "Dijon", 210.5)
+      _ <- roadStage("Dijon", "Reims", 286)
+      _ <- roadStage("Reims", "Valenciennes", 149.5)
+      _ <- roadStage("Arras", "Le Havre", 259)
+      _ <- roadStage("Le Havre", "Argentan", 167)
+      _ <- individualTimeTrial("Argentan", "Alencon", 73)
+      _ <- roadStage("Alencon", "Rennes", 161)
+      _ <- roadStage("Rennes", "Quimper", 207.5)
+      _ <- roadStage("Quimper", "Saint-Herblain", 246)
+      _ <- restDay("Pau")
+      _ <- roadStage("Pau", jaca, 192)
+      _ <- roadStage(jaca, "Val Louron", 232)
+      _ <- roadStage("St Gaudens", "Castres", 172.5)
+      _ <- roadStage("Albi", "Ales", 235)
+      _ <- roadStage("Ales", "Gap", 215)
+      _ <- roadStage("Gap", "Alpe d'Huez", 125)
+      _ <- roadStage("Le Bourg-d'Oisans", "Morzine", 255)
+      _ <- roadStage("Morzine", "Aix-les-Bains", 177)
+      _ <- roadStage("Aix-les-Bains", "Macon", 160)
+      _ <- individualTimeTrial("Lugny", "Macon", 57)
+      _ <- roadStage("Melun", "Paris", 178)
+    } yield()
+
+    val result = composition.exec(StageRaceState.init(TourDeFrance,LocalDate.of(1991,7,6)))
+    StageRaceEdition(TourDeFrance, result.stages)
+  }
 }
