@@ -7,6 +7,48 @@ object TourDeFranceEditions {
 
   implicit val country:Country = France
 
+  def tdf1972:StageRaceEdition = {
+    val composition = for {
+      _ <- prologue("Angers", 7.2)
+      _ <- roadStage("Angers", "Saint-Brieuc",235.5)
+      _ <- roadStage("Saint-Brieuc", "La Baule",206.5)
+      _ <- enableSplitStages 
+      _ <- roadStage("Pornichet", "Saint-Jean-de-Monts",161)
+      _ <- individualTimeTrial("Merlin-Plage" ,16.2)
+      _ <- disableSplitStages 
+      _ <- roadStage("Melin-Plage", "Royan",236)
+      _ <- enableSplitStages 
+      _ <- roadStage("Royan", "Bordeaux",133.5)
+      _ <- individualTimeTrial("Bordeaux", 12.7)
+      _ <- disableSplitStages 
+      _ <- roadStage("Bordeaux", "Bayonne",205)
+      _ <- restDay("Bayonne")
+      _ <- roadStage("Bayonne", "Pau",220.5)
+      _ <- roadStage("Pau", "Luchon",163.5)
+      _ <- roadStage("Luchon", "Colombiers",179)
+      _ <- roadStage("Castres", "La Grand-Motte",210)
+      _ <- roadStage("Carnon-Plage", "Mont Ventoux",207)
+      _ <- roadStage("Carpentras", "Orcieres",192)
+      _ <- restDay("Orcieres")
+      _ <- roadStage("Orcieres", "Briancon",201)
+      _ <- enableSplitStages 
+      _ <- roadStage("Briancon", "Valloire",51)
+      _ <- roadStage("Valloire", "Aix-les-Bains",151)
+      _ <- disableSplitStages 
+      _ <- roadStage("Aix-les-Bains", "Le Revard",28)
+      _ <- roadStage("Aix-les-Bains", "Pontarlier",198.5)
+      _ <- roadStage("Pontarlier", "Ballon d'Alsace",213)
+      _ <- roadStage("Vesoul", "Auxerre",257.5)
+      _ <- roadStage("Auxerre", "Versailles",230)
+      _ <- enableSplitStages 
+      _ <- individualTimeTrial("Versailles", 42)
+      _ <- roadStage("Versailles", "Paris",89)
+      _ <- disableSplitStages 
+    } yield()
+    val result = composition.exec(StageRaceState.init(TourDeFrance,LocalDate.of(1972,7,1)))
+    StageRaceEdition(TourDeFrance, result.stages)
+  }
+
   def tdf2018:StageRaceEdition = {
 
     val composition = for {
@@ -149,6 +191,7 @@ object TourDeFranceEditions {
       _ <- prologue(luxembourgCity, 7.8)
       _ <- morningStage
       _ <- criterium(luxembourgCity, 135.5)
+      _ <- afternoonStage
       _ <- teamTimeTrial(luxembourgCity, 46)
       _ <- roadStage(luxembourgCity, spa, 241)
       _ <- roadStage(liege, wasquehal, 255)
@@ -187,6 +230,7 @@ object TourDeFranceEditions {
       _ <- prologue("Futuroscope", 6.3)
       _ <- morningStage
       _ <- criterium("Futuroscope", 138.5)
+      _ <- afternoonStage
       _ <- teamTimeTrial("Futuroscope", 44.5)
       _ <- roadStage("Poitiers", "Nantes", 233)
       _ <- roadStage("Nantes", "Mont Saint-Michel", 203)
@@ -223,6 +267,7 @@ object TourDeFranceEditions {
       _ <- prologue("Lyon", 5.4)
       _ <- morningStage
       _ <- criterium("Lyon", 114.5)
+      _ <- afternoonStage
       _ <- teamTimeTrial("Bron", "Chassieu", 36.5)
       _ <- roadStage("Villeurbanne", "Dijon", 210.5)
       _ <- roadStage("Dijon", "Reims", 286)

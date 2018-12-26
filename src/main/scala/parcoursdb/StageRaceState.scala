@@ -7,23 +7,64 @@ import Scalaz._
 case class StageRaceState(stageRace:StageRace,
                           date: LocalDate,
                           stageID: Int,
-                          splitStages: Int,
+                          splitStages: Boolean,
+                          splitStageID: Char,
+                          morningStage: Boolean,
                           stages: Seq[Stage])
 
 object StageRaceState {
 
   def init(stageRace:StageRace,date:LocalDate) = {
-    StageRaceState(stageRace,date,1,0,Seq[Stage]())
+    StageRaceState(stageRace=stageRace,
+                   date=date,
+                   stageID=1,
+                   splitStages=false,
+                   splitStageID='a',
+                   morningStage=false,
+                   stages=Seq[Stage]())
   }
 
   def morningStage : State[StageRaceState, Unit] = {
     for {
       s <- get[StageRaceState]
-      producedValue <- put(s.copy(splitStages=1))
+      producedValue <- put(s.copy(morningStage=true))
     } yield producedValue
   }
 
-  def nextStageDate(s:StageRaceState) : LocalDate = if (s.splitStages > 0) s.date else s.date.plusDays(1)
+  def afternoonStage : State[StageRaceState, Unit] = {
+    for {
+      s <- get[StageRaceState]
+      producedValue <- put(s.copy(morningStage=false))
+    } yield producedValue
+  }
+
+  def enableSplitStages : State[StageRaceState, Unit] = {
+    for {
+      s <- get[StageRaceState]
+      producedValue <- put(s.copy(splitStages=true,splitStageID='a'))
+    } yield producedValue
+  }
+
+  def disableSplitStages : State[StageRaceState, Unit] = {
+    for {
+      s <- get[StageRaceState]
+      producedValue <- put(s.copy(splitStages=false,stageID=s.stageID + 1,date=s.date.plusDays(1)))
+    } yield producedValue
+  }
+
+  def nextStageDate(s:StageRaceState) : LocalDate = {
+    if (s.splitStages || s.morningStage) s.date else s.date.plusDays(1)
+  }
+
+  def nextStageID(s:StageRaceState) : Int = if (s.splitStages) s.stageID else s.stageID + 1
+
+  def nextSplitStageID(s:StageRaceState) : Char = {
+    if (s.splitStages) (s.splitStageID + 1).toChar else s.splitStageID
+  }
+
+  def getStageID(s:StageRaceState) : String = {
+    if (s.splitStages) s"${s.stageID}${s.splitStageID}" else s"${s.stageID}"
+  }
 
   def prologue(start:String, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
     prologue(Location(start), length)
@@ -52,8 +93,11 @@ object StageRaceState {
   def roadStage(start:Location, finish:Location, length: Double) : State[StageRaceState, Unit] = {
     for {
       s <- get[StageRaceState]
-      stage = RoadStage(s.date,s.stageID.toString, start, finish, length, Set.empty[Col])
-      producedValue <- put(s.copy(date=nextStageDate(s), splitStages=s.splitStages - 1, stageID=s.stageID + 1, stages=s.stages :+ stage))
+      stage = RoadStage(s.date,getStageID(s), start, finish, length, Set.empty[Col])
+      producedValue <- put(s.copy(date=nextStageDate(s),
+                                  stageID=nextStageID(s),
+                                  splitStageID=nextSplitStageID(s),
+                                  stages=s.stages :+ stage))
     } yield producedValue
   }
 
@@ -80,8 +124,11 @@ object StageRaceState {
   def teamTimeTrial(start:Location, finish:Location, length: Double) : State[StageRaceState, Unit] = {
     for {
       s <- get[StageRaceState]
-      stage = TeamTimeTrial(s.date,s.stageID.toString, start, finish, length, Set.empty[Col])
-      producedValue <- put(s.copy(date=nextStageDate(s), splitStages=s.splitStages - 1, stageID=s.stageID + 1, stages=s.stages :+ stage))
+      stage = TeamTimeTrial(s.date,getStageID(s), start, finish, length, Set.empty[Col])
+      producedValue <- put(s.copy(date=nextStageDate(s),
+                                  stageID=nextStageID(s),
+				  splitStageID=nextSplitStageID(s),
+				  stages=s.stages :+ stage))
     } yield producedValue
   }
 
@@ -100,8 +147,11 @@ object StageRaceState {
   def individualTimeTrial(start:Location, finish:Location, length: Double) : State[StageRaceState, Unit] = {
     for {
       s <- get[StageRaceState]
-      stage = IndividualTimeTrial(s.date,s.stageID.toString, start, finish, length, Set.empty[Col])
-      producedValue <- put(s.copy(date=nextStageDate(s), splitStages=s.splitStages - 1, stageID=s.stageID + 1, stages=s.stages :+ stage))
+      stage = IndividualTimeTrial(s.date,getStageID(s), start, finish, length, Set.empty[Col])
+      producedValue <- put(s.copy(date=nextStageDate(s),
+                                  stageID=nextStageID(s),
+				  splitStageID=nextSplitStageID(s),
+				  stages=s.stages :+ stage))
     } yield producedValue
   }
 

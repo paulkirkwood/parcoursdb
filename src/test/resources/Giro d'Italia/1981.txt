@@ -1,0 +1,27 @@
+P,13 May,Trieste,6.6 km,Individual time trial
+1a,14 May,Trieste to Bibione,100.0 km,Road stage
+1b,14 May,Lignano Sabbiadoro to Bibione,15.0 km,Team time trial
+2,15 May,Bibione to Ferrara,211.0 km,Road stage
+3,16 May,Bologna to Recanati,255.0 km,Road stage
+,17 May,Rest day
+4,18 May,Recanati to Lanciano,214.0 km,Road stage
+5,19 May,Marina di San Vito to Rodi Garganico,180.0 km,Road stage
+6,20 May,Rodi Garganico to Bari,225.0 km,Road stage
+7,21 May,Bari to Potenza,143.0 km,Road stage
+8,22 May,Sala Consilina to Cosenza,202.0 km,Road stage
+9,23 May,Cosenza to Reggio Calabria,231.0 km,Road stage
+,24 May,Rest day
+10,25 May,Rome to Cascia,166.0 km,Road stage
+11,26 May,Cascia to Arezzo,199.0 km,Road stage
+12,27 May,Arezzo to Livorno,224.0 km,Road stage
+13,28 May,Empoli to Montecatini Terme,35.0 km,Individual time trial
+14,29 May,Montecatini Terme to Salsomaggiore Terme,224.0 km,Road stage
+15,30 May,Salsomaggiore Terme to Pavia,198.0 km,Road stage
+16,31 May,Milan to Mantua,178.0 km,Road stage
+17,1 June,Mantua to Borno,215.0 km,Road stage
+18,2 June,Borno to Dimaro,127.0 km,Road stage
+,3 June,Rest day
+19,4 June,Dimaro to San Vigillo di Marebbe,208.0 km,Road stage
+20,5 June,San Vigillo di Marebbe to Tre Cime di Lavaredo,100.0 km,Road stage
+21,6 June,Auronzo di Cadore to Arzignano,197.0 km,Road stage
+22,7 June,Soave to Verona,42.0 km,Individual time trial

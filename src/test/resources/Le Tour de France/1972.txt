@@ -1,0 +1,27 @@
+P,1 July,Angers,7.2 km,Individual time trial
+1,2 July,Angers to Saint-Brieuc,235.5 km,Road stage
+2,3 July,Saint-Brieuc to La Baule,206.5 km,Road stage
+3a,4 July,Pornichet to Saint-Jean-de-Monts,161.0 km,Road stage
+3b,4 July,Merlin-Plage,16.2 km,Individual time trial
+4,5 July,Melin-Plage to Royan,236.0 km,Road stage
+5a,6 July,Royan to Bordeaux,133.5 km,Road stage
+5b,6 July,Bordeaux,12.7 km,Individual time trial
+6,7 July,Bordeaux to Bayonne,205.0 km,Road stage
+,8 July,Rest day,Bayonne
+7,9 July,Bayonne to Pau,220.5 km,Road stage
+8,10 July,Pau to Luchon,163.5 km,Road stage
+9,11 July,Luchon to Colombiers,179.0 km,Road stage
+10,12 July,Castres to La Grand-Motte,210.0 km,Road stage
+11,13 July,Carnon-Plage to Mont Ventoux,207.0 km,Road stage
+12,14 July,Carpentras to Orcieres,192.0 km,Road stage
+,15 July,Rest day,Orcieres
+13,16 July,Orcieres to Briancon,201.0 km,Road stage
+14a,17 July,Briancon to Valloire,51.0 km,Road stage
+14b,17 July,Valloire to Aix-les-Bains,151.0 km,Road stage
+15,18 July,Aix-les-Bains to Le Revard,28.0 km,Road stage
+16,19 July,Aix-les-Bains to Pontarlier,198.5 km,Road stage
+17,20 July,Pontarlier to Ballon d'Alsace,213.0 km,Road stage
+18,21 July,Vesoul to Auxerre,257.5 km,Road stage
+19,22 July,Auxerre to Versailles,230.0 km,Road stage
+20a,23 July,Versailles,42.0 km,Individual time trial
+20b,23 July,Versailles to Paris,89.0 km,Road stage

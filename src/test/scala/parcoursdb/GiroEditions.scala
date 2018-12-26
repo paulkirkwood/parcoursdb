@@ -7,6 +7,44 @@ object GiroEditions {
   
   implicit val country:Country = Italy
 
+  def giro1981:StageRaceEdition = {
+  
+    val composition = for {
+      _ <- prologue("Trieste", 6.6)
+      _ <- enableSplitStages
+      _ <- roadStage("Trieste", "Bibione", 100)
+      _ <- teamTimeTrial("Lignano Sabbiadoro", "Bibione", 15.0)
+      _ <- disableSplitStages
+      _ <- roadStage("Bibione", "Ferrara",211)
+      _ <- roadStage("Bologna", "Recanati",255)
+      _ <- restDay
+      _ <- roadStage("Recanati", "Lanciano",214)
+      _ <- roadStage("Marina di San Vito", "Rodi Garganico",180)
+      _ <- roadStage("Rodi Garganico", "Bari",225)
+      _ <- roadStage("Bari", "Potenza",143)
+      _ <- roadStage("Sala Consilina", "Cosenza",202)
+      _ <- roadStage("Cosenza", "Reggio Calabria",231)
+      _ <- restDay
+      _ <- roadStage("Rome", "Cascia",166)
+      _ <- roadStage("Cascia", "Arezzo",199)
+      _ <- roadStage("Arezzo", "Livorno",224)
+      _ <- individualTimeTrial("Empoli", "Montecatini Terme",35)
+      _ <- roadStage("Montecatini Terme", "Salsomaggiore Terme",224)
+      _ <- roadStage("Salsomaggiore Terme", "Pavia",198)
+      _ <- roadStage("Milan", "Mantua",178)
+      _ <- roadStage("Mantua", "Borno",215)
+      _ <- roadStage("Borno", "Dimaro",127)
+      _ <- restDay
+      _ <- roadStage("Dimaro", "San Vigillo di Marebbe",208)
+      _ <- roadStage("San Vigillo di Marebbe", "Tre Cime di Lavaredo",100)
+      _ <- roadStage("Auronzo di Cadore", "Arzignano",197)
+      _ <- individualTimeTrial("Soave", "Verona",42)
+    } yield()
+
+    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1981,5,13)))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
   def giro2018:StageRaceEdition = {
   
     val composition = for {
