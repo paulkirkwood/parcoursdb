@@ -48,7 +48,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
     ).forEvery {case (race,length) => scala.math.rint(race.length) shouldEqual length }
   }
 
-  test("Race composition") {
+  test("Stage types") {
     Table[StageRaceEdition, Int, Int, Int, Int](
       ("Race", "Road stages", "Team Time Trials", "Individual Time Trials", "Rest Days"),
       (tdf1989, 17, 1, 3, 2),
@@ -71,13 +71,31 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Race summary") {
     Table[StageRaceEdition, String](
       ("Race", "Summary"),
+      (tdf1989, "21 stages + Prologue"),
+      (tdf1990, "21 stages + Prologue"),
+      (tdf1991, "22 stages + Prologue"),
+      (tdf2018, "21 stages"),
+      (giro2018, "21 stages"),
+      (giro2017, "21 stages"),
+      (giro2016, "21 stages"),
+      (parisNice2018, "8 stages"),
+      (tirreno2018, "7 stages")
+    ).forEvery {case (race,summary) => StageRaceUtils.summary(race) shouldEqual summary}
+  }
+
+  test("Stage composition") {
+    Table[StageRaceEdition, String](
+      ("Race", "Composition"),
+      (tdf1989, "21 stages: 17 road stages, 4 Time Trials (1 Team Time Trial; 3 Individual Time Trials), 2 rest days"),
+      (tdf1990, "21 stages: 17 road stages, 4 Time Trials (1 Team Time Trial; 3 Individual Time Trials), 2 rest days"),
+      (tdf1991, "22 stages: 19 road stages, 3 Time Trials (1 Team Time Trial; 2 Individual Time Trials), 1 rest day"),
       (tdf2018, "21 stages: 19 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial), 2 rest days"),
       (giro2018, "21 stages: 19 road stages, 2 Individual Time Trials, 3 rest days"),
       (giro2017, "21 stages: 19 road stages, 2 Individual Time Trials, 3 rest days"),
       (giro2016, "21 stages: 18 road stages, 3 Individual Time Trials, 3 rest days"),
       (parisNice2018, "8 stages: 7 road stages, 1 Individual Time Trial"),
       (tirreno2018, "7 stages: 5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)")
-    ).forEvery {case (race,summary) => StageRaceUtils.composition(race) shouldEqual summary }
+    ).forEvery {case (race,composition) => StageRaceUtils.composition(race) shouldEqual composition}
   }
 
   test("Summit finishes") {

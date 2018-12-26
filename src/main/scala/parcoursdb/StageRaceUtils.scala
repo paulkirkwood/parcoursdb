@@ -25,6 +25,14 @@ object StageRaceUtils {
     else s"${startDay} ${startMonthName}-${finishDay} ${finishMonthName}"
   }
 
+  def summary(stageRace:StageRaceEdition) : String = {
+    val totalStages:Int = stageRace.racingStages.size
+    if ( stageRace.prologueKMs > 0 )
+      s"${totalStages - 1} stages + Prologue"
+    else
+      s"${totalStages} stages"
+  }
+
   def composition(race:StageRaceEdition) : String = {
     val road = race.roadStages.size
     val ttt  = race.teamTimeTrials.size
@@ -48,7 +56,8 @@ object StageRaceUtils {
     }
 
     if ( rest > 0 ) {
-      buf += s"$rest rest days"
+      val dayOrDays = if (rest == 1) "day" else "days"
+      buf += s"$rest rest ${dayOrDays}"
     }
    
     return buf.mkString(", ")
