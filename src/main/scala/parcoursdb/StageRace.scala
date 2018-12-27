@@ -38,6 +38,11 @@ case class StageRaceEdition(race:StageRace, stages:Seq[Stage]) {
     case None => 0
   }
   
+  def hasPrologues:Boolean = prologue match {
+    case Some(prologue) => true
+    case None => false
+  }
+
   def roadStages:Seq[RoadStage] = stages.collect { case r:RoadStage => r }
   def roadStageKMs:Double = roadStages.map(_.length).sum
 

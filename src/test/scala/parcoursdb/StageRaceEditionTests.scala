@@ -7,6 +7,10 @@ import scala.io.Source
 
 class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
 
+  def ~=(x: Double, y: Double, precision: Double) = {
+    if ((x - y).abs < precision) true else false
+  }
+
   val tdf1972       = TourDeFranceEditions.tdf1972
   val tdf1989       = TourDeFranceEditions.tdf1989
   val tdf1990       = TourDeFranceEditions.tdf1990
@@ -32,7 +36,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, "5-28 May"),
       (giro2016, "6-29 May"),
       (parisNice2018, "4-11 March"),
-      (tirreno2018, "3-9 March")
+      (tirreno2018, "3-9 March"),
+      (dauphine2018, "3-10 June")
     ).forEvery {case (race,dates) => StageRaceUtils.dates(race) shouldEqual dates }
   }
 
@@ -47,8 +52,9 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, 3614),
       (giro2016, 3467),
       (parisNice2018, 1198),
-      (tirreno2018, 993)
-    ).forEvery {case (race,length) => scala.math.rint(race.length) shouldEqual length }
+      (tirreno2018, 993),
+      (dauphine2018, 958)
+    ).forEvery {case (race,length) => ~=(race.length, length, 0.0001) }
   }
 
   test("Stage types") {
@@ -62,7 +68,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, 19, 0, 2, 3), 
       (giro2016, 18, 0, 3, 3),
       (parisNice2018, 7, 0, 1, 0),
-      (tirreno2018, 5, 1, 1, 0)
+      (tirreno2018, 5, 1, 1, 0),
+      (dauphine2018, 6, 1, 0, 0)
     ).forEvery {case (race,roadStages,teamTimeTrials,individualTimeTrials,restDays) =>
       race.roadStages.size shouldEqual roadStages
       race.teamTimeTrials.size shouldEqual teamTimeTrials
@@ -82,7 +89,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, "21 stages"),
       (giro2016, "21 stages"),
       (parisNice2018, "8 stages"),
-      (tirreno2018, "7 stages")
+      (tirreno2018, "7 stages"),
+      (dauphine2018, "7 stages + Prologue")
     ).forEvery {case (race,summary) => StageRaceUtils.summary(race) shouldEqual summary}
   }
 
@@ -97,7 +105,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, "21 stages: 19 road stages, 2 Individual Time Trials, 3 rest days"),
       (giro2016, "21 stages: 18 road stages, 3 Individual Time Trials, 3 rest days"),
       (parisNice2018, "8 stages: 7 road stages, 1 Individual Time Trial"),
-      (tirreno2018, "7 stages: 5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)")
+      (tirreno2018, "7 stages: 5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
+      (dauphine2018, "7 stages: 6 road stages, 1 Team Time Trial")
     ).forEvery {case (race,composition) => StageRaceUtils.composition(race) shouldEqual composition}
   }
 
@@ -109,7 +118,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, 4),
       (giro2016, 6),
       (parisNice2018, 2),
-      (tirreno2018, 3)
+      (tirreno2018, 3),
+      (dauphine2018, 4),
     ).forEvery {case (race,numberOfSummitFinishes) => race.summitFinishes shouldEqual numberOfSummitFinishes }
   }
 
@@ -121,7 +131,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, "Passo dello Stelvio", 2758),
       (giro2016, "Colle dell'Agnello", 2744),
       (parisNice2018, "Valdeblore La Colmiane", 1500),
-      (tirreno2018, "Sarnano Sassotetto", 1335)
+      (tirreno2018, "Sarnano Sassotetto", 1335),
+      (dauphine2018, "Cormet de Roselend", 1968)
     ).forEvery {case (race,name,height) =>
       val col:Col = race.highPoint.get    
       col.name shouldEqual name
@@ -138,7 +149,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017, 234),
       (giro2016, 244),
       (parisNice2018, 210),
-      (tirreno2018, 239)
+      (tirreno2018, 239),
+      (dauphine2018, 181)
     ).forEvery {case (race,result) => scala.math.rint(race.longestStage.length) shouldEqual result }
   }
 
@@ -149,28 +161,54 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2018, "8 Cat. 1, 9 Cat. 2, 9 Cat. 3, 10 Cat. 4"),
       (giro2017, "10 Cat. 1, 13 Cat. 2, 6 Cat. 3, 11 Cat. 4"),
       (giro2016, "11 Cat. 1, 12 Cat. 2, 10 Cat. 3, 5 Cat. 4"),
-      (parisNice2018, "7 Cat. 1, 11 Cat. 2, 8 Cat. 3")
+      (parisNice2018, "7 Cat. 1, 11 Cat. 2, 8 Cat. 3"),
+      (dauphine2018, "4 HC, 5 Cat. 1, 5 Cat. 2, 7 Cat. 3, 6 Cat. 4")
     ).forEvery {case (race,result) => StageRaceUtils.cols(race) shouldEqual result }
   }
 
   test("Race route") {
     Table[StageRaceEdition](
       ("Race"),
-      (tdf1972)
-      //(tdf1989),
-      //(tdf1990),
-      //(tdf1991),
-      //(tdf2018),
-      //(giro1981),
-      //(giro2018),
-      //(giro2017),
-      //(giro2016),
-      //(parisNice2018),
-      //(tirreno2018)
+      (tdf1972),
+      (tdf1989),
+      (tdf1990),
+      (tdf1991),
+      (tdf2018),
+      (giro1981),
+      (giro2018),
+      (giro2017),
+      (giro2016),
+      (parisNice2018),
+      (tirreno2018),
+      (dauphine2018)
     ).forEvery {case (stageRace) =>
       val raceName:String = RaceUtils.name(stageRace.race)
       val year:Int = stageRace.firstStage.date.getYear()
-      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${year}.txt"))
+      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${year}/route.csv"))
+      val result = source.getLines.toList
+      source.close()
+      StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)) shouldEqual result }
+  }
+
+  test("Prologue starts") {
+    Table[StageRaceEdition](
+      ("Race"),
+      (tdf1972),
+      (tdf1989),
+      (tdf1990),
+      (tdf1991),
+      (tdf2018),
+      (giro1981),
+      (giro2016),
+      (giro2017),
+      (giro2018),
+      (parisNice2018),
+      (tirreno2018),
+      (dauphine2018)
+    ).forEvery {case (stageRace) =>
+      val raceName:String = RaceUtils.name(stageRace.race)
+      val year:Int = stageRace.firstStage.date.getYear()
+      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${year}/route.csv"))
       val result = source.getLines.toList
       source.close()
       StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)) shouldEqual result }

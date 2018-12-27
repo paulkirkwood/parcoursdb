@@ -85,4 +85,5 @@ object StageRaceUtils {
   def route(race:StageRaceEdition)(implicit country:Country) : List[String] = {
     race.stageChronology.map(StageUtils.stageDescription(_)(country)).toList
   }
+
 }

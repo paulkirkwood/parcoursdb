@@ -10,7 +10,7 @@ object DauphineEditions {
   def dauphine2018:StageRaceEdition = {
     val composition = for {
       // Prologue
-      _ <- prologue("Valance", 6.6)
+      _ <- prologue("Valence", 6.6)
 
       // Stage 1
       _ <- roadStage(start="Valence", finish="Saint-Just-Saint-Rambert", length=179)
