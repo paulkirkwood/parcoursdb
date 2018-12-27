@@ -7,8 +7,38 @@ object GiroEditions {
   
   implicit val country:Country = Italy
 
+  def giro1980:StageRaceEdition = {
+    val composition = for {
+      _ <- prologue("Genoa", 7)
+      _ <- roadStage(start="Genoa", finish="Imperia", length=123)
+      _ <- roadStage(start="Imperia", finish="Turin", length=179)
+      _ <- roadStage(start="Turin", finish="Parma", length=243)
+      _ <- roadStage(start="Parma", finish="Marina di Pisa", length=193)
+      _ <- individualTimeTrial(start="Pontedera", finish="Pisa", length=36)
+      _ <- restDay
+      _ <- roadStage(start="Rio Marina", finish="Portoferraio", length=126)
+      _ <- roadStage(start="Castiglione della Pescaia", finish="Orvieto", length=200)
+      _ <- roadStage(start="Orvieto", finish="Fiuggi", length=216)
+      _ <- roadStage(start="Fiuggi", finish="Sorrento", length=247)
+      _ <- roadStage(start="Sorrento", finish="Palinuro", length=177)
+      _ <- roadStage(start="Palinuro", finish="Campotenese", length=145)
+      _ <- roadStage(start="Villapiana Lido", finish="Campi Salentina", length=203)
+      _ <- roadStage(start="Campi Salentina", finish="Barletta", length=220)
+      _ <- roadStage(start="Foggia", finish="Roccaraso", length=186)
+      _ <- roadStage(start="Roccaraso", finish="Termamo", length=194)
+      _ <- roadStage(start="Giulianova", finish="Gatteo a Mare", length=229)
+      _ <- roadStage(start="Gatteo a Mare", finish="Sirmione", length=237)
+      _ <- roadStage(start="Sirmione", finish="Zoldo Alto", length=239)
+      _ <- roadStage(start="Longarone", finish="Cles", length=241)
+      _ <- roadStage(start="Cles", finish="Sondrio", length=221)
+      _ <- individualTimeTrial(start="Saronno", finish="Turbigo", length=50)
+      _ <- criterium("Milan", length=114.0)
+    } yield()
+    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1980,5,15)))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
   def giro1981:StageRaceEdition = {
-  
     val composition = for {
       _ <- prologue("Trieste", 6.6)
       _ <- enableSplitStages
@@ -40,7 +70,6 @@ object GiroEditions {
       _ <- roadStage("Auronzo di Cadore", "Arzignano",197)
       _ <- individualTimeTrial("Soave", "Verona",42)
     } yield()
-
     val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1981,5,13)))
     StageRaceEdition(TourOfItaly, result.stages)
   }

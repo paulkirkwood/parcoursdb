@@ -26,21 +26,30 @@ object StageRaceUtils {
   }
 
   def summary(stageRace:StageRaceEdition) : String = {
-    val totalStages:Int = stageRace.racingStages.size
-    if ( stageRace.prologueKMs > 0 )
-      s"${totalStages - 1} stages + Prologue"
-    else
-      s"${totalStages} stages"
+    val road:Int = stageRace.roadStages.size
+    val tTTs:Int = stageRace.teamTimeTrials.size
+    val iTTs:Int = stageRace.individualTimeTrials.size
+    val splitStages:Int = stageRace.splitStages
+    val totalStages:Int = road + tTTs + iTTs - splitStages
+    var buf = new ListBuffer[String]()
+    buf += s"${totalStages} stages"
+    if (stageRace.hasPrologue) buf += "+ Prologue"
+    if (stageRace.hasSplitStages) {
+      val stages:String = if (splitStages == 1) "stage" else "stages"
+      buf += s"including ${stageRace.splitStages} split ${stages}"
+    }
+    return buf.mkString(" ")
   }
 
   def composition(race:StageRaceEdition) : String = {
     val road = race.roadStages.size
     val ttt  = race.teamTimeTrials.size
     val itt  = race.individualTimeTrials.size
+    val splitStages = race.splitStages
     val rest = race.restDays.size
 
     var buf = new ListBuffer[String]()
-    buf += s"${road + ttt + itt} stages: $road road stages"
+    buf += s"${road + ttt + itt - splitStages} stages: $road road stages"
 
     if (ttt > 0 || itt > 0) {
       val p1:String = if (ttt == 1) "Trial" else "Trials"
