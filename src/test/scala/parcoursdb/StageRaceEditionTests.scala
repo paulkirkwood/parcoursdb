@@ -24,7 +24,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   val giro1985      = GiroEditions.giro1985
   val giro1986      = GiroEditions.giro1986
   val giro1987      = GiroEditions.giro1987
-  //val giro1988      = GiroEditions.giro1988
+  val giro1988      = GiroEditions.giro1988
   val giro1989      = GiroEditions.giro1989
   val giro1990      = GiroEditions.giro1990
   val giro1991      = GiroEditions.giro1991
@@ -45,7 +45,12 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   val giro2018      = GiroEditions.giro2018
   val parisNice2018 = ParisNiceEditions.parisNice2018
   val dauphine2018  = DauphineEditions.dauphine2018
-  val tirreno2018   = TirrenoAdriaticoEditions.tirreno2018
+  val tirreno2013   = TirrenoAdriaticoEditions.tirrenoAdriatico2013
+  val tirreno2014   = TirrenoAdriaticoEditions.tirrenoAdriatico2014
+  val tirreno2015   = TirrenoAdriaticoEditions.tirrenoAdriatico2015
+  val tirreno2016   = TirrenoAdriaticoEditions.tirrenoAdriatico2016
+  val tirreno2017   = TirrenoAdriaticoEditions.tirrenoAdriatico2017
+  val tirreno2018   = TirrenoAdriaticoEditions.tirrenoAdriatico2018
 
   test("Race dates") {
     Table[StageRaceEdition, String](
@@ -57,13 +62,14 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf2018, "7-29 July"),
       (giro1980, "15 May-7 June"), (giro1981, "13 May-7 June"), (giro1982, "13 May-6 June"), (giro1983, "12 May-5 June"),
       (giro1984, "17 May-10 June"), (giro1985, "16 May-9 June"), (giro1986, "12 May-2 June"), (giro1987, "21 May-13 June"),
-      (giro1989, "21 May-11 June"), (giro1990, "18 May-6 June"), (giro1991, "26 May-16 June"), (giro1992, "24 May-14 June"),
-      (giro1993, "23 May-13 June"), (giro1994, "22 May-12 June"), (giro1995, "13 May-4 June"), (giro1996, "18 May-9 June"),
-      (giro1997, "17 May-8 June"), (giro1998, "16 May-7 June"), (giro1999, "15 May-6 June"), (giro2000, "13 May-4 June"),
-      (giro2001, "19 May-10 June"), (giro2002, "11 May-2 June"), (giro2003, "10 May-1 June"),
+      (giro1988, "23 May-12 June"), (giro1989, "21 May-11 June"), (giro1990, "18 May-6 June"), (giro1991, "26 May-16 June"),
+      (giro1992, "24 May-14 June"), (giro1993, "23 May-13 June"), (giro1994, "22 May-12 June"), (giro1995, "13 May-4 June"),
+      (giro1996, "18 May-9 June"), (giro1997, "17 May-8 June"), (giro1998, "16 May-7 June"), (giro1999, "15 May-6 June"),
+      (giro2000, "13 May-4 June"), (giro2001, "19 May-10 June"), (giro2002, "11 May-2 June"), (giro2003, "10 May-1 June"),
       (giro2016, "6-29 May"), (giro2017, "5-28 May"), (giro2018, "4-27 May"),
       (parisNice2018, "4-11 March"),
-      (tirreno2018, "3-9 March"),
+      (tirreno2013, "6-12 March"), (tirreno2014, "12-18 March"), (tirreno2015, "11-17 March"),
+      (tirreno2016, "9-15 March"), (tirreno2017, "8-14 March"), (tirreno2018, "3-9 March"),
       (dauphine2018, "3-10 June")
     ).forEvery {case (race,dates) => StageRaceUtils.dates(race) shouldEqual dates }
   }
@@ -76,13 +82,14 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf1991, 3914),
       (tdf2018, 3351),
       (giro1980, 4026.0), (giro1981, 3895.6), (giro1982, 3994.5), (giro1983, 3930.0), (giro1984, 3810.0),
-      (giro1985, 3998.6), (giro1986, 3858.6), (giro1987, 3915.0), (giro1989, 3525.2), (giro1990, 3498.0),
-      (giro1991, 3720.0), (giro1992, 3849.0), (giro1993, 3702.0), (giro1994, 3730.0), (giro1995, 3733.0),
-      (giro1996, 3987.0), (giro1997, 3918.0), (giro1998, 3869.0), (giro1999, 3774.0), (giro2000, 3700.6),
-      (giro2001, 3580.0), (giro2002, 3194.5), (giro2003, 3476.5),
+      (giro1985, 3998.6), (giro1986, 3858.6), (giro1987, 3915.0), (giro1988, 3579), (giro1989, 3525.2),
+      (giro1990, 3498.0), (giro1991, 3720.0), (giro1992, 3849.0), (giro1993, 3702.0), (giro1994, 3730.0),
+      (giro1995, 3733.0), (giro1996, 3987.0), (giro1997, 3918.0), (giro1998, 3869.0), (giro1999, 3774.0),
+      (giro2000, 3700.6), (giro2001, 3580.0), (giro2002, 3194.5), (giro2003, 3476.5),
       (giro2016, 3467), (giro2017, 3614), (giro2018, 3572),
       (parisNice2018, 1198),
-      (tirreno2018, 993),
+      (tirreno2014, 1034.6), (tirreno2015, 1004.4), (tirreno2016, 1019.8),
+      (tirreno2017, 1030.7), (tirreno2018, 992.5),
       (dauphine2018, 958)
     ).forEvery {case (race,length) => ~=(race.length, length, 0.0001) }
   }
@@ -102,7 +109,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2001, 20, 0, 1, 1), (giro2002, 18, 0, 2, 2), (giro2003, 19, 0, 2, 2),
       (giro2016, 18, 0, 3, 3), (giro2017, 19, 0, 2, 3), (giro2018, 19, 0, 2, 3),
       (parisNice2018, 7, 0, 1, 0),
-      (tirreno2018, 5, 1, 1, 0),
+      (tirreno2013, 5, 0, 1, 0), (tirreno2014, 5, 0, 1, 0), (tirreno2015, 5, 0, 1, 0),
+      (tirreno2016, 5, 1, 1, 0), (tirreno2017, 5, 1, 1, 0), (tirreno2018, 5, 1, 1, 0),
       (dauphine2018, 6, 1, 0, 0)
     ).forEvery {case (race,roadStages,teamTimeTrials,individualTimeTrials,restDays) =>
       race.roadStages.size shouldEqual roadStages
@@ -131,7 +139,9 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2002, "20 stages + Prologue"), (giro2003, "21 stages"),
       (giro2016, "21 stages"), (giro2017, "21 stages"), (giro2018, "21 stages"),
       (parisNice2018, "8 stages"),
-      (tirreno2018, "7 stages"),
+      (tirreno2013, "6 stages + Prologue"), (tirreno2014, "6 stages + Prologue"),
+      (tirreno2015, "6 stages + Prologue"), (tirreno2016, "7 stages"),
+      (tirreno2017, "7 stages"), (tirreno2018, "7 stages"),
       (dauphine2018, "7 stages + Prologue")
     ).forEvery {case (race,summary) => StageRaceUtils.summary(race) shouldEqual summary}
   }
@@ -151,7 +161,12 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2017,      "19 road stages, 2 Individual Time Trials, 3 rest days"),
       (giro2016,      "18 road stages, 3 Individual Time Trials, 3 rest days"),
       (parisNice2018, "7 road stages, 1 Individual Time Trial"),
-      (tirreno2018,   "5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
+      (tirreno2013, "5 road stages, 1 Individual Time Trial"),
+      (tirreno2014, "5 road stages, 1 Individual Time Trial"),
+      (tirreno2015, "5 road stages, 1 Individual Time Trial"),
+      (tirreno2016, "5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
+      (tirreno2017, "5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
+      (tirreno2018, "5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
       (dauphine2018,  "6 road stages, 1 Team Time Trial")
     ).forEvery {case (race,composition) => StageRaceUtils.composition(race) shouldEqual composition}
   }
@@ -199,7 +214,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro1999, 257), (giro2000, 265), (giro2001, 239), (giro2002, 237), (giro2003, 239),
       (giro2016, 244), (giro2017, 234), (giro2018, 244),
       (parisNice2018, 210),
-      (tirreno2018, 239),
+      (tirreno2013, 232), (tirreno2014, 244), (tirreno2015, 226), (tirreno2016, 216), (tirreno2017, 229), (tirreno2018, 239),
       (dauphine2018, 181)
     ).forEvery {case (race,result) => scala.math.rint(race.longestStage.length) shouldEqual result }
   }
@@ -224,15 +239,15 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf1990),
       (tdf1991),
       (tdf2018),
-      (giro1980),
-      (giro1981),
-      (giro1982),
-      (giro1983),
+      (giro1980), (giro1981), (giro1982), (giro1983), (giro1984), (giro1985), (giro1986), (giro1987), (giro1988), (giro1989),
+      (giro1990), (giro1991), (giro1992), (giro1993), (giro1994), (giro1995), (giro1996), (giro1997), (giro1998), (giro1999),
+      (giro2000), (giro2001), (giro2002), (giro2003),
+      (giro2003),
       (giro2016),
       (giro2017),
       (giro2018),
       (parisNice2018),
-      (tirreno2018),
+      (tirreno2013), (tirreno2014), (tirreno2015), (tirreno2016), (tirreno2017), (tirreno2018),
       (dauphine2018)
     ).forEvery {case (stageRace) =>
       val raceName:String = RaceUtils.name(stageRace.race)
@@ -240,30 +255,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       val source = Source.fromURL(getClass.getResource(s"/${raceName}/${year}/route.csv"))
       val result = source.getLines.toList
       source.close()
-      StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)) shouldEqual result }
-  }
-
-  test("Prologue starts") {
-    Table[StageRaceEdition](
-      ("Race"),
-      (tdf1972),
-      (tdf1989),
-      (tdf1990),
-      (tdf1991),
-      (tdf2018),
-      (giro1981),
-      (giro2016),
-      (giro2017),
-      (giro2018),
-      (parisNice2018),
-      (tirreno2018),
-      (dauphine2018)
-    ).forEvery {case (stageRace) =>
-      val raceName:String = RaceUtils.name(stageRace.race)
-      val year:Int = stageRace.firstStage.date.getYear()
-      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${year}/route.csv"))
-      val result = source.getLines.toList
-      source.close()
+      StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)).mkString("\n")
       StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)) shouldEqual result }
   }
 }

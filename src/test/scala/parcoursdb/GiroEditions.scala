@@ -275,6 +275,41 @@ object GiroEditions {
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
+  def giro1988:StageRaceEdition = {
+    val innsbruck = Location("Innsbruck")(Austria)
+    val composition = for {
+      _ <- individualTimeTrial("Urbino", 9)
+      _ <- roadStage("Urbino", "Ascoli Piceno", 230)
+      _ <- roadStage("Ascoli Piceno", "Vasto", 184)
+      _ <- enableSplitStages
+      _ <- roadStage("Vasto", "Rodi Garganico", 123)
+      _ <- teamTimeTrial("Rodi Garganico", "Vieste", 40)
+      _ <- disableSplitStages
+      _ <- roadStage("Vieste", "Santa Maria Capua Vetere", 260)
+      _ <- roadStage("Santa Maria Capua Vetere", "Campitello Matese", 137)
+      _ <- roadStage("Campitello Matese", "Avezzano", 178)
+      _ <- roadStage("Avezzano", "Chianciano Terme", 251)
+      _ <- roadStage("Pienza", "Marina di Massa", 235)
+      _ <- roadStage("Carrara", "Salsomaggiore Terme", 190) // Cancelled
+      _ <- roadStage("Parma", "Colle Don Bosco", 229)
+      _ <- roadStage("Novara", "Selvino", 205)
+      _ <- roadStage("Bergamo", "Chiesa in Valmalenco", 129)
+      _ <- roadStage("Chiesa in Valmalenco", "Bormio", 120)
+      _ <- roadStage("Spondigna", "Merano 2000", 83)
+      _ <- roadStage("Merano", innsbruck, 176)
+      _ <- roadStage(innsbruck, "Borgo Valsugana", 221)
+      _ <- individualTimeTrial("Levico Terme", "Valico del Vetriolo", 18)
+      _ <- roadStage("Borgo Valsugana", "Arta Terme", 223)
+      _ <- roadStage("Arta Terme", "Lido di Jesolo", 212)
+      _ <- enableSplitStages
+      _ <- roadStage("Lido di Jesolo", "Vittorio Veneto", 73)
+      _ <- individualTimeTrial("Vittorio Veneto", 43)
+      _ <- disableSplitStages
+    } yield()
+    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1988,5,23)))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
   def giro1989:StageRaceEdition = {
     val composition = for {
       _ <- roadStage(start="Taormina", finish="Catania", length=123.0)
