@@ -70,6 +70,14 @@ object StageRaceState {
     prologue(Location(start), length)
   }
 
+  def prologue(start:String, finish:String, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
+    for {
+      s <- get[StageRaceState]
+      stage = Prologue(s.date, Location(start), Location(finish), length)
+      producedValue <- put(s.copy(date=nextStageDate(s), stages=s.stages :+ stage))
+    } yield producedValue
+  }
+
   def prologue(start:Location, length: Double) : State[StageRaceState, Unit] = {
     for {
       s <- get[StageRaceState]
@@ -138,6 +146,14 @@ object StageRaceState {
 
   def individualTimeTrial(start:String, finish:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
     individualTimeTrial(Location(start),Location(finish),length)
+  }
+
+  def individualTimeTrial(start:Location, finish:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
+    individualTimeTrial(start,Location(finish),length)
+  }
+
+  def individualTimeTrial(start:String, finish:Location, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
+    individualTimeTrial(Location(start),finish,length)
   }
 
   def individualTimeTrial(start:Location, length: Double) : State[StageRaceState, Unit] = {

@@ -4,6 +4,7 @@ object CountryUtils {
 
   def name(c:Country): String = c match {
     case Luxembourg    => "Grand Duchy of Luxembourg"
+    case SanMarino     => "San Marino"
     case UnitedKingdom => "United Kingdom"
     case _             => c.getClass.getSimpleName.dropRight(1)
   }

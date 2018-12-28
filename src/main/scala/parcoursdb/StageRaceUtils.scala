@@ -45,11 +45,10 @@ object StageRaceUtils {
     val road = race.roadStages.size
     val ttt  = race.teamTimeTrials.size
     val itt  = race.individualTimeTrials.size
-    val splitStages = race.splitStages
     val rest = race.restDays.size
 
     var buf = new ListBuffer[String]()
-    buf += s"${road + ttt + itt - splitStages} stages: $road road stages"
+    buf += s"$road road stages"
 
     if (ttt > 0 || itt > 0) {
       val p1:String = if (ttt == 1) "Trial" else "Trials"
