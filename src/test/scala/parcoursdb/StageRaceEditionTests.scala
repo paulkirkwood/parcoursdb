@@ -46,6 +46,13 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   val tdf2007       = TourDeFranceEditions.tdf2007
   val tdf2008       = TourDeFranceEditions.tdf2008
   val tdf2009       = TourDeFranceEditions.tdf2009
+  val tdf2010       = TourDeFranceEditions.tdf2010
+  val tdf2011       = TourDeFranceEditions.tdf2011
+  val tdf2012       = TourDeFranceEditions.tdf2012
+  val tdf2013       = TourDeFranceEditions.tdf2013
+  val tdf2014       = TourDeFranceEditions.tdf2014
+  val tdf2015       = TourDeFranceEditions.tdf2015
+  val tdf2016       = TourDeFranceEditions.tdf2016
   val tdf2018       = TourDeFranceEditions.tdf2018
   val giro1980      = GiroEditions.giro1980
   val giro1981      = GiroEditions.giro1981
@@ -95,7 +102,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf1996, "29 June-21 July"), (tdf1997, "5-27 July"), (tdf1998, "11 July-2 August"), (tdf1999, "3-25 July"),
       (tdf2000, "1-22 July"), (tdf2001, "7-29 July"), (tdf2002, "6-28 July"), (tdf2003, "5-27 July"), (tdf2004, "3-25 July"),
       (tdf2005, "2-24 July"), (tdf2006, "1-23 July"), (tdf2007, "7-29 July"), (tdf2008, "5-27 July"), (tdf2009, "4-26 July"),
-      (tdf2018, "7-29 July"),
+      (tdf2010, "3-25 July"), (tdf2011, "2-24 July"), (tdf2012, "30 June-22 July"), (tdf2013, "29 June-21 July"),
+      (tdf2014, "5-27 July"), (tdf2015, "4-26 July"), (tdf2016, "2-24 July"), (tdf2018, "7-29 July"),
       (giro1980, "15 May-7 June"), (giro1981, "13 May-7 June"), (giro1982, "13 May-6 June"), (giro1983, "12 May-5 June"),
       (giro1984, "17 May-10 June"), (giro1985, "16 May-9 June"), (giro1986, "12 May-2 June"), (giro1987, "21 May-13 June"),
       (giro1988, "23 May-12 June"), (giro1989, "21 May-11 June"), (giro1990, "18 May-6 June"), (giro1991, "26 May-16 June"),
@@ -120,7 +128,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf1995, 3626.8), (tdf1996, 3764.9), (tdf1997, 3873.3), (tdf1998, 3877.1), (tdf1999, 3690.8),
       (tdf2000, 3413.0), (tdf2001, 3454.2), (tdf2002, 3277.5), (tdf2003, 3427.5), (tdf2004, 3391.1),
       (tdf2005, 3592.5), (tdf2006, 3657.1), (tdf2007, 3569.9), (tdf2008, 3559.0), (tdf2009, 3459.5),
-      (tdf2018, 3351),
+      (tdf2010, 3642.0), (tdf2011, 3430.0), (tdf2012, 3487.4), (tdf2013, 3403.5), (tdf2014, 3660.5),
+      (tdf2015, 3360.3), (tdf2016, 3529.0), (tdf2018, 3351),
       (giro1980, 4026.0), (giro1981, 3895.6), (giro1982, 3994.5), (giro1983, 3930.0), (giro1984, 3810.0),
       (giro1985, 3998.6), (giro1986, 3858.6), (giro1987, 3915.0), (giro1988, 3579), (giro1989, 3525.2),
       (giro1990, 3498.0), (giro1991, 3720.0), (giro1992, 3849.0), (giro1993, 3702.0), (giro1994, 3730.0),
@@ -144,7 +153,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf1995, 17, 1, 2, 2), (tdf1996, 19, 0, 2, 1), (tdf1997, 19, 0, 2, 1), (tdf1998, 19, 0, 2, 1), (tdf1999, 18, 0, 2, 2),
       (tdf2000, 18, 1, 1, 2), (tdf2001, 17, 1, 2, 2), (tdf2002, 17, 1, 2, 2), (tdf2003, 17, 1, 2, 2), (tdf2004, 17, 1, 2, 2),
       (tdf2005, 18, 1, 2, 2), (tdf2006, 18, 0, 2, 2), (tdf2007, 18, 0, 2, 2), (tdf2008, 19, 0, 2, 2), (tdf2009, 18, 1, 2, 2),
-      (tdf2018, 19, 1, 1, 2),
+      (tdf2010, 19, 0, 1, 2), (tdf2011, 19, 1, 1, 2), (tdf2012, 18, 0, 2, 2), (tdf2013, 18, 1, 2, 2), (tdf2014, 20, 0, 1, 2),
+      (tdf2015, 19, 1, 1, 2), (tdf2016, 19, 0, 2, 2), (tdf2018, 19, 1, 1, 2),
       (giro1980, 20, 0, 2, 1), (giro1981, 20, 1, 2, 3), (giro1982, 20, 0, 2, 2), (giro1983, 20, 1, 2, 2),
       (giro1984, 19, 1, 2, 2), (giro1985, 20, 1, 2, 2), (giro1986, 19, 1, 2, 0), (giro1987, 19, 1, 3, 1),
       (giro1989, 19, 1, 3, 0), (giro1990, 18, 0, 2, 0), (giro1991, 19, 0, 3, 1), (giro1992, 19, 0, 3, 0),
@@ -202,6 +212,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf2007, "20 stages + Prologue"),
       (tdf2008, "21 stages"),
       (tdf2009, "21 stages"),
+      (tdf2010, "20 stages + Prologue"), (tdf2011, "21 stages"), (tdf2012, "20 stages + Prologue"), (tdf2013, "21 stages"),
+      (tdf2014, "21 stages"), (tdf2015, "21 stages"), (tdf2016, "21 stages"),
       (tdf2018, "21 stages"),
       (giro1980, "22 stages + Prologue"), (giro1981, "22 stages + Prologue including 1 split stage"),
       (giro1982, "22 stages + Prologue"), (giro1983, "22 stages + Prologue including 1 split stage"),
@@ -287,6 +299,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf1995, 261), (tdf1996, 262.0), (tdf1997, 262.0), (tdf1998, 252.0), (tdf1999, 236.5),
       (tdf2000, 254.5), (tdf2001, 232.5), (tdf2002, 226.5), (tdf2003, 230.5), (tdf2004, 237.0),
       (tdf2005, 239.5), (tdf2006, 230.0), (tdf2007, 236.5), (tdf2008, 232.0), (tdf2009, 224.0),
+      (tdf2010, 227.5), (tdf2011, 226.5), (tdf2012, 226.0), (tdf2013, 242.5), (tdf2014, 237.5), (tdf2015, 223.5), (tdf2016, 237.5),
       (tdf2018, 231),
       (giro1980, 247), (giro1981, 255), (giro1982, 254), (giro1983, 269), (giro1984, 269), (giro1985, 248),
       (giro1986, 260), (giro1987, 260), (giro1989, 275), (giro1990, 241), (giro1991, 246), (giro1992, 260),
@@ -318,7 +331,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (tdf1980), (tdf1981), (tdf1982), (tdf1983), (tdf1984), (tdf1985), (tdf1986), (tdf1987), (tdf1988), (tdf1989),
       (tdf1990), (tdf1991), (tdf1992), (tdf1993), (tdf1994), (tdf1995), (tdf1996), (tdf1997), (tdf1988), (tdf1999),
       (tdf2000), (tdf2001), (tdf2002), (tdf2003), (tdf2004), (tdf2005), (tdf2006), (tdf2007), (tdf2008), (tdf2009),
-      (tdf2018),
+      (tdf2010), (tdf2011), (tdf2012), (tdf2013), (tdf2014), (tdf2015), (tdf2016), (tdf2018),
       (giro1980), (giro1981), (giro1982), (giro1983), (giro1984), (giro1985), (giro1986), (giro1987), (giro1988), (giro1989),
       (giro1990), (giro1991), (giro1992), (giro1993), (giro1994), (giro1995), (giro1996), (giro1997), (giro1998), (giro1999),
       (giro2000), (giro2001), (giro2002), (giro2003),

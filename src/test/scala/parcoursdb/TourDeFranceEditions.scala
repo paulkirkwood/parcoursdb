@@ -98,7 +98,7 @@ object TourDeFranceEditions {
   val harrogate  = Location("Harrogate")(UnitedKingdom)
   val york       = Location("York")(UnitedKingdom)
   val sheffield  = Location("Sheffield")(UnitedKingdom)
-  val cambridge  = Location("cambridge")(UnitedKingdom)
+  val cambridge  = Location("Cambridge")(UnitedKingdom)
 
   // Irish locations
   val cork        = Location("Cork")(Ireland)
