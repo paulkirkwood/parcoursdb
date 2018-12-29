@@ -883,7 +883,7 @@ object TourDeFranceEditions {
       _ <- individualTimeTrial(start="Bordeaux", finish="Saint-Emilion", length=63.5)
       _ <- roadStage(start="Palaiseau", finish="Paris", length=147.5)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(1996,7,29)))
+    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(1996,6,29)))
     StageRaceEdition(TourDeFrance, result.stages)
   }
 
@@ -943,7 +943,7 @@ object TourDeFranceEditions {
       _ <- individualTimeTrial(start="Montceau-les-Mines", finish="Le Creusot", length=52.0)
       _ <- roadStage(start="Melun", finish="Paris", length=147.5)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(1998,8,11)))
+    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(1998,7,11)))
     StageRaceEdition(TourDeFrance, result.stages)
   }
 
@@ -1362,7 +1362,7 @@ object TourDeFranceEditions {
       _ <- individualTimeTrial(start="Bonneval", finish="Chartres", length=53.5)
       _ <- roadStage(start="Rambouillet", finish="Paris", length=120.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(2012,7,30)))
+    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(2012,6,30)))
     StageRaceEdition(TourDeFrance, result.stages)
   }
 
@@ -1392,7 +1392,7 @@ object TourDeFranceEditions {
       _ <- roadStage(start="Annecy", finish="Semnoz", length=125.0)
       _ <- roadStage(start="Versailles", finish="Paris", length=133.5)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(2013,7,29)))
+    val result = composition.exec(StageRaceState.init(TourDeFrance, LocalDate.of(2013,6,29)))
     StageRaceEdition(TourDeFrance, result.stages)
   }
 
