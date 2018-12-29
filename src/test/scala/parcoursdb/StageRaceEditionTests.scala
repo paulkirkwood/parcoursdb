@@ -11,7 +11,20 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
     if ((x - y).abs < precision) true else false
   }
 
+  val tdf1970       = TourDeFranceEditions.tdf1970
+  val tdf1971       = TourDeFranceEditions.tdf1971
   val tdf1972       = TourDeFranceEditions.tdf1972
+  val tdf1978       = TourDeFranceEditions.tdf1978
+  val tdf1979       = TourDeFranceEditions.tdf1979
+  val tdf1980       = TourDeFranceEditions.tdf1980
+  val tdf1981       = TourDeFranceEditions.tdf1981
+  val tdf1982       = TourDeFranceEditions.tdf1982
+  val tdf1983       = TourDeFranceEditions.tdf1983
+  val tdf1984       = TourDeFranceEditions.tdf1984
+  val tdf1985       = TourDeFranceEditions.tdf1985
+  val tdf1986       = TourDeFranceEditions.tdf1986
+  val tdf1987       = TourDeFranceEditions.tdf1987
+  val tdf1988       = TourDeFranceEditions.tdf1988
   val tdf1989       = TourDeFranceEditions.tdf1989
   val tdf1990       = TourDeFranceEditions.tdf1990
   val tdf1991       = TourDeFranceEditions.tdf1991
@@ -55,8 +68,11 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Race dates") {
     Table[StageRaceEdition, String](
       ("Race", "Dates"),
-      (tdf1972, "1-23 July"),
-      (tdf1989, "1-23 July"),
+      (tdf1970, "26 June-19 July"), (tdf1971, "26 June-18 July"), (tdf1972, "1-23 July"),
+      (tdf1978, "29 June-24 July"), (tdf1979, "27 June-22 July"),
+      (tdf1980, "26 June-20 July"), (tdf1981, "25 June-19 July"), (tdf1982, "2-25 July"), (tdf1983, "1-24 July"),
+      (tdf1984, "29 June-21 July"), (tdf1985, "28 June-21 July"), (tdf1986, "4-27 July"), (tdf1987, "1-26 July"),
+      (tdf1988, "3-24 July"), (tdf1989, "1-23 July"),
       (tdf1990, "30 June-22 July"),
       (tdf1991, "6-28 July"),
       (tdf2018, "7-29 July"),
@@ -77,6 +93,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Race length") {
     Table[StageRaceEdition, Double](
       ("Race", "Length"),
+      (tdf1970, 4368.3), (tdf1971, 3643.8), (tdf1972, 3846.6), (tdf1978, 4078), (tdf1979, 3720),
+      (tdf1980, 3947), (tdf1981, 3759), (tdf1982, 3425), (tdf1983, 3870), (tdf1984, 3824),
       (tdf1989, 3285),
       (tdf1990, 3404),
       (tdf1991, 3914),
@@ -97,6 +115,9 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Stage types") {
     Table[StageRaceEdition, Int, Int, Int, Int](
       ("Race", "Road stages", "Team Time Trials", "Individual Time Trials", "Rest Days"),
+      (tdf1970, 23, 1, 4, 0), (tdf1971, 23, 0, 1, 2), (tdf1972, 21, 0, 3, 2), (tdf1978, 20, 1, 3, 2), (tdf1979, 18, 2, 4, 1),
+      (tdf1980, 19, 2, 3, 2), (tdf1981, 19, 2, 3, 2), (tdf1982, 16, 3, 3, 2), (tdf1983, 18, 0, 4, 1), (tdf1984, 18, 1, 3, 1),
+      (tdf1985, 20, 0, 3, 1), (tdf1986, 20, 1, 2, 1), (tdf1987, 21, 1, 3, 2), (tdf1988, 18, 1, 3, 1),
       (tdf1989, 17, 1, 3, 2),
       (tdf1990, 17, 1, 3, 2),
       (tdf1991, 19, 1, 2, 1),
@@ -123,6 +144,20 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Race summary") {
     Table[StageRaceEdition, String](
       ("Race", "Summary"),
+      (tdf1970, "23 stages + Prologue including 5 split stages"),
+      (tdf1971, "21 stages + Prologue including 3 split stages"),
+      (tdf1972, "20 stages + Prologue including 4 split stages"),
+      (tdf1978, "23 stages + Prologue including 1 split stage"),
+      (tdf1979, "24 stages + Prologue"),
+      (tdf1980, "22 stages + Prologue including 2 split stages"),
+      (tdf1981, "22 stages + Prologue including 2 split stages"),
+      (tdf1982, "21 stages + Prologue including 1 split stage"),
+      (tdf1983, "22 stages + Prologue"),
+      (tdf1984, "21 stages + Prologue including 1 split stage"),
+      (tdf1985, "22 stages + Prologue including 1 split stage"),
+      (tdf1986, "23 stages + Prologue"),
+      (tdf1987, "25 stages + Prologue"),
+      (tdf1988, "22 stages + Prologue"),
       (tdf1989, "21 stages + Prologue"),
       (tdf1990, "21 stages + Prologue"),
       (tdf1991, "22 stages + Prologue"),
@@ -204,6 +239,8 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Longest stage") {
     Table[StageRaceEdition, Double](
       ("Race", "Length"),
+      (tdf1970, 269.5), (tdf1971, 257.5), (tdf1972, 257.5), (tdf1978, 244), (tdf1979, 248),
+      (tdf1980, 282), (tdf1981, 264), (tdf1982, 251), (tdf1983, 300), (tdf1984, 338), 
       (tdf1989, 259),
       (tdf1990, 301),
       (tdf1991, 286),
@@ -216,7 +253,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (parisNice2018, 210),
       (tirreno2013, 232), (tirreno2014, 244), (tirreno2015, 226), (tirreno2016, 216), (tirreno2017, 229), (tirreno2018, 239),
       (dauphine2018, 181)
-    ).forEvery {case (race,result) => scala.math.rint(race.longestStage.length) shouldEqual result }
+    ).forEvery {case (race,result) => ~=(race.longestStage.length, result, 0.0001) }
   }
 
   test("Climbs by category") {
@@ -234,8 +271,9 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
   test("Race route") {
     Table[StageRaceEdition](
       ("Race"),
-      (tdf1972),
-      (tdf1989),
+      (tdf1970), (tdf1971), (tdf1972), (tdf1978), (tdf1979),
+      (tdf1980), (tdf1981), (tdf1982), (tdf1983), (tdf1984),
+      (tdf1985), (tdf1986), (tdf1987), (tdf1988), (tdf1989),
       (tdf1990),
       (tdf1991),
       (tdf2018),
