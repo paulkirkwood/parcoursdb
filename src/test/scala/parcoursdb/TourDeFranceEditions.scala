@@ -63,7 +63,7 @@ object TourDeFranceEditions {
   val frankfurt            = Location("Frankfurt")(WestGermany)
   val wiesbaden            = Location("Wiesbaden")(WestGermany)
   val westBerlin           = Location("West Berlin")(WestGermany)
-  val karlsruhe            = Location("Karlsruhe")(WestGermany)
+  val karlsruheWestGermany = Location("Karlsruhe")(WestGermany)
   val stuttgart            = Location("Stuttgart")(WestGermany)
   val pforzheimWestGermany = Location("Pforzheim")(WestGermany)
 
@@ -72,6 +72,7 @@ object TourDeFranceEditions {
   val koblenz      = Location("Koblenz")(Germany)
   val saarbrucken  = Location("Saarbrucken")(Germany)
   val pforzheim    = Location("Pforzheim")(Germany)
+  val karlsruhe    = Location("Karlsruhe")(Germany)
 
   // Swiss towns and cities
   val basel        = Location("Basel")(Switzerland)
@@ -564,7 +565,7 @@ object TourDeFranceEditions {
       _ <- afternoonStage
       _ <- teamTimeTrial(start=westBerlin, finish=westBerlin, length=40.5)
       _ <- restDay
-      _ <- roadStage(start=karlsruhe, finish=stuttgart, length=219.0)
+      _ <- roadStage(start=karlsruheWestGermany, finish=stuttgart, length=219.0)
       _ <- morningStage
       _ <- roadStage(start=stuttgart, finish=pforzheimWestGermany, length=79.0)
       _ <- afternoonStage
