@@ -9,6 +9,6 @@ class CountryTests extends FunSuite {
   }
 
   test("ISO Codes") {
-    assert(CountryUtils.iso_code(Belgium) === "BEL" )
+    assert(CountryUtils.isoCode(Belgium) === "BEL" )
   }
 }

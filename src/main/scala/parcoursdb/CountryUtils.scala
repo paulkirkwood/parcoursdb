@@ -10,12 +10,13 @@ object CountryUtils {
     case _             => c.getClass.getSimpleName.dropRight(1)
   }
 
-  def iso_code(c:Country): String = c match {
+  def isoCode(c:Country): String = c match {
     case Germany | WestGermany => "DEU"
     case Greece                => "GRC"
     case Ireland               => "IRL"
     case Monaco                => "MCO"
     case Netherlands           => "NLD"
+    case Slovakia              => "SVK"
     case Slovenia              => "SVN"
     case Spain                 => "ESP"
     case Switzerland           => "CHE"
