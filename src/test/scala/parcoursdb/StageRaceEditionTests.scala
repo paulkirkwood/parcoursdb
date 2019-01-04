@@ -335,20 +335,17 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro1980), (giro1981), (giro1982), (giro1983), (giro1984), (giro1985), (giro1986), (giro1987), (giro1988), (giro1989),
       (giro1990), (giro1991), (giro1992), (giro1993), (giro1994), (giro1995), (giro1996), (giro1997), (giro1998), (giro1999),
       (giro2000), (giro2001), (giro2002), (giro2003),
-      (giro2003),
       (giro2016),
       (giro2017),
       (giro2018),
       (parisNice2018),
       (tirreno2013), (tirreno2014), (tirreno2015), (tirreno2016), (tirreno2017), (tirreno2018),
       (dauphine2018)
-    ).forEvery {case (stageRace) =>
-      val raceName:String = RaceUtils.name(stageRace.race)
-      val year:Int = stageRace.firstStage.date.getYear()
-      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${year}/route.csv"))
+    ).forEvery {case (edition) =>
+      val raceName:String = RaceUtils.name(edition.stageRace)
+      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${edition.year}/route.csv"))
       val result = source.getLines.toList
       source.close()
-      StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)).mkString("\n")
-      StageRaceUtils.route(stageRace)(RaceUtils.country(stageRace.race)) shouldEqual result }
+      StageRaceUtils.route(edition)(RaceUtils.country(edition.stageRace)) shouldEqual result }
   }
 }

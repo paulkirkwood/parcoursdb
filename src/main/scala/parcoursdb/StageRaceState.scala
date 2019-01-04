@@ -67,25 +67,25 @@ object StageRaceState {
   }
 
   def prologue(start:String, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    prologue(Location(start), length)
+    prologue(Location(start), Location(start), length)
   }
 
   def prologue(start:String, finish:String, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    for {
-      s <- get[StageRaceState]
-      stage = Prologue(s.date, Location(start), Location(finish), length)
-      producedValue <- put(s.copy(date=nextStageDate(s), stages=s.stages :+ stage))
-    } yield producedValue
+    prologue(Location(start), Location(finish), length)
   }
 
   def prologue(start:Location, length: Double) : State[StageRaceState, Unit] = {
-    for {
-      s <- get[StageRaceState]
-      stage = Prologue(s.date, start, start, length)
-      producedValue <- put(s.copy(date=nextStageDate(s), stages=s.stages :+ stage))
-    } yield producedValue
-  }
-
+    prologue(start, start, length)
+   }
+ 
+   def prologue(start:Location, finish:Location, length:Double) : State[StageRaceState, Unit] = {
+     for {
+       s <- get[StageRaceState]
+       stage = Prologue(s.date, start, finish, length)
+       producedValue <- put(s.copy(date=nextStageDate(s), stages=s.stages :+ stage))
+     } yield producedValue
+   }
+ 
   def roadStage(start:String, finish:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
     roadStage(Location(start),Location(finish),length)
   }

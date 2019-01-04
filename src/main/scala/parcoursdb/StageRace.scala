@@ -1,6 +1,6 @@
 package parcoursdb
 
-case class StageRaceEdition(race:StageRace, stages:Seq[Stage]) {
+case class StageRaceEdition(stageRace:StageRace, stages:Seq[Stage]) {
 
   def racingStages:Seq[RacingStage] = stages.collect {
     case p: Prologue => p
@@ -15,6 +15,10 @@ case class StageRaceEdition(race:StageRace, stages:Seq[Stage]) {
 
   def firstStage:Stage = stageChronology(0)
   def lastStage:Stage = stageChronology.last
+
+  def year:Int = firstStage.date.getYear()
+
+  def stage(id:String):Option[RacingStage] = racingStages.find {_.id == id }
 
   def start:Location = firstStage match {
     case p:Prologue => p.start
