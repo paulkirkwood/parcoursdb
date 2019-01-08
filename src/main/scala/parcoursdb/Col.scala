@@ -15,3 +15,7 @@ case class Col(name:String,
                length:Option[Double],
                averageGradient:Option[Double],
                maximumGradient:Option[Double])
+
+object Col {
+  def description(c:Col, length:Double) : String = f"${length - c.summitKM}%.1f km, ${c.name}%s, ${c.height}%.0fm"
+}

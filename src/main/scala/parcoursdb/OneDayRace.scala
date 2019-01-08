@@ -1,40 +1,58 @@
 package parcoursdb
 
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
+import scalaz._
+import Scalaz._
 
-sealed trait OneDayRaceEdition {
-  def race:OneDayRace
-  def date: LocalDate
+trait RaceEdition {
+  def race:Race
+  def date:LocalDate
   def start:Location
   def finish:Location
   def length:Double
 }
 
-case class ParisRoubaixEdition(date:LocalDate,
-                               start:Location,
-                               finish:Location,
-                               length:Double,
-                               pave:Seq[ParisRoubaixPave]) extends OneDayRaceEdition {
+case class OneDayRaceEdition(race:OneDayRace,
+                             date:LocalDate,
+                             start:Location,
+                             finish:Location,
+                             length:Double,
+                             cols:Seq[Col]) extends RaceEdition {
 
-  def race = ParisRoubaix
-  def numberOfPaveSectors : Int = pave.map(_.id).distinct.size
-  def totalPaveKMs : Double = pave.map(_.length).sum
-  def paveSectors : List[String] = pave.map(PaveUtils.description(_,length)).toList
+  def climbs : List[String] = cols.map(Col.description(_,length)).toList
 }
 
-case class TourOfFlandersEdition(date:LocalDate,
-                                 start:Location,
-                                 finish:Location,
-                                 length:Double,
-                                 pave:Seq[RondePave],
-                                 bergs:Seq[IndexedBerg]) extends OneDayRaceEdition {
+case class OneDayRaceState(race:OneDayRace,
+                           date:LocalDate,
+                           start:Location,
+                           finish:Location,
+                           length:Double,
+                           cols:Set[Col])
 
-  def race = TourOfFlanders
-  def numberOfPaveSectors : Int = pave.size
-  def totalPaveKMs : Double = pave.map(_.length).sum
-  def paveSectors : List[String] = pave.map(PaveUtils.description(_,length)).toList
+object OneDayRaceState {
 
-  def numberOfClimbs : Int = bergs.size
-  def climbs : List[String] = bergs.map(IndexedBerg.description(_,length)).toList
+  def init(race:OneDayRace, date:LocalDate, start:Location, finish:Location, raceLength:Double) = {
+    OneDayRaceState(race=race,
+                    date=date,
+                    start=start,
+                    finish=finish,
+                    length=raceLength,
+                    cols=Set.empty[Col])
+  }
+
+  def col(name:String, height:Double, km:Double) : State[OneDayRaceState, Unit] = {
+    for {
+      s <- get[OneDayRaceState]
+      col = Col(name,Uncategorised,height,km,None,None,None)
+      producedValue <- put(s.copy(cols=s.cols + col))
+    } yield producedValue
+  }
+
+  def build : State[OneDayRaceState, OneDayRaceEdition] = {
+    for {
+      s <- get[OneDayRaceState]
+      cols = s.cols.toSeq.sortWith(_.summitKM < _.summitKM)
+      edition = OneDayRaceEdition(s.race,s.date, s.start, s.finish, s.length, cols)
+    } yield edition
+  }
 }

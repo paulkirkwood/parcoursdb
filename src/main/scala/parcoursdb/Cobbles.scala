@@ -37,6 +37,18 @@ object PaveUtils {
   }
 }
 
+case class ParisRoubaixEdition(date:LocalDate,
+                               start:Location,
+                               finish:Location,
+                               length:Double,
+                               pave:Seq[ParisRoubaixPave]) extends RaceEdition {
+
+  def race = ParisRoubaix
+  def numberOfPaveSectors : Int = pave.map(_.id).distinct.size
+  def totalPaveKMs : Double = pave.map(_.length).sum
+  def paveSectors : List[String] = pave.map(PaveUtils.description(_,length)).toList
+}
+
 case class ParisRoubaixState(date:LocalDate,
                              length:Double,
                              id:Int,
@@ -147,6 +159,22 @@ object IndexedBerg {
   def description(b:IndexedBerg, length:Double) : String = {
     s"${b.id},${length - b.km} km,${b.name},${b.length} km,${b.pavement}"
   }
+}
+
+case class TourOfFlandersEdition(date:LocalDate,
+                                 start:Location,
+                                 finish:Location,
+                                 length:Double,
+                                 pave:Seq[RondePave],
+                                 bergs:Seq[IndexedBerg]) extends RaceEdition {
+
+  def race = TourOfFlanders
+  def numberOfPaveSectors : Int = pave.size
+  def totalPaveKMs : Double = pave.map(_.length).sum
+  def paveSectors : List[String] = pave.map(PaveUtils.description(_,length)).toList
+
+  def numberOfClimbs : Int = bergs.size
+  def climbs : List[String] = bergs.map(IndexedBerg.description(_,length)).toList
 }
 
 case class TourOfFlandersState(date:LocalDate,

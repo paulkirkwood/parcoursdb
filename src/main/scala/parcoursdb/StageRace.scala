@@ -1,6 +1,11 @@
 package parcoursdb
 
-case class StageRaceEdition(stageRace:StageRace, stages:Seq[Stage]) {
+import java.time.LocalDate
+
+case class StageRaceEdition(stageRace:StageRace, stages:Seq[Stage]) extends RaceEdition {
+
+  def race:Race = stageRace
+  def date:LocalDate = firstStage.date
 
   def racingStages:Seq[RacingStage] = stages.collect {
     case p: Prologue => p
