@@ -17,9 +17,10 @@ case class StageRaceEdition(stageRace:StageRace, stages:Seq[Stage]) extends Race
   def restDays:Seq[RestDay] = stages.collect { case s: RestDay => s }
 
   def stageChronology:Seq[Stage] = stages.sortWith((x,y) => x.date.getDayOfYear < y.date.getDayOfYear)
+  def racingStageChronology:Seq[RacingStage] = racingStages.sortWith((x,y) => x.date.getDayOfYear < y.date.getDayOfYear)
 
-  def firstStage:Stage = stageChronology(0)
-  def lastStage:Stage = stageChronology.last
+  def firstStage:RacingStage = racingStageChronology(0)
+  def lastStage:RacingStage = racingStageChronology.last
 
   def year:Int = firstStage.date.getYear()
 
