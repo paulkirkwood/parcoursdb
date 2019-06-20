@@ -258,7 +258,7 @@ object GiroEditions {
       _ <- roadStage(start="San Giorgio del Sannio", finish="Bari", length=257.0)
       _ <- roadStage(start="Bari", finish="Termoli", length=210.0)
       _ <- restDay
-      _ <- roadStage(start="Guilianova", finish="Osimo", length=245.0)
+      _ <- roadStage(start="Giulianova", finish="Osimo", length=245.0)
       _ <- roadStage(start="Osimo", finish="Bellaria", length=197.0)
       _ <- individualTimeTrial(start="Rimini", finish=sanMarino, length=46.0)
       _ <- roadStage(start=sanMarino, finish="Lido di Jesolo", length=260.0)
@@ -1002,7 +1002,7 @@ object GiroEditions {
       _ <- c1("Foza", height=1086, summitKM=175.2)
 
       // Stage 21
-      _ <- individualTimeTrial("Monza", "Milano", 29.3)
+      _ <- individualTimeTrial("Monza", "Milan", 29.3)
     } yield()
 
     val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(2017,5,5)))

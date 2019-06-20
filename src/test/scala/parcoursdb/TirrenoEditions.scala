@@ -37,10 +37,10 @@ object TirrenoAdriaticoEditions {
 
   def tirrenoAdriatico2015:StageRaceEdition = {
     val composition = for {
-      _ <- prologue("Lido di Camaiore", 5.4)
+      _ <- individualTimeTrial("Lido di Camaiore", 5.4)
       _ <- roadStage(start="Camaiore", finish="Cascina", length=153.0)
       _ <- roadStage(start="Cascina", finish="Arezzo", length=203.0)
-      _ <- roadStage(start="Indicatore (Arezzo)", finish="Castelraimondo", length=226.0)
+      _ <- roadStage(start="Indicatore", finish="Castelraimondo", length=226.0)
       _ <- roadStage(start="Esanatoglia", finish="Monte Terminillo", length=196.9)
       _ <- roadStage(start="Rieti", finish="Porto Sant'Elpidio", length=210.0)
       _ <- individualTimeTrial("San Benedetto del Tronto", 10.1)
