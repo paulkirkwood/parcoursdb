@@ -123,21 +123,21 @@ object ParisRoubaixState {
     for {
       s <- get[ParisRoubaixState]
       start = s.date.getYear match {
-        case year if 1896 to 1897 contains year => Location("Porte Maillot, Paris")(Belgium)
-        case year if 1898 to 1899 contains year => Location("Chatou, Paris")(Belgium)
-        case year if 1900 to 1900 contains year => Location("Saint-Germain")(Belgium)
-        case year if 1901 to 1901 contains year => Location("Porte Maillot, Paris")(Belgium)
-        case year if 1902 to 1913 contains year => Location("Chatou, Paris")(Belgium)
-        case year if 1914 to 1914 contains year => Location("Suresnes, Paris")(Belgium)
-        case year if 1919 to 1928 contains year => Location("Suresnes, Paris")(Belgium)
-        case year if 1929 to 1937 contains year => Location("Porte Maillot, Paris")(Belgium)
-        case year if 1938 to 1938 contains year => Location("Argenteuil")(Belgium)
-        case year if 1939 to 1939 contains year => Location("Porte Maillot, Paris")(Belgium)
-        case year if 1943 to 1965 contains year => Location("Saint-Denis, Paris")(Belgium)
-        case year if 1966 to 1976 contains year => Location("Chantilly")(Belgium)
-        case _ => Location("Compiegne")(Belgium)
+        case year if 1896 to 1897 contains year => Location("Porte Maillot, Paris")(France)
+        case year if 1898 to 1899 contains year => Location("Chatou, Paris")(France)
+        case year if 1900 to 1900 contains year => Location("Saint-Germain")(France)
+        case year if 1901 to 1901 contains year => Location("Porte Maillot, Paris")(France)
+        case year if 1902 to 1913 contains year => Location("Chatou, Paris")(France)
+        case year if 1914 to 1914 contains year => Location("Suresnes, Paris")(France)
+        case year if 1919 to 1928 contains year => Location("Suresnes, Paris")(France)
+        case year if 1929 to 1937 contains year => Location("Porte Maillot, Paris")(France)
+        case year if 1938 to 1938 contains year => Location("Argenteuil")(France)
+        case year if 1939 to 1939 contains year => Location("Porte Maillot, Paris")(France)
+        case year if 1943 to 1965 contains year => Location("Saint-Denis, Paris")(France)
+        case year if 1966 to 1976 contains year => Location("Chantilly")(France)
+        case _ => Location("Compiegne")(France)
       }
-      finish = Location("Roubaix")(Belgium)
+      finish = Location("Roubaix")(France)
 
       // Renumber the sector so that they countdown towards the finish
       sectors = s.pave.sortWith(_.km < _.km)
