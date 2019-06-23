@@ -163,7 +163,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2001, 20, 0, 1, 1), (giro2002, 18, 0, 2, 2), (giro2003, 19, 0, 2, 2),
       (giro2016, 18, 0, 3, 3), (giro2017, 19, 0, 2, 3), (giro2018, 19, 0, 2, 3),
       (parisNice2018, 7, 0, 1, 0),
-      (tirreno2013, 5, 0, 1, 0), (tirreno2014, 5, 0, 1, 0), (tirreno2015, 5, 0, 1, 0),
+      (tirreno2013, 5, 0, 1, 0), (tirreno2014, 5, 0, 1, 0), (tirreno2015, 5, 0, 2, 0),
       (tirreno2016, 5, 1, 1, 0), (tirreno2017, 5, 1, 1, 0), (tirreno2018, 5, 1, 1, 0),
       (dauphine2018, 6, 1, 0, 0)
     ).forEvery {case (race,roadStages,teamTimeTrials,individualTimeTrials,restDays) =>
@@ -228,7 +228,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (giro2016, "21 stages"), (giro2017, "21 stages"), (giro2018, "21 stages"),
       (parisNice2018, "8 stages"),
       (tirreno2013, "6 stages + Prologue"), (tirreno2014, "6 stages + Prologue"),
-      (tirreno2015, "6 stages + Prologue"), (tirreno2016, "7 stages"),
+      (tirreno2015, "7 stages"), (tirreno2016, "7 stages"),
       (tirreno2017, "7 stages"), (tirreno2018, "7 stages"),
       (dauphine2018, "7 stages + Prologue")
     ).forEvery {case (race,summary) => StageRaceUtils.summary(race) shouldEqual summary}
@@ -251,7 +251,7 @@ class StageRaceEditionTests extends FunSuite with Matchers with TableDrivenPrope
       (parisNice2018, "7 road stages, 1 Individual Time Trial"),
       (tirreno2013, "5 road stages, 1 Individual Time Trial"),
       (tirreno2014, "5 road stages, 1 Individual Time Trial"),
-      (tirreno2015, "5 road stages, 1 Individual Time Trial"),
+      (tirreno2015, "5 road stages, 2 Individual Time Trials"),
       (tirreno2016, "5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
       (tirreno2017, "5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
       (tirreno2018, "5 road stages, 2 Time Trials (1 Team Time Trial; 1 Individual Time Trial)"),
