@@ -1,17 +1,31 @@
 -- file StageRaces.Giro.hs
-module StageRaces.Giro where
+module StageRaces.Giro
+(giro1980
+,giro1981
+,giro1987
+,giro2016
+,giro2017
+,giro2018
+)where
 
 import Control.Monad.State
 import Countries.Israel
 import Countries.Italy
 import Countries.Netherlands
+import Data.Time
 import ParcoursDB.Country
 import ParcoursDB.Location
 import ParcoursDB.StageRace
-import ParcoursDB.StageRaceState
+import ParcoursDB.State.StageRace
 
-giro1980 :: State StageRaceState StageRace
-giro1980 = do
+name :: String
+name = "Giro d'Italia"
+
+giro1980 :: StageRace
+giro1980 = evalState giro1980' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 1980 5 15))
+
+giro1980' :: State StageRaceState StageRace
+giro1980' = do
   prologue' genoa 7
   roadStage genoa imperia 123
   roadStage imperia turin 179
@@ -39,8 +53,11 @@ giro1980 = do
   race <- build
   return race
 
-giro1981 :: State StageRaceState StageRace
-giro1981 = do
+giro1981 :: StageRace
+giro1981 = evalState giro1981' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 1981 5 13))
+
+giro1981' :: State StageRaceState StageRace
+giro1981' = do
   prologue' trieste 6.6
   enableSplitStages
   roadStage trieste bibione 100
@@ -73,8 +90,11 @@ giro1981 = do
   race <- build
   return race
 
-giro1987 :: State StageRaceState StageRace
-giro1987 = do
+giro1987 :: StageRace
+giro1987 = evalState giro1987' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 1987 5 21))
+
+giro1987' :: State StageRaceState StageRace
+giro1987' = do
   prologue' sanRemo 4
   enableSplitStages
   roadStage sanRemo sanRomolo 31
@@ -106,8 +126,11 @@ giro1987 = do
   race <- build
   return race
 
-giro2016 :: State StageRaceState StageRace
-giro2016 = do
+giro2016 :: StageRace
+giro2016 = evalState giro2016' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 2016 5 6))
+
+giro2016' :: State StageRaceState StageRace
+giro2016' = do
   individualTimeTrial' apeldoorn 9.8
   roadStage arnhem nijmegen 190
   roadStage nijmegen arnhem 190
@@ -139,8 +162,11 @@ giro2016 = do
   race <- build
   return race
 
-giro2017 :: State StageRaceState StageRace
-giro2017 = do
+giro2017 :: StageRace
+giro2017 = evalState giro2017' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 2017 5 5))
+
+giro2017' :: State StageRaceState StageRace
+giro2017' = do
   roadStage alghero olbia 206
   roadStage olbia tortoli 221
   roadStage tortoli cagliari 148
@@ -176,8 +202,11 @@ giro2017 = do
   race <- build
   return race
 
-giro2018 :: State StageRaceState StageRace
-giro2018 = do
+giro2018 :: StageRace
+giro2018 = evalState giro2018' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 2018 5 4))
+
+giro2018' :: State StageRaceState StageRace
+giro2018' = do
   individualTimeTrial' jerusalem 9.7
   roadStage haifa telAviv 167
   roadStage beersheba eilat 229

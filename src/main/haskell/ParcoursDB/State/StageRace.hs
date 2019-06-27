@@ -1,4 +1,4 @@
-module ParcoursDB.StageRaceState where
+module ParcoursDB.State.StageRace where
 
 import Control.Monad.State
 import Data.Time

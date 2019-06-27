@@ -9,47 +9,40 @@ import StageRaces.Giro
 import StageRaces.LeTour
 import StageRaces.Tirreno
 import ParcoursDB.Country
+import ParcoursDB.Stage
 import ParcoursDB.StageRace
-import ParcoursDB.StageRaceState
+import ParcoursDB.State.StageRace
 import System.IO
 import Test.Hspec
 import Text.Printf
 
+editions = [ dauphine2018
+           , giro1980
+           , giro1981
+           , giro1987
+           , giro2016
+           , giro2017
+           , giro2018
+           , tdf1970
+           , tdf1971
+           , tdf2018
+           , tirreno2013
+           , tirreno2014
+           , tirreno2015
+           , tirreno2016
+           ]
+
 main :: IO ()
 main = hspec $ do
 
-  let stageRaceEditions = [ ( "Criterium du Dauphine", France, [ (dauphine2018, 2018, 6, 3 )
-                                                               ]),
-                            ( "Giro d'Italia", Italy, [ ( giro1980, 1980, 5, 15 )
-                                                     ,  ( giro1981, 1981, 5, 13 )
-                                                     ,  ( giro1987, 1987, 5, 21 )
-                                                     ,  ( giro2016, 2016, 5,  6 )
-                                                     ,  ( giro2017, 2017, 5,  5 )
-                                                     ,  ( giro2018, 2018, 5,  4 )
-                                                     ] ),
-
-                            ( "Tirreno Adriatico", Italy, [ (tirreno2013, 2013, 3,  6 )
-                                                          , (tirreno2014, 2014, 3, 12 )
-                                                          , (tirreno2015, 2015, 3, 11 )
-                                                          , (tirreno2016, 2016, 3,  9 )
-                                                          ] ),
-
-                            ( "Le Tour de France", France, [ (tdf1970, 1970, 6, 26 )
-                                                           , (tdf1971, 1971, 6, 26 )
-                                                           , (tdf2018, 2018, 7,  7 )
-                                                           ] )
-                          ]
-
   describe "stage race edition routes" $ do
-    forM_ stageRaceEditions $ \(raceName, country, editions) -> do
-      forM_ editions $ \(routeFunc, year, month, day) -> do
-        let fileName = printf "../resources/%s/%d/route.csv" raceName year
-        let desc = printf "%s [%d] route() will match %s" raceName year fileName
-        it desc $ do
-          contents <- readFile fileName
-          let expectedRoute = lines contents
-          let startDate = fromGregorian year month day
-          let startState = ParcoursDB.StageRaceState.init raceName country startDate
-          let (race,_) = runState routeFunc startState
-          ParcoursDB.StageRace.route race `shouldBe` expectedRoute
-
+    forM_ editions $ \(edition) -> do
+      let raceName = ParcoursDB.StageRace.name edition
+      let firstStage = ParcoursDB.StageRace.firstStage edition
+      let (year,_,_)       = toGregorian $ ParcoursDB.Stage.date $ fromJust firstStage
+      let fileName = printf "../resources/%s/%d/route.csv" raceName year
+      let desc = printf "%s [%d] route() will match %s" raceName year fileName
+      it desc $ do
+        contents <- readFile fileName
+        let expectedRoute = lines contents
+        ParcoursDB.StageRace.route edition `shouldBe` expectedRoute

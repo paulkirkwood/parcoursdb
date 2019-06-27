@@ -1,16 +1,28 @@
 -- file StageRaces.LeTour.hs
-module StageRaces.LeTour where
+module StageRaces.LeTour
+(tdf1970
+,tdf1971
+,tdf2018
+)where
 
 import Control.Monad.State
 import Countries.Belgium
 import Countries.France
 import Countries.Switzerland
 import Countries.WestGermany
+import Data.Time
+import ParcoursDB.Country
 import ParcoursDB.StageRace
-import ParcoursDB.StageRaceState
+import ParcoursDB.State.StageRace
 
-tdf1970 :: State StageRaceState StageRace
-tdf1970 = do
+name :: String
+name = "Le Tour de France"
+
+tdf1970 :: StageRace
+tdf1970 = evalState tdf1970' (ParcoursDB.State.StageRace.init StageRaces.LeTour.name France (fromGregorian 1970 6 26))
+
+tdf1970' :: State StageRaceState StageRace
+tdf1970' = do
   prologue' limoges 7.4
   roadStage limoges laRochelle 224
   roadStage laRochelle angers 200
@@ -53,8 +65,11 @@ tdf1970 = do
   race <- build
   return race
 
-tdf1971 :: State StageRaceState StageRace
-tdf1971 = do
+tdf1971 :: StageRace
+tdf1971 = evalState tdf1971' (ParcoursDB.State.StageRace.init StageRaces.LeTour.name France (fromGregorian 1971 6 26))
+
+tdf1971' :: State StageRaceState StageRace
+tdf1971' = do
   prologue' mulhouse 11.0
   enableSplitStages
   roadStage mulhouse basel 59.5
@@ -91,8 +106,11 @@ tdf1971 = do
   race <- build
   return race
 
-tdf2018 :: State StageRaceState StageRace
-tdf2018 = do
+tdf2018 :: StageRace
+tdf2018 = evalState tdf2018' (ParcoursDB.State.StageRace.init StageRaces.LeTour.name France (fromGregorian 2018 7 7))
+
+tdf2018' :: State StageRaceState StageRace
+tdf2018' = do
   roadStage noirmoutier fontenayLeComte 201
   roadStage mouilleronSaintGermain laRocheSurYon 182.5
   teamTimeTrial' cholet 35.5

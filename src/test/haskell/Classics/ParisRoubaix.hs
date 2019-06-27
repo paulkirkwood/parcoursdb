@@ -1,5 +1,5 @@
--- file Editions.ParisRoubaix.hs
-module Editions.ParisRoubaix
+-- file Classics.ParisRoubaix.hs
+module Classics.ParisRoubaix
 (parisRoubaix2010
 ,parisRoubaix2011
 ,parisRoubaix2012
