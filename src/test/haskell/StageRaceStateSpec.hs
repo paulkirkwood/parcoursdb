@@ -4,10 +4,10 @@ module StageRaceStateSpec where
 import Control.Monad.State
 import Data.Maybe
 import Data.Time
-import Editions.Dauphine
-import Editions.Giro
-import Editions.LeTour
-import Editions.Tirreno
+import StageRaces.Dauphine
+import StageRaces.Giro
+import StageRaces.LeTour
+import StageRaces.Tirreno
 import ParcoursDB.Country
 import ParcoursDB.StageRace
 import ParcoursDB.StageRaceState
@@ -23,6 +23,7 @@ main = hspec $ do
                             ( "Giro d'Italia", Italy, [ ( giro1980, 1980, 5, 15 )
                                                      ,  ( giro1981, 1981, 5, 13 )
                                                      ,  ( giro1987, 1987, 5, 21 )
+                                                     ,  ( giro2016, 2016, 5,  6 )
                                                      ,  ( giro2017, 2017, 5,  5 )
                                                      ,  ( giro2018, 2018, 5,  4 )
                                                      ] ),
