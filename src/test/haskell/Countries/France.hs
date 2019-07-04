@@ -4,14 +4,15 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 -- A
-albertville = Location "Albertville" France
-albi        = Location "Albi" France
-alpeDHuez   = Location "L'Alpe d'Huez" France
-amiens      = Location "Amiens" France
-angers      = Location "Angers" France
-annecy      = Location "Annecy" France
-argenteuil  = Location "Argenteuil" France
-arras       = Location "Arras" France
+albertville          = Location "Albertville" France
+albi                 = Location "Albi" France
+alpeDHuez            = Location "L'Alpe d'Huez" France
+amiens               = Location "Amiens" France
+angers               = Location "Angers" France
+annecy               = Location "Annecy" France
+argenteuil           = Location "Argenteuil" France
+arras                = Location "Arras" France
+autodromeDeMontlhery = Location "Autodrome de Montlhéry" France
 
 -- B
 bagneresDeBigorre = Location "Bagneres-de-Bigorre" France
@@ -29,11 +30,13 @@ carpentras      = Location "Carpentras" France
 chantilly       = Location "Chantilly" France
 chartres        = Location "Chartres" France
 chatou          = Location "Chatou, Paris" France
+chaville        = Location "Chaville" France
 chazey          = Location "Chazey-sur-Ain" France
 cholet          = Location "Cholet" France
 ciney           = Location "Ciney" France
 clermontFerrand = Location "Clermont-Ferrand" France
 compiegne       = Location "Compiegne" France
+creteil         = Location "Créteil" France
 
 -- D
 divonneLesBains = Location "Divonne-les-Bains" France

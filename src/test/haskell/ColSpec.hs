@@ -9,8 +9,8 @@ import Data.Time
 main :: IO ()
 main = hspec $ do
 
-  let hc = HC "Alpe d'Huez" 1850 13.8
-  let c1 = C1 "Col d'Aspin" 1490 12
+  let hc = Col "Alpe d'Huez" HC 1850 13.8
+  let c1 = Col "Col d'Aspin" C1 1490 12
 
   describe "name [HC]" $ do
     it "returns the name of the col" $
@@ -38,8 +38,8 @@ main = hspec $ do
 
   describe "category [HC]" $ do
     it "returns the name of the col" $
-      category hc `shouldBe` "HC"
+      category hc `shouldBe` HC
 
   describe "category [C1]" $ do
     it "returns the name of the col" $
-      category c1 `shouldBe` "C.1"
+      category c1 `shouldBe` C1

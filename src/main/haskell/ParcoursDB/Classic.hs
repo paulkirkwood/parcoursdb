@@ -3,27 +3,30 @@ module ParcoursDB.Classic where
 import Data.Time
 import ParcoursDB.Berg
 import ParcoursDB.Col
+import ParcoursDB.Cote
 import ParcoursDB.Country
+import ParcoursDB.Gravel
 import ParcoursDB.Location
 import ParcoursDB.Pave
+import Text.Printf
 
-data Classic = ParisRoubaix       Day Float [Pave]
-             | ParisTours         Day Float
-             | GrandPrixDePlouay  Day Float
-             | TourOfFlanders     Day Float [Pave] [Berg]
-             | MilanoSanRemo      Day Float [Col]
-             | LiegeBastogneLiege Day Float [Col]
-             | LaFlecheWallonne   Day Float [Col]
-             | TourOfLombardy     Day Float [Col]
+data Classic = ParisRoubaix       Day Float [IndexablePave]
+             | TourOfFlanders     Day Float [IndexablePave] [IndexableBerg]
+             | MilanoSanRemo      Day Float [IndexableCote]
+             | LiegeBastogneLiege Day Float [IndexableCote]
+             | LaFlecheWallonne   Day Float [IndexableCote]
+             | TourOfLombardy     Day Float [IndexableCote]
              | OmloopHetVolk      Day Float [Berg]
              | GentWevelgem       Day Float [Berg]
              | E3Harelbeke        Day Float [Berg]
              | KBK                Day Float [Berg]
              | AmstelGoldRace     Day Float [Berg]
+             | ParisTours         Day Float [IndexableCote] [IndexableGravel]
+             | GrandPrixDePlouay  Day Float
 
 date :: Classic -> Day
 date (ParisRoubaix d _ _)       = d
-date (ParisTours d _)           = d
+date (ParisTours d _ _ _)       = d
 date (GrandPrixDePlouay d _)    = d
 date (TourOfFlanders d _ _ _)   = d
 date (MilanoSanRemo d _ _)      = d
@@ -38,7 +41,7 @@ date (AmstelGoldRace d _ _)     = d
 
 distance :: Classic -> Float
 distance (ParisRoubaix _ d _)       = d
-distance (ParisTours _ d)           = d
+distance (ParisTours _ d _ _)       = d
 distance (GrandPrixDePlouay _ d)    = d
 distance (TourOfFlanders _ d _ _)   = d
 distance (MilanoSanRemo _ d _)      = d
@@ -53,10 +56,10 @@ distance (AmstelGoldRace _ d _)     = d
 
 name :: Classic -> String
 name (ParisRoubaix _ _ _)       = "Paris-Roubaix"
-name (ParisTours _ _)           = "Paris-Tours"
+name (ParisTours _ _ _ _)       = "Paris-Tours"
 name (TourOfFlanders _ _ _ _)   = "Tour of Flanders"
 name (MilanoSanRemo _ _ _)      = "Milano-San Remo"
-name (LiegeBastogneLiege _ _ _) = "Liège - Bastogne - Liège"
+name (LiegeBastogneLiege _ _ _) = "Liège-Bastogne-Liège"
 name (LaFlecheWallonne _ _ _)   = "La Flèche Wallonne"
 name (TourOfLombardy _ _ _)     = "Il Lombardia"
 name (GentWevelgem _ _ _ )      = "Gent-Wevelgem"
@@ -89,8 +92,9 @@ start (GrandPrixDePlouay _ _ )   = Location "Plouay" France
 start (KBK _ _ _ )               = Location "Kuurne" Belgium
 start (ParisRoubaix d _ _)
   | year `elem` [1896,1897,1901] ++ [1929..1937] ++ [1939] = Location "Porte Maillot, Paris" France
-  | year `elem` [1898,1899] ++ [1902..1913]                = Location "Chatou" France
-  | year `elem` [1914,1919..1928]                          = Location "Suresnes, Paris" France
+  | year == 1900                                           = Location "Saint-Germain" France
+  | year `elem` [1898,1899] ++ [1902..1913]                = Location "Chatou, Paris" France
+  | year `elem` [1914] ++ [1919..1928]                     = Location "Suresnes, Paris" France
   | year == 1938                                           = Location "Argenteuil" France
   | year `elem` [1943..1965]                               = Location "Saint-Denis" France
   | year `elem` [1966..1976]                               = Location "Chantilly" France
@@ -110,11 +114,11 @@ start (TourOfLombardy d _ _)
   | year == 2002                                            = Location "Cantu" Italy
   | otherwise                                               = Location "Bergamo" Italy
   where (year,_,_) = toGregorian d
-start (ParisTours d _)
+start (ParisTours d _ _ _)
   | year `elem` [1974..1975] = Location "Tours" France
   | year `elem` [1976..1979] = Location "Blois" France
   | year `elem` [1985..1987] = Location "Créteil" France
-  | otherwise                = Location "Paris" Italy
+  | otherwise                = Location "Paris" France
   where (year,_,_) = toGregorian d
 start (AmstelGoldRace d _ _)
   | year == 1966             = Location "Breda" Netherlands
@@ -167,7 +171,7 @@ finish (OmloopHetVolk d _ _)
   | year `elem` [1996..2007] = Location "Lokeren" Belgium
   | otherwise                = Location "Ghent" Belgium
   where (year,_,_) = toGregorian d
-finish (ParisTours d _)
+finish (ParisTours d _ _ _)
   | year `elem` [1974,1975]                 = Location "Versailles" France
   | year == 1978                            = Location "Autodrome de Montlhéry" France
   | year `elem` [1976,1977] ++ [1979..1987] = Location "Chaville" France
@@ -195,3 +199,24 @@ finish (LaFlecheWallonne d _ _)
   | year `elem` [1982]       = Location "Spa" Belgium
   | otherwise                = Location "Huy" Belgium
   where (year,_,_) = toGregorian d
+
+pave :: Classic -> [String]
+pave (ParisRoubaix _ distance ps)     = map(\p -> ParcoursDB.Pave.description p distance) ps
+pave (TourOfFlanders _ distance ps _) = map(\p -> ParcoursDB.Pave.description p distance) ps
+
+bergs :: Classic -> [String]
+bergs (TourOfFlanders _ distance _ bs) = bergs' 1 distance bs
+
+bergs' :: Int -> Float -> [IndexableBerg] -> [String]
+bergs' idx dist [b] = [ParcoursDB.Berg.description idx dist b]
+bergs' idx dist (b:bs) = [ParcoursDB.Berg.description idx dist b] ++ bergs' (idx + 1) dist bs
+
+cotes :: Classic -> [String]
+cotes (LaFlecheWallonne _ distance cs)   = map(\c -> ParcoursDB.Cote.description c distance) cs
+cotes (LiegeBastogneLiege _ distance cs) = map(\c -> ParcoursDB.Cote.description c distance) cs
+cotes (MilanoSanRemo _ distance cs)      = map(\c -> ParcoursDB.Cote.description c distance) cs
+cotes (ParisTours _ distance cs _)       = map(\c -> ParcoursDB.Cote.description c distance) cs
+cotes (TourOfLombardy _ distance cs)     = map(\c -> ParcoursDB.Cote.description c distance) cs
+
+gravel :: Classic -> [String]
+gravel (ParisTours _ distance _ gs) = map(\g -> ParcoursDB.Gravel.description g distance) gs
