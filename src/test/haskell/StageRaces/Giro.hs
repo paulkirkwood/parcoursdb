@@ -16,15 +16,12 @@ import Data.Time
 import ParcoursDB.Country
 import ParcoursDB.Location
 import ParcoursDB.StageRace
-import ParcoursDB.State.StageRace
-
-name :: String
-name = "Giro d'Italia"
+import ParcoursDB.State.Giro
 
 giro1980 :: StageRace
-giro1980 = evalState giro1980' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 1980 5 15))
+giro1980 = evalState giro1980' (ParcoursDB.State.Giro.init (fromGregorian 1980 5 15))
 
-giro1980' :: State StageRaceState StageRace
+giro1980' :: State GiroState StageRace
 giro1980' = do
   prologue' genoa 7
   roadStage genoa imperia 123
@@ -54,9 +51,9 @@ giro1980' = do
   return race
 
 giro1981 :: StageRace
-giro1981 = evalState giro1981' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 1981 5 13))
+giro1981 = evalState giro1981' (ParcoursDB.State.Giro.init (fromGregorian 1981 5 13))
 
-giro1981' :: State StageRaceState StageRace
+giro1981' :: State GiroState StageRace
 giro1981' = do
   prologue' trieste 6.6
   enableSplitStages
@@ -91,9 +88,9 @@ giro1981' = do
   return race
 
 giro1987 :: StageRace
-giro1987 = evalState giro1987' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 1987 5 21))
+giro1987 = evalState giro1987' (ParcoursDB.State.Giro.init (fromGregorian 1987 5 21))
 
-giro1987' :: State StageRaceState StageRace
+giro1987' :: State GiroState StageRace
 giro1987' = do
   prologue' sanRemo 4
   enableSplitStages
@@ -127,9 +124,9 @@ giro1987' = do
   return race
 
 giro2016 :: StageRace
-giro2016 = evalState giro2016' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 2016 5 6))
+giro2016 = evalState giro2016' (ParcoursDB.State.Giro.init (fromGregorian 2016 5 6))
 
-giro2016' :: State StageRaceState StageRace
+giro2016' :: State GiroState StageRace
 giro2016' = do
   individualTimeTrial' apeldoorn 9.8
   roadStage arnhem nijmegen 190
@@ -163,9 +160,9 @@ giro2016' = do
   return race
 
 giro2017 :: StageRace
-giro2017 = evalState giro2017' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 2017 5 5))
+giro2017 = evalState giro2017' (ParcoursDB.State.Giro.init (fromGregorian 2017 5 5))
 
-giro2017' :: State StageRaceState StageRace
+giro2017' :: State GiroState StageRace
 giro2017' = do
   roadStage alghero olbia 206
   roadStage olbia tortoli 221
@@ -203,9 +200,9 @@ giro2017' = do
   return race
 
 giro2018 :: StageRace
-giro2018 = evalState giro2018' (ParcoursDB.State.StageRace.init StageRaces.Giro.name Italy (fromGregorian 2018 5 4))
+giro2018 = evalState giro2018' (ParcoursDB.State.Giro.init (fromGregorian 2018 5 4))
 
-giro2018' :: State StageRaceState StageRace
+giro2018' :: State GiroState StageRace
 giro2018' = do
   individualTimeTrial' jerusalem 9.7
   roadStage haifa telAviv 167

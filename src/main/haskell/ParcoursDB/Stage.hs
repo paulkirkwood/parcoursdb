@@ -10,7 +10,7 @@ import ParcoursDB.Location
 import Text.Printf
 
 data Stage = Prologue Location Location Day Float
-           | Road Location Location Day String Float [Col]
+           | Road Location Location Day String Float [IndexableCol]
            | TeamTimeTrial Location Location Day String Float
            | IndividualTimeTrial Location Location Day String Float
            | RestDay Day Location

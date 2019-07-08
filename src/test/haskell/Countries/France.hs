@@ -101,6 +101,7 @@ orcieres          = Location "Orcieres" France
 -- P
 paris             = Location "Paris" France
 pau               = Location "Pau" France
+plouay            = Location "Plouay" France
 poitiers          = Location "Poitiers" France
 pontDeVaux        = Location "Pont-de-Vaux" France
 porteMaillot      = Location "Porte Maillot, Paris" France

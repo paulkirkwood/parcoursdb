@@ -11,15 +11,12 @@ import Data.Time
 import Countries.Italy
 import ParcoursDB.Country
 import ParcoursDB.StageRace
-import ParcoursDB.State.StageRace
-
-name :: String
-name = "Tirreno Adriatico"
+import ParcoursDB.State.TirrenoAdriatico
 
 tirreno2013 :: StageRace
-tirreno2013 = evalState tirreno2013' (ParcoursDB.State.StageRace.init StageRaces.Tirreno.name Italy (fromGregorian 2013 3 6))
+tirreno2013 = evalState tirreno2013' (ParcoursDB.State.TirrenoAdriatico.init (fromGregorian 2013 3 6))
 
-tirreno2013' :: State StageRaceState StageRace
+tirreno2013' :: State TirrenoAdriaticoState StageRace
 tirreno2013' = do
   prologue sanVincenzo donoratico 16.9
   roadStage sanVincenzo indicatore 232.0
@@ -32,9 +29,9 @@ tirreno2013' = do
   return race
 
 tirreno2014 :: StageRace
-tirreno2014 = evalState tirreno2014' (ParcoursDB.State.StageRace.init StageRaces.Tirreno.name Italy (fromGregorian 2014 3 12))
+tirreno2014 = evalState tirreno2014' (ParcoursDB.State.TirrenoAdriatico.init (fromGregorian 2014 3 12))
 
-tirreno2014' :: State StageRaceState StageRace
+tirreno2014' :: State TirrenoAdriaticoState StageRace
 tirreno2014' = do
   prologue donoratico sanVincenzo 18.5
   roadStage sanVincenzo cascina 166
@@ -47,9 +44,9 @@ tirreno2014' = do
   return race
 
 tirreno2015 :: StageRace
-tirreno2015 = evalState tirreno2015' (ParcoursDB.State.StageRace.init StageRaces.Tirreno.name Italy (fromGregorian 2015 3 11))
+tirreno2015 = evalState tirreno2015' (ParcoursDB.State.TirrenoAdriatico.init (fromGregorian 2015 3 11))
 
-tirreno2015' :: State StageRaceState StageRace
+tirreno2015' :: State TirrenoAdriaticoState StageRace
 tirreno2015' = do
   individualTimeTrial' lidoDiCamaiore 5.4
   roadStage camaiore cascina 153
@@ -62,9 +59,9 @@ tirreno2015' = do
   return race
 
 tirreno2016 :: StageRace
-tirreno2016 = evalState tirreno2016' (ParcoursDB.State.StageRace.init StageRaces.Tirreno.name Italy (fromGregorian 2016 3 9))
+tirreno2016 = evalState tirreno2016' (ParcoursDB.State.TirrenoAdriatico.init (fromGregorian 2016 3 9))
 
-tirreno2016' :: State StageRaceState StageRace
+tirreno2016' :: State TirrenoAdriaticoState StageRace
 tirreno2016' = do
   teamTimeTrial' lidoDiCamaiore 22.7
   roadStage camaiore pomarance 207

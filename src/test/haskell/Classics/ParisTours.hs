@@ -7,12 +7,13 @@ parisTours2018
 import Control.Monad.State
 import Data.Time
 import ParcoursDB.Classic hiding (gravel)
-import ParcoursDB.State.ParisTours
+import ParcoursDB.State.Classic
 
 parisTours2018 :: Classic
-parisTours2018 = evalState parisTours2018' (ParcoursDB.State.ParisTours.init (fromGregorian 2018 10 7) 214.5)
+parisTours2018 =
+  evalState parisTours2018' (ParcoursDB.State.Classic.init (ParisTours (fromGregorian 2018 10 7) 214.5 [] []))
 
-parisTours2018' :: State ParisToursState Classic
+parisTours2018' :: State ClassicState Classic
 parisTours2018' = do
   cote   153.5 "Côte de Nazelles-Négron" 103
   gravel   165 "Château de Valmer" 0.5

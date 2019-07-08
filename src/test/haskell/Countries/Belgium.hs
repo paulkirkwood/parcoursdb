@@ -31,11 +31,16 @@ gentbrugge      = Location "Gentbrugge" Belgium
 ghent           = Location "Ghent" Belgium
 
 --H
-hasselt         = Location "Hasselt" Belgium
-huy             = Location "Huy" Belgium
+harelbeke = Location "Harelbeke" Belgium
+hasselt   = Location "Hasselt" Belgium
+huy       = Location "Huy" Belgium
+
+--K
+kuurne = Location "Kuurne" Belgium
 
 --L
-liege           = Location "Liège" Belgium
+liege   = Location "Liège" Belgium
+lokeren = Location "Lokeren" Belgium
 
 --M
 marcheEnFamenne = Location "Marche-en-Famenne" Belgium

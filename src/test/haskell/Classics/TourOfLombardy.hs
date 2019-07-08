@@ -7,12 +7,13 @@ ilLombardia2018
 import Control.Monad.State
 import Data.Time
 import ParcoursDB.Classic
-import ParcoursDB.State.TourOfLombardy
+import ParcoursDB.State.Classic
 
 ilLombardia2018 :: Classic
-ilLombardia2018 = evalState ilLombardia2018' (ParcoursDB.State.TourOfLombardy.init (fromGregorian 2018 10 13) 241)
+ilLombardia2018 =
+  evalState ilLombardia2018' (ParcoursDB.State.Classic.init (TourOfLombardy (fromGregorian 2018 10 13) 241 []))
 
-ilLombardia2018' :: State TourOfLombardyState Classic
+ilLombardia2018' :: State ClassicState Classic
 ilLombardia2018' = do
   cote 54.7 "Colle Gallio" 763
   cote 113.9 "Colle Brianza" 533

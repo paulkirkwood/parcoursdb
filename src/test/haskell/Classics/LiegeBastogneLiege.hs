@@ -7,12 +7,11 @@ lbl2018
 import Control.Monad.State
 import Data.Time
 import ParcoursDB.Classic
-import ParcoursDB.State.LiegeBastogneLiege
+import ParcoursDB.State.Classic
 
 lbl2018 :: Classic
-lbl2018 = evalState lbl2018' (ParcoursDB.State.LiegeBastogneLiege.init (fromGregorian 2018 4 22) 258)
+lbl2018 = evalState lbl2018' (ParcoursDB.State.Classic.init (LiegeBastogneLiege (fromGregorian 2018 4 22) 258 []))
 
-lbl2018' :: State LiegeBastogneLiegeState Classic
 lbl2018' = do
 --        km  Name                          Height
   cote    72 "Cote de Bonnerue"             493

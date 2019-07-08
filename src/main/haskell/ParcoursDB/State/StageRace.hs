@@ -1,6 +1,7 @@
 module ParcoursDB.State.StageRace where
 
 import Control.Monad.State
+import qualified Data.Set as Set
 import Data.Time
 import ParcoursDB.Col
 import ParcoursDB.Country
@@ -17,19 +18,20 @@ data StageRaceState = StageRaceState { raceName         :: String
                                      , isSplitStage     :: Bool
                                      , isMorningStage   :: Bool
                                      , raceStages       :: [Stage]
+                                     , sCols            :: Set.Set IndexableCol
                                      }
 
 init :: String -> Country -> Day -> StageRaceState
-init n c d = StageRaceState
-  { raceName         = n
-  , raceCountry      = c
-  , stageDay         = d
-  , stageNumber      = 1
-  , splitStageSuffix = 'a'
-  , isSplitStage     = False
-  , isMorningStage   = False
-  , raceStages       = []
-  }
+init n c d = StageRaceState { raceName         = n
+                            , raceCountry      = c
+                            , stageDay         = d
+                            , stageNumber      = 1
+                            , splitStageSuffix = 'a'
+                            , isSplitStage     = False
+                            , isMorningStage   = False
+                            , raceStages       = []
+                            , sCols            = Set.empty
+                            }
 
 getStageId :: State StageRaceState String
 getStageId = do
@@ -156,16 +158,34 @@ disableSplitStages = do
   let nextStageNumber = current + 1
   put (currentState { isSplitStage = False, stageDay = nextDay, stageNumber = nextStageNumber } )
 
---hc :: String -> Float -> Float -> Float -> State StageRaceState ()
---hc name height length km =
---  let col = HC name height length
---  in addCol col km
+hc :: String -> Int -> Float -> Float -> State StageRaceState ()
+hc n h l km = col' n HC h l km
 
---addCol :: Col -> Float -> State StageRaceState ()
---addCol col km = do
---  currentState <- get
---  let stages = raceStages currentState
---  let stage = tail stages
+c1 :: String -> Int -> Float -> Float -> State StageRaceState ()
+c1 n h l km = col' n C1 h l km
+
+c2 :: String -> Int -> Float -> Float -> State StageRaceState ()
+c2 n h l km = col' n C2 h l km
+
+c3 :: String -> Int -> Float -> Float -> State StageRaceState ()
+c3 n h l km = col' n C3 h l km
+
+c4 :: String -> Int -> Float -> Float -> State StageRaceState ()
+c4 n h l km = col' n C4 h l km
+
+col' :: String -> ColCategory -> Int -> Float -> Float -> State StageRaceState ()
+col' n c h l km
+  | km < 0 = error "km must be greater than zero"
+  | h < 0 = error "Height must be greater than zero"
+  | l < 0 = error "Height must be greater than zero"
+  | otherwise = col'' (Col n c h l) km
+
+col'' :: Col -> Float-> State StageRaceState ()
+col'' c km = do
+  currentState <- get
+  let col = IndexableCol km c
+  let cols = sCols currentState
+  put (currentState { sCols = Set.insert col $ cols })
 
 build :: State StageRaceState StageRace
 build = do

@@ -18,7 +18,7 @@ editions = [ parisRoubaix2017
 main :: IO ()
 main = hspec $ do
 
-  describe "Test the different start and finish locations across the decades" $ do
+  describe "Test the different pavé sectors across the decades" $ do
     forM_ editions $ \(edition) -> do
       let raceName   = ParcoursDB.Classic.name edition
       let (year,_,_) = toGregorian $ ParcoursDB.Classic.date edition

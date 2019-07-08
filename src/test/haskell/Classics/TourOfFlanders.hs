@@ -7,18 +7,19 @@ ronde2018
 import Control.Monad.State
 import Data.Time
 import ParcoursDB.Classic
-import ParcoursDB.State.TourOfFlanders
+import ParcoursDB.Pave hiding (pave)
+import ParcoursDB.State.Classic
 
 ronde2018 :: Classic
-ronde2018 = evalState ronde2018' (ParcoursDB.State.TourOfFlanders.init (fromGregorian 2018 4 1) 267)
+ronde2018 =
+  evalState ronde2018' (ParcoursDB.State.Classic.init (TourOfFlanders (fromGregorian 2018 4 1) 267 [] []))
 
-ronde2018' :: State TourOfFlandersState Classic
 ronde2018' = do
-  ParcoursDB.State.TourOfFlanders.pave "Lippenhovestraat" 1.3 87
-  ParcoursDB.State.TourOfFlanders.pave "Paddestraat" 2.3 89
-  ParcoursDB.State.TourOfFlanders.pave "Holleweg" 0.35 142
-  ParcoursDB.State.TourOfFlanders.pave "Haaghoek" 2 148
-  ParcoursDB.State.TourOfFlanders.pave "Mariaborrestraat" 2 225
+  pavé "Lippenhovestraat" 1.3 87 ZeroStar
+  pavé "Paddestraat" 2.3 89 ZeroStar
+  pavé "Holleweg" 0.35 142 ZeroStar
+  pavé "Haaghoek" 2 148 ZeroStar
+  pavé "Mariaborrestraat" 2 225 ZeroStar
   -- Three ascents of Oude-Kwaremont
   cobbledBerg "Oude-Kwaremont" 2.2 121
   cobbledBerg "Oude-Kwaremont" 2.2 211

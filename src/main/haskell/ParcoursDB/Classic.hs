@@ -10,64 +10,64 @@ import ParcoursDB.Location
 import ParcoursDB.Pave
 import Text.Printf
 
-data Classic = ParisRoubaix       Day Float [IndexablePave]
-             | TourOfFlanders     Day Float [IndexablePave] [IndexableBerg]
-             | MilanoSanRemo      Day Float [IndexableCote]
-             | LiegeBastogneLiege Day Float [IndexableCote]
-             | LaFlecheWallonne   Day Float [IndexableCote]
-             | TourOfLombardy     Day Float [IndexableCote]
-             | OmloopHetVolk      Day Float [Berg]
-             | GentWevelgem       Day Float [Berg]
-             | E3Harelbeke        Day Float [Berg]
-             | KBK                Day Float [Berg]
-             | AmstelGoldRace     Day Float [Berg]
-             | ParisTours         Day Float [IndexableCote] [IndexableGravel]
-             | GrandPrixDePlouay  Day Float
+data Classic = ParisRoubaix         Day Float [IndexablePave]
+             | TourOfFlanders       Day Float [IndexablePave] [IndexableBerg]
+             | MilanoSanRemo        Day Float [IndexableCote]
+             | LiegeBastogneLiege   Day Float [IndexableCote]
+             | LaFlecheWallonne     Day Float [IndexableCote]
+             | TourOfLombardy       Day Float [IndexableCote]
+             | OmloopHetVolk        Day Float [IndexablePave] [IndexableBerg]
+             | GentWevelgem         Day Float [IndexableBerg]
+             | E3Harelbeke          Day Float [IndexableBerg]
+             | KuurneBrusselsKuurne Day Float [IndexableBerg]
+             | AmstelGoldRace       Day Float [IndexableCote]
+             | ParisTours           Day Float [IndexableCote] [IndexableGravel]
+             | GrandPrixDePlouay    Day Float
 
 date :: Classic -> Day
-date (ParisRoubaix d _ _)       = d
-date (ParisTours d _ _ _)       = d
-date (GrandPrixDePlouay d _)    = d
-date (TourOfFlanders d _ _ _)   = d
-date (MilanoSanRemo d _ _)      = d
-date (LiegeBastogneLiege d _ _) = d
-date (LaFlecheWallonne d _ _)   = d
-date (TourOfLombardy d _ _)     = d
-date (OmloopHetVolk d _ _)      = d
-date (GentWevelgem d _ _)       = d
-date (E3Harelbeke d _ _)        = d
-date (KBK d _ _)                = d
-date (AmstelGoldRace d _ _)     = d
+date (ParisRoubaix d _ _)         = d
+date (ParisTours d _ _ _)         = d
+date (GrandPrixDePlouay d _)      = d
+date (TourOfFlanders d _ _ _)     = d
+date (MilanoSanRemo d _ _)        = d
+date (LiegeBastogneLiege d _ _)   = d
+date (LaFlecheWallonne d _ _)     = d
+date (TourOfLombardy d _ _)       = d
+date (OmloopHetVolk d _ _ _ )     = d
+date (GentWevelgem d _ _)         = d
+date (E3Harelbeke d _ _)          = d
+date (KuurneBrusselsKuurne d _ _) = d
+date (AmstelGoldRace d _ _)       = d
 
 distance :: Classic -> Float
-distance (ParisRoubaix _ d _)       = d
-distance (ParisTours _ d _ _)       = d
-distance (GrandPrixDePlouay _ d)    = d
-distance (TourOfFlanders _ d _ _)   = d
-distance (MilanoSanRemo _ d _)      = d
-distance (LiegeBastogneLiege _ d _) = d
-distance (LaFlecheWallonne _ d _)   = d
-distance (TourOfLombardy _ d _)     = d
-distance (OmloopHetVolk _ d _)      = d
-distance (GentWevelgem _ d _)       = d
-distance (E3Harelbeke _ d _)        = d
-distance (KBK _ d _)                = d
-distance (AmstelGoldRace _ d _)     = d
+distance (ParisRoubaix _ d _)         = d
+distance (ParisTours _ d _ _)         = d
+distance (GrandPrixDePlouay _ d)      = d
+distance (TourOfFlanders _ d _ _)     = d
+distance (MilanoSanRemo _ d _)        = d
+distance (LiegeBastogneLiege _ d _)   = d
+distance (LaFlecheWallonne _ d _)     = d
+distance (TourOfLombardy _ d _)       = d
+distance (OmloopHetVolk _ d _ _)      = d
+distance (GentWevelgem _ d _)         = d
+distance (E3Harelbeke _ d _)          = d
+distance (KuurneBrusselsKuurne _ d _) = d
+distance (AmstelGoldRace _ d _)       = d
 
 name :: Classic -> String
-name (ParisRoubaix _ _ _)       = "Paris-Roubaix"
-name (ParisTours _ _ _ _)       = "Paris-Tours"
-name (TourOfFlanders _ _ _ _)   = "Tour of Flanders"
-name (MilanoSanRemo _ _ _)      = "Milano-San Remo"
-name (LiegeBastogneLiege _ _ _) = "Liège-Bastogne-Liège"
-name (LaFlecheWallonne _ _ _)   = "La Flèche Wallonne"
-name (TourOfLombardy _ _ _)     = "Il Lombardia"
-name (GentWevelgem _ _ _ )      = "Gent-Wevelgem"
-name (KBK _ _ _ )               = "Kuurne-Brussels-Kuurne"
-name (AmstelGoldRace _ _ _)     = "Amstel Gold Race"
-name (OmloopHetVolk d _ _)
+name (ParisRoubaix _ _ _)          = "Paris-Roubaix"
+name (ParisTours _ _ _ _)          = "Paris-Tours"
+name (TourOfFlanders _ _ _ _)      = "Tour of Flanders"
+name (MilanoSanRemo _ _ _)         = "Milano-San Remo"
+name (LiegeBastogneLiege _ _ _)    = "Liège-Bastogne-Liège"
+name (LaFlecheWallonne _ _ _)      = "La Flèche Wallonne"
+name (TourOfLombardy _ _ _)        = "Il Lombardia"
+name (GentWevelgem _ _ _ )         = "Gent-Wevelgem"
+name (KuurneBrusselsKuurne _ _ _ ) = "Kuurne-Brussels-Kuurne"
+name (AmstelGoldRace _ _ _)        = "Amstel Gold Race"
+name (OmloopHetVolk d _ _ _)
   | year `elem` [1945,1946] = "Omloop van Vlaanderen"
-  | year > 2018             = "Omloop Het Nieuwsblad"
+  | year > 2008             = "Omloop Het Nieuwsblad"
   | otherwise               = "Omloop Het Volk"
   where (year,_,_) = toGregorian d
 name (E3Harelbeke d _ _)
@@ -83,13 +83,13 @@ name (GrandPrixDePlouay d _)
   where (year,_,_) = toGregorian d
 
 start :: Classic -> Location
-start (MilanoSanRemo _ _ _)      = Location "Milan" Italy
-start (LiegeBastogneLiege _ _ _) = Location "Liège" Belgium
-start (OmloopHetVolk _ _ _)      = Location "Ghent" Belgium
-start (E3Harelbeke _ _ _)        = Location "Harelbeke" Belgium
-start (GentWevelgem _ _ _)       = Location "Ghent" Belgium
-start (GrandPrixDePlouay _ _ )   = Location "Plouay" France
-start (KBK _ _ _ )               = Location "Kuurne" Belgium
+start (MilanoSanRemo _ _ _)         = Location "Milan" Italy
+start (LiegeBastogneLiege _ _ _)    = Location "Liège" Belgium
+start (OmloopHetVolk _ _ _ _)       = Location "Ghent" Belgium
+start (E3Harelbeke _ _ _)           = Location "Harelbeke" Belgium
+start (GentWevelgem _ _ _)          = Location "Ghent" Belgium
+start (GrandPrixDePlouay _ _ )      = Location "Plouay" France
+start (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium
 start (ParisRoubaix d _ _)
   | year `elem` [1896,1897,1901] ++ [1929..1937] ++ [1939] = Location "Porte Maillot, Paris" France
   | year == 1900                                           = Location "Saint-Germain" France
@@ -141,12 +141,12 @@ start (LaFlecheWallonne d _ _)
   where (year,_,_) = toGregorian d
 
 finish :: Classic -> Location
-finish (ParisRoubaix _ _ _)    = Location "Roubaix" France
-finish (MilanoSanRemo _ _ _)   = Location "San Remo" Italy
-finish (GrandPrixDePlouay _ _) = Location "Plouay" France
-finish (GentWevelgem _ _ _)    = Location "Ghent" Belgium
-finish (E3Harelbeke _ _ _)     = Location "Harelbeke" Belgium
-finish (KBK _ _ _ )            = Location "Kuurne" Belgium
+finish (ParisRoubaix _ _ _)          = Location "Roubaix" France
+finish (MilanoSanRemo _ _ _)         = Location "San Remo" Italy
+finish (GrandPrixDePlouay _ _)       = Location "Plouay" France
+finish (GentWevelgem _ _ _)          = Location "Ghent" Belgium
+finish (E3Harelbeke _ _ _)           = Location "Harelbeke" Belgium
+finish (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium
 finish (TourOfFlanders d _ _ _)
   | year == 1913                             = Location "Mariakerke" Belgium
   | year == 1914                             = Location "Evergem" Belgium
@@ -167,7 +167,7 @@ finish (TourOfLombardy d _ _)
   | year `elem` [1995..2003] ++ [2014,2016]  = Location "Bergamo" Italy
   | otherwise                                = Location "Como" Italy
   where (year,_,_) = toGregorian d
-finish (OmloopHetVolk d _ _)
+finish (OmloopHetVolk d _ _ _)
   | year `elem` [1996..2007] = Location "Lokeren" Belgium
   | otherwise                = Location "Ghent" Belgium
   where (year,_,_) = toGregorian d
@@ -203,9 +203,11 @@ finish (LaFlecheWallonne d _ _)
 pave :: Classic -> [String]
 pave (ParisRoubaix _ distance ps)     = map(\p -> ParcoursDB.Pave.description p distance) ps
 pave (TourOfFlanders _ distance ps _) = map(\p -> ParcoursDB.Pave.description p distance) ps
+pave (OmloopHetVolk _ distance ps _)  = map(\p -> ParcoursDB.Pave.description p distance) ps
 
 bergs :: Classic -> [String]
 bergs (TourOfFlanders _ distance _ bs) = bergs' 1 distance bs
+bergs (OmloopHetVolk _ distance _ bs) = bergs' 1 distance bs
 
 bergs' :: Int -> Float -> [IndexableBerg] -> [String]
 bergs' idx dist [b] = [ParcoursDB.Berg.description idx dist b]
