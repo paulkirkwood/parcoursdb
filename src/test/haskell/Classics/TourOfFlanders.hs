@@ -1,7 +1,8 @@
 -- file Classics.TourOfFlanders.hs
 module Classics.TourOfFlanders
-(
-ronde2018
+(tourOfFlanders2017
+,tourOfFlanders2018
+,tourOfFlandersEditions
 ) where
 
 import Control.Monad.State
@@ -10,11 +11,24 @@ import ParcoursDB.Classic
 import ParcoursDB.Pave hiding (pave)
 import ParcoursDB.State.Classic
 
-ronde2018 :: Classic
-ronde2018 =
-  evalState ronde2018' (ParcoursDB.State.Classic.init (TourOfFlanders (fromGregorian 2018 4 1) 267 [] []))
+tourOfFlandersEditions :: [Classic]
+tourOfFlandersEditions = [ tourOfFlanders2017
+                         , tourOfFlanders2018
+                         ]
 
-ronde2018' = do
+tourOfFlanders2017 :: Classic
+tourOfFlanders2017 =
+  evalState tourOfFlanders2017' (ParcoursDB.State.Classic.init (TourOfFlanders (fromGregorian 2017 4 2) 267 [] []))
+
+tourOfFlanders2017' = do
+  edition <- build
+  return edition
+
+tourOfFlanders2018 :: Classic
+tourOfFlanders2018 =
+  evalState tourOfFlanders2018' (ParcoursDB.State.Classic.init (TourOfFlanders (fromGregorian 2018 4 1) 267 [] []))
+
+tourOfFlanders2018' = do
   pavé "Lippenhovestraat" 1.3 87 ZeroStar
   pavé "Paddestraat" 2.3 89 ZeroStar
   pavé "Holleweg" 0.35 142 ZeroStar

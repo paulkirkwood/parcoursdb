@@ -93,7 +93,7 @@ start (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium
 start (ParisRoubaix d _ _)
   | year `elem` [1896,1897,1901] ++ [1929..1937] ++ [1939] = Location "Porte Maillot, Paris" France
   | year == 1900                                           = Location "Saint-Germain" France
-  | year `elem` [1898,1899] ++ [1902..1913]                = Location "Chatou, Paris" France
+  | year `elem` [1898,1899] ++ [1902..1913]                = Location "Chatou" France
   | year `elem` [1914] ++ [1919..1928]                     = Location "Suresnes, Paris" France
   | year == 1938                                           = Location "Argenteuil" France
   | year `elem` [1943..1965]                               = Location "Saint-Denis" France

@@ -1,7 +1,8 @@
 -- file Classics.LiegeBastogneLiege.hs
 module Classics.LiegeBastogneLiege
-(
-lbl2018
+(liegeBastogneLiege2017
+,liegeBastogneLiege2018
+,liegeBastogneLiegeEditions
 ) where
 
 import Control.Monad.State
@@ -9,10 +10,23 @@ import Data.Time
 import ParcoursDB.Classic
 import ParcoursDB.State.Classic
 
-lbl2018 :: Classic
-lbl2018 = evalState lbl2018' (ParcoursDB.State.Classic.init (LiegeBastogneLiege (fromGregorian 2018 4 22) 258 []))
+liegeBastogneLiegeEditions = [ liegeBastogneLiege2017
+                             , liegeBastogneLiege2018
+                             ]
 
-lbl2018' = do
+liegeBastogneLiege2017 :: Classic
+liegeBastogneLiege2017 =
+  evalState liegeBastogneLiege2017' (ParcoursDB.State.Classic.init (LiegeBastogneLiege (fromGregorian 2017 4 23) 258 []))
+
+liegeBastogneLiege2017' = do
+  edition <- build
+  return edition
+
+liegeBastogneLiege2018 :: Classic
+liegeBastogneLiege2018 =
+  evalState liegeBastogneLiege2018' (ParcoursDB.State.Classic.init (LiegeBastogneLiege (fromGregorian 2018 4 22) 258 []))
+
+liegeBastogneLiege2018' = do
 --        km  Name                          Height
   cote    72 "Cote de Bonnerue"             493
   cote   109 "Cote de Saint-Roch"           456

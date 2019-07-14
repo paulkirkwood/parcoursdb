@@ -2,7 +2,9 @@
 module Classics.OmloopHetVolk
 (omloopHetVolk1945
 ,omloopHetVolk1946
+,omloopHetVolk2017
 ,omloopHetVolk2018
+,omloopHetVolkEditions
 ) where
 
 import Control.Monad.State
@@ -10,6 +12,13 @@ import Data.Time
 import ParcoursDB.Classic
 import ParcoursDB.Pave
 import ParcoursDB.State.Classic
+
+omloopHetVolkEditions :: [Classic]
+omloopHetVolkEditions = [ omloopHetVolk1945
+                        , omloopHetVolk1946
+                        , omloopHetVolk2017
+                        , omloopHetVolk2018
+                        ]
 
 omloopHetVolk1945 :: Classic
 omloopHetVolk1945 =
@@ -26,6 +35,14 @@ omloopHetVolk1946 =
 
 omloopHetVolk1946' :: State ClassicState Classic
 omloopHetVolk1946' = do
+  edition <- build
+  return edition
+
+omloopHetVolk2017 :: Classic
+omloopHetVolk2017 =
+  evalState omloopHetVolk2017' (ParcoursDB.State.Classic.init (OmloopHetVolk (fromGregorian 2017 2 25) 225 [] []))
+
+omloopHetVolk2017' = do
   edition <- build
   return edition
 

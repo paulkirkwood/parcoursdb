@@ -25,6 +25,7 @@ init e3@(E3Harelbeke date distance _)           = init' e3
 init gw@(GentWevelgem date distance _)          = init' gw
 init gpp@(GrandPrixDePlouay date distance)      = init' gpp
 init kbk@(KuurneBrusselsKuurne date distance _) = init' kbk
+init lfw@(LaFlecheWallonne date distance _)     = init' lfw
 init lbl@(LiegeBastogneLiege date distance _)   = init' lbl
 init msr@(MilanoSanRemo date distance _)        = init' msr
 init ohv@(OmloopHetVolk date distance _ _)      = init' ohv
@@ -171,6 +172,12 @@ build' (GentWevelgem date distance _) = do
 build' (GrandPrixDePlouay date distance) = do
   currentState <- get
   let edition     = GrandPrixDePlouay date distance
+  return edition
+build' (LaFlecheWallonne date distance _) = do
+  currentState <- get
+  let cotes       = Set.toList (cCotes currentState)
+  let sortedCotes = Data.List.sort cotes
+  let edition     = LaFlecheWallonne date distance sortedCotes
   return edition
 build' (LiegeBastogneLiege date distance _) = do
   currentState <- get

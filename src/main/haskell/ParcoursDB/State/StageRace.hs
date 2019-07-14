@@ -1,6 +1,7 @@
 module ParcoursDB.State.StageRace where
 
 import Control.Monad.State
+import Data.List
 import qualified Data.Set as Set
 import Data.Time
 import ParcoursDB.Col
@@ -10,8 +11,7 @@ import ParcoursDB.Stage
 import ParcoursDB.StageRace
 import Text.Printf
 
-data StageRaceState = StageRaceState { raceName         :: String
-                                     , raceCountry      :: Country
+data StageRaceState = StageRaceState { sStageRace       :: StageRace
                                      , stageDay         :: Day
                                      , stageNumber      :: Int
                                      , splitStageSuffix :: Char
@@ -21,17 +21,22 @@ data StageRaceState = StageRaceState { raceName         :: String
                                      , sCols            :: Set.Set IndexableCol
                                      }
 
-init :: String -> Country -> Day -> StageRaceState
-init n c d = StageRaceState { raceName         = n
-                            , raceCountry      = c
-                            , stageDay         = d
-                            , stageNumber      = 1
-                            , splitStageSuffix = 'a'
-                            , isSplitStage     = False
-                            , isMorningStage   = False
-                            , raceStages       = []
-                            , sCols            = Set.empty
-                            }
+init :: StageRace -> Day -> StageRaceState
+init tdf@(TourDeFrance _) date         = init' tdf date
+init giro@(Giro _) date                = init' giro date
+init parisNice@(ParisNice _) date      = init' parisNice date
+init tirreno@(TirrenoAdriatico _) date = init' tirreno date
+init dauphine@(Dauphine _) date        = init' dauphine date
+
+init' stageRace d = StageRaceState { sStageRace = stageRace
+                                   , stageDay         = d
+                                   , stageNumber      = 1
+                                   , splitStageSuffix = 'a'
+                                   , isSplitStage     = False
+                                   , isMorningStage   = False
+                                   , raceStages       = []
+                                   , sCols            = Set.empty
+                                   }
 
 getStageId :: State StageRaceState String
 getStageId = do
@@ -90,8 +95,15 @@ roadStage start finish distance = do
   nextStageNumber <- nextStageNumber
   nextSuffix <- nextSplitStageSuffix
   let xs = raceStages currentState
-  let stage = Road start finish day stageId distance []
-  put (currentState { stageDay = nextDay, stageNumber = nextStageNumber, splitStageSuffix = nextSuffix, raceStages = (xs ++ [stage]) } )
+  let cols       = Set.toList (sCols currentState)
+  let sortedCols = Data.List.sort cols
+  let stage = Road start finish day stageId distance sortedCols
+  put (currentState { stageDay         = nextDay
+                    , stageNumber      = nextStageNumber
+                    , splitStageSuffix = nextSuffix
+                    , raceStages       = (xs ++ [stage])
+                    , sCols            = Set.empty
+                    } )
 
 criterium :: Location -> Float -> State StageRaceState ()
 criterium start distance = roadStage start start distance
@@ -190,8 +202,33 @@ col'' c km = do
 build :: State StageRaceState StageRace
 build = do
   currentState <- get
-  let n    = raceName currentState
-  let c    = raceCountry currentState
-  let xs   = raceStages currentState
-  let race = StageRace n c xs
-  return race
+  let stageRace = sStageRace currentState
+  edition <- build' stageRace
+  return edition
+
+build' :: StageRace -> State StageRaceState StageRace
+build' (TourDeFrance _) = do
+  currentState <- get
+  let stages = raceStages currentState
+  let edition = TourDeFrance stages
+  return edition
+build' (Giro _) = do
+  currentState <- get
+  let stages = raceStages currentState
+  let edition = Giro stages
+  return edition
+build' (ParisNice _) = do
+  currentState <- get
+  let stages = raceStages currentState
+  let edition = ParisNice stages
+  return edition
+build' (TirrenoAdriatico _) = do
+  currentState <- get
+  let stages = raceStages currentState
+  let edition = TirrenoAdriatico stages
+  return edition
+build' (Dauphine _) = do
+  currentState <- get
+  let stages = raceStages currentState
+  let edition = Dauphine stages
+  return edition

@@ -4,24 +4,19 @@ module StageRaceStateSpec where
 import Control.Monad.State
 import Data.Maybe
 import Data.Time
-import StageRaces.Dauphine (dauphineEditions)
-import StageRaces.Giro (giroEditions)
-import StageRaces.LeTour (tourDeFranceEditions)
-import StageRaces.ParisNice (parisNiceEditions)
-import StageRaces.Tirreno (tirrenoAdriaticoEditions)
+import StageRaces.Tirreno
 import ParcoursDB.Country
 import ParcoursDB.Stage
 import ParcoursDB.StageRace
-import ParcoursDB.State.StageRace
 import System.IO
 import Test.Hspec
 import Text.Printf
 
-editions = dauphineEditions ++
-           giroEditions ++
-           parisNiceEditions ++
-           tirrenoAdriaticoEditions ++
-           tourDeFranceEditions
+editions = [ tirreno2013
+           , tirreno2014
+           , tirreno2015
+           , tirreno2016
+           ]
 
 main :: IO ()
 main = hspec $ do

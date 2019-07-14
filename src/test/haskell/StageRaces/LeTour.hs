@@ -3,6 +3,7 @@ module StageRaces.LeTour
 (tdf1970
 ,tdf1971
 ,tdf2018
+,tourDeFranceEditions
 )where
 
 import Control.Monad.State
@@ -13,12 +14,18 @@ import Countries.WestGermany
 import Data.Time
 import ParcoursDB.Country
 import ParcoursDB.StageRace
-import ParcoursDB.State.TourDeFrance
+import ParcoursDB.State.StageRace
+
+tourDeFranceEditions :: [StageRace]
+tourDeFranceEditions = [ tdf1970
+                       , tdf1971
+                       , tdf2018
+                       ]
 
 tdf1970 :: StageRace
-tdf1970 = evalState tdf1970' (ParcoursDB.State.TourDeFrance.init (fromGregorian 1970 6 26))
+tdf1970 = evalState tdf1970' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1970 6 26))
 
-tdf1970' :: State TourDeFranceState StageRace
+tdf1970' :: State StageRaceState StageRace
 tdf1970' = do
   prologue' limoges 7.4
   roadStage limoges laRochelle 224
@@ -63,9 +70,9 @@ tdf1970' = do
   return race
 
 tdf1971 :: StageRace
-tdf1971 = evalState tdf1971' (ParcoursDB.State.TourDeFrance.init (fromGregorian 1971 6 26))
+tdf1971 = evalState tdf1971' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1971 6 26))
 
-tdf1971' :: State TourDeFranceState StageRace
+tdf1971' :: State StageRaceState StageRace
 tdf1971' = do
   prologue' mulhouse 11.0
   enableSplitStages
@@ -104,9 +111,9 @@ tdf1971' = do
   return race
 
 tdf2018 :: StageRace
-tdf2018 = evalState tdf2018' (ParcoursDB.State.TourDeFrance.init (fromGregorian 2018 7 7))
+tdf2018 = evalState tdf2018' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2018 7 7))
 
-tdf2018' :: State TourDeFranceState StageRace
+tdf2018' :: State StageRaceState StageRace
 tdf2018' = do
   roadStage noirmoutier fontenayLeComte 201
   roadStage mouilleronSaintGermain laRocheSurYon 182.5

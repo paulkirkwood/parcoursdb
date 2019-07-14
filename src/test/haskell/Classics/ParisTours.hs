@@ -1,7 +1,8 @@
 -- file Classics.ParisTours.hs
 module Classics.ParisTours
-(
-parisTours2018
+(parisTours2017
+,parisTours2018
+,parisToursEditions
 ) where
 
 import Control.Monad.State
@@ -9,11 +10,23 @@ import Data.Time
 import ParcoursDB.Classic hiding (gravel)
 import ParcoursDB.State.Classic
 
+parisToursEditions :: [Classic]
+parisToursEditions = [ parisTours2017
+                     , parisTours2018
+                     ]
+
+parisTours2017 :: Classic
+parisTours2017 =
+  evalState parisTours2017' (ParcoursDB.State.Classic.init (ParisTours (fromGregorian 2017 10 8) 214.5 [] []))
+
+parisTours2017' = do
+  edition <- build
+  return edition
+
 parisTours2018 :: Classic
 parisTours2018 =
   evalState parisTours2018' (ParcoursDB.State.Classic.init (ParisTours (fromGregorian 2018 10 7) 214.5 [] []))
 
-parisTours2018' :: State ClassicState Classic
 parisTours2018' = do
   cote   153.5 "Côte de Nazelles-Négron" 103
   gravel   165 "Château de Valmer" 0.5

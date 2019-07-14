@@ -53,6 +53,10 @@ id (TeamTimeTrial _ _ _ i _)       = Just i
 id (IndividualTimeTrial _ _ _ i _) = Just i
 id _                               = Nothing
 
+cols :: Stage -> [IndexableCol]
+cols (Road _ _ _ _ _ cs) = cs
+cols _                   = []
+
 isRacingStage :: Stage -> Bool
 isRacingStage (RestDay _ _)   = False
 isRacingStage (TransferDay _) = False
@@ -113,3 +117,14 @@ route stage c =
       kms = printf "%.1f km" $ fromJust $ ParcoursDB.Stage.distance stage
       desc = ParcoursDB.Stage.description stage
   in intercalate "," [ num, stageDayAndDate stage, rte, kms, desc ]
+
+profile :: Stage -> [String]
+profile road@(Road _ _ _ _ _ cs) = map profile' cs
+
+profile' :: IndexableCol -> String
+profile' (IndexableCol km col) =
+  let kms      = printf "%.1f km" km
+      name     = ParcoursDB.Col.name col
+      category = (show (ParcoursDB.Col.category col))
+      height   = printf "%dm" (ParcoursDB.Col.height col)
+  in intercalate "," [ kms, name, category, height ]

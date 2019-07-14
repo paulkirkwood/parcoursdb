@@ -3,6 +3,7 @@ module StageRaceSpec where
 
 import Data.Maybe
 import Data.Time
+import Countries.France hiding (laRosiere)
 import ParcoursDB.Country
 import ParcoursDB.Location
 import ParcoursDB.Stage
@@ -16,52 +17,18 @@ main = hspec $ do
   --
   -- Criterium du Dauphine 2018
   --
-  let name  = "Criterium du Dauphine"
-  let france    = Country "France"
+  let laRosiere = Location "La Rosiere Espace San Bernardo" France
 
-  let valence      = Location "Valence" france
-  let saintJust    = Location "Saint-Just-Saint-Rambert" france
-  let montbrison   = Location "Montbrison" france
-  let belleville   = Location "Belleville" france
-  let pontDeVaux   = Location "Pont-de-Vaux" france
-  let louhans      = Location "Louhans-Chateaurenaud" france
-  let chazey       = Location "Chazey-sur-Ain" france
-  let vercors      = Location "Lan-en-Vercors" france
-  let grenoble     = Location "Grenoble" france
-  let valmorel     = Location "Valmorel" france
-  let frontenex    = Location "Frontenex" france
-  let laRosiere    = Location "La Rosiere Espace San Bernardo" france
-  let moutiers     = Location "Moutiers" france
-  let saintGervais = Location "Saint-Gervais Mont Blanc" france
+  let prologue = Prologue      valence    valence       (fromGregorian 2018 6 3) 6.6
+  let stage1   = Road          valence    saintJust     (fromGregorian 2018 6 4) "1" 179 []
+  let stage2   = Road          montbrison belleville    (fromGregorian 2018 6 5) "2" 181 []
+  let stage3   = TeamTimeTrial pontDeVaux louhans       (fromGregorian 2018 6 6) "3" 35
+  let stage4   = Road          chazey     vercors       (fromGregorian 2018 6 7) "4" 181 []
+  let stage5   = Road          grenoble   valmorel      (fromGregorian 2018 6 8) "5" 130 []
+  let stage6   = Road          frontenex  laRosiere     (fromGregorian 2018 6 9) "6" 110 []
+  let stage7   = Road          moutiers    saintGervais (fromGregorian 2018 6 10) "7" 136 []
 
-  let june3rd   = fromGregorianValid 2018 06 03
-  let june4th   = fromGregorianValid 2018 06 04
-  let june5th   = fromGregorianValid 2018 06 05
-  let june6th   = fromGregorianValid 2018 06 06
-  let june7th   = fromGregorianValid 2018 06 07
-  let june8th   = fromGregorianValid 2018 06 08
-  let june9th   = fromGregorianValid 2018 06 09
-  let june10th  = fromGregorianValid 2018 06 10
-
-  let prologueDate = fromJust june3rd
-  let stage1Date   = fromJust june4th
-  let stage2Date   = fromJust june5th
-  let stage3Date   = fromJust june6th
-  let stage4Date   = fromJust june7th
-  let stage5Date   = fromJust june8th
-  let stage6Date   = fromJust june9th
-  let stage7Date   = fromJust june10th
-
-  let prologue = Prologue      valence    valence       prologueDate 6.6
-  let stage1   = Road          valence    saintJust     stage1Date "1" 179 []
-  let stage2   = Road          montbrison belleville    stage2Date "2" 181 []
-  let stage3   = TeamTimeTrial pontDeVaux louhans       stage3Date "3" 35
-  let stage4   = Road          chazey     vercors       stage4Date "4" 181 []
-  let stage5   = Road          grenoble   valmorel      stage5Date "5" 130 []
-  let stage6   = Road          frontenex  laRosiere     stage6Date "6" 110 []
-  let stage7   = Road          moutiers    saintGervais stage7Date "7" 136 []
-
-  let dauphine = StageRace name france [prologue,stage1,stage2,stage3,stage4,stage5,stage6,stage7]
+  let dauphine = Dauphine [prologue,stage1,stage2,stage3,stage4,stage5,stage6,stage7]
 
   let expectedRoute = [ "P,3 June,Valence,6.6 km,Individual time trial",
                         "1,4 June,Valence to Saint-Just-Saint-Rambert,179.0 km,Road stage",
@@ -90,23 +57,32 @@ main = hspec $ do
 
   describe "distance" $ do
     it "returns the sum of the stages" $
-      ParcoursDB.StageRace.distance dauphine `shouldBe` Just 958.6
+      ParcoursDB.StageRace.distance dauphine `shouldBe` 958.6
 
-  describe "roadStages" $ do
-    it "returns the number of the road stages" $
-      roadStages dauphine `shouldBe` 6
+  describe "road stages" $ do
+    context "Number of road stages and total road stage kilometres" $ do
+      it "returns the number of the road stages" $
+        numberOfRoadStages dauphine `shouldBe` 6
+      it "Total road stage kilometres" $ do
+        roadStageKms dauphine `shouldBe` 917.0
 
   describe "teamTimeTrials" $ do
-    it "returns the number of team time trials" $
-      teamTimeTrials dauphine `shouldBe` 1
+    context "Number of TTTs and total TTTs kilometres" $ do
+      it "returns the number of team time trials" $
+        numberOfTeamTimeTrials dauphine `shouldBe` 1
+      it "Total TTT kilometres" $ do
+        teamTimeTrialKms dauphine `shouldBe` 35.0
 
   describe "individualTimeTrials" $ do
-    it "returns the number of individual time trials" $
-      individualTimeTrials dauphine `shouldBe` 0
+    context "Number of ITTs and total ITT kilometres" $ do
+      it "returns the number of individual time trials" $
+        numberOfIndividualTimeTrials dauphine `shouldBe` 0
+      it "Total ITT kilometres" $ do
+        individualTimeTrialKms dauphine `shouldBe` 0
 
   describe "restDays" $ do
     it "returns the number of rest days" $
-      restDays dauphine `shouldBe` 0
+      numberOfRestDays dauphine `shouldBe` 0
 
   describe "route" $ do
      it "returns the race route as a list of comma delimited strings" $
