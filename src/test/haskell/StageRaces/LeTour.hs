@@ -12,6 +12,10 @@ import Countries.France
 import Countries.Switzerland
 import Countries.WestGermany
 import Data.Time
+import Mountains.Alpes
+import Mountains.MassifArmorican
+import Mountains.MassifCentral
+import Mountains.Pyrenees
 import ParcoursDB.Country
 import ParcoursDB.StageRace
 import ParcoursDB.State.StageRace
@@ -115,27 +119,120 @@ tdf2018 = evalState tdf2018' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 
 tdf2018' :: State StageRaceState StageRace
 tdf2018' = do
+  -- Stage 1
   roadStage noirmoutier fontenayLeComte 201
+  c4 173 "Cote de Vix" 30 0.7 4.2
+
+  -- Stage 2
   roadStage mouilleronSaintGermain laRocheSurYon 182.5
+  c4 28 "Cote de Pouzauges" 202 1 3.9
+
+  -- Stage 3
   teamTimeTrial' cholet 35.5
+
+  -- Stage 4
   roadStage laBaule sarzeau 195
+  c4 135.5 "Cote de Saint-Jean-la-Poterie" 79 0.8 7.8
+
+  -- Stage 5
   roadStage lorient quimper 204.5
-  roadStage brest murDeBretagne 181
+  addCol 106 coteDeKaliforn
+  addCol 113 coteDeTrimen
+  addCol 140.5 coteDeLaRocheDuFeu
+  addCol 159.5 coteDeMenezQuelerc'h
+  addCol 184.5 coteDeLaMontagneDeLocranan
+
+  -- Stage 6
+  roadStage brest Countries.France.murDeBretagne 181
+  addCol 44 coteDePloudiry
+  addCol 68.5 coteDeRoc'hTrevezel
+  addCol 165 Mountains.MassifArmorican.murDeBretagne
+  addCol 181 Mountains.MassifArmorican.murDeBretagne
+
+  -- Stage 7
   roadStage fougres chartres 231
+  c4 120 "Cote du Buisson de Perseigne" 235 1.5 6.9
+
+  -- Stage 8
   roadStage dreux amiens 181
+  c4 35 "Cote de Pacy-sur-Eure" 135 2 4.3
+  c4 71.5 "Cote de Feuquerolles" 134 2.3 4.3
+
+  -- Stage 9
   roadStage arras roubaix 156.5
+
   restDay annecy
+
+  -- Stage 10
   roadStage annecy leGrandBornard 158.5
-  roadStage albertville laRosiere 108.5
+  addCol 19 colDeBluffy
+  addCol 43 colDeLaCroixFry
+  addCol 68.5 monteeDuPlateauDesGlieres
+  addCol 130 colDeRomme
+  addCol 144 colDeLaColombiere
+
+  -- Stage 11
+  roadStage albertville Countries.France.laRosiere 108.5
+  addCol 26 monteeDuBisanne
+  addCol 57.5 colDuPre
+  addCol 70 cormetDeRoselend
+  addCol 108.5 Mountains.Alpes.laRosiere
+
+  -- Stage 12
   roadStage bourgSaintMaurice alpeDHuez 175.5
+  addCol 53.5 colDeLaMadeleine
+  addCol 83 lacetsDeMontvernier
+  addCol 121 colDeLaCroixDeFer
+  addCol 175.5 alpeD'Huez
+
+  -- Stage 13
   roadStage leBourgDOisans valence 169.5
+  addCol 32.5 coteDeBrie
+  addCol 109.5 coteDeSainteEulalie
+
+  -- Stage 14
   roadStage saintPaulTroisChateaux mende 188
+  addCol 81 coteDuGrandChataignier
+  addCol 129 colDeLaCroixDeBerthel
+  addCol 142 colDuPontSansEau
+  addCol 186.5 coteDeLaCroixNeuve
+
+  -- Stage 15
   roadStage millau carcassonne 181.5
+  addCol 9 coteDeLuzencon
+  addCol 64.5 colDeSie
+  addCol 140 picDeNore
+
   restDay lourdes
+
+  -- Stage 16
   roadStage carcassonne bagneresDeLuchon 218
+  addCol 25 coteDeFanjeaux
+  addCol 72 coteDePamiers
+  addCol 155.5 colDePortet'Aspet
+  addCol 171 colDeMente
+  addCol 208 colDuPortillon
+
+  -- Stage 17
   roadStage bagneresDeLuchon saintLarySoulan 65
+  addCol 15 monteDePeyragudes
+  addCol 37 colDeValLouronAzet
+  addCol 65 colDuPortet
+
+  -- Stage 18
   roadStage trieSurBasie pau 171
+  addCol 53.5 coteDeMadiran
+  addCol 152.5 coteD'Anos
+
+  -- Stage 19
   roadStage lourdes laruns 200.5
+  addCol 7 coteDeLoucrup
+  addCol 40 coteDeCapvernLesBains
+  addCol 78.5 colD'Aspin
+  addCol 108 colDuTourmalet
+  addCol 159.5 colDeBorderes
+  addCol 180.5 colD'Aubisque
+
   individualTimeTrial saintPeeSurNivelle espelette 31
   roadStage houilles paris 116
   race <- build

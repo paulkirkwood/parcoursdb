@@ -17,15 +17,15 @@ name (Cote n _) = n
 height :: Cote -> Int
 height (Cote _ h) = h
 
-data IndexableCote = IndexableCote { km :: Float
-                                   , col :: Cote
+data IndexableCote = IndexableCote { km   :: Float
+                                   , cote :: Cote
                                    } deriving (Read,Show)
 
 instance Eq IndexableCote where
-  (IndexableCote km1 col1) == (IndexableCote km2 col2) = km1 == km2 && col1 == col2
+  (IndexableCote km1 cote1) == (IndexableCote km2 cote2) = km1 == km2 && cote1 == cote2
 
 instance Ord IndexableCote where
-  compare (IndexableCote km1 col1) (IndexableCote km2 col2) = if km1 == km2 then compare col1 col2 else compare km1 km2
+  compare (IndexableCote km1 cote1) (IndexableCote km2 cote2) = if km1 == km2 then compare cote1 cote2 else compare km1 km2
 
 description :: IndexableCote -> Float -> String
 description (IndexableCote km col) raceDistance =

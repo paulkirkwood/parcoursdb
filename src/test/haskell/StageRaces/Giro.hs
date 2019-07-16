@@ -214,31 +214,108 @@ giro2018 = evalState giro2018' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 
 giro2018' :: State StageRaceState StageRace
 giro2018' = do
+  -- Stage 1
   individualTimeTrial' jerusalem 9.7
+
+  -- Stage 2
   roadStage haifa telAviv 167
+  c4' 91 "Zikhrow Ya'Aqov" 162
+
+  -- Stage 3
   roadStage beersheba eilat 229
+  c4' 127.8 "Faran River" 322
+
   transferDay
+
+  -- Stage 4
   roadStage catania caltagirone 202
+  c4' 86.4 "Pietre Calde" 779
+  c4' 154.5 "Vizzini" 595
+
+  -- Stage 5
   let santaNinfa = Location "Santa Ninfa (Valle del Belice)" Italy
   roadStage agrigento santaNinfa 153
+  c4' 90.7 "Santa Margherita di Belice" 430
+  c4' 111.8 "Partanna" 405
+
+  -- Stage 6
   roadStage caltanissetta mountEtna 169
+  c1' 169 "Mount Etna" 1736
+
+  -- Stage 7
   roadStage pizzo praiaAMare 159
+
+  -- Stage 8
   roadStage praiaAMare montevergineDiMercogliano 209
+  c2' 209 "Montevergine Di Mercogliano" 1260
+
+  -- Stage 9
   let granSasso = Location "Gran Sasso d'Italia (Campo Imperatore)" Italy
   roadStage pescoSannita granSasso 225
+  c2' 108.1 "Roccaraso" 1252
+  c2' 192.9 "Calascio" 1190
+
   transferDay
+
+  -- Stage 10
   roadStage penne gualdoTadino 244
+  c2' 21.8 "Forte Delia Creta" 1254
+  c3' 61.2 "Bruzzolana" 523
+  c4' 213.5 "Annifo" 895
+
+  -- Stage 11
   roadStage assisi osimo 156
+  c3' 41.7 "Passo Cornello" 814
+  c3' 97.5 "Valico di Pietra Rossa" 674
+  c4' 156 "Osimo" 265
+
+  -- Stage 12
   roadStage osimo imola 214
+  c4' 206.6 "Tre Monti" 252
+
+  -- Stage 13
   roadStage ferrara nervesaDellaBattaglia 180
+  c4' 160.7 "Montello" 242
+
+  -- Stage 14
   roadStage sanVitoAlTagliamento monteZoncolan 186
+  c3' 43.3 "Monte di Ragogna" 494
+  c3' 106 "Avaglio" 738
+  c2' 142.5 "Passo Duron" 1609
+  c3' 165.8 "Sella Valcalda Ravascletto" 958
+  c1' 186 "Monte Zoncolan" 1730
+
+  -- Stage 15
   roadStage tolmezzo sappada 176
+  c3' 48.4 "Passo della Mauria" 1301
+  c2' 110.6 "Passo Tre Croci" 1805
+  c2' 146.9 "Passo di Sant'Antonio" 1470
+  c2' 160.6 "Costalissoio (Bosco dei Giavi)" 1300
+
   transferDay
+
+  -- Stage 16
   individualTimeTrial trento rovereto 34.2
+
+  -- Stage 17
   roadStage rivaDelGarda iseo 149.5
+  c3' 71.5 "Lodrino" 736
+
+  -- Stage 18
   roadStage abbiategrasso pratoNevoso 196
+  c1' 196 "Pratonevoso" 1607
+
+  -- Stage 19
   roadStage venariaReale bardonecchia 185
+  c2' 48.9 "Colle del Lys" 1311
+  c1' 110.7 "Colle delle Finestre" 2178
+  c3' 138.4 "Sestriere" 2035
+  c1' 184 "Bardonecchia" 1908
+
   roadStage susa cervinia 214
+  c1' 146.5 "Col Tsecore (Col du Mont-Tseuc)" 1623
+  c1' 185.8 "Col de Saint-Pantaleon" 1664
+  c1' 214 "Cervinia" 2001
   criterium rome 115
   race <- build
   return race
