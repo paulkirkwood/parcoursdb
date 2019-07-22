@@ -1,5 +1,7 @@
 module ParcoursDB.Col where
 
+import ParcoursDB.Country
+
 data ColCategory = HC
                  | C4
                  | C3
@@ -17,6 +19,7 @@ instance Show ColCategory where
   show UC = "Uncategorised"
 
 data Col = Col { name            :: String
+               , country         :: Country
                , category        :: ColCategory
                , height          :: Int
                , length          :: Maybe Float
@@ -25,21 +28,29 @@ data Col = Col { name            :: String
                }
   deriving (Read,Show)
 
+clone :: Col -> String -> Col
+clone c@(Col n country category h l aG mG) newName = Col (newName ++ " (" ++ n ++ ")" ) country category h l aG mG
+
 instance Eq Col where
-  (Col n1 c1 h1 _ _ _) == (Col n2 c2 h2 _ _ _) = n1 == n2 && c1 == c2 && h1 == h2
+  (Col n1 c1 cat1 h1 _ _ _) == (Col n2 c2 cat2 h2 _ _ _) = n1 == n2 && c1 == c2 && cat1 == cat2 && h1 == h2 
 
 instance Ord Col where
-  compare col1 col2 = if categoryComparison == EQ then
-                        if heightComparison == EQ then
-                          nameComparison
-                        else
-                          heightComparison
-                      else
-                        categoryComparison
-                      where
-                        categoryComparison = (category col1) `compare` (category col2)
-                        heightComparison   = (height col1) `compare` (height col2)
-                        nameComparison     = (name col1) `compare` (name col2)
+  compare col1 col2 =
+    if countryComparison == EQ then
+      if categoryComparison == EQ then
+        if heightComparison == EQ then
+          nameComparison
+        else
+          heightComparison
+      else
+        categoryComparison
+    else
+      countryComparison
+    where
+      categoryComparison = (category col1) `compare` (category col2)
+      countryComparison  = (country col2) `compare` (country col2)
+      heightComparison   = (height col1) `compare` (height col2)
+      nameComparison     = (name col1) `compare` (name col2)
 
 data IndexableCol = IndexableCol { km  :: Float
                                  , col :: Col

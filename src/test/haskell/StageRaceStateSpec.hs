@@ -29,8 +29,7 @@ main = hspec $ do
   describe "stage race edition routes" $ do
     forM_ editions $ \(edition) -> do
       let raceName = ParcoursDB.StageRace.name edition
-      let firstStage = ParcoursDB.StageRace.firstStage edition
-      let (year,_,_)       = toGregorian $ ParcoursDB.Stage.date $ fromJust firstStage
+      let (year,_,_) = startDate edition
       let fileName = printf "../resources/%s/%d/route.csv" raceName year
       let desc = printf "%s [%d] route() will match %s" raceName year fileName
       it desc $ do

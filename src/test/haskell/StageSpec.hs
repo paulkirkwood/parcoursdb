@@ -1,9 +1,13 @@
--- file PrologueSpec.hs
-module PrologueSpec where
+-- file StageSpec.hs
+module StageSpec where
 
+import Countries.France
+import Countries.UnitedKingdom
 import Data.Maybe
 import Data.Time
-import ParcoursDB.Country
+import Mountains.Alpes
+import Mountains.MassifCentral
+import ParcoursDB.Col
 import ParcoursDB.Location
 import ParcoursDB.Stage
 import Test.Hspec
@@ -11,112 +15,146 @@ import Test.Hspec
 main :: IO ()
 main = hspec $ do
 
-  let france = Country "France"
-  let paris  = Location "Paris" france
+  let july1st   = fromGregorian 2018 07 01
 
-  let july1st   = fromGregorianValid 2018 07 01
-  let stageDate = fromJust july1st
+  -- 1991 Tdf Prologue
+  let prologue  = Prologue (fromGregorian 1991 07 06) lyon lyon 5.4
 
-  let prologue  = Prologue paris paris stageDate 8.5
-  let roadStage = Road paris paris stageDate "1" 195 []
-  let ttt       = TeamTimeTrial paris paris stageDate "1" 55.5
-  let itt       = IndividualTimeTrial paris paris stageDate "1" 35.8
+  -- 1994 Tdf "Le Tour en Angleterre"
+  let roadStage = Road (fromGregorian 1994 07 05) (Left portsmouth) (Just portsmouth) "4" 187 []
 
-  describe "start" $ do
-    context "test 'start' against the different stage types" $ do
-      it "returns the start location of the prologue" $
-        start prologue `shouldBe` Just paris
-      it "returns the start location of the road stage" $
-        start roadStage `shouldBe` Just paris
-      it "returns the start location of the team time trial" $
-        start ttt `shouldBe` Just paris
-      it "returns the start location of the individual time trial" $
-        start itt `shouldBe` Just paris
+  -- 1979 Tdf Summit start and finish stage
+  let summitStartAndFinishRoadStage = Road (fromGregorian 1979 07 16) (Right alpeD'Huez) Nothing "18" 119 [ (IndexableCol 119 alpeD'Huez) ]
 
-  describe "finish" $ do
-    context "test 'finish' against the different stage types" $ do
-      it "returns the finishing location of the stage" $
-        finish prologue `shouldBe` Just paris
-      it "returns the finishing location of road stage" $
-        finish roadStage `shouldBe` Just paris
-      it "returns the finishing location of team time trial" $
-        finish ttt `shouldBe` Just paris
-      it "returns the finishing location of individual time trial" $
-        finish itt `shouldBe` Just paris
+  -- 1989 TdF summit finish mountain stage
+  let summitFinishRoadStage = Road (fromGregorian 1989 07 19) (Left briancon) Nothing "17" 165 [ (IndexableCol 165 alpeD'Huez) ]
 
-  describe "date" $ do
-    context "test 'date' against the different stage types" $ do
-      it "returns the date of the prologue" $
-        date prologue `shouldBe` stageDate
-      it "returns the date of the road stage" $
-        date roadStage `shouldBe` stageDate
-      it "returns the date of the team time trial" $
-        date ttt `shouldBe` stageDate
-      it "returns the date of the individual time trial" $
-        date itt `shouldBe` stageDate
+  -- 1986 Tdf Team Time Trial
+  let ttt = TeamTimeTrial (fromGregorian 1986 07 05) meudon saintQuentinEnYvelines "2" 56 []
 
-  describe "id" $ do
-    context "test 'id' against the different stage types" $ do
-      it "returns the Prologue stage identifier" $
-        ParcoursDB.Stage.id prologue `shouldBe` Just "P"
-      it "returns the road stage identifier" $
-        ParcoursDB.Stage.id roadStage `shouldBe` Just "1"
-      it "returns the team time trial stage identifier" $
-        ParcoursDB.Stage.id ttt `shouldBe` Just "1"
-      it "returns the individual time trial stage identifier" $
-        ParcoursDB.Stage.id itt `shouldBe` Just "1"
+  -- 1989 Tdf final Individual time time trial
+  let itt = IndividualTimeTrial (fromGregorian 1989 07 23) versailles (Just paris) "21" 24.5 []
 
-  describe "distance" $ do
-    context "test 'distance' against the different stage types" $ do
-      it "returns the distance of the prologue" $
-        distance prologue `shouldBe` Just 8.5
-      it "returns the distance of the road stage" $
-        distance roadStage `shouldBe` Just 195
-      it "returns the distance of the team time trial" $
-        distance ttt `shouldBe` Just 55.5
-      it "returns the distance of the individual time trial" $
-        distance itt `shouldBe` Just 35.8
+  -- 1987 TdF mountain time trial
+  let mtt = IndividualTimeTrial (fromGregorian 1987 07 19) carpentras Nothing "18" 36.5 [ (IndexableCol 36.5 montVentoux) ]
 
-  describe "isRacingStage" $ do
-    context "test 'isRacingStage' against the different stage types" $ do
-      it "returns 'true' for a Prologue" $
+  describe "Prologue" $ do
+    context "Test the Prologue attributes" $ do
+      it "starts in Lyon" $
+        start prologue `shouldBe` Left(lyon)
+      it "finishes in Lyon" $
+        finish prologue `shouldBe` Left(lyon)
+      it "has an identifier of 'P'" $
+        ParcoursDB.Stage.id prologue `shouldBe` "P"
+      it "has a distance of 5.4 km" $
+        distance prologue `shouldBe` 5.4
+      it "is a racing stage" $
         isRacingStage prologue `shouldBe` True
-      it "returns 'true' for a road stage" $
-        isRacingStage roadStage `shouldBe` True
-      it "returns 'true' for a team time trial" $
-        isRacingStage ttt `shouldBe` True
-      it "returns 'true' for a individual time trial" $
-        isRacingStage itt `shouldBe` True
-
-  describe "isRoadStage" $ do
-    context "test 'isRoadStage' against the different stage types" $ do
-      it "returns 'false' for a Prologue" $
+      it "is not a road stage" $
         isRoadStage prologue `shouldBe` False
-      it "returns 'true' for a road stage" $
-        isRoadStage roadStage `shouldBe` True
-      it "returns 'false' for a team time trial" $
-        isRoadStage ttt `shouldBe` False
-      it "returns 'false' for a individual time trial" $
-        isRoadStage itt `shouldBe` False
-
-  describe "isTeamTimeTrial" $ do
-    context "test 'isTeamTimeTrial' against the different stage types" $ do
-      it "returns 'false' for a Prologue" $
+      it "is not a Team time trial" $ do
         isTeamTimeTrial prologue `shouldBe` False
-      it "returns 'false' for a road stage" $
-        isTeamTimeTrial roadStage `shouldBe` False
-      it "returns 'true' for a team time trial" $
-        isTeamTimeTrial ttt `shouldBe` True
-      it "returns 'false' for a individual time trial" $
-        isTeamTimeTrial itt `shouldBe` False
-
-  describe "isIndividualTimeTrial" $ do
-    context "test 'isIndividualTimeTrial' against the different stage types" $ do
-      it "returns 'false' for a Prologue" $
+      it "is not an Individual time trial" $ do
         isIndividualTimeTrial prologue `shouldBe` False
-      it "returns 'false' for a road stage" $
+
+  describe "Non-summit Road stage" $ do
+    context "Test the attributes of a road stage with a non-summit finish" $ do
+      it "starts in Portsmouth" $ do
+        start roadStage `shouldBe` Left(portsmouth)
+      it "finishes in Portsmouth" $ do
+        finish roadStage `shouldBe` Left(portsmouth)
+      it "has an identifier of '4'" $
+        ParcoursDB.Stage.id roadStage `shouldBe` "4"
+      it "has a distance of 187.0 km" $
+        distance roadStage `shouldBe` 187
+      it "is a racing stage" $
+        isRacingStage roadStage `shouldBe` True
+      it "is a road stage" $
+        isRoadStage roadStage `shouldBe` True
+      it "is not a Team time trial" $ do
+        isTeamTimeTrial roadStage `shouldBe` False
+      it "is not an Individual time trial" $ do
         isIndividualTimeTrial roadStage `shouldBe` False
-      it "returns 'false' for a team time trial" $
+
+  describe "Road stage with a summit finish" $ do
+    context "Test the attributes of a road stage with a summit finish" $ do
+      it "starts in Briancon" $ do
+        start summitFinishRoadStage `shouldBe` Left(briancon)
+      it "finishes at Alpe d'Huez" $ do
+        finish summitFinishRoadStage `shouldBe` Right(alpeD'Huez)
+      it "has an identifier of '17'" $
+        ParcoursDB.Stage.id summitFinishRoadStage `shouldBe` "17"
+      it "has a distance of 165.0 km" $
+        distance summitFinishRoadStage `shouldBe` 165
+      it "is a racing stage" $
+        isRacingStage summitFinishRoadStage `shouldBe` True
+      it "is a road stage" $
+        isRoadStage summitFinishRoadStage `shouldBe` True
+      it "is not a Team time trial" $ do
+        isTeamTimeTrial summitFinishRoadStage `shouldBe` False
+      it "is not an Individual time trial" $ do
+        isIndividualTimeTrial summitFinishRoadStage `shouldBe` False
+
+  describe "Summit start/finish road stage" $ do
+    context "Test the attributes of a road stage with a summit start and finish" $ do
+      it "starts at Alpe d'Huez" $ do
+        start summitStartAndFinishRoadStage `shouldBe` Right(alpeD'Huez)
+      it "finishes at Alpe d'Huez" $ do
+        finish summitStartAndFinishRoadStage `shouldBe` Right(alpeD'Huez)
+
+  describe "Team time trial" $ do
+    context "Test the attributes of a team time trial" $ do
+      it "starts in Meudon" $
+        start ttt `shouldBe` Left(meudon)
+      it "finishes in Saint-Quentin-en-Yvelines" $
+        finish ttt `shouldBe` Left(saintQuentinEnYvelines)
+      it "is stage '2'" $
+        ParcoursDB.Stage.id ttt `shouldBe` "2"
+      it "has a distance of 56.0 km" $
+        distance ttt `shouldBe` 56
+      it "is a racing stage" $
+        isRacingStage ttt `shouldBe` True
+      it "is not a road stage" $
+        isRoadStage ttt `shouldBe` False
+      it "is a Team time trial" $ do
+        isTeamTimeTrial ttt `shouldBe` True
+      it "is not an Individual time trial" $ do
         isIndividualTimeTrial ttt `shouldBe` False
-      it "returns 'true' for a individual time trial" $
+
+  describe "Individual time trial" $ do
+    context "Test the attributes of a non-mountain time trial" $ do
+      it "starts in Versailles" $ do
+        start itt `shouldBe` Left(versailles)
+      it "finishes in Paris" $ do
+        finish itt `shouldBe` Left(paris)
+      it "is stage '21'" $
+        ParcoursDB.Stage.id itt `shouldBe` "21"
+      it "has a distance of 24.5 km" $
+        distance itt `shouldBe` 24.5
+      it "is a racing stage" $
+        isRacingStage itt `shouldBe` True
+      it "is not a road stage" $
+        isRoadStage itt `shouldBe` False
+      it "is not a Team time trial" $ do
+        isTeamTimeTrial itt `shouldBe` False
+      it "is an Individual time trial" $ do
         isIndividualTimeTrial itt `shouldBe` True
+
+  describe "Mountain time trial" $ do
+    context "Test the attributes of a mountain time trial" $ do
+      it "starts in Carpentras" $ do
+        start mtt `shouldBe` Left(carpentras)
+      it "finishes at the top of Mont Ventoux" $ do
+        finish mtt `shouldBe` Right(montVentoux)
+      it "is stage '18'" $
+        ParcoursDB.Stage.id mtt `shouldBe` "18"
+      it "has a distance of 36.5 km" $ 
+        distance mtt `shouldBe` 36.5
+      it "is a racing stage" $
+        isRacingStage mtt `shouldBe` True
+      it "is not a road stage" $
+        isRoadStage mtt `shouldBe` False
+      it "is not a Team time trial" $ do
+        isTeamTimeTrial mtt `shouldBe` False
+      it "is an Individual time trial" $ do
+        isIndividualTimeTrial mtt `shouldBe` True

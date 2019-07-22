@@ -1,9 +1,10 @@
 -- file StageRaceSpec.hs
 module StageRaceSpec where
 
+import Countries.France
 import Data.Maybe
 import Data.Time
-import Countries.France hiding (laRosiere)
+import StageRaces.Dauphine (dauphine2018)
 import ParcoursDB.Country
 import ParcoursDB.Location
 import ParcoursDB.Stage
@@ -17,73 +18,51 @@ main = hspec $ do
   --
   -- Criterium du Dauphine 2018
   --
-  let laRosiere = Location "La Rosiere Espace San Bernardo" France
-
-  let prologue = Prologue      valence    valence       (fromGregorian 2018 6 3) 6.6
-  let stage1   = Road          valence    saintJust     (fromGregorian 2018 6 4) "1" 179 []
-  let stage2   = Road          montbrison belleville    (fromGregorian 2018 6 5) "2" 181 []
-  let stage3   = TeamTimeTrial pontDeVaux louhans       (fromGregorian 2018 6 6) "3" 35
-  let stage4   = Road          chazey     vercors       (fromGregorian 2018 6 7) "4" 181 []
-  let stage5   = Road          grenoble   valmorel      (fromGregorian 2018 6 8) "5" 130 []
-  let stage6   = Road          frontenex  laRosiere     (fromGregorian 2018 6 9) "6" 110 []
-  let stage7   = Road          moutiers    saintGervais (fromGregorian 2018 6 10) "7" 136 []
-
-  let dauphine = Dauphine [prologue,stage1,stage2,stage3,stage4,stage5,stage6,stage7]
-
-  let expectedRoute = [ "P,3 June,Valence,6.6 km,Individual time trial",
-                        "1,4 June,Valence to Saint-Just-Saint-Rambert,179.0 km,Road stage",
-                        "2,5 June,Montbrison to Belleville,181.0 km,Road stage",
-                        "3,6 June,Pont-de-Vaux to Louhans-Chateaurenaud,35.0 km,Team time trial",
-                        "4,7 June,Chazey-sur-Ain to Lan-en-Vercors,181.0 km,Road stage",
-                        "5,8 June,Grenoble to Valmorel,130.0 km,Road stage",
-                        "6,9 June,Frontenex to La Rosiere Espace San Bernardo,110.0 km,Road stage",
-                        "7,10 June,Moutiers to Saint-Gervais Mont Blanc,136.0 km,Road stage" ]
+  let xs       = stages dauphine2018
+  let prologue = xs !! 0
+  let stage7   = xs !! 7
 
   describe "findStage" $ do
     it "returns the Prologue if it exists" $
-      firstStage dauphine `shouldBe` Just prologue
+      firstStage dauphine2018 `shouldBe` prologue
 
   describe "lastStage" $ do
     it "returns the last stage of the race" $
-      lastStage dauphine `shouldBe` Just stage7
+      lastStage dauphine2018 `shouldBe` stage7
 
   describe "depart" $ do
-    it "returns the finish of the final stage" $
-      depart dauphine `shouldBe` Just valence
+    it "returns the start of the first stage" $
+      depart dauphine2018 `shouldBe` Left valence
 
-  describe "arrive" $ do
+  describe "arrivé" $ do
     it "returns the finish of the final stage" $
-      arrive dauphine `shouldBe` Just saintGervais
+      arrivé dauphine2018 `shouldBe` Left saintGervaisMontBlanc
 
   describe "distance" $ do
     it "returns the sum of the stages" $
-      ParcoursDB.StageRace.distance dauphine `shouldBe` 958.6
+      ParcoursDB.StageRace.distance dauphine2018 `shouldBe` 958.6
 
   describe "road stages" $ do
     context "Number of road stages and total road stage kilometres" $ do
       it "returns the number of the road stages" $
-        numberOfRoadStages dauphine `shouldBe` 6
+        numberOfRoadStages dauphine2018 `shouldBe` 6
       it "Total road stage kilometres" $ do
-        roadStageKms dauphine `shouldBe` 917.0
+        roadStageKms dauphine2018 `shouldBe` 917.0
 
   describe "teamTimeTrials" $ do
     context "Number of TTTs and total TTTs kilometres" $ do
       it "returns the number of team time trials" $
-        numberOfTeamTimeTrials dauphine `shouldBe` 1
+        numberOfTeamTimeTrials dauphine2018 `shouldBe` 1
       it "Total TTT kilometres" $ do
-        teamTimeTrialKms dauphine `shouldBe` 35.0
+        teamTimeTrialKms dauphine2018 `shouldBe` 35.0
 
   describe "individualTimeTrials" $ do
     context "Number of ITTs and total ITT kilometres" $ do
       it "returns the number of individual time trials" $
-        numberOfIndividualTimeTrials dauphine `shouldBe` 0
+        numberOfIndividualTimeTrials dauphine2018 `shouldBe` 0
       it "Total ITT kilometres" $ do
-        individualTimeTrialKms dauphine `shouldBe` 0
+        individualTimeTrialKms dauphine2018 `shouldBe` 0
 
   describe "restDays" $ do
     it "returns the number of rest days" $
-      numberOfRestDays dauphine `shouldBe` 0
-
-  describe "route" $ do
-     it "returns the race route as a list of comma delimited strings" $
-       ParcoursDB.StageRace.route dauphine `shouldBe` expectedRoute
+      numberOfRestDays dauphine2018 `shouldBe` 0

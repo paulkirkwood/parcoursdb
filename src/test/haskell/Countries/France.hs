@@ -6,7 +6,6 @@ import ParcoursDB.Location
 -- A
 albertville          = Location "Albertville" France
 albi                 = Location "Albi" France
-alpeDHuez            = Location "L'Alpe d'Huez" France
 amiens               = Location "Amiens" France
 angers               = Location "Angers" France
 annecy               = Location "Annecy" France
@@ -70,8 +69,6 @@ laFouillouse               = Location "La Fouillouse" France
 laMongie                   = Location "La Mongie" France
 laRochelle                 = Location "La Rochelle" France
 laRocheSurYon              = Location "La Roche-sur-Yon" France
-laRosiere                  = Location "La Rosiere" France
-laRosiereEspaceSanBernardo = Location "La Rosiere Espace San Bernardo" France
 laruns                     = Location "Laruns" France
 leBourgDOisans             = Location "Le Bourg-d'Oisans" France
 leGrandBornard             = Location "Le Grand-Bornard" France
@@ -82,6 +79,7 @@ lourdes                    = Location "Lourdes" France
 lorient                    = Location "Lorient" France
 louhans                    = Location "Louhans-Chateaurenaud" France
 luchon                     = Location "Luchon" France
+lyon                       = Location "Lyon" France
 
 -- M
 marseille              = Location "Marseille" France
@@ -91,12 +89,10 @@ millau                 = Location "Millau" France
 montbrison             = Location "Montbrison" France
 montDeMarsan           = Location "Mont-de-Marsan" France
 montpellier            = Location "Montpellier" France
-montVentoux            = Location "Mont Ventoux" France
 mouilleronSaintGermain = Location "Mouilleron-Saint-Germain" France
 mourenx                = Location "Mourenx" France
-moutiers               = Location "Moutiers" France
+moutiers               = Location "Moûtiers" France
 mulhouse               = Location "Mulhouse" France
-murDeBretagne          = Location "Mûr-de-Bretagne" France
 
 -- N
 nancy       = Location "Nancy" France
@@ -134,11 +130,12 @@ saintEtienne           = Location "Saint-Étienne" France
 saintFrancoisLongchamp = Location "Saint-François-Longchamp" France
 saintGaudens           = Location "Saint-Gaudens" France
 saintGermain           = Location "Saint-Germain" France
-saintGervais           = Location "Saint-Gervais Mont Blanc" France
+saintGervaisMontBlanc  = Location "Saint-Gervais Mont Blanc" France
 saintJust              = Location "Saint-Just-Saint-Rambert" France
 saintLarySoulan        = Location "Saint-Lary-Soulan (Col de Portet)" France
 saintPaulTroisChateaux = Location "Saint-Paul-Trois-Chateaux" France
 saintPeeSurNivelle     = Location "Saint-Pee-sur-Nivelle" France
+saintQuentinEnYvelines = Location "Saint-Quentin-en-Yvelines" France
 salonDeProvence        = Location "Salon-de-Provence" France
 sarzeau                = Location "Sarzeau" France
 sisteron               = Location "Sisteron" France

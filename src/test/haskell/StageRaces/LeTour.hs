@@ -16,6 +16,7 @@ import Mountains.Alpes
 import Mountains.MassifArmorican
 import Mountains.MassifCentral
 import Mountains.Pyrenees
+import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.StageRace
 import ParcoursDB.State.StageRace
@@ -32,44 +33,45 @@ tdf1970 = evalState tdf1970' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1970' :: State StageRaceState StageRace
 tdf1970' = do
   prologue' limoges 7.4
-  roadStage limoges laRochelle 224
-  roadStage laRochelle angers 200
+  flatStage limoges laRochelle 224
+  flatStage laRochelle angers 200
   enableSplitStages
   teamTimeTrial' angers 10.7
-  roadStage angers rennes 140
+  flatStage angers rennes 140
   disableSplitStages
-  roadStage rennes lisieux 229
+  flatStage rennes lisieux 229
   enableSplitStages
-  roadStage lisieux rouen 94.5
-  roadStage rouen amiens 223
+  flatStage lisieux rouen 94.5
+  flatStage rouen amiens 223
   disableSplitStages
-  roadStage amiens valanciennes 135.5
+  flatStage amiens valanciennes 135.5
   enableSplitStages
-  roadStage valanciennes forest 120
+  flatStage valanciennes forest 120
   individualTimeTrial' forest 7.2
   disableSplitStages
-  roadStage ciney Countries.WestGermany.felsberg 232.5
-  roadStage Countries.WestGermany.saarlouis mulhouse 269.5
-  roadStage belfort divonneLesBains 241
+  flatStage ciney Countries.WestGermany.felsberg 232.5
+  flatStage Countries.WestGermany.saarlouis mulhouse 269.5
+  flatStage belfort divonneLesBains 241
   enableSplitStages
   individualTimeTrial' divonneLesBains 8.8
-  roadStage divonneLesBains thononLesBains 139.5
+  flatStage divonneLesBains thononLesBains 139.5
   disableSplitStages
-  roadStage divonneLesBains grenoble 194
-  roadStage grenoble gap 194.5
-  roadStage gap montVentoux 170
-  roadStage carpentras montpellier 140.5
-  roadStage montpellier toulouse 160
-  roadStage toulouse saintGaudens 190
-  roadStage saintGaudens laMongie 135.5
-  roadStage bagneresDeBigorre mourenx 185.5
+  flatStage divonneLesBains grenoble 194
+  flatStage grenoble gap 194.5
+  summitFinishStage gap 170
+  addCol 170 montVentoux
+  flatStage carpentras montpellier 140.5
+  flatStage montpellier toulouse 160
+  flatStage toulouse saintGaudens 190
+  flatStage saintGaudens laMongie 135.5
+  flatStage bagneresDeBigorre mourenx 185.5
   enableSplitStages
-  roadStage mourenx bordeaux 223.5
+  flatStage mourenx bordeaux 223.5
   individualTimeTrial' bordeaux 8.2
   disableSplitStages
-  roadStage ruffex tours 191.5
-  roadStage tours versailles 238.5
-  individualTimeTrial versailles paris 54
+  flatStage ruffex tours 191.5
+  flatStage tours versailles 238.5
+  individualTimeTrial versailles (Just paris) 54
   race <- build
   return race
 
@@ -80,37 +82,37 @@ tdf1971' :: State StageRaceState StageRace
 tdf1971' = do
   prologue' mulhouse 11.0
   enableSplitStages
-  roadStage mulhouse basel 59.5
-  roadStage basel Countries.WestGermany.freiburg 90
-  roadStage Countries.WestGermany.freiburg mulhouse 74.5
+  flatStage mulhouse basel 59.5
+  flatStage basel Countries.WestGermany.freiburg 90
+  flatStage Countries.WestGermany.freiburg mulhouse 74.5
   disableSplitStages
-  roadStage mulhouse strasbourg 144
-  roadStage strasbourg nancy 165.6
-  roadStage nancy marcheEnFamenne 242
-  roadStage dinant roubaix 208.5
+  flatStage mulhouse strasbourg 144
+  flatStage strasbourg nancy 165.6
+  flatStage nancy marcheEnFamenne 242
+  flatStage dinant roubaix 208.5
   enableSplitStages
-  roadStage roubaix amiens 127.5
-  roadStage amiens leTouquet 133.5
+  flatStage roubaix amiens 127.5
+  flatStage amiens leTouquet 133.5
   disableSplitStages
   restDay leTouquet
-  roadStage rungis nevers 257.5
-  roadStage nevers puyDeDome 221
-  roadStage clermontFerrand saintEtienne 153.0
-  roadStage saintEtienne grenoble 188.5
-  roadStage grenoble orcieres 134
+  flatStage rungis nevers 257.5
+  flatStage nevers puyDeDome 221
+  flatStage clermontFerrand saintEtienne 153.0
+  flatStage saintEtienne grenoble 188.5
+  flatStage grenoble orcieres 134
   restDay orcieres
-  roadStage orcieres marseille 251.0
+  flatStage orcieres marseille 251.0
   criterium albi 16.3
-  roadStage revel luchon 214.5
-  roadStage luchon superbagneres 19.6
+  flatStage revel luchon 214.5
+  flatStage luchon superbagneres 19.6
   enableSplitStages
-  roadStage luchon gourette 145
-  roadStage gourette pau 57.5
+  flatStage luchon gourette 145
+  flatStage gourette pau 57.5
   disableSplitStages
-  roadStage montDeMarsan bordeaux 188
-  roadStage bordeaux poitiers 244
-  roadStage blois versailles 244
-  individualTimeTrial versailles paris 53.8
+  flatStage montDeMarsan bordeaux 188
+  flatStage bordeaux poitiers 244
+  flatStage blois versailles 244
+  individualTimeTrial versailles (Just paris) 53.8
   race <- build
   return race
 
@@ -120,22 +122,22 @@ tdf2018 = evalState tdf2018' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2018' :: State StageRaceState StageRace
 tdf2018' = do
   -- Stage 1
-  roadStage noirmoutier fontenayLeComte 201
-  c4 173 "Cote de Vix" 30 0.7 4.2
+  flatStage noirmoutier fontenayLeComte 201
+  c4 173 "Cote de Vix" France 30 0.7 4.2
 
   -- Stage 2
-  roadStage mouilleronSaintGermain laRocheSurYon 182.5
-  c4 28 "Cote de Pouzauges" 202 1 3.9
+  flatStage mouilleronSaintGermain laRocheSurYon 182.5
+  c4 28 "Cote de Pouzauges" France 202 1 3.9
 
   -- Stage 3
   teamTimeTrial' cholet 35.5
 
   -- Stage 4
-  roadStage laBaule sarzeau 195
-  c4 135.5 "Cote de Saint-Jean-la-Poterie" 79 0.8 7.8
+  flatStage laBaule sarzeau 195
+  c4 135.5 "Cote de Saint-Jean-la-Poterie" France 79 0.8 7.8
 
   -- Stage 5
-  roadStage lorient quimper 204.5
+  flatStage lorient quimper 204.5
   addCol 106 coteDeKaliforn
   addCol 113 coteDeTrimen
   addCol 140.5 coteDeLaRocheDuFeu
@@ -143,28 +145,28 @@ tdf2018' = do
   addCol 184.5 coteDeLaMontagneDeLocranan
 
   -- Stage 6
-  roadStage brest Countries.France.murDeBretagne 181
+  summitFinishStage brest 181
   addCol 44 coteDePloudiry
   addCol 68.5 coteDeRoc'hTrevezel
-  addCol 165 Mountains.MassifArmorican.murDeBretagne
-  addCol 181 Mountains.MassifArmorican.murDeBretagne
+  addCol 165 murDeBretagne
+  addCol 181 murDeBretagne
 
   -- Stage 7
-  roadStage fougres chartres 231
-  c4 120 "Cote du Buisson de Perseigne" 235 1.5 6.9
+  flatStage fougres chartres 231
+  c4 120 "Cote du Buisson de Perseigne" France 235 1.5 6.9
 
   -- Stage 8
-  roadStage dreux amiens 181
-  c4 35 "Cote de Pacy-sur-Eure" 135 2 4.3
-  c4 71.5 "Cote de Feuquerolles" 134 2.3 4.3
+  flatStage dreux amiens 181
+  c4 35 "Cote de Pacy-sur-Eure" France 135 2 4.3
+  c4 71.5 "Cote de Feuquerolles" France 134 2.3 4.3
 
   -- Stage 9
-  roadStage arras roubaix 156.5
+  flatStage arras roubaix 156.5
 
   restDay annecy
 
   -- Stage 10
-  roadStage annecy leGrandBornard 158.5
+  mountainStage annecy leGrandBornard 158.5
   addCol 19 colDeBluffy
   addCol 43 colDeLaCroixFry
   addCol 68.5 monteeDuPlateauDesGlieres
@@ -172,33 +174,33 @@ tdf2018' = do
   addCol 144 colDeLaColombiere
 
   -- Stage 11
-  roadStage albertville Countries.France.laRosiere 108.5
+  summitFinishStage albertville 108.5
   addCol 26 monteeDuBisanne
   addCol 57.5 colDuPre
   addCol 70 cormetDeRoselend
-  addCol 108.5 Mountains.Alpes.laRosiere
+  addCol 108.5 laRosiere
 
   -- Stage 12
-  roadStage bourgSaintMaurice alpeDHuez 175.5
+  summitFinishStage bourgSaintMaurice 175.5
   addCol 53.5 colDeLaMadeleine
   addCol 83 lacetsDeMontvernier
   addCol 121 colDeLaCroixDeFer
   addCol 175.5 alpeD'Huez
 
   -- Stage 13
-  roadStage leBourgDOisans valence 169.5
+  flatStage leBourgDOisans valence 169.5
   addCol 32.5 coteDeBrie
   addCol 109.5 coteDeSainteEulalie
 
   -- Stage 14
-  roadStage saintPaulTroisChateaux mende 188
+  flatStage saintPaulTroisChateaux mende 188
   addCol 81 coteDuGrandChataignier
   addCol 129 colDeLaCroixDeBerthel
   addCol 142 colDuPontSansEau
   addCol 186.5 coteDeLaCroixNeuve
 
   -- Stage 15
-  roadStage millau carcassonne 181.5
+  flatStage millau carcassonne 181.5
   addCol 9 coteDeLuzencon
   addCol 64.5 colDeSie
   addCol 140 picDeNore
@@ -206,7 +208,7 @@ tdf2018' = do
   restDay lourdes
 
   -- Stage 16
-  roadStage carcassonne bagneresDeLuchon 218
+  mountainStage carcassonne bagneresDeLuchon 218
   addCol 25 coteDeFanjeaux
   addCol 72 coteDePamiers
   addCol 155.5 colDePortet'Aspet
@@ -214,18 +216,19 @@ tdf2018' = do
   addCol 208 colDuPortillon
 
   -- Stage 17
-  roadStage bagneresDeLuchon saintLarySoulan 65
+  let colDePortet' = clone colDePortet "Saint-Lary-Soulan"
+  summitFinishStage bagneresDeLuchon 65
   addCol 15 monteDePeyragudes
   addCol 37 colDeValLouronAzet
-  addCol 65 colDuPortet
+  addCol 65 colDePortet'
 
   -- Stage 18
-  roadStage trieSurBasie pau 171
+  mountainStage trieSurBasie pau 171
   addCol 53.5 coteDeMadiran
   addCol 152.5 coteD'Anos
 
   -- Stage 19
-  roadStage lourdes laruns 200.5
+  mountainStage lourdes laruns 200.5
   addCol 7 coteDeLoucrup
   addCol 40 coteDeCapvernLesBains
   addCol 78.5 colD'Aspin
@@ -233,7 +236,7 @@ tdf2018' = do
   addCol 159.5 colDeBorderes
   addCol 180.5 colD'Aubisque
 
-  individualTimeTrial saintPeeSurNivelle espelette 31
-  roadStage houilles paris 116
+  individualTimeTrial saintPeeSurNivelle (Just espelette) 31
+  flatStage houilles paris 116
   race <- build
   return race
