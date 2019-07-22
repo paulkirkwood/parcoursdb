@@ -86,7 +86,7 @@ prologueKms stageRace = prologueKms' (firstStage stageRace)
 
 prologueKms' :: Stage -> Float
 prologueKms' p@(Prologue _ _ _ d) = d
-_                             = 0
+prologueKms' _                    = 0
 
 roadStages :: StageRace -> [Stage]
 roadStages stageRace = filter isRoadStage $ stages stageRace
@@ -118,7 +118,6 @@ individualTimeTrialKms stageRace = kilometres $ map ParcoursDB.Stage.distance (i
 kilometres :: [Float] -> Float
 kilometres [] = 0
 kilometres (xs) = sum xs
---kilometres (xs) = fromJust $ fmap sum $ sequence xs
 
 restDays :: StageRace -> [Stage]
 restDays stageRace = 
