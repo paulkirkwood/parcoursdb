@@ -1,6 +1,8 @@
 -- file StageRaces.LeTour.hs
 module StageRaces.LeTour
-(tdf1970
+(tdf1903
+,tdf1904
+,tdf1970
 ,tdf1971
 ,tdf2018
 ,tourDeFranceEditions
@@ -18,14 +20,52 @@ import Mountains.MassifCentral
 import Mountains.Pyrenees
 import ParcoursDB.Col
 import ParcoursDB.Country
-import ParcoursDB.StageRace
+import ParcoursDB.StageRace hiding (distance)
+import ParcoursDB.State.NonConsecutiveStageRace
 import ParcoursDB.State.StageRace
 
 tourDeFranceEditions :: [StageRace]
-tourDeFranceEditions = [ tdf1970
+tourDeFranceEditions = [ tdf1903
+                       , tdf1904
+                       , tdf1970
                        , tdf1971
                        , tdf2018
                        ]
+
+tdf1903Stages :: [NonConsecutiveStage]
+tdf1903Stages = [ NonConsecutiveStage {month=7, day=1, start=paris, finish=lyon, distance=467}
+                , NonConsecutiveStage {month=7, day=5, start=lyon, finish=marseille, distance=374}
+                , NonConsecutiveStage {month=7, day=8, start=marseille, finish=toulouse, distance=423}
+                , NonConsecutiveStage {month=7, day=12, start=toulouse, finish=bordeaux, distance=268}
+                , NonConsecutiveStage {month=7, day=13, start=bordeaux, finish=nantes, distance=425}
+                , NonConsecutiveStage {month=7, day=18, start=nantes, finish=paris, distance=471}
+                ]
+
+tdf1904Stages :: [NonConsecutiveStage]
+tdf1904Stages = [ NonConsecutiveStage {month=7, day=2, start=montgeron, finish=lyon, distance=467}
+                , NonConsecutiveStage {month=7, day=9, start=lyon, finish=marseille, distance=374}
+                , NonConsecutiveStage {month=7, day=13, start=marseille, finish=toulouse, distance=424}
+                , NonConsecutiveStage {month=7, day=17, start=toulouse, finish=bordeaux, distance=268}
+                , NonConsecutiveStage {month=7, day=20, start=bordeaux, finish=nantes, distance=425}
+                , NonConsecutiveStage {month=7, day=23, start=nantes, finish=paris, distance=471}
+                ]
+
+tdf1903 :: StageRace
+tdf1903 = evalState tdf1903' (ParcoursDB.State.NonConsecutiveStageRace.init (TourDeFrance []) 1903)
+
+tdf1903' = do
+  nonConsecutiveStages tdf1903Stages
+  edition <- ParcoursDB.State.NonConsecutiveStageRace.build
+  return edition
+
+tdf1904 :: StageRace
+tdf1904 = evalState tdf1904' (ParcoursDB.State.NonConsecutiveStageRace.init (TourDeFrance []) 1904)
+
+tdf1904' :: State NonConsecutiveStageRaceState StageRace
+tdf1904' = do
+  nonConsecutiveStages tdf1904Stages
+  race <- ParcoursDB.State.NonConsecutiveStageRace.build
+  return race
 
 tdf1970 :: StageRace
 tdf1970 = evalState tdf1970' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1970 6 26))
@@ -72,7 +112,7 @@ tdf1970' = do
   flatStage ruffex tours 191.5
   flatStage tours versailles 238.5
   individualTimeTrial versailles (Just paris) 54
-  race <- build
+  race <- ParcoursDB.State.StageRace.build
   return race
 
 tdf1971 :: StageRace
@@ -113,7 +153,7 @@ tdf1971' = do
   flatStage bordeaux poitiers 244
   flatStage blois versailles 244
   individualTimeTrial versailles (Just paris) 53.8
-  race <- build
+  race <- ParcoursDB.State.StageRace.build
   return race
 
 tdf2018 :: StageRace
@@ -238,5 +278,5 @@ tdf2018' = do
 
   individualTimeTrial saintPeeSurNivelle (Just espelette) 31
   flatStage houilles paris 116
-  race <- build
+  race <- ParcoursDB.State.StageRace.build
   return race

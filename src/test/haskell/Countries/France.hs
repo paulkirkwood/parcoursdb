@@ -88,6 +88,7 @@ meudon                 = Location "Meudon" France
 millau                 = Location "Millau" France
 montbrison             = Location "Montbrison" France
 montDeMarsan           = Location "Mont-de-Marsan" France
+montgeron              = Location "Montgeron" France
 montpellier            = Location "Montpellier" France
 mouilleronSaintGermain = Location "Mouilleron-Saint-Germain" France
 mourenx                = Location "Mourenx" France
@@ -96,6 +97,7 @@ mulhouse               = Location "Mulhouse" France
 
 -- N
 nancy       = Location "Nancy" France
+nantes      = Location "Nantes" France
 nevers      = Location "Nevers" France
 nice        = Location "Nice" France
 noirmoutier = Location "Noirmoutier-en-l'Îe" France
