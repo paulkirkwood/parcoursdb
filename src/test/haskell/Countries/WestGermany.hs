@@ -1,14 +1,45 @@
-module Countries.WestGermany where
+module Countries.WestGermany
+(felsberg
+,saarlouis
+,freiburg
+,frankfurt
+,wiesbaden
+,westBerlin
+,karlsruhe
+,stuttgart
+,pforzheim
+)
+where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-felsberg   = Location "Felsberg" WestGermany
-saarlouis  = Location "Saarlouis" WestGermany
-freiburg   = Location "Freiburg" WestGermany
-frankfurt  = Location "Frankfurt" WestGermany
-wiesbaden  = Location "Wiesbaden" WestGermany
-westBerlin = Location "West Berlin" WestGermany
-karlsruhe  = Location "Karlsruhe" WestGermany
-stuttgart  = Location "Stuttgart" WestGermany
-pforzheim  = Location "Pforzheim" WestGermany
+westGermanLocation :: String -> Location
+westGermanLocation loc = Location loc WestGermany
+
+felsberg :: Location
+felsberg = westGermanLocation "Felsberg"
+
+saarlouis :: Location
+saarlouis = westGermanLocation "Saarlouis"
+
+freiburg :: Location
+freiburg  = westGermanLocation "Freiburg"
+
+frankfurt :: Location
+frankfurt = westGermanLocation "Frankfurt"
+
+wiesbaden :: Location
+wiesbaden = westGermanLocation "Wiesbaden"
+
+westBerlin :: Location
+westBerlin = westGermanLocation "West Berlin"
+
+karlsruhe :: Location
+karlsruhe = westGermanLocation "Karlsruhe"
+
+stuttgart :: Location
+stuttgart = westGermanLocation "Stuttgart"
+
+pforzheim :: Location
+pforzheim  = westGermanLocation "Pforzheim"

@@ -1,8 +1,32 @@
-module Countries.Austria where
+module Countries.Austria
+(grossglockner
+,innsbruck
+,klagenfurt
+,lienz
+,mayrhofen
+,veldenAmWorther
+)where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-klagenfurt      = Location "Klagenfurt" Austria
-lienz           = Location "Lienz" Austria
-veldenAmWorther = Location "Velden am Worther" Austria
+austrianLocation :: Location
+austrianLocation location = Location location Austria
+
+grossglockner :: Location
+grossglockner = austrianLocation "Großglockner"
+
+innsbruck :: Location
+innsbruck = austrianLocation "Innsbruck"
+
+klagenfurt :: Location
+klagenfurt = austrianLocation "Klagenfurt"
+
+lienz :: Location
+lienz = austrianLocation "Lienz"
+
+mayrhofen :: Location
+mayrhofen = austrianLocation "Mayrhofen"
+
+veldenAmWorther :: Location
+veldenAmWorther = austrianLocation "Velden am Worther"

@@ -4,14 +4,16 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 -- A
-ans             = Location "Ans" Belgium
-antwerp         = Location "Antwerp" Belgium
+ans     = Location "Ans" Belgium
+antwerp = Location "Antwerp" Belgium
+arlon   = Location "Arlon" Belgium
 
 -- B
-beauraing       = Location "Beauraing" Belgium
-beringen        = Location "Beringen" Belgium
-bruges          = Location "Bruges" Belgium
-brussels        = Location "Brussels" Belgium
+beauraing  = Location "Beauraing" Belgium
+beringen   = Location "Beringen" Belgium
+beveren    = Location "Beveren"  Belgium
+brasschaat = Location "Brasschaat" Belgium
+brussels   = Location "Brussels"  Belgium
 
 -- C
 charleroi       = Location "Charleroi" Belgium
@@ -34,7 +36,12 @@ ghent           = Location "Ghent" Belgium
 -- H
 harelbeke = Location "Harelbeke" Belgium
 hasselt   = Location "Hasselt" Belgium
+herentals = Location "Herentals" Belgium
+hotton    = Location "Hotton" Belgium
 huy       = Location "Huy" Belgium
+
+-- J
+jambes = Location "Jambes" Belgium
 
 -- K
 kuurne = Location "Kuurne" Belgium
@@ -52,19 +59,23 @@ mons            = Location "Mons" Belgium
 mouscron        = Location "Mouscron" Belgium
 
 -- N
-namur           = Location "Namur" Belgium
+namur = Location "Namur" Belgium
 
 -- O
-oudenaarde      = Location "Oudenaarde" Belgium
+oudenaarde = Location "Oudenaarde" Belgium
+
+-- P
+perwez = Location "Perwez" Belgium
 
 -- R
 rochefort = Location "Rochefort" Belgium
 rocourt   = Location "Rocourt" Belgium
 
 -- S
-seraing         = Location "Seraing" Belgium
-sintNiklaas     = Location "Sint-Niklaas" Belgium
-spa             = Location "Spa" Belgium
+seraing           = Location "Seraing" Belgium
+sintNiklaas       = Location "Sint-Niklaas" Belgium
+sintPietersWoluwe = Location "Sint-Pieters-Woluwe" Belgium
+spa               = Location "Spa" Belgium
 
 -- T
 tournai         = Location "Tournai" Belgium
@@ -74,9 +85,9 @@ verviers        = Location "Verviers" Belgium
 vise            = Location "Vise" Belgium
 
 -- W
-wanze           = Location "Wanze" Belgium
-waregem         = Location "Waregem" Belgium
-waterloo        = Location "Waterloo" Belgium
+wanze    = Location "Wanze" Belgium
+waregem  = Location "Waregem" Belgium
+waterloo = Location "Waterloo" Belgium
 wetteren = Location "Wetteren" Belgium
 
 -- Y

@@ -1,15 +1,50 @@
-module Countries.UnitedKingdom where
+module Countries.UnitedKingdom
+(
+brighton
+,cambridge
+,canterbury
+,dover
+,harrogate
+,leeds
+,london
+,portsmouth
+,sheffield
+,york
+)
+where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-dover      = Location "Dover" UnitedKingdom
-brighton   = Location "Brighton" UnitedKingdom
-portsmouth = Location "Portsmouth" UnitedKingdom
-london     = Location "London" UnitedKingdom
-canterbury = Location "Canterbury" UnitedKingdom
-leeds      = Location "Leeds" UnitedKingdom
-harrogate  = Location "Harrogate" UnitedKingdom
-york       = Location "York" UnitedKingdom
-sheffield  = Location "Sheffield" UnitedKingdom
-cambridge  = Location "Cambridge" UnitedKingdom
+britishLocation :: String -> Location
+britishLocation loc = Location loc UnitedKingdom
+
+brighton :: Location
+brighton   = britishLocation "Brighton"
+
+cambridge :: Location
+cambridge  = britishLocation "Cambridge"
+
+canterbury :: Location
+canterbury = britishLocation "Canterbury"
+
+dover :: Location
+dover      = britishLocation "Dover"
+
+harrogate :: Location
+harrogate  = britishLocation "Harrogate"
+
+leeds :: Location
+leeds = britishLocation "Leeds"
+
+london :: Location
+london = britishLocation "London"
+
+portsmouth :: Location
+portsmouth = britishLocation "Portsmouth"
+
+sheffield :: Location
+sheffield = britishLocation "Sheffield"
+
+york :: Location
+york = britishLocation "York"

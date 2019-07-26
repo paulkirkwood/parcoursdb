@@ -1,7 +1,21 @@
-module Countries.Slovenia where
+module Countries.Slovenia
+(bled
+,kranj
+,ljubljana
+)
+where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-bled  = Location "Bled" Slovenia
-kranj = Location "Kranj" Solvenia
+slovenianLocation :: String -> Location
+slovenianLocation loc = Location loc Slovenia
+
+bled :: Location
+bled = slovenianLocation "Bled"
+
+kranj :: Location
+kranj = slovenianLocation "Kranj"
+
+ljubljana :: Location
+ljubljana = slovenianLocation "Ljubljana"

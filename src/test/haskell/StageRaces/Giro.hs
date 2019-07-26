@@ -107,7 +107,7 @@ giro1987' = do
   prologue' sanRemo 4
   enableSplitStages
   roadStage (Left sanRemo) (Just sanRomolo) 31
-  individualTimeTrial poggio (Just sanRemo) 8
+  individualTimeTrial poggioDiSanRemo (Just sanRemo) 8
   disableSplitStages
   roadStage (Left imperia) (Just borgo) 242
   teamTimeTrial lerici camaiore 43
@@ -166,7 +166,7 @@ giro2016' = do
   roadStage (Left molveno) (Just cassanoDAdda) 196
   roadStage (Left muggio) (Just pinerolo) 244
   roadStage (Left pinerolo) (Just risoul) 162
-  roadStage (Left guillestre) (Just santAnnaDiVinadio) 134
+  roadStage (Left guillestre) (Just sant'AnnaDiVinadio) 134
   roadStage (Left cuneo) (Just torino) 163
   race <- build
   return race
@@ -309,7 +309,7 @@ giro2018' = do
   c1' 196 "Prato Nevoso" Italy 1607
 
   -- Stage 19
-  roadStage (Left venariaReale) Nothing 185
+  roadStage (Left veneriaReale) Nothing 185
   c2' 48.9 "Colle del Lys" Italy 1311
   c1' 110.7 "Colle delle Finestre" Italy 2178
   c3' 138.4 "Sestriere" Italy 2035

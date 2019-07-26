@@ -72,46 +72,94 @@ tdf1970 = evalState tdf1970' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 
 tdf1970' :: State StageRaceState StageRace
 tdf1970' = do
+  -- Prologue
   prologue' limoges 7.4
+
+  -- Stage 1
   flatStage limoges laRochelle 224
+
+  -- Stage 2
   flatStage laRochelle angers 200
+
+  -- Stages 3a & 3b
   enableSplitStages
   teamTimeTrial' angers 10.7
   flatStage angers rennes 140
   disableSplitStages
+
+  -- Stage 4
   flatStage rennes lisieux 229
+
+  -- Stages 5a & 5b
   enableSplitStages
   flatStage lisieux rouen 94.5
   flatStage rouen amiens 223
   disableSplitStages
-  flatStage amiens valanciennes 135.5
+
+  -- Stage 6
+  flatStage amiens valenciennes 135.5
+
+  -- Stage 7a & 7b
   enableSplitStages
-  flatStage valanciennes forest 120
+  flatStage valenciennes forest 120
   individualTimeTrial' forest 7.2
   disableSplitStages
+
+  -- Stage 8
   flatStage ciney Countries.WestGermany.felsberg 232.5
+
+  -- Stage 9
   flatStage Countries.WestGermany.saarlouis mulhouse 269.5
+
+  -- Stage 10
   flatStage belfort divonneLesBains 241
+
+  -- Stage 11a & 11b
   enableSplitStages
   individualTimeTrial' divonneLesBains 8.8
   flatStage divonneLesBains thononLesBains 139.5
   disableSplitStages
+
+  -- Stage 12
   flatStage divonneLesBains grenoble 194
+
+  -- Stage 13
   flatStage grenoble gap 194.5
+
+  -- Stage 14
   summitFinishStage gap 170
   addCol 170 montVentoux
+
+  -- Stage 15
   flatStage carpentras montpellier 140.5
+
+  -- Stage 16
   flatStage montpellier toulouse 160
+
+  -- Stage 17
   flatStage toulouse saintGaudens 190
+
+  -- Stage 18
   flatStage saintGaudens laMongie 135.5
+
+  -- Stage 19
   flatStage bagneresDeBigorre mourenx 185.5
+
+  -- Stages 20a & 20b
   enableSplitStages
   flatStage mourenx bordeaux 223.5
   individualTimeTrial' bordeaux 8.2
   disableSplitStages
+
+  -- Stage 21
   flatStage ruffex tours 191.5
+
+  -- Stage 22
   flatStage tours versailles 238.5
+
+  -- Stage 23
   individualTimeTrial versailles (Just paris) 54
+
   race <- ParcoursDB.State.StageRace.build
   return race
 
@@ -120,39 +168,83 @@ tdf1971 = evalState tdf1971' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 
 tdf1971' :: State StageRaceState StageRace
 tdf1971' = do
+  -- Prologue
   prologue' mulhouse 11.0
+
+  -- Stages 1a, 1b & 1c
   enableSplitStages
   flatStage mulhouse basel 59.5
   flatStage basel Countries.WestGermany.freiburg 90
   flatStage Countries.WestGermany.freiburg mulhouse 74.5
   disableSplitStages
+
+  -- Stage 2
   flatStage mulhouse strasbourg 144
+
+  -- Stage 3
   flatStage strasbourg nancy 165.6
+
+  -- Stage 4
   flatStage nancy marcheEnFamenne 242
+
+  -- Stage 5
   flatStage dinant roubaix 208.5
+
+  -- Stage 6a & 6b
   enableSplitStages
   flatStage roubaix amiens 127.5
   flatStage amiens leTouquet 133.5
   disableSplitStages
+
   restDay leTouquet
+
+  -- Stage 7
   flatStage rungis nevers 257.5
+
+  -- Stage 8
   flatStage nevers puyDeDome 221
+
+  -- Stage 9
   flatStage clermontFerrand saintEtienne 153.0
+
+  -- Stage 10
   flatStage saintEtienne grenoble 188.5
+
+  -- Stage 11
   flatStage grenoble orcieres 134
+
   restDay orcieres
+
+  -- Stage 12
   flatStage orcieres marseille 251.0
+
+  -- Stage 13
   criterium albi 16.3
+
+  -- Stage 14
   flatStage revel luchon 214.5
+
+  -- Stage 15
   flatStage luchon superbagneres 19.6
+
+  -- Stages 16a & 16b
   enableSplitStages
   flatStage luchon gourette 145
   flatStage gourette pau 57.5
   disableSplitStages
+
+  -- Stage 17
   flatStage montDeMarsan bordeaux 188
+
+  -- Stage 18
   flatStage bordeaux poitiers 244
+
+  -- Stage 19
   flatStage blois versailles 244
+
+  -- Stage 20
   individualTimeTrial versailles (Just paris) 53.8
+
   race <- ParcoursDB.State.StageRace.build
   return race
 
@@ -228,7 +320,7 @@ tdf2018' = do
   addCol 175.5 alpeD'Huez
 
   -- Stage 13
-  flatStage leBourgDOisans valence 169.5
+  flatStage leBourgD'Oisans valence 169.5
   addCol 32.5 coteDeBrie
   addCol 109.5 coteDeSainteEulalie
 
@@ -276,7 +368,11 @@ tdf2018' = do
   addCol 159.5 colDeBorderes
   addCol 180.5 colD'Aubisque
 
+  -- Stage 20
   individualTimeTrial saintPeeSurNivelle (Just espelette) 31
+
+  -- Stage 21
   flatStage houilles paris 116
+
   race <- ParcoursDB.State.StageRace.build
   return race

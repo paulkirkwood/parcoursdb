@@ -4,6 +4,9 @@ import Data.Ord
 
 data Country = Andorra
              | Belgium
+             | Croatia
+             | Denmark
+             | Fiume
              | France
              | Germany
              | Ireland
@@ -12,29 +15,37 @@ data Country = Andorra
              | Luxembourg
              | Monaco
              | Netherlands
+             | NorthernIreland
              | SanMarino
              | Spain
              | Switzerland
              | UnitedKingdom
+             | VaticanCity
              | WestGermany
+             | Yugoslavia
   deriving (Read, Eq, Ord)
 
 instance Show Country where
-  show Andorra       = "Andorra"
-  show Belgium       = "Belgium"
-  show France        = "France"
-  show Germany       = "Germany"
-  show Ireland       = "Ireland"
-  show Israel        = "Israel"
-  show Italy         = "Italy"
-  show Luxembourg    = "Grand Duchy of Luxembourg"
-  show Monaco        = "Monaco"
-  show Netherlands   = "Netherlands"
-  show SanMarino     = "San Marino"
-  show Spain         = "Spain"
-  show Switzerland   = "Switzerland"
-  show UnitedKingdom = "United Kingdom"
-  show WestGermany   = "West Germany"
+  show Andorra         = "Andorra"
+  show Belgium         = "Belgium"
+  show Croatia         = "Croatia"
+  show Denmark         = "Denmark"
+  show Fiume           = "Free State of Fiume"
+  show France          = "France"
+  show Germany         = "Germany"
+  show Ireland         = "Ireland"
+  show Israel          = "Israel"
+  show Italy           = "Italy"
+  show Luxembourg      = "Luxembourg"
+  show Monaco          = "Monaco"
+  show Netherlands     = "Netherlands"
+  show NorthernIreland = "Northern Ireland"
+  show SanMarino       = "San Marino"
+  show Spain           = "Spain"
+  show Switzerland     = "Switzerland"
+  show UnitedKingdom   = "United Kingdom"
+  show VaticanCity     = "Vatican City"
+  show WestGermany     = "West Germany"
 
 --instance Eq Country where
 --  (Country a) == (Country b) = name(a) == name(b)

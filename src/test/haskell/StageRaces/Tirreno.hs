@@ -31,7 +31,7 @@ tirreno2013' = do
   flatStage indicatore narniScalo 190
   flatStage narniScalo pratiDiTivo 173
   flatStage ortona chieti 230
-  criterium portoSantElpidio 209
+  criterium portoSant'Elpidio 209
   individualTimeTrial' sanBenedettoDelTronto 9.2
   race <- build
   return race
@@ -46,7 +46,7 @@ tirreno2014' = do
   flatStage cascina arezzo 212
   flatStage indicatore cittareale 244
   flatStage amatrice guardiagrele 192
-  flatStage bucchianico portoSantElpidio 193
+  flatStage bucchianico portoSant'Elpidio 193
   individualTimeTrial' sanBenedettoDelTronto 9.1
   race <- build
   return race
@@ -61,7 +61,7 @@ tirreno2015' = do
   flatStage cascina arezzo 203
   flatStage indicatore castelraimondo 226
   flatStage esanatoglia monteTerminillo 196.9
-  flatStage rieti portoSantElpidio 210
+  flatStage rieti portoSant'Elpidio 210
   individualTimeTrial' sanBenedettoDelTronto 10.1
   race <- build
   return race

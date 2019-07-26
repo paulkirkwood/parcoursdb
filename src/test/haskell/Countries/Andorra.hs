@@ -1,8 +1,24 @@
-module Countries.Andorra where
+module Countries.Andorra
+(andorra
+,arcalis
+,escaldes
+,pal)
+where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-arcalis  = Location "Andorra-Arcalis" Andorra
-escaldes = Location "Escaldes-Engordany" Andorra
-pal      = Location "Pal" Andorra
+andorranLocation :: String -> Location
+andorranLocation location = Location location Andorra
+
+andorra :: Location
+andorra = andorranLocation "Andorra"
+
+arcalis :: Location
+arcalis = andorranLocation "Andorra-Arcalis"
+
+escaldes :: Location
+escaldes = andorranLocation "Escaldes-Engordany"
+
+pal :: Location
+pal = andorranLocation "Pal"

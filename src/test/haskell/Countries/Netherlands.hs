@@ -1,44 +1,94 @@
-module Countries.Netherlands where
+module Countries.Netherlands
+(arnhem
+,apeldoorn
+,breda
+,elsloo
+,groningen
+,heerlen
+,helmond
+,leiden
+,maastricht
+,meerssen
+,middleburg
+,nijmegen
+,rotterdam
+,sHertogenbosch
+,sintWillebrord
+,utrecht
+,valkenburg
+,zeeland
+)
+where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
 
+dutchLocation :: String -> Location
+dutchLocation loc = Location loc Netherlands
+
 -- A
-arnhem         = Location "Arnhem" Netherlands
-apeldoorn      = Location "Apeldoorn" Netherlands
+arnhem :: Location
+arnhem    = dutchLocation "Arnhem"
+
+apeldoorn :: Location
+apeldoorn = dutchLocation "Apeldoorn"
 
 -- B
-breda = Location "Breda" Netherlands
+breda :: Location
+breda = dutchLocation "Breda"
 
 -- E
-elsloo = Location "Elsloo" Netherlands
+elsloo :: Location
+elsloo = dutchLocation "Elsloo"
+
+-- G
+groningen :: Location
+groningen = dutchLocation "Groningen"
 
 -- H
-heerlen       = Location "Heerlen" Netherlands
-helmond       = Location "Helmond" Netherlands
-hertogenbosch = Location "'s-Hertogenbosch" Netherlands
+heerlen :: Location
+heerlen = dutchLocation "Heerlen"
+
+helmond :: Location
+helmond = dutchLocation "Helmond"
 
 -- L
-leiden         = Location "Leiden" Netherlands
+leiden :: Location
+leiden = dutchLocation "Leiden"
 
 -- M
-maastricht = Location "Maastricht" Netherlands
-meerssen   = Location "Meerssen" Netherlands
+maastricht :: Location
+maastricht = dutchLocation "Maastricht"
+
+meerssen :: Location
+meerssen = dutchLocation "Meerssen"
+
+middleburg :: Location
+middleburg = dutchLocation "Middleburg"
 
 -- N
-nijmegen       = Location "Nijmegen" Netherlands
+nijmegen :: Location
+nijmegen = dutchLocation "Nijmegen"
 
 -- R
-rotterdam      = Location "Rotterdam" Netherlands
+rotterdam :: Location
+rotterdam = dutchLocation "Rotterdam"
 
 -- S
-sintWillebrord = Location "Sint Willebrord" Netherlands
+sHertogenbosch :: Location
+sHertogenbosch = dutchLocation "'s-Hertogenbosch"
+
+sintWillebrord :: Location
+sintWillebrord = dutchLocation "Sint Willebrord"
 
 -- U
-utrecht        = Location "Utrecht" Netherlands
+utrecht :: Location
+utrecht = dutchLocation "Utrecht"
 
 -- V
-valkenburg     = Location "Valkenburg" Netherlands
+valkenburg :: Location
+valkenburg = dutchLocation "Valkenburg"
 
 -- Z
-zeeland        = Location "Zeeland" Netherlands
+zeeland :: Location
+zeeland = dutchLocation "Zeeland"
