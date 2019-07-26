@@ -23,14 +23,14 @@ dauphine2009 = evalState dauphine2009' (ParcoursDB.State.StageRace.init (Dauphin
 
 dauphine2009' = do
   individualTimeTrial' nancy 12.1
-  flatStage nancy dijon 228
-  flatStage tournus saintEtienne 182
+  plainStage nancy dijon 228
+  plainStage tournus saintEtienne 182
   individualTimeTrial bourgLesValence (Just valence) 42.4
   summitFinishStage valence 154
   addCol 154 montVentoux
-  flatStage gap briancon 106
-  flatStage briancon saintFrancoisLongchamp 157
-  flatStage faverges grenoble 146
+  plainStage gap briancon 106
+  plainStage briancon saintFrancoisLongchamp 157
+  plainStage faverges grenoble 146
   race <- build
   return race
 
@@ -43,7 +43,7 @@ dauphine2018' = do
   prologue' valence 6.6
 
   -- Stage 1
-  flatStage valence saintJust 179
+  plainStage valence saintJust 179
   c2' 9 "Cote de Leyrisse" France 582
   c3' 46 "Col de Desaignes" France 704 
   c3' 54 "Cote de Saint-Agreve" France 1052
@@ -53,7 +53,7 @@ dauphine2018' = do
   c4' 175 "Cote du Barrage de Grangent" France 494
 
   -- Stage 2
-  flatStage montbrison belleville 181
+  plainStage montbrison belleville 181
   c3' 87.5 "Col de Cambuse" France 711
   c3' 108 "Col de la Croix de Marchanpt" France 688
   c4' 121.5 "Cote de Regnie Durette" France 318

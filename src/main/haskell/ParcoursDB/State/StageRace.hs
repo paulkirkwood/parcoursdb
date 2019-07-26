@@ -103,8 +103,8 @@ roadStage start finish distance = do
                     , sRaceStages       = (xs ++ [stage])
                     } )
 
-flatStage :: Location -> Location -> Float -> State StageRaceState ()
-flatStage start finish distance = do
+plainStage :: Location -> Location -> Float -> State StageRaceState ()
+plainStage start finish distance = do
   roadStage (Left start) (Just finish) distance
 
 criterium :: Location -> Float -> State StageRaceState ()

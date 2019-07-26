@@ -22,16 +22,16 @@ parisNice2018 =
 parisNice2018' :: State StageRaceState StageRace
 parisNice2018' = do
   -- Stage 1
-  flatStage chatou meudon 134.5
+  plainStage chatou meudon 134.5
   c3' 79 "Cote des Tournants" France 172
   c3' 85.5 "Cote de Meridon" France 160
   c3' 134.5 "Cote de Meridon" France 160
 
   -- Stage 2
-  flatStage orsonville vierzon 187.5
+  plainStage orsonville vierzon 187.5
 
   -- Stage 3
-  flatStage bourges chatelGuyon 210
+  plainStage bourges chatelGuyon 210
   c3' 123 "Cote de la Bosse" France 702
   c3' 143.5 "Cote des Boulards" France 564
   c3' 187.5 "Cote des Charbonnieres" France 716
@@ -40,14 +40,14 @@ parisNice2018' = do
   individualTimeTrial laFouillouse (Just saintEtienne) 18.4
 
   -- Stage 5
-  flatStage salonDeProvence sisteron 165
+  plainStage salonDeProvence sisteron 165
   c2' 49 "Cote du Pointu" France 500
   c1' 76.5 "Col de Lagarde-d'Apt" France 1097
   c3' 106 "Col du Negron" France 1242
   c3' 152 "Cote de la Marquise" France 569
 
   -- Stage 6
-  flatStage sisteron vence 198
+  plainStage sisteron vence 198
   c2' 101 "Col de Luens" France 1062
   c2' 121 "Col Bas" France 1024
   c2' 149 "Cote de Cipieres" France 744

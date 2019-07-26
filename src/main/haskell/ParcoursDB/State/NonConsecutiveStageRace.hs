@@ -9,12 +9,7 @@ import ParcoursDB.Stage hiding(start,finish,distance)
 import ParcoursDB.StageRace hiding(distance)
 import Text.Printf
 
-data NonConsecutiveStage = NonConsecutiveStage { month    :: Int
-                                               , day      :: Int
-                                               , start    :: Location
-                                               , finish   :: Location
-                                               , distance :: Float
-                                               }
+data NonConsecutiveStage = NonConsecutiveRoadStage { month :: Int, day :: Int, start :: Location, finish :: Location, distance :: Float } | NonConsecutiveTTT { month :: Int, day :: Int, start :: Location, finish :: Location, distance :: Float }
 
 data NonConsecutiveStageRaceState = NonConsecutiveStageRaceState { sStageRace   :: StageRace
                                                                  , sYear        :: Integer
@@ -33,9 +28,10 @@ init' stageRace year = NonConsecutiveStageRaceState { sStageRace   = stageRace
                                                     }
 
 nonConsecutiveStages :: [NonConsecutiveStage] -> State NonConsecutiveStageRaceState ()
-nonConsecutiveStages [x] = roadStage x
+nonConsecutiveStages [x@(NonConsecutiveRoadStage {})] = roadStage x
+nonConsecutiveStages [x@(NonConsecutiveTTT {})] = teamTimeTrial x
 nonConsecutiveStages (x:xs) = do
-  roadStage x
+  nonConsecutiveStages [x]
   nonConsecutiveStages xs
 
 getStageId :: State NonConsecutiveStageRaceState String
@@ -68,6 +64,24 @@ roadStage stage = do
   let roadStage   = Road stageDate (Left from) (Just to) stageId (distance stage) []
   put (currentState { sStageNumber = nextStageNumber
                     , sRaceStages  = (xs ++ [roadStage])
+                    } )
+
+teamTimeTrial :: NonConsecutiveStage -> State NonConsecutiveStageRaceState ()
+teamTimeTrial stage = do
+  currentState    <- get
+  stageId         <- getStageId
+  nextStageNumber <- nextStageNumber
+  let year        = sYear currentState
+  let from        = start stage
+  let to          = finish stage
+  let yr          = sYear currentState
+  let mon         = month stage
+  let d           = day stage
+  let stageDate   = fromGregorian yr mon d
+  let xs          = sRaceStages currentState
+  let ttt         = TeamTimeTrial stageDate from to stageId (distance stage) []
+  put (currentState { sStageNumber = nextStageNumber
+                    , sRaceStages  = (xs ++ [ttt])
                     } )
 
 build :: State NonConsecutiveStageRaceState StageRace
