@@ -151,7 +151,6 @@ champagnole = Location "Champagnole" France
 chamrousse = Location "Chamrousse" France
 chantilly       = Location "Chantilly" France
 chantonnay = Location "Chantonnay" France
-charleroi = Location "Charleroi" France
 charleville = Location "Charleville" France
 charlevilleMezieres = Location "Charleville-Mezieres" France
 chartres            = Location "Chartres" France
@@ -176,6 +175,10 @@ ciney = frenchLocation "Ciney"
 
 circuitDesEssarts   = Location "Circuit des Essarts" France
 circuitDeRouenLesEssarts  = Location "Circuit de Rouen-Les-Essarts" France
+
+circuitDeLaPrairie :: Location
+circuitDeLaPrairie = frenchLocation "Circuit de la Prairie"
+
 clermontFerrand     = Location "Clermont-Ferrand" France
 cluses              = Location "Cluses" France
 cognac              = Location "Cognac" France
@@ -193,6 +196,9 @@ cugnaux             = Location "Cugnaux" France
 culoz               = Location "Culoz" France
 
 -- D
+damazan :: Location
+damazan = frenchLocation "Damazan"
+
 dax              = Location "Dax" France
 deauville        = Location "Deauville" France
 dieppe           = Location "Dieppe" France
@@ -264,7 +270,10 @@ guzetNeige = Location "Guzet-Neige" France
 
 -- H
 hautacam = Location "Hautacam" France
-hendaye  = Location "Hendaye" France
+
+hendaye :: Location
+hendaye = frenchLocation "Hendaye"
+
 houilles = Location "Houilles" France
 hyeres   = Location "Hyeres" France
 
@@ -322,7 +331,6 @@ lansEnVercors = Location "Lans-en-Vercors" France
 laon = Location "Laon" France
 laplume = Location "Laplume" France
 laruns = Location "Laruns" France
-lausanne = Location "Lausanne" France
 laval = Location "Laval" France
 lavalanet = Location "Lavalanet" France
 lavaur = Location "Lavaur" France
@@ -507,6 +515,9 @@ puyDeDome    = Location "Puy de Dome" France
 quimper = Location "Quimper" France
 
 -- R
+rambouillet :: Location
+rambouillet = frenchLocation "Rambouillet"
+
 redon = Location "Redon" France
 regnieDurette = Location "Regnie-Durette" France
 reims = Location "Reims" France
@@ -535,7 +546,10 @@ saintDenis = Location "Saint-Denis" France
 saintDierD'Auvergne = Location "Saint-Dier-d'Auvergne" France
 saintDizier = Location "Saint-Dizier" France
 saintEmilion = Location "Saint-Emilion" France
-saintEtienne           = Location "Saint-Étienne" France
+
+saintÉTienne :: Location
+saintÉTienne = frenchLocation "Saint-Étienne"
+
 saintFargeau = Location "Saint-Fargeau" France
 saintFlour = Location "Saint-Flour" France
 saintFrancoisLongchamp = Location "Saint-François-Longchamp" France
@@ -595,7 +609,6 @@ semurEnAuxois = Location "Semur-en-Auxois" France
 senlis = Location "Senlis" France
 sens = Location "Sens" France
 serreChevalier = Location "Serre Chevalier" France
-sestriere = Location "Sestriere" France
 sete = Location "Sete" France
 seurre = Location "Seurre" France
 sevres = Location "Sevres" France
@@ -634,7 +647,7 @@ utahBeach = Location "Utah Beach (Sainte-Marie-du-Mont)" France
 -- V
 vaisonLaRomaine      = Location "Vaison-la-Romaine" France
 valD'Aran            = Location "Val d'Aran/Pla-de-Beret" France
-valD'Isere           = Location "Val-d'Isere" France
+valD'Isere           = Location "Val d'Isere" France
 valLouron            = Location "Val Louron" France
 valThorens           = Location "Val Thorens" France
 valdebloreLaColmiane = Location "Valdeblore La Colmiane" France

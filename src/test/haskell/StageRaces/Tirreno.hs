@@ -32,7 +32,7 @@ tirreno2013' = do
   plainStage narniScalo pratiDiTivo 173
   plainStage ortona chieti 230
   criterium portoSant'Elpidio 209
-  individualTimeTrial' sanBenedettoDelTronto 9.2
+  outAndBackIndividualTimeTrial sanBenedettoDelTronto 9.2
   race <- build
   return race
 
@@ -47,7 +47,7 @@ tirreno2014' = do
   plainStage indicatore cittareale 244
   plainStage amatrice guardiagrele 192
   plainStage bucchianico portoSant'Elpidio 193
-  individualTimeTrial' sanBenedettoDelTronto 9.1
+  outAndBackIndividualTimeTrial sanBenedettoDelTronto 9.1
   race <- build
   return race
 
@@ -56,13 +56,13 @@ tirreno2015 = evalState tirreno2015' (ParcoursDB.State.StageRace.init (TirrenoAd
 
 tirreno2015' :: State StageRaceState StageRace
 tirreno2015' = do
-  individualTimeTrial' lidoDiCamaiore 5.4
+  outAndBackIndividualTimeTrial lidoDiCamaiore 5.4
   plainStage camaiore cascina 153
   plainStage cascina arezzo 203
   plainStage indicatore castelraimondo 226
   plainStage esanatoglia monteTerminillo 196.9
   plainStage rieti portoSant'Elpidio 210
-  individualTimeTrial' sanBenedettoDelTronto 10.1
+  outAndBackIndividualTimeTrial sanBenedettoDelTronto 10.1
   race <- build
   return race
 
@@ -77,6 +77,6 @@ tirreno2016' = do
   plainStage montaltoDiCastro foligno 216
   plainStage foligno monteSanVicino 178
   plainStage castelraimondo cepagatti 210
-  individualTimeTrial' sanBenedettoDelTronto 10.1
+  outAndBackIndividualTimeTrial sanBenedettoDelTronto 10.1
   race <- build
   return race

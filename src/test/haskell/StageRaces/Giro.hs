@@ -524,7 +524,7 @@ giro1980' = do
   plainStage imperia turin 179
   plainStage turin parma 243
   plainStage parma marinaDiPisa 193
-  individualTimeTrial pontedera (Just pisa) 36
+  individualTimeTrial pontedera pisa 36
   transferDay
   plainStage rioMarina portoferraio 126
   plainStage castigilioneDellaPescaia orvieto 200
@@ -541,7 +541,7 @@ giro1980' = do
   plainStage sirmione zoldoAlto 239
   plainStage longarone cles 241
   plainStage cles sondrio 221
-  individualTimeTrial saronno (Just turbigo) 50
+  individualTimeTrial saronno turbigo 50
   criterium milan 114
   race <- ParcoursDB.State.StageRace.build
   return race
@@ -569,7 +569,7 @@ giro1981' = do
   plainStage rome cascia 166
   plainStage cascia arezzo 199
   plainStage arezzo livorno 224
-  individualTimeTrial empoli (Just montecatiniTerme) 35
+  individualTimeTrial empoli montecatiniTerme 35
   plainStage montecatiniTerme salsomaggioreTerme 224
   plainStage salsomaggioreTerme pavia 198
   plainStage milan mantua 178
@@ -579,7 +579,7 @@ giro1981' = do
   plainStage dimaro sanVigilloDiMarebbe 208
   plainStage sanVigilloDiMarebbe treCimeDiLavaredo 100
   plainStage auronzoDiCadore arzignano 197
-  individualTimeTrial soave (Just verona) 42
+  individualTimeTrial soave verona 42
   race <- ParcoursDB.State.StageRace.build
   return race
 
@@ -591,7 +591,7 @@ giro1987' = do
   prologue' sanRemo 4
   enableSplitStages
   plainStage sanRemo sanRomolo 31
-  individualTimeTrial poggioDiSanRemo (Just sanRemo) 8
+  individualTimeTrial poggioDiSanRemo sanRemo 8
   disableSplitStages
   plainStage imperia borgo 242
   ParcoursDB.State.StageRace.teamTimeTrial lerici camaiore 43
@@ -605,7 +605,7 @@ giro1987' = do
   transferDay
   plainStage giulianova osimo 245
   plainStage osimo bellaria 197
-  individualTimeTrial rimini (Just sanMarino) 46
+  individualTimeTrial rimini sanMarino 46
   plainStage sanMarino lidoDiJesolo 260
   plainStage lidoDiJesolo sappada 224
   plainStage sappada canazei 211
@@ -614,7 +614,7 @@ giro1987' = do
   plainStage trescore madesimo 160
   plainStage madesimo como 156
   plainStage como pila 252
-  individualTimeTrial aosta (Just saintVincent) 32
+  individualTimeTrial aosta saintVincent 32
   race <- ParcoursDB.State.StageRace.build
   return race
 
@@ -623,7 +623,7 @@ giro2016 = evalState giro2016' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 
 giro2016' :: State StageRaceState StageRace
 giro2016' = do
-  individualTimeTrial' apeldoorn 9.8
+  outAndBackIndividualTimeTrial apeldoorn 9.8
   plainStage arnhem nijmegen 190
   plainStage nijmegen arnhem 190
   transferDay
@@ -634,7 +634,7 @@ giro2016' = do
   plainStage sulmona foligno 211
   plainStage foligno arezzo 186
   let chianti = Location "Chianti Classico Stage" Italy
-  individualTimeTrial' chianti 40.5
+  outAndBackIndividualTimeTrial chianti 40.5
   transferDay
   plainStage campiBisenzio sestola 219
   plainStage modena asolo 227
@@ -643,7 +643,7 @@ giro2016' = do
   let farra = Location "Alpago (Farra)" Italy
   plainStage farra corvara 210
   let seiseralm = Location "Alpe di Siusi/Seiseralm" Italy
-  individualTimeTrial castelrotto (Just seiseralm) 10.8
+  individualTimeTrial castelrotto seiseralm 10.8
   transferDay
   plainStage bressanone andalo 132
   plainStage molveno cassanoDAdda 196
@@ -671,7 +671,7 @@ giro2017' = do
   plainStage molfetta peschici 189
   plainStage monteneroDiBisaccia blockhaus 149
   transferDay
-  individualTimeTrial foligno (Just montefalco) 39.8
+  individualTimeTrial foligno montefalco 39.8
   let firenze = Location "Firenze (Ponte a Ema)" Italy
   plainStage firenze bagnoDiRomagna 161
   plainStage forli reggioEmilia 234
@@ -690,7 +690,7 @@ giro2017' = do
   let piancavallo = Location "Piancavallo (Monte Jafferau)" Italy
   plainStage sanCandido piancavallo 191
   plainStage pordenone asiago 190
-  individualTimeTrial monza (Just milan) 29.3
+  individualTimeTrial monza milan 29.3
   race <- ParcoursDB.State.StageRace.build
   return race
 
@@ -700,7 +700,7 @@ giro2018 = evalState giro2018' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro2018' :: State StageRaceState StageRace
 giro2018' = do
   -- Stage 1
-  individualTimeTrial' jerusalem 9.7
+  outAndBackIndividualTimeTrial jerusalem 9.7
 
   -- Stage 2
   plainStage haifa telAviv 167
@@ -779,7 +779,7 @@ giro2018' = do
   transferDay
 
   -- Stage 16
-  individualTimeTrial trento (Just rovereto) 34.2
+  individualTimeTrial trento rovereto 34.2
 
   -- Stage 17
   plainStage rivaDelGarda iseo 149.5

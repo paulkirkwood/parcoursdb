@@ -1,5 +1,6 @@
 module Countries.WestGermany
-(felsberg
+(cologne
+,felsberg
 ,saarlouis
 ,freiburg
 ,frankfurt
@@ -16,6 +17,9 @@ import ParcoursDB.Location
 
 westGermanLocation :: String -> Location
 westGermanLocation loc = Location loc WestGermany
+
+cologne :: Location
+cologne = westGermanLocation "Cologne"
 
 felsberg :: Location
 felsberg = westGermanLocation "Felsberg"

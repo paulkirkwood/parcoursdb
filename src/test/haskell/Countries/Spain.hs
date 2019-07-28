@@ -1,8 +1,7 @@
 module Countries.Spain
 (barcelona
 ,girona
-,hendaye
-,java
+,jaca
 ,laSeuD'Urgell
 ,montjuicCircuit
 ,pamplona
@@ -23,16 +22,13 @@ barcelona = spanishLocation "Barcelona"
 girona :: Location
 girona = spanishLocation "Girona"
 
-hendaye :: Location
-hendaye = spanishLocation "Hendaye"
-
 jaca :: Location
 jaca = spanishLocation "Jaca"
 
 laSeuD'Urgell :: Location
 laSeuD'Urgell = spanishLocation "La Seu d'Urgell"
 
-montjuicCircuit :: Location "Montjuic circuit"
+montjuicCircuit :: Location
 montjuicCircuit = spanishLocation "Montjuic circuit"
 
 pamplona :: Location

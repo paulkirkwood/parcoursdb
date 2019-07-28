@@ -135,8 +135,17 @@ teamTimeTrial start finish distance = do
 teamTimeTrial' :: Location -> Float -> State StageRaceState ()
 teamTimeTrial' start_finish distance = teamTimeTrial start_finish start_finish distance
 
-individualTimeTrial :: Location -> Maybe Location -> Float -> State StageRaceState ()
-individualTimeTrial start finish distance = do
+individualTimeTrial :: Location -> Location -> Float -> State StageRaceState ()
+individualTimeTrial start finish distance = individualTimeTrial' start (Just finish) distance
+
+outAndBackIndividualTimeTrial :: Location -> Float -> State StageRaceState()
+outAndBackIndividualTimeTrial start_finish distance = individualTimeTrial' start_finish (Just start_finish) distance
+
+mountainTimeTrial :: Location -> Float -> State StageRaceState ()
+mountainTimeTrial start distance = individualTimeTrial' start Nothing distance
+
+individualTimeTrial' :: Location -> Maybe Location -> Float -> State StageRaceState ()
+individualTimeTrial' start finish distance = do
   currentState    <- get
   nextDay         <- nextStageDay
   stageId         <- getStageId
@@ -151,19 +160,13 @@ individualTimeTrial start finish distance = do
                     , sRaceStages       = (xs ++ [stage])
                     } )
 
-individualTimeTrial' :: Location -> Float -> State StageRaceState ()
-individualTimeTrial' start_finish distance = individualTimeTrial start_finish (Just start_finish) distance
-
-mountainTimeTrial :: Location -> Float -> State StageRaceState ()
-mountainTimeTrial start distance = individualTimeTrial start Nothing distance
-
-restDay :: Location -> State StageRaceState ()
+restDay :: Either Location Col -> State StageRaceState ()
 restDay loc = do
   currentState <- get
   nextDay      <- nextStageDay
   let day      = sStageDay currentState
   let xs       = sRaceStages currentState
-  let stage    = RestDay day loc
+  let stage    = RestDay day (Just loc)
   put (currentState { sStageDay = nextDay, sRaceStages = (xs ++ [stage]) } )
 
 transferDay :: State StageRaceState ()
@@ -172,7 +175,7 @@ transferDay = do
   nextDay      <- nextStageDay
   let day      = sStageDay currentState
   let xs       = sRaceStages currentState
-  let stage    = TransferDay day
+  let stage    = RestDay day Nothing
   put (currentState { sStageDay   = nextDay
                     , sRaceStages = (xs ++ [stage])
                     } )

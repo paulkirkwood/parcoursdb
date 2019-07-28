@@ -37,7 +37,7 @@ parisNice2018' = do
   c3' 187.5 "Cote des Charbonnieres" France 716
 
   -- Stage 4
-  individualTimeTrial laFouillouse (Just saintEtienne) 18.4
+  individualTimeTrial laFouillouse saintÉTienne 18.4
 
   -- Stage 5
   plainStage salonDeProvence sisteron 165

@@ -16,8 +16,7 @@ data Stage = Prologue            Day Location Location Distance
            | Road                Day (Either Location Col) (Maybe Location) StageID Distance [IndexableCol]
            | TeamTimeTrial       Day Location Location StageID Distance [IndexableCol]
            | IndividualTimeTrial Day Location (Maybe Location) StageID Distance [IndexableCol]
-           | RestDay             Day Location
-           | TransferDay         Day
+           | RestDay             Day (Maybe( Either Location Col))
   deriving (Eq, Show)
 
 distance :: Stage -> Distance
@@ -48,7 +47,6 @@ date (Road d _ _ _ _ _)                = d
 date (TeamTimeTrial d _ _ _ _ _)       = d
 date (IndividualTimeTrial d _ _ _ _ _) = d
 date (RestDay d _)                     = d
-date (TransferDay d)                   = d
 
 id :: Stage -> String
 id (Prologue _ _ _ _)                = "P"
@@ -63,12 +61,10 @@ cols (IndividualTimeTrial _ _ _ _ _ cs) = cs
 
 isRacingStage :: Stage -> Bool
 isRacingStage (RestDay _ _)   = False
-isRacingStage (TransferDay _) = False
 isRacingStage _               = True
 
 isNonRestDayOrPrologue :: Stage -> Bool
 isNonRestDayOrPrologue (RestDay _ _)      = False
-isNonRestDayOrPrologue (TransferDay _)    = False
 isNonRestDayOrPrologue (Prologue _ f _ _) = False
 isNonRestDayOrPrologue _                  = True
 
@@ -88,7 +84,6 @@ description :: Stage -> String
 description (Road _ _ _ _ _ _)          = "Road stage"
 description (TeamTimeTrial _ _ _ _ _ _) = "Team time trial"
 description (RestDay _ _)               = "Rest day"
-description (TransferDay _)             = "Rest day"
 description _                           = "Individual time trial"
 
 fromTo :: Stage -> Country -> String
@@ -103,21 +98,6 @@ fromTo stage country =
        from
        else from ++ " to " ++ to
        
---fromTo (Prologue _ s f _) c          = fromTo' s f c
---fromTo (TeamTimeTrial _ s f _ _ _) c = fromTo' s f c
---fromTo (Road _ (Left s) (Just f) _ _ []) c = fromTo' s f c
---fromTo (Road _ (Left s) Nothing _ _ (cs)) c = fromTo''' s col c
---fromTo (Road _ (Right s) (Just f) _ _ []) c = fromTo'' s f c
---fromTo (Road _ (Right s) Nothing _ _ (col:_)) c = fromTo'''' s f c
---fromTo (Road _ s@(ParcoursDB.Location.Location {}) f@(ParcoursDB.Location.Location {}) _ _ _) c = fromTo' s f c
---fromTo (Road _ s@(ParcoursDB.Location.Location {}) f@(ParcoursDB.Col.Col {}) _ _ _) c = fromTo'' s f c
---fromTo (Road _ s@(ParcoursDB.Col.Col {}) f@(ParcoursDB.Location.Location {}) _ _ _) c = fromTo''' s f c
---fromTo (Road _ s@(ParcoursDB.Col.Col {}) f@(ParcoursDB.Col.Col {}) _ _ _) c = fromTo'''' s f c
---fromTo (IndividualTimeTrial _ s@(ParcoursDB.Location.Location {}) f@(ParcoursDB.Location.Location {}) _ _ _) c = fromTo' s f c
---fromTo (IndividualTimeTrial _ s@(ParcoursDB.Location.Location {}) f@(ParcoursDB.Col.Col {}) _ _ _) c = fromTo'' s f c
---fromTo (IndividualTimeTrial _ s@(ParcoursDB.Col.Col {}) f@(ParcoursDB.Location.Location {}) _ _ _) c = fromTo''' s f c
---fromTo (IndividualTimeTrial _ s@(ParcoursDB.Col.Col {}) f@(ParcoursDB.Col.Col {}) _ _ _) c = fromTo'''' s f c
-
 fromTo' :: Location -> Location -> Country -> String
 fromTo' from to c =
   let f = qualifiedLocation from c
@@ -135,11 +115,14 @@ stageDayAndDate stage =
   in formatTime defaultTimeLocale "%-e %B" dt
 
 route :: Stage -> Country -> String
-route restDay@(RestDay dt l) c =
-  let loc = ParcoursDB.Location.qualifiedLocation l c
-  in intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay, loc ]
-route transferDay@(TransferDay dt) c =
-  intercalate "," [ "", stageDayAndDate transferDay, ParcoursDB.Stage.description transferDay ]
+route restDay@(RestDay dt colOrLocation) country =
+  case colOrLocation of
+    Just (Left(l))  ->
+      intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay, qualifiedLocation l country ]
+    Just (Right(c)) ->
+      intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay, ParcoursDB.Col.name c ]
+    Nothing ->
+      intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay ]
 route stage c =
  let rte = fromTo stage c
      num = ParcoursDB.Stage.id stage

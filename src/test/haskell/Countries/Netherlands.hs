@@ -1,5 +1,6 @@
 module Countries.Netherlands
 (arnhem
+,amsterdam
 ,apeldoorn
 ,breda
 ,elsloo
@@ -28,7 +29,10 @@ dutchLocation loc = Location loc Netherlands
 
 -- A
 arnhem :: Location
-arnhem    = dutchLocation "Arnhem"
+arnhem = dutchLocation "Arnhem"
+
+amsterdam :: Location
+amsterdam = dutchLocation "Amsterdam"
 
 apeldoorn :: Location
 apeldoorn = dutchLocation "Apeldoorn"
