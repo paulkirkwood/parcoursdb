@@ -16,6 +16,14 @@ colDeLaCroixDeFer = Col "Col de la Croix de Fer" France HC 2067 (Just 29) (Just 
 colDeLaCroixFry   = Col "Col de la Croix Fry"    France C1 1477 (Just 11.3) (Just 7) Nothing
 cormetDeRoselend  = Col "Cormet de Roselend"     France C2 1968 (Just 5.7) (Just 6.5) Nothing
 
+-- G
+colDuGalibier :: Col
+colDuGalibier = Col "Col du Galibier" France HC 2642 Nothing Nothing Nothing
+
+-- I
+colD'Izoard :: Col
+colD'Izoard = Col "Col d'Izoard" France HC 2360 Nothing Nothing Nothing
+
 -- L
 lacetsDeMontvernier = Col "Lacets de Montvernier" France C2 782 (Just 3.4) (Just 8.2) Nothing
 

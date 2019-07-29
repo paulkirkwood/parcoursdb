@@ -1,5 +1,6 @@
 module Countries.Germany
-(freiburg
+(dusseldorf
+,freiburg
 ,koblenz
 ,saarbrucken
 ,pforzheim
@@ -11,6 +12,9 @@ import ParcoursDB.Location
 
 germanLocation :: String -> Location
 germanLocation location = Location location Germany
+
+dusseldorf :: Location
+dusseldorf = germanLocation "Dusseldorf"
 
 freiburg :: Location
 freiburg = germanLocation "Freiburg"

@@ -11,6 +11,7 @@ module StageRaces.Giro
 
 import Control.Monad.State
 import Countries.Fiume
+import Countries.France
 import Countries.Israel
 import Countries.Italy
 import Countries.Netherlands

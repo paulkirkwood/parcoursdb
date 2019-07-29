@@ -97,9 +97,10 @@ roadStage start finish distance = do
   let day         = sStageDay currentState
   let xs          = sRaceStages currentState
   let stage       = Road day start finish stageId distance []
-  put (currentState { sStageDay        = nextDay
+  put (currentState { sStageDay         = nextDay
                     , sStageNumber      = nextStageNumber
                     , sSplitStageSuffix = nextSuffix
+                    , sIsMorningStage   = False
                     , sRaceStages       = (xs ++ [stage])
                     } )
 
@@ -129,6 +130,7 @@ teamTimeTrial start finish distance = do
   put (currentState { sStageDay         = nextDay
                     , sStageNumber      = nextStageNumber
                     , sSplitStageSuffix = nextSuffix
+                    , sIsMorningStage   = False
                     , sRaceStages       = (xs ++ [stage])
                     } )
 
@@ -157,6 +159,7 @@ individualTimeTrial' start finish distance = do
   put (currentState { sStageDay         = nextDay
                     , sStageNumber      = nextStageNumber
                     , sSplitStageSuffix = nextSuffix
+                    , sIsMorningStage   = False
                     , sRaceStages       = (xs ++ [stage])
                     } )
 
@@ -198,6 +201,11 @@ disableSplitStages = do
                     , sStageDay     = nextDay
                     , sStageNumber  = nextStageNumber
                     } )
+
+enableMorningStage :: State StageRaceState ()
+enableMorningStage = do
+  currentState <- get
+  put (currentState { sIsMorningStage = True })
 
 hc :: Float -> String -> Country -> Int -> Float -> Float -> State StageRaceState ()
 hc km name country height length averageGradient

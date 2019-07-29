@@ -12,6 +12,8 @@ import Control.Monad.State
 import Countries.Andorra
 import Countries.Belgium
 import Countries.France
+import Countries.Germany
+import Countries.Ireland
 import Countries.Italy
 import Countries.Luxembourg
 import Countries.Monaco
@@ -99,6 +101,38 @@ tourDeFranceEditions = [ tdf1903
                        , tdf1983
                        , tdf1984
                        , tdf1985
+                       , tdf1986
+                       , tdf1987
+                       , tdf1988
+                       , tdf1989
+                       , tdf1990
+                       , tdf1981
+                       , tdf1992
+                       , tdf1993
+                       , tdf1994
+                       , tdf1995
+                       , tdf1996
+                       , tdf1997
+                       , tdf1998
+                       , tdf1999
+                       , tdf2000
+                       , tdf2001
+                       , tdf2002
+                       , tdf2003
+                       , tdf2004
+                       , tdf2005
+                       , tdf2006
+                       , tdf2007
+                       , tdf2008
+                       , tdf2009
+                       , tdf2010
+                       , tdf2011
+                       , tdf2012
+                       , tdf2013
+                       , tdf2014
+                       , tdf2015
+                       , tdf2016
+                       , tdf2017
                        , tdf2018
                        ]
 
@@ -2836,10 +2870,10 @@ tdf1964' = do
   plainStage forest metz 292.0
 
   -- Stage 5
-  plainStage luneville freiburg 161.0
+  plainStage luneville Countries.WestGermany.freiburg 161.0
 
   -- Stage 6
-  plainStage freiburg besancon 200.0
+  plainStage Countries.WestGermany.freiburg besancon 200.0
 
   -- Stage 7
   plainStage besancon thononLesBains 195.0
@@ -3439,8 +3473,8 @@ tdf1971' = do
   -- Stages 2a, 2b & 2c
   enableSplitStages
   plainStage mulhouse basel 59.5
-  plainStage basel freiburg 90.0
-  plainStage freiburg mulhouse 74.5
+  plainStage basel Countries.WestGermany.freiburg 90.0
+  plainStage Countries.WestGermany.freiburg mulhouse 74.5
   disableSplitStages
 
   -- Stage 3
@@ -4203,76 +4237,2552 @@ tdf1985' = do
   -- Prologue
   prologue' plumelec 6.0
 
-  -- Stage 2
+  -- Stage 1
   plainStage vannes lanester 256.0
 
-  -- Stage 3
+  -- Stage 2
   plainStage lorient vitre 242.0
 
-  -- Stage 4
+  -- Stage 3
   plainStage vitre fougeres 242.0
 
-  -- Stage 5
+  -- Stage 4
   plainStage fougeres pontAudemer 239.0
 
-  -- Stage 6
+  -- Stage 5
   plainStage neufchatelEnBray roubaix 224.0
 
-  -- Stage 7
+  -- Stage 6
   plainStage roubaix reims 222.0
 
-  -- Stage 8
+  -- Stage 7
   plainStage reims nancy 217.0
 
-  -- Stage 9
+  -- Stage 8
   individualTimeTrial sarrebourg strasbourg 75.0
 
-  -- Stage 10
+  -- Stage 9
   plainStage strasbourg epinal 174.0
 
-  -- Stage 11
+  -- Stage 10
   plainStage epinal pontarlier 204.0
 
-  -- Stage 12
+  -- Stage 11
   plainStage pontarlier morzineAvoriaz 195.0
 
-  -- Stage 13
+  -- Stage 12
   plainStage morzineAvoriaz lansEnVercors 269.0
 
-  -- Stage 14
+  -- Stage 13
   outAndBackIndividualTimeTrial villardDeLans 32.0
 
   restDay (Left villardDeLans)
 
-  -- Stage 15
+  -- Stage 14
   plainStage autrans saintÉTienne 179.0
 
-  -- Stage 16
+  -- Stage 15
   plainStage saintÉTienne aurillac 238.0
 
-  -- Stage 17
+  -- Stage 16
   plainStage aurillac toulouse 247.0
 
-  -- Stage 18
+  -- Stage 17
   plainStage toulouse luzArdiden 209.0
 
-  -- Stages 19a & 19b
+  -- Stages 18a & 18b
   enableSplitStages
   plainStage luzSaintSauveur aubisque 53.0
   plainStage laruns pau 83.0
   disableSplitStages
 
-  -- Stage 20
+  -- Stage 19
   plainStage pau bordeaux 203.0
 
-  -- Stage 21
+  -- Stage 20
   plainStage montponMenesterol limoges 225.0
 
-  -- Stage 22
+  -- Stage 21
   outAndBackIndividualTimeTrial lacDeVassiviere 46.0
 
-  -- Stage 23
+  -- Stage 22
   plainStage orleans paris 196.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1986 :: StageRace
+tdf1986 = evalState tdf1986' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1986 7 4))
+
+tdf1986' :: State StageRaceState StageRace
+tdf1986' = do
+  -- Prologue
+  prologue' boulogneBillancourt 4.6
+
+  -- Stage 1
+  enableMorningStage
+  plainStage nanterre sceaux 85.0
+
+  -- Stage 2
+  teamTimeTrial meudon saintQuentinEnYvelines 56.0
+
+  -- Stage 3
+  plainStage levalloisPerret lievin 214.0
+
+  -- Stage 4
+  plainStage lievin evreux 243.0
+
+  -- Stage 5
+  plainStage evreux villersSurMer 124.5
+
+  -- Stage 6
+  plainStage villersSurMer cherbourg 200.0
+
+  -- Stage 7
+  plainStage cherbourg saintHilaireDuHarcouet 201.0
+
+  -- Stage 8
+  plainStage saintHilaireDuHarcouet nantes 204.0
+
+  -- Stage 9
+  outAndBackIndividualTimeTrial nantes 61.5
+
+  -- Stage 10
+  plainStage nantes futuroscope 183.0
+
+  -- Stage 11
+  plainStage futuroscope bordeaux 258.3
+
+  -- Stage 12
+  plainStage bayonne pau 217.5
+
+  -- Stage 13
+  plainStage pau superbagneres 186.0
+
+  -- Stage 15
+  plainStage superbagneres blagnac 154.0
+
+  -- Stage 16
+  plainStage carcassonne nimes 225.5
+
+  -- Stage 17
+  plainStage nimes gap 246.5
+
+  -- Stage 18
+  plainStage gap serreChevalier 190.0
+
+  -- Stage 19
+  summitFinishStage briancon 162.5
+  addCol 162.5 alpeD'Huez
+
+  restDay (Right alpeD'Huez)
+
+  -- Stage 20
+  plainStage villardDeLans saintÉTienne 179.5
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial saintÉTienne 58.0
+
+  -- Stage 22
+  plainStage saintÉTienne puyDeDome 190.0
+
+  -- Stage 23
+  plainStage clermontFerrand nevers 194.0
+
+  -- Stage 24
+  plainStage cosneSurLoire paris 255.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1987 :: StageRace
+tdf1987 = evalState tdf1987' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1987 7 1))
+
+tdf1987' :: State StageRaceState StageRace
+tdf1987' = do
+  -- Prologue
+  prologue' westBerlin 6.0
+
+  -- Stage 1
+  enableMorningStage
+  criterium westBerlin 105.0
+
+  -- Stage 2
+  teamTimeTrial' westBerlin 40.5
+
+  transferDay
+
+  -- Stage 3
+  plainStage Countries.WestGermany.karlsruhe Countries.WestGermany.stuttgart 219.0
+
+  -- Stage 4
+  enableMorningStage
+  plainStage Countries.WestGermany.stuttgart Countries.WestGermany.pforzheim 79.0
+
+  -- Stage 5
+  plainStage Countries.WestGermany.pforzheim strasbourg 112.5
+
+  -- Stage 6
+  plainStage strasbourg epinal 169.0
+
+  -- Stage 7
+  plainStage epinal troyes 211.0
+
+  -- Stage 8
+  plainStage troyes epnaySousSenart 205.5
+
+  -- Stage 9
+  plainStage orleans renaze 260.0
+
+  -- Stage 10
+  individualTimeTrial saumur futuroscope 87.5
+
+  -- Stage 11
+  plainStage poitiers chaumeil 255.0
+
+  -- Stage 12
+  plainStage brive bordeaux 228.0
+
+  -- Stage 13
+  plainStage bayonne pau 219.0
+
+  -- Stage 14
+  plainStage pau luzArdiden 166.0
+
+  -- Stage 15
+  plainStage tarbes blagnac 164.0
+
+  -- Stage 16
+  plainStage blagnac millau 216.5
+
+  -- Stage 17
+  plainStage millau avignon 239.0
+
+  restDay (Left avignon)
+
+  -- Stage 18
+  mountainTimeTrial carpentras 36.5
+  addCol 36.5 montVentoux
+
+  -- Stage 19
+  plainStage valreas villardDeLans 185.0
+
+  -- Stage 20
+  summitFinishStage villardDeLans 201
+  addCol 201 alpeD'Huez
+
+  -- Stage 21
+  plainStage leBourgD'Oisans laPlagne 185.5
+
+  -- Stage 22
+  plainStage laPlagne morzine 186.0
+
+  -- Stage 23
+  plainStage saintJulienEnGenevois dijon 224.5
+
+  -- Stage 24
+  outAndBackIndividualTimeTrial dijon 38.0
+
+  -- Stage 25
+  plainStage creteil paris 192.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1988 :: StageRace
+tdf1988 = evalState tdf1988' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1988 7 3))
+
+tdf1988' :: State StageRaceState StageRace
+tdf1988' = do
+  -- Stage 1
+  prologue pornichet laBaule 1.0
+
+  -- Stage 2
+  enableMorningStage
+  plainStage pontchateau machecoul 91.5
+
+  -- Stage 3
+  teamTimeTrial laHaieFouassiere ancenis 48.0
+
+  -- Stage 4
+  plainStage nantes leMans 213.5
+
+  -- Stage 5
+  plainStage leMans evreux 158.0
+
+  -- Stage 6
+  plainStage neufchatelEnBray lievin 147.5
+
+  -- Stage 7
+  individualTimeTrial lievin wasquehal 52.0
+
+  -- Stage 8
+  plainStage wasquehal reims 225.5
+
+  -- Stage 9
+  plainStage reims nancy 219.0
+
+  -- Stage 10
+  plainStage nancy strasbourg 160.5
+
+  -- Stage 11
+  plainStage belfort besancon 149.5
+
+  -- Stage 12
+  plainStage besancon morzine 232.0
+
+  -- Stage 13
+  summitFinishStage morzine 227
+  addCol 227 alpeD'Huez
+
+  -- Stage 14
+  individualTimeTrial grenoble villardDeLans 38.0
+
+  restDay (Left blagnac)
+
+  -- Stage 15
+  plainStage blagnac guzetNeige 163.0
+
+  -- Stage 16
+  plainStage saintGirons luzArdiden 187.5
+
+  -- Stage 17
+  enableMorningStage
+  plainStage luzArdiden pau 38.0
+
+  -- Stage 18
+  plainStage pau bordeaux 210.0
+
+  -- Stage 19
+  plainStage ruelleSurTourve limoges 93.5
+
+  -- Stage 20
+  plainStage limoges puyDeDome 188.0
+
+  -- Stage 21
+  plainStage clermontFerrand chalonSurSaone 233.5
+
+  -- Stage 22
+  outAndBackIndividualTimeTrial santennay 48.0
+
+  -- Stage 23
+  plainStage nemours paris 172.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1989 :: StageRace
+tdf1989 = evalState tdf1989' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1989 7 1))
+
+tdf1989' :: State StageRaceState StageRace
+tdf1989' = do
+  -- Prologue
+  prologue' luxembourgCity 7.8
+
+  -- Stage 1
+  enableMorningStage
+  criterium luxembourgCity 135.5
+
+  -- Stage 2
+  teamTimeTrial' luxembourgCity 46.0
+
+  -- Stage 3
+  plainStage luxembourgCity spa 241.0
+
+  -- Stage 4
+  plainStage liege wasquehal 255.0
+
+  restDay (Left dinard)
+
+  -- Stage 5
+  individualTimeTrial dinard rennes 73.0
+
+  -- Stage 6
+  plainStage rennes futuroscope 259.0
+
+  -- Stage 7
+  plainStage poitiers bordeaux 258.5
+
+  -- Stage 8
+  plainStage labastideD'Armagnac pau 157.0
+
+  -- Stage 9
+  plainStage pau cauterets 147.0
+
+  -- Stage 110
+  plainStage cauterets superbagneres 136.0
+
+  -- Stage 11
+  plainStage luchon blagnac 158.5
+
+  -- Stage 12
+  plainStage toulouse montpellier 242.0
+
+  -- Stage 13
+  plainStage montpellier marseille 179.0
+
+  -- Stage 14
+  plainStage marseille gap 240.0
+
+  -- Stage 15
+  individualTimeTrial gap orcieresMerlette 39.0
+
+  restDay (Left orcieresMerlette)
+
+  -- Stage 16
+  plainStage gap briancon 175.0
+
+  -- Stage 17
+  summitFinishStage briancon 165
+  addCol 165 alpeD'Huez
+
+  -- Stage 18
+  plainStage leBourgD'Oisans villardDeLans 91.5
+
+  -- Stage 19
+  plainStage villardDeLans aixLesBains 125.0
+
+  -- Stage 20
+  plainStage aixLesBains l'IsleD'Abeau 130.0
+
+  -- Stage 21
+  individualTimeTrial versailles paris 24.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1990 :: StageRace
+tdf1990 = evalState tdf1990' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1990 6 30))
+
+tdf1990' :: State StageRaceState StageRace
+tdf1990' = do
+  -- Prologue
+  prologue' futuroscope 6.3
+
+  -- Stage 1
+  enableMorningStage
+  criterium futuroscope 138.5
+
+  -- Stage 2
+  teamTimeTrial' futuroscope 44.5
+
+  -- Stage 3
+  plainStage poitiers nantes 233.0
+
+  -- Stage 4
+  plainStage nantes montSaintMichel 203.0
+
+  -- Stage 5
+  plainStage avranches rouen 301.0
+
+  restDay (Left rouen)
+
+  -- Stage 6
+  plainStage sarrebourg vittel 202.5
+
+  -- Stage 7
+  individualTimeTrial vittel epinal 61.5
+
+  -- Stage 8
+  plainStage epinal besancon 181.5
+
+  -- Stage 9
+  plainStage besancon geneva 196.0
+
+  -- Stage 10
+  plainStage geneva saintGervais 118.5
+
+  -- Stage 11
+  summitFinishStage saintGervais 182.5
+  addCol 182.5 alpeD'Huez
+
+  -- Stage 12
+  individualTimeTrial fontaine villardDeLans 33.5
+
+  restDay (Left villardDeLans)
+
+  -- Stage 13
+  plainStage villardDeLans saintÉTienne 149.0
+
+  -- Stage 14
+  plainStage lePuyEnVelay millau 205.0
+
+  -- Stage 15
+  plainStage millau revel 170.0
+
+  -- Stage 16
+  plainStage blagnac luzArdiden 215.0
+
+  -- Stage 17
+  plainStage lourdes pau 150.0
+
+  -- Stage 18
+  plainStage pau bordeaux 202.0
+
+  -- Stage 19
+  plainStage castillonLaBataille limoges 182.5
+
+  -- Stage 20
+  outAndBackIndividualTimeTrial lacDeVassiviere 45.5
+
+  -- Stage 21
+  plainStage bretignySurOrge paris 182.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1991 :: StageRace
+tdf1991 = evalState tdf1991' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1991 7 6))
+
+tdf1991' :: State StageRaceState StageRace
+tdf1991' = do
+  -- Prologue
+  prologue' lyon 5.4
+
+  -- Stage 1
+  enableMorningStage
+  criterium lyon 114.5
+
+  -- Stage 2
+  teamTimeTrial bron chassieu 36.5
+
+  -- Stage 3
+  plainStage villeurbanne dijon 210.5
+
+  -- Stage 4
+  plainStage dijon reims 286.0
+
+  -- Stage 5
+  plainStage reims valenciennes 149.5
+
+  -- Stage 6
+  plainStage arras leHavre 259.0
+
+  -- Stage 7
+  plainStage leHavre argentan 167.0
+
+  -- Stage 8
+  individualTimeTrial argentan alencon 73.0
+
+  -- Stage 9
+  plainStage alencon rennes 161.0
+
+  -- Stage 10
+  plainStage rennes quimper 207.5
+
+  -- Stage 11
+  plainStage quimper saintHerblain 246.0
+
+  restDay (Left pau)
+
+  -- Stage 12
+  plainStage pau jaca 192.0
+
+  -- Stage 13
+  plainStage jaca valLouron 232.0
+
+  -- Stage 14
+  plainStage saintGaudens castres 172.5
+
+  -- Stage 15
+  plainStage albi ales 235.0
+
+  -- Stage 16
+  plainStage ales gap 215.0
+
+  -- Stage 17
+  summitFinishStage gap 125
+  addCol 125 alpeD'Huez
+
+  -- Stage 18
+  plainStage leBourgD'Oisans morzine 255.0
+
+  -- Stage 19
+  plainStage morzine aixLesBains 177.0
+
+  -- Stage 20
+  plainStage aixLesBains macon 166.0
+
+  -- Stage 21
+  individualTimeTrial lugny macon 57.0
+
+  -- Stage 22
+  plainStage melun paris 178.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1992 :: StageRace
+tdf1992 = evalState tdf1992' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1992 7 4))
+
+tdf1992' :: State StageRaceState StageRace
+tdf1992' = do
+  -- Prologue
+  prologue' sanSebastian 8.0
+
+  -- Stage 1
+  criterium sanSebastian 194.5
+
+  -- Stage 2
+  plainStage sanSebastian pau 255.0
+
+  -- Stage 3
+  plainStage pau bordeaux 210.0
+
+  -- Stage 4
+  teamTimeTrial' libourne 63.5
+
+  -- Stage 5
+  plainStage nogentSurOise wasquehal 196.0
+
+  -- Stage 6
+  plainStage roubaix brussels 167.0
+
+  -- Stage 7
+  plainStage brussels valkenburg 196.5
+
+  -- Stage 8
+  plainStage valkenburg koblenz 206.5
+
+  -- Stage 9
+  outAndBackIndividualTimeTrial luxembourgCity 65.0
+
+  -- Stage 10
+  plainStage luxembourgCity strasbourg 217.0
+
+  -- Stage 11
+  plainStage strasbourg mulhouse 249.5
+
+  -- Stage 12
+  plainStage dole saintGervais 267.5
+
+  restDay (Left dole)
+
+  -- Stage 13
+  plainStage saintGervais sestriere 254.5
+
+  -- Stage 14
+  summitFinishStage sestriere 186.5
+  addCol 186.5 alpeD'Huez
+
+  -- Stage 15
+  plainStage leBourgD'Oisans saintÉTienne 198.0
+
+  -- Stage 16
+  plainStage saintÉTienne laBourboule 212.0
+
+  -- Stage 17
+  plainStage laBourboule montlucon 189.0
+
+  -- Stage 18
+  plainStage montlucon tours 212.0
+
+  -- Stage 19
+  individualTimeTrial tours blois 64.0
+
+  -- Stage 20
+  plainStage blois nanterre 222.0
+
+  -- Stage 21
+  plainStage laDefense paris 141.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1993 :: StageRace
+tdf1993 = evalState tdf1993' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1993 7 3))
+
+tdf1993' :: State StageRaceState StageRace
+tdf1993' = do
+  -- Prologue
+  prologue' lePuyDuFou 6.8
+
+  -- Stage 1
+  plainStage lucon lesSablesD'Olonne 215.0
+
+  -- Stage 2
+  plainStage lesSablesD'Olonne vannes 227.5
+
+  -- Stage 3
+  plainStage vannes dinard 189.5
+
+  -- Stage 4
+  teamTimeTrial dinard avranches 81.0
+
+  -- Stage 5
+  plainStage avranches evreux 225.5
+
+  -- Stage 6
+  plainStage evreux amiens 158.0
+
+  -- Stage 7
+  plainStage peronne chalonsSurMarne 199.0
+
+  -- Stage 8
+  plainStage chalonsSurMarne verdun 184.5
+
+  -- Stage 9
+  outAndBackIndividualTimeTrial lacDeMadine 59.0
+
+  restDay (Left villardDeLans)
+
+  -- Stage 10
+  plainStage villardDeLans serreChevalier 203.0
+
+  -- Stage 11
+  plainStage serreChevalier isola_2000 179.0
+
+  -- Stage 12
+  plainStage isola marseille 286.5
+
+  -- Stage 13
+  plainStage marseille montpellier 181.5
+
+  -- Stage 14
+  plainStage montpellier perpignan 223.0
+
+  -- Stage 15
+  plainStage perpignan pal 231.5
+
+  restDay (Left pal)
+
+  -- Stage 16
+  plainStage pal saintLarySoulanPlaD'Adet 230.0
+
+  -- Stage 17
+  plainStage tarbes pau 190.0
+
+  -- Stage 18
+  plainStage orthez bordeaux 195.5
+
+  -- Stage 19
+  individualTimeTrial bretignySurOrge montlhery 48.0
+
+  -- Stage 20
+  plainStage viryChatillon paris 196.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1994 :: StageRace
+tdf1994 = evalState tdf1994' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1994 7 2))
+
+tdf1994' :: State StageRaceState StageRace
+tdf1994' = do
+  -- Prologue
+  prologue' lille 7.2
+
+  -- Stage 1
+  plainStage lille armentieres 234.0
+
+  -- Stage 2
+  plainStage roubaix boulogneSurMer 203.5
+
+  -- Stage 3
+  teamTimeTrial calais eurotunnel 66.5
+
+  -- Stage 4
+  plainStage dover brighton 204.5
+
+  -- Stage 5
+  criterium portsmouth 187.0
+
+  -- Stage 6
+  plainStage cherbourg rennes 270.5
+
+  -- Stage 7
+  plainStage rennes futuroscope 259.5
+
+  -- Stage 8
+  plainStage poitiers trelissac 218.5
+
+  -- Stage 9
+  individualTimeTrial perigueux bergerac 64.0
+
+  -- Stage 10
+  plainStage bergerac cahors 160.5
+
+  -- Stage 11
+  plainStage cahors hautacam 263.5
+
+  restDay (Left lourdes)
+
+  -- Stage 12
+  plainStage lourdes luzArdiden 204.5
+
+  -- Stage 13
+  plainStage bagneresDeBigorre albi 223.0
+
+  -- Stage 14
+  plainStage castres montpellier 202.0
+
+  -- Stage 15
+  plainStage montpellier carpentras 231.0
+
+  -- Stage 16
+  summitFinishStage valreas 224.5
+  addCol 224.5 alpeD'Huez
+
+  -- Stage 17
+  plainStage leBourgD'Oisans valThorens 149.0
+
+  -- Stage 18
+  plainStage moutiers cluses 174.5
+
+  -- Stage 19
+  individualTimeTrial cluses avoriaz 47.5
+
+  -- Stage 20
+  plainStage morzine lacSaintPoint 208.5
+
+  -- Stage 21
+  plainStage disneylandParis paris 175.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1995 :: StageRace
+tdf1995 = evalState tdf1995' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1995 7 1))
+
+tdf1995' :: State StageRaceState StageRace
+tdf1995' = do
+  -- Prologue
+  prologue' saintBrieuc 7.3
+
+  -- Stage 1
+  plainStage dinan lannion 233.5
+
+  -- Stage 2
+  plainStage perrosGuirec vitre 235.5
+
+  -- Stage 3
+  teamTimeTrial mayenne alencon 67.0
+
+  -- Stage 4
+  plainStage alencon leHavre 162.0
+
+  -- Stage 5
+  plainStage fecamp dunkerque 261.0
+
+  -- Stage 6
+  plainStage dunkerque charleroi 202.0
+
+  -- Stage 7
+  plainStage charleroi liege 203.0
+
+  -- Stage 8
+  individualTimeTrial huy seraing 54.0
+
+  restDay (Left leGrandBornand)
+
+  -- Stage 9
+  plainStage leGrandBornand laPlagne 160.0
+
+  -- Stage 10
+  summitFinishStage laPlagne 162.5
+  addCol 162.5 alpeD'Huez
+
+  -- Stage 11
+  plainStage leBourgD'Oisans saintÉTienne 199.0
+
+  -- Stage 12
+  plainStage saintÉTienne mende 222.5
+
+  -- Stage 13
+  plainStage mende revel 245.0
+
+  -- Stage 14
+  plainStage saintOrensDeGameville guzetNeige 164.0
+
+  restDay (Left saintGirons)
+
+  -- Stage 15
+  plainStage saintGirons cauterets 206.0
+
+  -- Stage 16
+  plainStage tarbes pau 149.0
+
+  -- Stage 17
+  plainStage pau bordeaux 246.0
+
+  -- Stage 18
+  plainStage montponMenesterol limoges 246.0
+
+  -- Stage 19
+  outAndBackIndividualTimeTrial lacDeVassiviere 46.5
+
+  -- Stage 20
+  plainStage sainteGenevieveDesBois paris 155.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1996 :: StageRace
+tdf1996 = evalState tdf1996' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1996 6 29))
+
+tdf1996' :: State StageRaceState StageRace
+tdf1996' = do
+  -- Prologue
+  prologue' sHertogenbosch 9.4
+
+  -- Stage 1
+  criterium sHertogenbosch 209.0
+
+  -- Stage 2
+  plainStage sHertogenbosch wasquehal 247.5
+
+  -- Stage 3
+  plainStage wasquehal nogentSurOise 195.0
+
+  -- Stage 4
+  plainStage soissons lacDeMadine 232.0
+
+  -- Stage 5
+  plainStage lacDeMadine besancon 242.0
+
+  -- Stage 6
+  plainStage arcEtSenans aixLesBains 207.0
+
+  -- Stage 7
+  plainStage chambery lesArcs 200.0
+
+  -- Stage 8
+  individualTimeTrial bourgSaintMaurice valD'Isere 30.5
+
+  -- Stage 9
+  plainStage leMonetierLesBains sestriere 46.0
+
+  -- Stage 10
+  plainStage turin gap 208.5
+
+  restDay (Left gap)
+
+  -- Stage 11
+  plainStage gap valence 202.0
+
+  -- Stage 12
+  plainStage valence lePuyEnVelay 143.5
+
+  -- Stage 13
+  plainStage lePuyEnVelay superBesse 177.0
+
+  -- Stage 14
+  plainStage besse tulle 186.5
+
+  -- Stage 15
+  plainStage briveLaGaillarde villeneuveSurLot 176.0
+
+  -- Stage 16
+  plainStage agen hautacam 199.0
+
+  -- Stage 17
+  plainStage argelesGazost pamplona 262.0
+
+  -- Stage 18
+  plainStage pamplona hendaye 154.5
+
+  -- Stage 19
+  plainStage hendaye bordeaux 226.5
+
+  -- Stage 20
+  individualTimeTrial bordeaux saintEmilion 63.5
+
+  -- Stage 21
+  plainStage palaiseau paris 147.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1997 :: StageRace
+tdf1997 = evalState tdf1997' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1997 7 5))
+
+tdf1997' :: State StageRaceState StageRace
+tdf1997' = do
+  -- Prologue
+  prologue' rouen 7.3
+
+  -- Stage 1
+  plainStage rouen forgesLesEaux 192.0
+
+  -- Stage 2
+  plainStage saintValeryEnCaux vire 262.0
+
+  -- Stage 3
+  plainStage vire plumelec 224.0
+
+  -- Stage 4
+  plainStage plumelec lePuyDuFou 223.0
+
+  -- Stage 5
+  plainStage chantonnay laChatre 261.5
+
+  -- Stage 6
+  plainStage leBlanc marennes 217.5
+
+  -- Stage 7
+  plainStage marennes bordeaux 194.0
+
+  -- Stage 8
+  plainStage sauternes pau 161.5
+
+  -- Stage 9
+  plainStage pau loudenvielle 182.0
+
+  -- Stage 10
+  plainStage luchon arcalis 182.0
+
+  -- Stage 11
+  plainStage arcalis perpignan 192.0
+
+  restDay (Left saintÉTienne)
+
+  -- Stage 12
+  individualTimeTrial saintÉTienne saintÉTienne 55.0
+
+  -- Stage 13
+  summitFinishStage saintÉTienne 203.5
+  addCol 203.5 alpeD'Huez
+
+  -- Stage 14
+  plainStage leBourgD'Oisans courchevel 148.0
+
+  -- Stage 15
+  plainStage courchevel morzine 208.5
+
+  -- Stage 16
+  plainStage morzine fribourg 181.0
+
+  -- Stage 17
+  plainStage fribourg colmar 218.5
+
+  -- Stage 18
+  plainStage colmar montbeliard 175.5
+
+  -- Stage 19
+  plainStage montbeliard dijon 172.0
+
+  -- Stage 20
+  outAndBackIndividualTimeTrial disneylandParis 63.0
+
+  -- Stage 21
+  plainStage disneylandParis paris 149.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1998 :: StageRace
+tdf1998 = evalState tdf1998' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1998 7 11))
+
+tdf1998' :: State StageRaceState StageRace
+tdf1998' = do
+  -- Prologue
+  prologue' dublin 5.6
+
+  -- Stage 1
+  criterium dublin 180.5
+
+  -- Stage 2
+  plainStage enniscorthy cork 205.5
+
+  -- Stage 3
+  plainStage roscoff lorient 169.0
+
+  -- Stage 4
+  plainStage plouay cholet 252.0
+
+  -- Stage 5
+  plainStage cholet chateauroux 228.5
+
+  -- Stage 6
+  plainStage laChatre briveLaGaillarde 204.5
+
+  -- Stage 7
+  individualTimeTrial meyrignacL'Eglise correze 58.0
+
+  -- Stage 8
+  plainStage briveLaGaillarde montauban 190.5
+
+  -- Stage 9
+  plainStage montauban pau 210.0
+
+  -- Stage 110
+  plainStage pau luchon 196.5
+
+  -- Stage 11
+  plainStage luchon plateauDeBeille 170.0
+
+  restDay (Left ariege)
+
+  -- Stage 12
+  plainStage tarasconSurAriege leCapD'Agde 222.0
+
+  -- Stage 13
+  plainStage frontignanLaPeyrade carpentras 196.0
+
+  -- Stage 14
+  plainStage valreas grenoble 186.5
+
+  -- Stage 15
+  plainStage grenoble lesDeuxAlpes 189.0
+
+  -- Stage 16
+  plainStage vizelle albertville 204.0
+
+  -- Stage 17
+  plainStage albertville aixLesBains 149.0
+
+  -- Stage 18
+  plainStage aixLesBains neuchatel 218.5
+
+  -- Stage 19
+  plainStage laChauxDeFonds autun 242.0
+
+  -- Stage 20
+  individualTimeTrial montceauLesMines leCreusot 52.0
+
+  -- Stage 21
+  plainStage melun paris 147.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1999 :: StageRace
+tdf1999 = evalState tdf1999' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1999 7 3))
+
+tdf1999' :: State StageRaceState StageRace
+tdf1999' = do
+  -- Prologue
+  prologue' lePuyDuFou 6.8
+
+  -- Stage 1
+  plainStage montaigu challans 208.0
+
+  -- Stage 2
+  plainStage challans saintNazaire 176.0
+
+  -- Stage 3
+  plainStage nantes laval 194.5
+
+  -- Stage 4
+  plainStage laval blois 194.5
+
+  -- Stage 5
+  plainStage bonneval amiens 233.5
+
+  -- Stage 6
+  plainStage amiens mauberge 171.5
+
+  -- Stage 7
+  plainStage avesnesSurHelpe thionville 227.0
+
+  -- Stage 8
+  outAndBackIndividualTimeTrial metz 56.5
+
+  restDay (Left leGrandBornand)
+
+  -- Stage 9
+  plainStage leGrandBornand sestriere 213.5
+
+  -- Stage 10
+  summitFinishStage sestriere 220.5
+  addCol 220.5 alpeD'Huez
+
+  -- Stage 11
+  plainStage leBourgD'Oisans saintÉTienne 198.5
+
+  -- Stage 12
+  plainStage saintGalmier saintFlour 201.5
+
+  -- Stage 13
+  plainStage saintFlour albi 236.5
+
+  -- Stage 14
+  plainStage castres saintGaudens 199.0
+
+  restDay (Left saintGaudens)
+
+  -- Stage 15
+  plainStage saintGaudens piauEngaly 173.0
+
+  -- Stage 16
+  plainStage lannemezan pau 192.0
+
+  -- Stage 17
+  plainStage mourenx bordeaux 200.0
+
+  -- Stage 18
+  plainStage jonzac futuroscope 187.5
+
+  -- Stage 19
+  outAndBackIndividualTimeTrial futuroscope 57.0
+
+  -- Stage 20
+  plainStage arpajon paris 143.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2000 :: StageRace
+tdf2000 = evalState tdf2000' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2000 7 1))
+
+tdf2000' :: State StageRaceState StageRace
+tdf2000' = do
+  -- Stage 1
+  outAndBackIndividualTimeTrial futuroscope 16.5
+
+  -- Stage 2
+  plainStage futuroscope loudon 194.0
+
+  -- Stage 3
+  plainStage loudon nantes 161.5
+
+  -- Stage 4
+  teamTimeTrial nantes saintNazaire 70.0
+
+  -- Stage 5
+  plainStage vannes vitre 202.0
+
+  -- Stage 6
+  plainStage vitre tours 198.5
+
+  -- Stage 7
+  plainStage tours limoges 205.5
+
+  -- Stage 8
+  plainStage limoges villeneuveSurLot 203.5
+
+  -- Stage 9
+  plainStage agen dax 181.0
+
+  -- Stage 10
+  plainStage dax hautacam 205.0
+
+  -- Stage 11
+  plainStage bagneresDeBigorre revel 218.5
+
+  restDay (Left provence)
+
+  -- Stage 12
+  summitFinishStage carpentras 149
+  addCol 149 montVentoux
+
+  -- Stage 13
+  plainStage avignon draguignan 185.5
+
+  -- Stage 14
+  plainStage draguignan briancon 249.5
+
+  -- Stage 15
+  plainStage briancon courchevel 173.5
+
+  restDay (Left courchevel)
+
+  -- Stage 16
+  plainStage courchevel morzine 196.5
+
+  -- Stage 17
+  plainStage evianLesBains lausanne 155.0
+
+  -- Stage 18
+  plainStage lausanne Countries.Germany.freiburg 246.5
+
+  -- Stage 19
+  individualTimeTrial Countries.Germany.freiburg mulhouse 58.5
+
+  -- Stage 20
+  plainStage belfort troyes 254.5
+
+  -- Stage 21
+  plainStage paris paris 138.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2001 :: StageRace
+tdf2001 = evalState tdf2001' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2001 7 7))
+
+tdf2001' :: State StageRaceState StageRace
+tdf2001' = do
+  -- Prologue
+  prologue' dunkerque 8.2
+
+  -- Stage 1
+  plainStage saintOmer boulogneSurMer 194.5
+
+  -- Stage 2
+  plainStage calais antwerp 220.5
+
+  -- Stage 3
+  plainStage antwerp seraing 198.5
+
+  -- Stage 4
+  plainStage huy verdun 215.0
+
+  -- Stage 5
+  teamTimeTrial verdun barLeDuc 67.0
+
+  -- Stage 6
+  plainStage commercy strasbourg 211.5
+
+  -- Stage 7
+  plainStage strasbourg colmar 162.5
+
+  -- Stage 8
+  plainStage colmar pontarlier 222.5
+
+  -- Stage 9
+  plainStage pontarlier aixLesBains 185.0
+
+  -- Stage 10
+  summitFinishStage aixLesBains 209
+  addCol 209 alpeD'Huez
+
+  -- Stage 11
+  individualTimeTrial grenoble chamrousse 32.0
+
+  restDay (Left perpignan)
+
+  -- Stage 12
+  plainStage perpignan plateauDeBonascre 165.5
+
+  -- Stage 13
+  plainStage foix saintLarySoulanPlaD'Adet 194.0
+
+  -- Stage 14
+  plainStage tarbes luzArdiden 141.5
+
+  restDay (Left pau)
+
+  -- Stage 15
+  plainStage pau lavaur 232.5
+
+  -- Stage 16
+  plainStage castelsarrasin sarran 229.5
+
+  -- Stage 17
+  plainStage briveLaGaillarde montlucon 194.0
+
+  -- Stage 18
+  individualTimeTrial montlucon saintAmandMontrond 61.0
+
+  -- Stage 19
+  plainStage orleans evry 149.5
+
+  -- Stage 20
+  plainStage corbeilEssonnes paris 160.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2002 :: StageRace
+tdf2002 = evalState tdf2002' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2002 7 6))
+
+tdf2002' :: State StageRaceState StageRace
+tdf2002' = do
+  -- Prologue
+  prologue' luxembourgCity 7.0
+
+  criterium luxembourgCity 192.5
+
+  -- Stage 3
+  plainStage luxembourgCity saarbrucken 181.0
+
+  -- Stage 4
+  plainStage metz reims 174.5
+
+  -- Stage 5
+  teamTimeTrial epernay chateauThierry 67.5
+
+  -- Stage 6
+  plainStage soissons rouen 195.0
+
+  -- Stage 7
+  plainStage forgesLesEaux alencon 199.5
+
+  -- Stage 8
+  plainStage bagnolesDeL'Orne avranches 176.0
+
+  -- Stage 9
+  plainStage saintMartinDeLandelles plouay 217.5
+
+  -- Stage 10
+  individualTimeTrial lanester lorient 52.0
+
+  restDay (Left bordeaux)
+
+  -- Stage 11
+  plainStage bazas pau 147.0
+
+  -- Stage 12
+  plainStage pau laMongie 158.0
+
+  -- Stage 13
+  plainStage lannemezan plateauDeBeille 199.5
+
+  -- Stage 14
+  plainStage lavelanet beziers 171.0
+
+  -- Stage 15
+  summitFinishStage lodeve 221
+  addCol 221 montVentoux
+
+  restDay (Left vaucluse)
+
+  -- Stage 16
+  plainStage vaisonLaRomaine lesDeuxAlpes 226.5
+
+  -- Stage 17
+  plainStage lesDeuxAlpes laPlagne 179.5
+
+  -- Stage 18
+  plainStage aime cluses 142.0
+
+  -- Stage 19
+  plainStage cluses bourgEnBresse 176.5
+
+  -- Stage 20
+  individualTimeTrial regnieDurette macon 50.0
+
+  -- Stage 21
+  plainStage melun paris 144.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2003 :: StageRace
+tdf2003 = evalState tdf2003' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2003 7 5))
+
+tdf2003' :: State StageRaceState StageRace
+tdf2003' = do
+  -- Prologue
+  prologue' paris 6.5
+
+  -- Stage 2
+  plainStage saintDenis meaux 168.0
+
+  -- Stage 3
+  plainStage laFerteSousJouarre sedan 204.5
+
+  -- Stage 4
+  plainStage charlevilleMezieres saintDizier 167.5
+
+  -- Stage 5
+  teamTimeTrial joinville saintDizier 69.0
+
+  -- Stage 6
+  plainStage troyes nevers 196.5
+
+  -- Stage 7
+  plainStage nevers lyon 230.0
+
+  -- Stage 8
+  plainStage lyon morzine 230.5
+
+  -- Stage 9
+  summitFinishStage sallanches 219.0
+  addCol 219 alpeD'Huez
+
+  -- Stage 10
+  plainStage leBourgD'Oisans gap 184.5
+
+  -- Stage 11
+  plainStage gap marseille 219.5
+
+  restDay (Left narbonne)
+
+  -- Stage 12
+  plainStage narbonne toulouse 153.5
+
+  -- Stage 13
+  individualTimeTrial gaillac capDecouverte 47.0
+
+  -- Stage 14
+  plainStage toulouse ax3Domaines 197.5
+
+  -- Stage 15
+  plainStage saintGirons loudenville 191.5
+
+  -- Stage 16
+  plainStage bagneresDeBigorre luzArdiden 159.5
+
+  restDay (Left pau)
+
+  -- Stage 17
+  plainStage pau bayonne 197.5
+
+  -- Stage 18
+  plainStage dax bordeaux 181.0
+
+  -- Stage 19
+  plainStage bordeaux saintMaixentL'Ecole 203.5
+
+  -- Stage 20
+  individualTimeTrial pornic nantes 49.0
+
+  -- Stage 21
+  plainStage villeD'Avray paris 152.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2004 :: StageRace
+tdf2004 = evalState tdf2004' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2004 7 3))
+
+tdf2004' :: State StageRaceState StageRace
+tdf2004' = do
+  -- Prologue
+  prologue' liege 6.1
+
+  -- Stage 2
+  plainStage liege charleroi 202.5
+
+  -- Stage 3
+  plainStage charleroi namur 197.0
+
+  -- Stage 4
+  plainStage waterloo wasquehal 210.0
+
+  -- Stage 5
+  teamTimeTrial cambrai arras 64.5
+
+  -- Stage 6
+  plainStage amiens chartres 200.5
+
+  -- Stage 7
+  plainStage bonneval angers 196.0
+
+  -- Stage 8
+  plainStage chateaubriant saintBrieuc 204.5
+
+  -- Stage 9
+  plainStage lamballe quimper 168.0
+
+  restDay (Left limoges)
+
+  -- Stage 10
+  plainStage saintLeonardDeNoblat gueret 160.5
+
+  -- Stage 11
+  plainStage limoges saintFlour 237.0
+
+  -- Stage 12
+  plainStage saintFlour figeac 164.0
+
+  -- Stage 13
+  plainStage castelsarrasin laMongie 197.5
+
+  -- Stage 14
+  plainStage lannemezan plateauDeBeille 205.5
+
+  -- Stage 15
+  plainStage carcassonne nimes 192.5
+
+  restDay (Left nimes)
+
+  -- Stage 16
+  plainStage valreas villardDeLans 180.5
+
+  -- Stage 17
+  mountainTimeTrial leBourgD'Oisans 15.5
+  addCol 15.5 alpeD'Huez
+
+  -- Stage 18
+  plainStage leBourgD'Oisans leGrandBornand 204.5
+
+  -- Stage 19
+  plainStage annemasse lonsLeSaunier 166.5
+
+  -- Stage 20
+  outAndBackIndividualTimeTrial besancon 55.0
+
+  -- Stage 21
+  plainStage montereauFaultYonne paris 163.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2005 :: StageRace
+tdf2005 = evalState tdf2005' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2005 7 2))
+
+tdf2005' :: State StageRaceState StageRace
+tdf2005' = do
+  -- Stage 1
+  individualTimeTrial fromentine noirmoutierEnL'Ile 19.0
+
+  -- Stage 2
+  plainStage challans lesEssarts 181.5
+
+  -- Stage 3
+  plainStage laChataigneraie tours 212.5
+
+  -- Stage 4
+  teamTimeTrial tours blois 67.5
+
+  -- Stage 5
+  plainStage chambord montargis 183.0
+
+  -- Stage 6
+  plainStage troyes nancy 199.0
+
+  -- Stage 7
+  plainStage luneville Countries.Germany.karlsruhe 228.5
+
+  -- Stage 8
+  plainStage Countries.Germany.pforzheim gerardmer 231.5
+
+  -- Stage 9
+  plainStage gerardmer mulhouse 171.0
+
+  -- Stage 10
+  plainStage grenoble courchevel 177.0
+
+  restDay (Left grenoble)
+
+  -- Stage 11
+  plainStage courchevel briancon 173.0
+
+  -- Stage 12
+  plainStage briancon digneLesBains 187.0
+
+  -- Stage 13
+  plainStage miramas montpellier 173.5
+
+  -- Stage 14
+  plainStage agde ax3Domaines 220.5
+
+  -- Stage 15
+  plainStage lezatSurLeze saintLarySoulanPlaD'Adet 205.5
+
+  -- Stage 16
+  plainStage mourenx pau 180.5
+
+  restDay (Left pau)
+
+  -- Stage 17
+  plainStage pau revel 239.5
+
+  -- Stage 18
+  plainStage albi mende 189.0
+
+  -- Stage 19
+  plainStage issoire lePuyEnVelay 153.5
+
+  -- Stage 20
+  outAndBackIndividualTimeTrial saintÉTienne 55.5
+
+  -- Stage 21
+  plainStage corbeilEssonnes paris 144.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2006 :: StageRace
+tdf2006 = evalState tdf2006' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2006 7 1))
+
+tdf2006' :: State StageRaceState StageRace
+tdf2006' = do
+  -- Prologue
+  prologue' strasbourg 7.1
+
+  criterium strasbourg 184.5
+
+  -- Stage 3
+  plainStage obernai eschSurAlzette 228.5
+
+  -- Stage 4
+  plainStage eschSurAlzette valkenburg 216.5
+
+  -- Stage 5
+  plainStage huy saintQuentin 207.0
+
+  -- Stage 6
+  plainStage beauvais caen 225.0
+
+  -- Stage 7
+  plainStage lisieux vitre 189.0
+
+  -- Stage 8
+  individualTimeTrial saintGregoire rennes 52.0
+
+  -- Stage 9
+  plainStage saintMeenLeGrand lorient 181.0
+
+  restDay (Left bordeaux)
+
+  -- Stage 10
+  plainStage bordeaux dax 169.5
+
+  -- Stage 11
+  plainStage camboLesBains pau 190.5
+
+  -- Stage 12
+  plainStage tarbes valD'AranPlaDeBeret 206.5
+
+  -- Stage 13
+  plainStage luchon carcassonne 211.5
+
+  -- Stage 14
+  plainStage beziers montelimar 230.0
+
+  -- Stage 15
+  plainStage montelimar gap 180.5
+
+  restDay (Left gap)
+
+  -- Stage 16
+  summitFinishStage gap 187.0
+  addCol 187 alpeD'Huez
+
+  -- Stage 17
+  plainStage leBourgD'Oisans laToussuire 182.0
+
+  -- Stage 18
+  plainStage saintJeanDeMaurienne morzine 200.5
+
+  -- Stage 19
+  plainStage morzine macon 197.0
+
+  -- Stage 20
+  individualTimeTrial leCreusot montceauLesMines 57.0
+
+  -- Stage 21
+  plainStage antonyParcDeSceaux paris 154.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2007 :: StageRace
+tdf2007 = evalState tdf2007' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2007 7 7))
+
+tdf2007' :: State StageRaceState StageRace
+tdf2007' = do
+  -- Prologue
+  prologue' london 7.9
+
+  -- Stage 2
+  plainStage london canterbury 203.0
+
+  -- Stage 3
+  plainStage dunkerque ghent 168.5
+
+  -- Stage 4
+  plainStage waregem compiegne 236.5
+
+  -- Stage 5
+  plainStage villersCotterets joigny 193.0
+
+  -- Stage 6
+  plainStage chablis autun 182.5
+
+  -- Stage 7
+  plainStage semurEnAuxois bourgEnBresse 199.5
+
+  -- Stage 8
+  plainStage bourgEnBresse leGrandBornand 197.5
+
+  -- Stage 9
+  plainStage leGrandBornand tignes 165.0
+
+  restDay (Left tignes)
+
+  -- Stage 10
+  plainStage valD'Isere briancon 159.5
+
+  -- Stage 11
+  plainStage tallard marseille 229.5
+
+  -- Stage 12
+  plainStage marseille montpellier 182.5
+
+  -- Stage 13
+  plainStage montpellier castres 178.5
+
+  -- Stage 14
+  outAndBackIndividualTimeTrial albi 54.0
+
+  -- Stage 15
+  plainStage mazamet plateauDeBeille 197.0
+
+  -- Stage 16
+  plainStage foix loudenvielle 196.0
+
+  restDay (Left pau)
+
+  -- Stage 17
+  plainStage orthez gouretteColD'Aubisque 218.5
+
+  -- Stage 18
+  plainStage pau castelsarrasin 188.5
+
+  -- Stage 19
+  plainStage cahors angouleme 211.0
+
+  -- Stage 20
+  individualTimeTrial cognac angouleme 55.5
+
+  -- Stage 21
+  plainStage marcoussis paris 146.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2008 :: StageRace
+tdf2008 = evalState tdf2008' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2008 7 5))
+
+tdf2008' :: State StageRaceState StageRace
+tdf2008' = do
+  -- Stage 1
+  plainStage brest plumelec 197.5
+
+  -- Stage 2
+  plainStage aulay saintBrieuc 164.5
+
+  -- Stage 3
+  plainStage saintMalo nantes 208.0
+
+  -- Stage 4
+  outAndBackIndividualTimeTrial cholet 29.5
+
+  -- Stage 5
+  plainStage cholet chateauroux 232.0
+
+  -- Stage 6
+  plainStage aigurande superBesseSancy 195.0
+
+  -- Stage 7
+  plainStage brioude aurillac 159.0
+
+  -- Stage 8
+  plainStage figeac toulouse 172.5
+
+  -- Stage 9
+  plainStage toulouse bagneresDeBigorre 224.0
+
+  -- Stage 10
+  plainStage pau hautacam 156.0
+
+  restDay (Left pau)
+
+  -- Stage 11
+  plainStage lannemezan foix 167.5
+
+  -- Stage 12
+  plainStage lavalanet narbonne 168.5
+
+  -- Stage 13
+  plainStage narbonne nimes 182.0
+
+  -- Stage 14
+  plainStage nimes digneLesBains 194.5
+
+  -- Stage 15
+  plainStage embrun pratoNevoso 183.0
+
+  restDay (Left cuneo)
+
+  -- Stage 16
+  plainStage cuneo jausiers 157.0
+
+  -- Stage 17
+  summitFinishStage embrun 210.5
+  addCol 210.5 alpeD'Huez
+
+  -- Stage 18
+  plainStage bourgD'Oisans saintÉTienne 196.5
+
+  -- Stage 19
+  plainStage roanne montlucon 165.5
+
+  -- Stage 20
+  individualTimeTrial cerilly saintAmandMontrond 53.0
+
+  -- Stage 21
+  plainStage etampes paris 143.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2009 :: StageRace
+tdf2009 = evalState tdf2009' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2009 7 4))
+
+tdf2009' :: State StageRaceState StageRace
+tdf2009' = do
+  -- Stage 1
+  outAndBackIndividualTimeTrial monaco 15.5
+
+  -- Stage 2
+  plainStage monaco brignoles 187.0
+
+  -- Stage 3
+  plainStage marseille laGrandeMotte 196.5
+
+  -- Stage 4
+  teamTimeTrial' montpellier 39.0
+
+  -- Stage 5
+  plainStage capD'Agde perpignan 196.5
+
+  -- Stage 6
+  plainStage girona barcelona 181.5
+
+  -- Stage 7
+  plainStage barcelona arcalis 224.0
+
+  -- Stage 8
+  plainStage andorraLaVella saintGirons 176.5
+
+  -- Stage 9
+  plainStage saintGirons tarbes 160.5
+
+  restDay (Left limoges)
+
+  -- Stage 10
+  plainStage limoges issoudun 194.5
+
+  -- Stage 11
+  plainStage vatan saintFargeau 192.0
+
+  -- Stage 12
+  plainStage tonnerre vittel 211.5
+
+  -- Stage 13
+  plainStage vittel colmar 200.0
+
+  -- Stage 14
+  plainStage colmar besancon 199.0
+
+  -- Stage 15
+  plainStage pontarlier verbier 207.5
+
+  restDay (Left verbier)
+
+  -- Stage 16
+  plainStage martigny bourgSaintMaurice 159.0
+
+  -- Stage 17
+  plainStage bourgSaintMaurice leGrandBornand 169.5
+
+  -- Stage 18
+  outAndBackIndividualTimeTrial annecy 40.5
+
+  -- Stage 19
+  plainStage bourgoinJallieu aubenas 178.0
+
+  -- Stage 20
+  summitFinishStage montelimar 167
+  addCol 167 montVentoux
+
+  -- Stage 21
+  plainStage montereauFaultYonne paris 164.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2010 :: StageRace
+tdf2010 = evalState tdf2010' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2010 7 3))
+
+tdf2010' :: State StageRaceState StageRace
+tdf2010' = do
+  -- Prologue
+  prologue' rotterdam 8.9
+
+  -- Stage 2
+  plainStage rotterdam brussels 223.5
+
+  -- Stage 3
+  plainStage brussels spa 201.0
+
+  -- Stage 4
+  plainStage wanze arenbergPorteDuHainaut 213.0
+
+  -- Stage 5
+  plainStage cambrai reims 153.5
+
+  -- Stage 6
+  plainStage epernay montargis 187.5
+
+  -- Stage 7
+  plainStage montargis gueugnon 227.5
+
+  -- Stage 8
+  plainStage tournus stationDesRousses 165.6
+
+  -- Stage 9
+  plainStage stationDesRousses morzineAvoriaz 189.0
+
+  restDay (Left morzineAvoriaz)
+
+  -- Stage 10
+  plainStage morzineAvoriaz saintJeanDeMaurienne 204.5
+
+  -- Stage 11
+  plainStage chambery gap 179.0
+
+  -- Stage 12
+  plainStage sisteron bourgLesValence 184.5
+
+  -- Stage 13
+  plainStage bourgDePeage mende 210.5
+
+  -- Stage 14
+  plainStage rodez revel 196.0
+
+  -- Stage 15
+  plainStage revel ax3Domaines 184.5
+
+  -- Stage 16
+  plainStage pamiers bagneresDeLuchon 187.5
+
+  -- Stage 17
+  plainStage bagneresDeLuchon pau 199.5
+
+  restDay (Left pau)
+
+  -- Stage 18
+  summitFinishStage pau 174
+  addCol 174 colDuTourmalet
+
+  -- Stage 19
+  plainStage saliesDeBearn bordeaux 198.0
+
+  -- Stage 20
+  individualTimeTrial bordeaux pauillac 52.0
+
+  -- Stage 21
+  plainStage longjumeau paris 102.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2011 :: StageRace
+tdf2011 = evalState tdf2011' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2011 7 2))
+
+tdf2011' :: State StageRaceState StageRace
+tdf2011' = do
+  -- Stage 1
+  plainStage passageDuGois montDesAlouettes 191.5
+
+  -- Stage 2
+  teamTimeTrial' lesEssarts 23.0
+
+  -- Stage 3
+  plainStage olonneSurMer redon 198.0
+
+  -- Stage 4
+  summitFinishStage lorient 172.5
+  addCol 172.5 murDeBretagne
+
+  -- Stage 5
+  plainStage carhaix capFrehel 164.5
+
+  -- Stage 6
+  plainStage dinan lisieux 226.5
+
+  -- Stage 7
+  plainStage leMans chateauroux 218.0
+
+  -- Stage 8
+  plainStage aigurande superBesse 189.0
+
+  -- Stage 9
+  plainStage issoire saintFlour 208.0
+
+  restDay (Left leLioran)
+
+  -- Stage 10
+  plainStage aurillac carmaux 158.0
+
+  -- Stage 11
+  plainStage blayeLesMines lavaur 167.5
+
+  -- Stage 12
+  plainStage cugnaux luzArdiden 211.0
+
+  -- Stage 13
+  plainStage pau lourdes 152.5
+
+  -- Stage 14
+  plainStage saintGaudens plateauDeBeille 168.5
+
+  -- Stage 15
+  plainStage limoux montpellier 192.5
+
+  restDay (Left drome)
+
+  -- Stage 16
+  plainStage saintPaulTroisChateaux gap 162.5
+
+  -- Stage 17
+  plainStage gap pinerolo 179.0
+
+  -- Stage 18
+  let colDuGalibierSerreChevalier = jointFinish colDuGalibier serreChevalier
+  summitFinishStage pinerolo 200.5
+  addCol 200.5 colDuGalibierSerreChevalier
+
+  -- Stage 19
+  summitFinishStage modane 109.5
+  addCol 109.5 alpeD'Huez
+
+  -- Stage 20
+  outAndBackIndividualTimeTrial grenoble 42.5
+
+  -- Stage 21
+  plainStage creteil paris 95.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2012 :: StageRace
+tdf2012 = evalState tdf2012' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2012 6 30))
+
+tdf2012' :: State StageRaceState StageRace
+tdf2012' = do
+  criterium liege 6.4
+
+  -- Stage 2
+  plainStage liege seraing 198.0
+
+  -- Stage 3
+  plainStage vise tournai 198.0
+
+  -- Stage 4
+  plainStage orchies boulogneSurMer 197.0
+
+  -- Stage 5
+  plainStage abbeville rouen 214.5
+
+  -- Stage 6
+  plainStage rouen saintQuentin 196.5
+
+  -- Stage 7
+  plainStage epernay metz 207.5
+
+  -- Stage 8
+  plainStage tomblaine laPlancheDesBellesFilles 199.0
+
+  -- Stage 9
+  plainStage belfort porrentruy 157.5
+
+  -- Stage 10
+  individualTimeTrial arcEtSenans besancon 41.5
+
+  restDay (Left macon)
+
+  -- Stage 11
+  plainStage macon bellegardeSueValserine 194.5
+
+  -- Stage 12
+  plainStage albertville laToussuireLesSybelles 148.0
+
+  -- Stage 13
+  plainStage saintJeanDeMaurienne annonayDavezieux 226.0
+
+  -- Stage 14
+  plainStage saintPaulTroisChateaux capD'Agne 217.0
+
+  -- Stage 15
+  plainStage limoux foix 191.0
+
+  -- Stage 16
+  plainStage samatan pau 158.5
+
+  restDay (Left pau)
+
+  -- Stage 17
+  plainStage pau bagneresDeLuchon 197.0
+
+  -- Stage 18
+  plainStage bagneresDeLuchon peyragudes 143.5
+
+  -- Stage 19
+  plainStage blagnac briveLaGaillarde 222.5
+
+  -- Stage 20
+  individualTimeTrial bonneval chartres 53.5
+
+  -- Stage 21
+  plainStage rambouillet paris 120.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2013 :: StageRace
+tdf2013 = evalState tdf2013' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2013 6 29))
+
+tdf2013' :: State StageRaceState StageRace
+tdf2013' = do
+  -- Stage 1
+  plainStage portoVecchio bastia 213.0
+
+  -- Stage 2
+  plainStage bastia ajaccio 156.0
+
+  -- Stage 3
+  plainStage ajaccio calvi 145.5
+
+  -- Stage 4
+  teamTimeTrial' nice 25.0
+
+  -- Stage 5
+  plainStage cagnesSurMer marseille 228.5
+
+  -- Stage 6
+  plainStage aixEnProvence montpellier 176.5
+
+  -- Stage 7
+  plainStage montpellier albi 205.5
+
+  -- Stage 8
+  plainStage castres ax3Domaines 195.0
+
+  -- Stage 9
+  plainStage saintGirons bagneresDeBigorre 168.5
+
+  restDay (Left saintNazaire)
+
+  -- Stage 10
+  plainStage saintGildasDesBois saintMalo 197.0
+
+  -- Stage 11
+  individualTimeTrial avranches montSaintMichel 33.0
+
+  -- Stage 12
+  plainStage fougeres tours 218.0
+
+  -- Stage 13
+  plainStage tours saintAmandMontrond 173.0
+
+  -- Stage 14
+  plainStage saintPourcainSurSioule lyon 191.0
+
+  -- Stage 15
+  summitFinishStage givors 242.5
+  addCol 242.5 montVentoux
+
+  restDay (Left vaucluse)
+
+  -- Stage 16
+  plainStage vaisonLaRomaine gap 168.0
+
+  -- Stage 17
+  individualTimeTrial embrun chorges 32.0
+
+  -- Stage 18
+  summitFinishStage gap 172.5
+  addCol 172.5 alpeD'Huez
+
+  -- Stage 19
+  plainStage leBourgD'Oisans leGrandBornand 204.5
+
+  -- Stage 20
+  plainStage annecy semnoz 125.0
+
+  -- Stage 21
+  plainStage versailles paris 133.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2014 :: StageRace
+tdf2014 = evalState tdf2014' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2014 7 5))
+
+tdf2014' :: State StageRaceState StageRace
+tdf2014' = do
+  -- Stage 1
+  plainStage leeds harrogate 190.5
+
+  -- Stage 2
+  plainStage york sheffield 201.0
+
+  -- Stage 3
+  plainStage cambridge london 155.0
+
+  -- Stage 4
+  plainStage leTouquetParisPlage lilleMetropole 163.5
+
+  -- Stage 5
+  plainStage ypres arenbergPorteDuHainaut 152.5
+
+  -- Stage 6
+  plainStage arras reims 194.0
+
+  -- Stage 7
+  plainStage epernay nancy 234.5
+
+  -- Stage 8
+  plainStage tomblaine gerardmerLasMauselaine 161.0
+
+  -- Stage 9
+  plainStage gerardmer mulhouse 170.0
+
+  -- Stage 10
+  plainStage mulhouse laPlancheDesBellesFilles 161.5
+
+  restDay (Left besancon)
+
+  -- Stage 11
+  plainStage besancon oyonnax 187.5
+
+  -- Stage 12
+  plainStage bourgEnBresse saintÉTienne 185.5
+
+  -- Stage 13
+  plainStage saintÉTienne chamrousse 197.5
+
+  -- Stage 14
+  plainStage grenoble risoul 177.0
+
+  -- Stage 15
+  plainStage tallard nimes 222.0
+
+  restDay (Left carcassonne)
+
+  -- Stage 16
+  plainStage carcassonne bagneresDeLuchon 237.5
+
+  -- Stage 17
+  plainStage saintGaudens saintLaryPlaD'Adet 124.5
+
+  -- Stage 18
+  plainStage pau hautacam 145.5
+
+  -- Stage 19
+  plainStage maubourguetPaysDuValD'Adour bergerac 208.5
+
+  -- Stage 20
+  individualTimeTrial bergerac perigueux 54.0
+
+  -- Stage 21
+  plainStage evry paris 137.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2015 :: StageRace
+tdf2015 = evalState tdf2015' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2015 7 4))
+
+tdf2015' :: State StageRaceState StageRace
+tdf2015' = do
+  -- Stage 1
+  outAndBackIndividualTimeTrial utrecht 13.8
+
+  -- Stage 2
+  plainStage utrecht zeeland 166.0
+
+  -- Stage 3
+  plainStage antwerp huy 159.5
+
+  -- Stage 4
+  plainStage seraing cambrai 223.5
+
+  -- Stage 5
+  plainStage arras amiens 189.5
+
+  -- Stage 6
+  plainStage abbeville leHavre 191.5
+
+  -- Stage 7
+  plainStage livarot fougeres 190.5
+
+  -- Stage 8
+  summitFinishStage rennes 181.5
+  addCol 181.5 murDeBretagne
+
+  -- Stage 9
+  teamTimeTrial vannes plumelec 28.0
+
+  restDay (Left pau)
+
+  -- Stage 10
+  plainStage tarbes laPierreSaintMartin 167.0
+
+  -- Stage 11
+  plainStage pau cauterets 188.0
+
+  -- Stage 12
+  plainStage lannemezan plateauDeBeille 195.0
+
+  -- Stage 13
+  plainStage muret rodez 198.5
+
+  -- Stage 14
+  plainStage rodez mende 178.5
+
+  -- Stage 15
+  plainStage mende valence 183.0
+
+  -- Stage 16
+  plainStage bourgDePeage gap 201.0
+
+  restDay (Left gap)
+
+  -- Stage 17
+  plainStage digneLesBains praLoup 161.0
+
+  -- Stage 18
+  plainStage gap saintJeanDeMaurienne 186.5
+
+  -- Stage 19
+  plainStage saintJeanDeMaurienne laToussuireLesSybelles 138.0
+
+  -- Stage 20
+  summitFinishStage modane 110.5
+  addCol 110.5 alpeD'Huez
+
+  -- Stage 21
+  plainStage sevres paris 109.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2016 :: StageRace
+tdf2016 = evalState tdf2016' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2016 7 2))
+
+tdf2016' :: State StageRaceState StageRace
+tdf2016' = do
+  -- Stage 1
+  plainStage montSaintMichel utahBeach 188.0
+
+  -- Stage 2
+  plainStage saintLo cherbourgEnCotentin 183.0
+
+  -- Stage 3
+  plainStage granville angers 223.5
+
+  -- Stage 4
+  plainStage saumur limoges 237.5
+
+  -- Stage 5
+  plainStage limoges leLioran 216.0
+
+  -- Stage 6
+  plainStage arpajonSurCere montauban 190.5
+
+  -- Stage 7
+  plainStage l'IsleJourdain lacDePayolle 162.5
+
+  -- Stage 8
+  plainStage pau bagneresDeLuchon 184.0
+
+  -- Stage 9
+  plainStage vielhaValD'Aran arcalis 184.5
+
+  restDay (Left arcalis)
+
+  -- Stage 10
+  plainStage escaldes revel 197.0
+
+  -- Stage 11
+  plainStage carcassonne montpellier 162.5
+
+  -- Stage 12
+  plainStage montpellier chaletReynard 178.0
+
+  -- Stage 13
+  individualTimeTrial bourgSaintAndeol laCaverneDuPontD'Arc 37.5
+
+  -- Stage 14
+  plainStage montelimar villarLesDombes 208.5
+
+  -- Stage 15
+  plainStage bourgEnBresse culoz 160.0
+
+  -- Stage 16
+  plainStage moiransEnMontagne bern 209.0
+
+  restDay (Left bern)
+
+  -- Stage 17
+  plainStage bern finhautEmosson 184.5
+
+  -- Stage 18
+  individualTimeTrial sallanches megeve 17.0
+
+  -- Stage 19
+  plainStage abbeville saintGervaisLesBains 146.0
+
+  -- Stage 20
+  plainStage megeve morzine 146.5
+
+  -- Stage 21
+  plainStage chantilly paris 113.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf2017 :: StageRace
+tdf2017 = evalState tdf2017' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 2017 7 1))
+
+tdf2017' :: State StageRaceState StageRace
+tdf2017' = do
+  -- Stage 1
+  outAndBackIndividualTimeTrial dusseldorf 14.0
+
+  -- Stage 2
+  plainStage dusseldorf liege 203.5
+
+  -- Stage 3
+  plainStage verviers longwy 212.5
+
+  -- Stage 4
+  plainStage mondorfLesBains vittel 207.5
+
+  -- Stage 5
+  plainStage vittel laPlancheDesBellesFilles 160.5
+
+  -- Stage 6
+  plainStage vesoul troyes 216.0
+
+  -- Stage 7
+  plainStage troyes nuitsSaintGeorges 213.5
+
+  -- Stage 8
+  plainStage dole stationDesRousses 187.5
+
+  -- Stage 9
+  plainStage nantua chambery 181.5
+
+  restDay (Left dordogne)
+
+  -- Stage 10
+  plainStage perigueux bergerac 178.0
+
+  -- Stage 11
+  plainStage eymet pau 203.5
+
+  -- Stage 12
+  plainStage pau peyragudes 214.5
+
+  -- Stage 13
+  plainStage saintGirons foix 101.0
+
+  -- Stage 14
+  plainStage blagnac rodez 181.5
+
+  -- Stage 15
+  plainStage laissacSeveracL'Eglise lePuyEnVelay 189.5
+
+  restDay (Left lePuyEnVelay)
+
+  -- Stage 16
+  plainStage lePuyEnVelay romansSurIsere 165.0
+
+  -- Stage 17
+  plainStage laMure serreChevalier 183.0
+
+  -- Stage 18
+  summitFinishStage briancon 179.5
+  addCol 179.5 colD'Izoard
+
+  -- Stage 19
+  plainStage embrun salonDeProvence 222.5
+
+  -- Stage 20
+  outAndBackIndividualTimeTrial marseille 22.5
+
+  -- Stage 21
+  plainStage montgeron paris 103.0
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
@@ -4283,7 +6793,7 @@ tdf2018 = evalState tdf2018' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2018' :: State StageRaceState StageRace
 tdf2018' = do
   -- Stage 1
-  plainStage noirmoutier fontenayLeComte 201
+  plainStage noirmoutierEnL'Ile fontenayLeComte 201
   c4 173 "Cote de Vix" France 30 0.7 4.2
 
   -- Stage 2
@@ -4327,7 +6837,7 @@ tdf2018' = do
   restDay (Left annecy)
 
   -- Stage 10
-  mountainStage annecy leGrandBornard 158.5
+  mountainStage annecy leGrandBornand 158.5
   addCol 19 colDeBluffy
   addCol 43 colDeLaCroixFry
   addCol 68.5 monteeDuPlateauDesGlieres

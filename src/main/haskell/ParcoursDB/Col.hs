@@ -1,6 +1,7 @@
 module ParcoursDB.Col where
 
 import ParcoursDB.Country
+import ParcoursDB.Location hiding (name,country)
 
 data ColCategory = HC
                  | C4
@@ -30,6 +31,10 @@ data Col = Col { name            :: String
 
 clone :: Col -> String -> Col
 clone c@(Col n country category h l aG mG) newName = Col (newName ++ " (" ++ n ++ ")" ) country category h l aG mG
+
+jointFinish :: Col -> Location -> Col
+jointFinish c@(Col colName country category h length aG mG) l@(Location locName locCountry) =
+  Col (colName ++ " - " ++ locName ) country category h length aG mG
 
 instance Eq Col where
   (Col n1 c1 cat1 h1 _ _ _) == (Col n2 c2 cat2 h2 _ _ _) = n1 == n2 && c1 == c2 && cat1 == cat2 && h1 == h2 

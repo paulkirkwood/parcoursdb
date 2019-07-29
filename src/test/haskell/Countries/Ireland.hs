@@ -11,10 +11,10 @@ irishLocation :: String -> Location
 irishLocation loc = Location loc Ireland
 
 cork :: Location
-cork = irishLocation "Cork" Ireland
+cork = irishLocation "Cork"
 
 dublin :: Location
-dublin = irishLocation "Dublin" Ireland
+dublin = irishLocation "Dublin"
 
 enniscorthy :: Location
-enniscorthy = irishLocation "Enniscorthy" Ireland
+enniscorthy = irishLocation "Enniscorthy"
