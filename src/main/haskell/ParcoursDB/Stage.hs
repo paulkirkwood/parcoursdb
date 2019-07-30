@@ -15,6 +15,7 @@ type Distance = Float
 data Stage = Prologue            Day Location Location Distance
            | Road                Day (Either Location Col) (Maybe Location) StageID Distance [IndexableCol]
            | TeamTimeTrial       Day Location Location StageID Distance [IndexableCol]
+           | TwoManTeamTimeTrial Day Location Location StageID Distance [IndexableCol]
            | IndividualTimeTrial Day Location (Maybe Location) StageID Distance [IndexableCol]
            | RestDay             Day (Maybe( Either Location Col))
   deriving (Eq, Show)
@@ -23,17 +24,20 @@ distance :: Stage -> Distance
 distance (Prologue _ _ _ d)                = d
 distance (Road _ _ _ _ d _)                = d
 distance (TeamTimeTrial _ _ _ _ d _)       = d
+distance (TwoManTeamTimeTrial _ _ _ _ d _) = d
 distance (IndividualTimeTrial _ _ _ _ d _) = d
 
 start :: Stage -> Either Location Col
 start (Prologue _ s _ _)                = Left s
 start (TeamTimeTrial _ s _ _ _ _)       = Left s
+start (TwoManTeamTimeTrial _ s _ _ _ _) = Left s
 start (IndividualTimeTrial _ s _ _ _ _) = Left s
 start (Road _ s _ _ _ _)                = s
 
 finish :: Stage -> Either Location Col
 finish (Prologue _ _ f _)                 = Left f
 finish (TeamTimeTrial _ _ f _ _ _)        = Left f
+finish (TwoManTeamTimeTrial _ _ f _ _ _)  = Left f
 finish (Road _ _ f _ _ cs)                = finish' f cs
 finish (IndividualTimeTrial _ _ f _ _ cs) = finish' f cs
 
@@ -45,6 +49,7 @@ date :: Stage -> Day
 date (Prologue d _ _ _)                = d
 date (Road d _ _ _ _ _)                = d
 date (TeamTimeTrial d _ _ _ _ _)       = d
+date (TwoManTeamTimeTrial d _ _ _ _ _) = d
 date (IndividualTimeTrial d _ _ _ _ _) = d
 date (RestDay d _)                     = d
 
@@ -52,11 +57,13 @@ id :: Stage -> String
 id (Prologue _ _ _ _)                = "P"
 id (Road _ _ _ i _ _)                = i
 id (TeamTimeTrial _ _ _ i _ _)       = i
+id (TwoManTeamTimeTrial _ _ _ i _ _) = i
 id (IndividualTimeTrial _ _ _ i _ _) = i
 
 cols :: Stage -> [IndexableCol]
 cols (Road _ _ _ _ _ cs)                = cs
 cols (TeamTimeTrial _ _ _ _ _ cs)       = cs
+cols (TwoManTeamTimeTrial _ _ _ _ _ cs)  = cs
 cols (IndividualTimeTrial _ _ _ _ _ cs) = cs
 
 isRacingStage :: Stage -> Bool
@@ -73,18 +80,20 @@ isRoadStage (Road _ _ _ _ _ _) = True
 isRoadStage _                  = False
 
 isTeamTimeTrial :: Stage -> Bool
-isTeamTimeTrial (TeamTimeTrial _ _ _ _ _ _) = True
-isTeamTimeTrial _                           = False
+isTeamTimeTrial (TeamTimeTrial _ _ _ _ _ _)       = True
+isTeamTimeTrial (TwoManTeamTimeTrial _ _ _ _ _ _) = True
+isTeamTimeTrial _                                 = False
 
 isIndividualTimeTrial :: Stage -> Bool
 isIndividualTimeTrial (IndividualTimeTrial _ _ _ _ _ _) = True
 isIndividualTimeTrial _                                 = False
 
 description :: Stage -> String
-description (Road _ _ _ _ _ _)          = "Road stage"
-description (TeamTimeTrial _ _ _ _ _ _) = "Team time trial"
-description (RestDay _ _)               = "Rest day"
-description _                           = "Individual time trial"
+description (Road _ _ _ _ _ _)                = "Road stage"
+description (TeamTimeTrial _ _ _ _ _ _)       = "Team time trial"
+description (TwoManTeamTimeTrial _ _ _ _ _ _) = "Two man team time trial"
+description (RestDay _ _)                     = "Rest day"
+description _                                 = "Individual time trial"
 
 fromTo :: Stage -> Country -> String
 fromTo stage country =

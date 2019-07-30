@@ -10,7 +10,7 @@ module Countries.Austria
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-austrianLocation :: Location
+austrianLocation :: String -> Location
 austrianLocation location = Location location Austria
 
 grossglockner :: Location

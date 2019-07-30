@@ -3,6 +3,7 @@ module ParcoursDB.Country where
 import Data.Ord
 
 data Country = Andorra
+             | Austria
              | Belgium
              | Croatia
              | Denmark
@@ -17,6 +18,7 @@ data Country = Andorra
              | Netherlands
              | NorthernIreland
              | SanMarino
+             | Slovenia
              | Spain
              | Switzerland
              | UnitedKingdom
@@ -27,6 +29,7 @@ data Country = Andorra
 
 instance Show Country where
   show Andorra         = "Andorra"
+  show Austria         = "Austria"
   show Belgium         = "Belgium"
   show Croatia         = "Croatia"
   show Denmark         = "Denmark"
@@ -41,11 +44,13 @@ instance Show Country where
   show Netherlands     = "Netherlands"
   show NorthernIreland = "Northern Ireland"
   show SanMarino       = "San Marino"
+  show Slovenia        = "Slovenia"
   show Spain           = "Spain"
   show Switzerland     = "Switzerland"
   show UnitedKingdom   = "United Kingdom"
   show VaticanCity     = "Vatican City"
   show WestGermany     = "West Germany"
+  show Yugoslavia      = "Yugoslavia"
 
 --instance Eq Country where
 --  (Country a) == (Country b) = name(a) == name(b)

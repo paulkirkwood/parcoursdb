@@ -13,4 +13,4 @@ porec :: Location
 porec = croatianLocation "Porec"
 
 pula :: Location
-pula = croatianLocation "Pula" Croatia
+pula = croatianLocation "Pula"
