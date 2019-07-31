@@ -1066,6 +1066,9 @@ livigno = italianLocation "Livigno"
 livorno :: Location
 livorno = italianLocation "Livorno"
 
+loano :: Location
+loano = italianLocation "Loano"
+
 lodi :: Location
 lodi = italianLocation "Lodi"
 
@@ -1305,9 +1308,6 @@ monteDiProcida = italianLocation "Monte di Procida"
 
 monteGeneroso :: Location
 monteGeneroso = italianLocation "Monte Generoso"
-
-monteGrappa :: Location
-monteGrappa = italianLocation "Monte Grappa"
 
 monteMaddalena :: Location
 monteMaddalena = italianLocation "Monte Maddalena"

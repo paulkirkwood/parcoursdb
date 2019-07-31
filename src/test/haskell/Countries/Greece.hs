@@ -13,16 +13,16 @@ greekLocation :: String -> Location
 greekLocation location = Location location Greece
 
 athens :: Location
-athens = greekLocation "Athens" Greece
+athens = greekLocation "Athens"
 
 eleusis :: Location
-eleusis = greekLocation "Eleusis" Greece
+eleusis = greekLocation "Eleusis"
 
 ioannina :: Location
-ioannina = greekLocation "Ioannina" Greece
+ioannina = greekLocation "Ioannina"
 
 missolonghi :: Location
-missolonghi = greekLocation "Missolonghi" Greece
+missolonghi = greekLocation "Missolonghi"
 
 naupactus :: Location
-naupactus = greekLocation "Naupactus" Greece
+naupactus = greekLocation "Naupactus"

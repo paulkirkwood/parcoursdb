@@ -17,6 +17,8 @@ import Countries.Denmark
 import Countries.Fiume
 import Countries.France
 import Countries.Germany
+import Countries.Greece
+import Countries.Ireland
 import Countries.Israel
 import Countries.Italy
 import Countries.Luxembourg
@@ -31,6 +33,7 @@ import Countries.WestGermany
 import Countries.Yugoslavia
 import Data.Time
 import Mountains.Alpes
+import Mountains.Dolomites
 import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.Location
@@ -117,6 +120,26 @@ giroEditions = [ giro1909
                , giro1993
                , giro1994
                , giro1995
+               , giro1996
+               , giro1997
+               , giro1998
+               , giro1999
+               , giro2000
+               , giro2001
+               , giro2002
+               , giro2003
+               , giro2004
+               , giro2005
+               , giro2006
+               , giro2007
+               , giro2008
+               , giro2009
+               , giro2010
+               , giro2012
+               , giro2012
+               , giro2013
+               , giro2014
+               , giro2015
                , giro2016
                , giro2017
                , giro2018
@@ -1753,7 +1776,7 @@ giro1953' = do
   plainStage pisa modena 189.0
 
   -- Stage 10
-  teamTimeTrial modena modena 30.0
+  outAndBackTeamTimeTrial modena 30.0
 
   -- Stage 11
   plainStage modena genoa 278.0
@@ -1796,7 +1819,7 @@ giro1954 = evalState giro1954' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1954' :: State StageRaceState StageRace
 giro1954' = do
   -- Stage 1
-  teamTimeTrial palermo palermo 36.0
+  outAndBackTeamTimeTrial palermo 36.0
 
   -- Stage 2
   plainStage palermo taormina 280.0
@@ -1954,7 +1977,7 @@ giro1956' = do
   -- Stages 2a & 2b
   enableSplitStages
   plainStage alessandria genoa 96.0
-  teamTimeTrial circuitoDiLidoD'Albaro circuitoDiLidoD'Albaro 12.0
+  outAndBackTeamTimeTrial circuitoDiLidoD'Albaro 12.0
   disableSplitStages
 
   -- Stage 3
@@ -2892,7 +2915,8 @@ giro1968' = do
   plainStage brescia lidoDiCaldonazzo 210.0
 
   -- Stage 10
-  plainStage trento monteGrappa 136.0
+  summitFinishStage trento 136
+  addCol 136 monteGrappa
 
   -- Stage 11
   plainStage bassanoDelGrappa trieste 197.0
@@ -5056,6 +5080,1522 @@ giro1995' = do
   edition <- ParcoursDB.State.StageRace.build
   return edition
 
+giro1996 :: StageRace
+giro1996 = evalState giro1996' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 1996 5 18))
+
+giro1996' :: State StageRaceState StageRace
+giro1996' = do
+  -- Stage 1
+  criterium athens 170.0
+
+  -- Stage 2
+  plainStage eleusis naupactus 235.0
+
+  -- Stage 3
+  plainStage missolonghi ioannina 199.0
+
+  transferDay
+
+  -- Stage 4
+  criterium ostuni 147.0
+
+  -- Stage 5
+  plainStage metaponto crotone 196.0
+
+  -- Stage 6
+  plainStage crotone catanzaro 176.0
+
+  -- Stage 7
+  plainStage amantea massiccioDelSirino 164.0
+
+  -- Stage 8
+  plainStage polla naples 135.0
+
+  -- Stage 9
+  plainStage naples fiuggi 184.0
+
+  -- Stage 10
+  plainStage arezzo prato 164.0
+
+  -- Stage 11
+  plainStage prato marinoDiMassa 130.0
+
+  -- Stage 12
+  plainStage aulla loano 195.0
+
+  -- Stage 13
+  plainStage loano pratoNevoso 115.0
+
+  -- Stage 14
+  plainStage sanctuarioDiVicoforte briancon 202.0
+
+  -- Stage 15
+  plainStage briancon aosta 235.0
+
+  -- Stage 16
+  plainStage aosta lausanne 180.0
+
+  -- Stage 17
+  plainStage lausanne biella 236.0
+
+  -- Stage 18
+  plainStage meda vicenza 216.0
+
+  -- Stage 19
+  individualTimeTrial vicenza marostica 62.0
+
+  -- Stage 20
+  plainStage marostica passoPordoi 220.0
+
+  -- Stage 21
+  plainStage cavalese aprica 250.0
+
+  -- Stage 22
+  plainStage sondrio milan 176.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro1997 :: StageRace
+giro1997 = evalState giro1997' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 1997 5 17))
+
+giro1997' :: State StageRaceState StageRace
+giro1997' = do
+  -- Stage 1
+  criterium venezia 128.0
+
+  -- Stage 2
+  plainStage mestre cervia 211.0
+
+  -- Stage 3
+  individualTimeTrial santarcangeloDiRomagna sanMarino 18.0
+
+  -- Stage 4
+  plainStage sanMarino arezzo 156.0
+
+  -- Stage 5
+  plainStage arezzo monteTerminillo 215.0
+
+  -- Stage 6
+  plainStage rieti lanciano 210.0
+
+  -- Stage 7
+  plainStage lanciano mondragone 210.0
+
+  -- Stage 8
+  plainStage mondragone cavaDe'Tirreni 212.0
+
+  -- Stage 9
+  plainStage cavaDe'Tirreni castrovillari 232.0
+
+  -- Stage 10
+  plainStage castrovillari taranto 195.0
+
+  transferDay
+
+  -- Stage 11
+  criterium lidoDiCamaiore 155.0
+
+  -- Stage 12
+  plainStage laSpezia varazze 214.0
+
+  -- Stage 13
+  plainStage varazze cuneo 150.0
+
+  -- Stage 14
+  plainStage racconigi breuilCervinia 240.0
+
+  -- Stage 15
+  plainStage verres borgomanero 173.0
+
+  -- Stage 16
+  plainStage borgomanero dalmine 158.0
+
+  -- Stage 17
+  plainStage dalmine verona 200.0
+
+  -- Stage 18
+  individualTimeTrial baselgaDiPine cavalese 40.0
+
+  -- Stage 19
+  plainStage predazzo pfalzen 222.0
+
+  -- Stage 20
+  plainStage bruneck passoDelTonale 176.0
+
+  -- Stage 21
+  plainStage male edolo 238.0
+
+  -- Stage 22
+  plainStage boarioTerme milan 165.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro1998 :: StageRace
+giro1998 = evalState giro1998' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 1998 5 16))
+
+giro1998' :: State StageRaceState StageRace
+giro1998' = do
+  -- Prologue
+  prologue' nice 8.0
+
+  -- Stage 1
+  plainStage nice cuneo 159.0
+
+  -- Stage 2
+  plainStage alba imperia 160.0
+
+  -- Stage 3
+  plainStage rapallo forteDeiMarmi 196.0
+
+  -- Stage 4
+  plainStage viareggio monteArgentario 239.0
+
+  -- Stage 5
+  plainStage orbetello frascati 206.0
+
+  -- Stage 6
+  plainStage maddaloni lagaLaceno 158.0
+
+  -- Stage 7
+  plainStage montella matera 238.0
+
+  -- Stage 8
+  plainStage matera lecce 191.0
+
+  -- Stage 9
+  plainStage foggia vasto 167.0
+
+  -- Stage 10
+  plainStage vasto macerata 212.0
+
+  -- Stage 11
+  plainStage macerata sanMarino 220.0
+
+  -- Stage 12
+  plainStage sanMarino carpi 202.0
+
+  -- Stage 13
+  plainStage carpi schio 166.0
+
+  -- Stage 14
+  plainStage schio piancavallo 165.0
+
+  -- Stage 15
+  outAndBackIndividualTimeTrial trieste 40.0
+
+  -- Stage 16
+  plainStage udine asiago 227.0
+
+  -- Stage 17
+  plainStage asiago selva 217.0
+
+  -- Stage 18
+  plainStage selva passoDiPampeagno 115.0
+
+  -- Stage 19
+  plainStage cavalese planDiMontecampione 239.0
+
+  -- Stage 20
+  plainStage darfoBoarioTerme mendrisio 137.0
+
+  -- Stage 21
+  individualTimeTrial mendrisio lugano 34.0
+
+  -- Stage 22
+  plainStage lugano milan 173.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro1999 :: StageRace
+giro1999 = evalState giro1999' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 1999 5 15))
+
+giro1999' :: State StageRaceState StageRace
+giro1999' = do
+  -- Stage 1
+  plainStage agrigento modica 175.0
+
+  -- Stage 2
+  plainStage noto catania 133.0
+
+  -- Stage 3
+  plainStage catania messina 176.0
+
+  -- Stage 4
+  plainStage viboValentia termeLuigiane 186.0
+
+  -- Stage 5
+  plainStage termeLuigiane massiccioDelSirino 144.0
+
+  -- Stage 6
+  plainStage lauria foggia 257.0
+
+  -- Stage 7
+  plainStage foggia lanciano 153.0
+
+  -- Stage 8
+  plainStage pescara granSassoD'Italia 253.0
+
+  -- Stage 9
+  outAndBackIndividualTimeTrial ancona 32.0
+
+  -- Stage 10
+  plainStage ancona sansepolcro 189.0
+
+  -- Stage 11
+  plainStage sansepolcro cesenatico 125.0
+
+  -- Stage 12
+  plainStage cesenatico sassuolo 168.0
+
+  -- Stage 13
+  plainStage sassuolo rapallo 243.0
+
+  transferDay
+
+  -- Stage 14
+  plainStage bra borgoSanDalmazzo 187.0
+
+  -- Stage 15
+  plainStage racconigi santuarioDiOropa 160.0
+
+  -- Stage 16
+  plainStage biella lumezzane 232.0
+
+  -- Stage 17
+  plainStage lumezzane castelfrancoVeneto 215.0
+
+  -- Stage 18
+  outAndBackIndividualTimeTrial treviso 45.0
+
+  -- Stage 19
+  plainStage castelfrancoVeneto alpeDiPampeago 166.0
+
+  -- Stage 20
+  plainStage predazzo madonnaDiCampiglio 175.0
+
+  -- Stage 21
+  plainStage madonnaDiCampiglio aprica 190.0
+
+  -- Stage 22
+  plainStage darfoBoarioTerme milan 170.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2000 :: StageRace
+giro2000 = evalState giro2000' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2000 5 13))
+
+giro2000' :: State StageRaceState StageRace
+giro2000' = do
+  -- Prologue
+  prologue' rome 4.6
+
+  -- Stage 1
+  plainStage rome terracina 125.0
+
+  -- Stage 2
+  plainStage terracina maddaloni 225.0
+
+  -- Stage 3
+  plainStage paestum scalea 177.0
+
+  -- Stage 4
+  plainStage scalea matera 233.0
+
+  -- Stage 5
+  plainStage matera peschici 232.0
+
+  -- Stage 6
+  plainStage peschici vasto 160.0
+
+  -- Stage 7
+  plainStage vasto teramo 182.0
+
+  -- Stage 8
+  plainStage corinaldo prato 265.0
+
+  -- Stage 9
+  plainStage prato abetone 138.0
+
+  -- Stage 10
+  plainStage sanMarcelloPistoiese padua 253.0
+
+  -- Stage 11
+  individualTimeTrial lignanoSabbiadoro bibione 45.0
+
+  transferDay
+
+  -- Stage 12
+  plainStage bibione feltre 184.0
+
+  -- Stage 13
+  plainStage feltre selva 186.0
+
+  -- Stage 14
+  plainStage selva bormio 203.0
+
+  -- Stage 15
+  plainStage bormio brescia 180.0
+
+  -- Stage 16
+  plainStage brescia meda 102.0
+
+  -- Stage 17
+  plainStage meda genoa 236.0
+
+  -- Stage 18
+  plainStage genoa pratoNevoso 173.0
+
+  -- Stage 19
+  plainStage saluzzo briancon 176.0
+
+  -- Stage 20
+  individualTimeTrial briancon sestriere 32.0
+
+  -- Stage 21
+  plainStage turin milan 189.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2001 :: StageRace
+giro2001 = evalState giro2001' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2001 5 19))
+
+giro2001' :: State StageRaceState StageRace
+giro2001' = do
+  -- Stage 1
+  prologue montesilvano pescara 7.0
+
+  -- Stage 2
+  plainStage guilianova francavillaAlMare 205.0
+
+  -- Stage 3
+  plainStage fossacesia lucera 163.0
+
+  -- Stage 4
+  plainStage lucera potenza 149.0
+
+  -- Stage 5
+  plainStage potenza mercogliano 169.0
+
+  -- Stage 6
+  plainStage avellino nettuno 229.0
+
+  -- Stage 7
+  plainStage nettuno rieti 152.0
+
+  -- Stage 8
+  plainStage rieti montevarchi 239.0
+
+  -- Stage 9
+  plainStage montecatiniTerme reggioEmilia 185.0
+
+  -- Stage 10
+  plainStage reggioEmilia rovigo 140.0
+
+  -- Stage 11
+  plainStage lidoDiJesolo Countries.Slovenia.ljubljana 212.0
+
+  -- Stage 12
+  plainStage bled gorizia 187.0
+
+  -- Stage 13
+  plainStage gradiscaD'Isonzo montebelluna 139.0
+
+  -- Stage 14
+  plainStage montebelluna passoPordoi 225.0
+
+  -- Stage 15
+  plainStage cavalese arco 160.0
+
+  -- Stage 16
+  individualTimeTrial sirmione salo 55.0
+
+  -- Stage 17
+  plainStage erbusco parma 142.0
+
+  transferDay
+
+  -- Stage 18
+  criterium sanRemo 123.0
+
+  -- Stage 19
+  plainStage imperia sant'AnnaDiVinadio 230.0
+
+  -- Stage 20
+  plainStage alba bustoArsizio 163.0
+
+  -- Stage 21
+  plainStage bustoArsizio arona 181.0
+
+  -- Stage 22
+  plainStage arona milan 125.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2002 :: StageRace
+giro2002 = evalState giro2002' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2002 5 11))
+
+giro2002' :: State StageRaceState StageRace
+giro2002' = do
+  -- Prologue
+  prologue' groningen 6.5
+
+  -- Stage 1
+  plainStage groningen munster 215.0
+
+  -- Stage 2
+  plainStage Countries.Germany.cologne ans 209.0
+
+  -- Stage 3
+  plainStage verviers eschSurAlzette 206.0
+
+  -- Stage 4
+  plainStage eschSurAlzette strasbourg 232.0
+
+  transferDay
+
+  -- Stage 5
+  plainStage fossano limonePiemonte 150.0
+
+  -- Stage 6
+  plainStage cuneo varazze 190.0
+
+  -- Stage 7
+  plainStage viareggio lidoDiCamaiore 159.0
+
+  -- Stage 8
+  plainStage capannori orvieto 237.0
+
+  -- Stage 9
+  plainStage tivoli caserta 41.0
+
+  -- Stage 10
+  plainStage maddaloni benevento 118.0
+
+  -- Stage 11
+  plainStage benevento campitelloMatese 140.0
+
+  -- Stage 12
+  plainStage campobasso chieti 200.0
+
+  -- Stage 13
+  plainStage chieti sanGiacomoDiValleCastellana 190.0
+
+  -- Stage 14
+  outAndBackIndividualTimeTrial numana 30.0
+
+  transferDay
+
+  -- Stage 15
+  plainStage termeEuganee conegliano 156.0
+
+  -- Stage 16
+  plainStage conegliano corvara 163.0
+
+  -- Stage 17
+  plainStage corvara folgaria 222.0
+
+  -- Stage 18
+  plainStage rovereto brescia 143.0
+
+  -- Stage 19
+  individualTimeTrial cambiago monticelloBrianza 46.0
+
+  -- Stage 20
+  plainStage cantu milan 141.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2003 :: StageRace
+giro2003 = evalState giro2003' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2003 5 10))
+
+giro2003' :: State StageRaceState StageRace
+giro2003' = do
+  -- Stage 1
+  criterium lecce 201.0
+
+  -- Stage 2
+  plainStage copertino matera 177.0
+
+  -- Stage 3
+  plainStage policoro termLuigiane 145.0
+
+  -- Stage 4
+  plainStage termLuigiane viboValentia 170.0
+
+  -- Stage 5
+  plainStage messina catania 176.0
+
+  transferDay
+
+  -- Stage 6
+  plainStage maddaloni avezzano 222.0
+
+  -- Stage 7
+  plainStage avezzano monteTerminillo 146.0
+
+  -- Stage 8
+  plainStage rieti arezzo 214.0
+
+  -- Stage 9
+  plainStage arezzo montecatiniTerme 160.0
+
+  -- Stage 10
+  plainStage montecatiniTerme faenza 202.0
+
+  -- Stage 11
+  plainStage faenza sanDonaDiPiave 222.0
+
+  -- Stage 12
+  summitFinishStage sanDonaDiPiave 185
+  addCol 185 monteZoncolan
+
+  -- Stage 13
+  plainStage pordenone marostica 149.0
+
+  -- Stage 14
+  plainStage marostica alpeDiPampeago 162.0
+
+  -- Stage 15
+  individualTimeTrial merano bolzano 42.5
+
+  -- Stage 16
+  plainStage arco pavia 207.0
+
+  transferDay
+
+  -- Stage 17
+  plainStage saliceTerme asti 117.0
+
+  -- Stage 18
+  plainStage sanuarioDiVicoforte chianale 174.0
+
+  -- Stage 19
+  plainStage canelli cascataDelToce 239.0
+
+  -- Stage 20
+  plainStage cannobio cantu 133.0
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial milan 33.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2004 :: StageRace
+giro2004 = evalState giro2004' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2004 5 8))
+
+giro2004' :: State StageRaceState StageRace
+giro2004' = do
+  -- Prologue
+  prologue' genoa 6.9
+
+  -- Stage 1
+  plainStage genoa alba 143.0
+
+  -- Stage 2
+  plainStage noviLigure pontremoli 184.0
+
+  -- Stage 3
+  plainStage pontremoli cornoAlleScale 191.0
+
+  -- Stage 4
+  plainStage porrettaTerme civitellaDiValDiChiana 184.0
+
+  -- Stage 5
+  plainStage civitellaDiValDiChiana spoleto 177.0
+
+  -- Stage 6
+  plainStage spoleto valmontone 164.0
+
+  -- Stage 7
+  plainStage frosinone montevergineDiMercogliano 214.0
+
+  -- Stage 8
+  plainStage giffoniVallePiana policoro 214.0
+
+  -- Stage 9
+  plainStage policoro carovigno 142.0
+
+  transferDay
+
+  -- Stage 10
+  plainStage portoSant'Elpidio ascoliPiceno 146.0
+
+  -- Stage 11
+  plainStage portoSant'Elpidio cesena 228.0
+
+  -- Stage 12
+  plainStage cesena treviso 210.0
+
+  -- Stage 13
+  outAndBackIndividualTimeTrial trieste 52.0
+
+  -- Stage 14
+  plainStage trieste pula 175.0
+
+  -- Stage 15
+  plainStage porec sanVendemiano 234.0
+
+  -- Stage 16
+  plainStage sanVendemiano pfalzen 217.0
+
+  transferDay
+
+  -- Stage 17
+  plainStage bruneck fondoSarnonico 153.0
+
+  -- Stage 18
+  plainStage cles bormio2000 118.0
+
+  -- Stage 19
+  plainStage bormio presolana 122.0
+
+  -- Stage 20
+  plainStage clusone milan 149.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2005 :: StageRace
+giro2005 = evalState giro2005' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2005 5 7))
+
+giro2005' :: State StageRaceState StageRace
+giro2005' = do
+  -- Prologue
+  prologue' reggioCalabria 1.1
+
+  -- Stage 1
+  plainStage reggioCalabria tropea 208.0
+
+  -- Stage 2
+  plainStage catanzaroLido santaMariaDelCedro 182.0
+
+  -- Stage 3
+  plainStage diamante giffoniVallePiana 205.0
+
+  -- Stage 4
+  plainStage giffoniVallePiana frosinone 211.0
+
+  -- Stage 5
+  plainStage celano l'Aquila 223.0
+
+  -- Stage 6
+  plainStage viterbo marinaDiGrosseto 153.0
+
+  -- Stage 7
+  plainStage grosseto pistoia 211.0
+
+  -- Stage 8
+  individualTimeTrial lamporecchio florence 45.0
+
+  -- Stage 9
+  plainStage florence ravenna 139.0
+
+  transferDay
+
+  -- Stage 10
+  plainStage ravenna rossantoVeneto 212.0
+
+  -- Stage 11
+  plainStage marostica zoldoAlto 150.0
+
+  -- Stage 12
+  plainStage alleghe rovereto 178.0
+
+  -- Stage 13
+  plainStage mezzocorona urtijei 218.0
+
+  -- Stage 14
+  plainStage neumarkt livigno 210.0
+
+  -- Stage 15
+  plainStage villaDiTirano lissone 154.0
+
+  transferDay
+
+  -- Stage 16
+  plainStage lissone varazze 210.0
+
+  -- Stage 17
+  plainStage varazze limonePiemonte 194.0
+
+  -- Stage 18
+  individualTimeTrial chieri turin 34.0
+
+  -- Stage 19
+  plainStage savigliano sestriere 190.0
+
+  -- Stage 20
+  plainStage albeseConCassano milan 119.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2006 :: StageRace
+giro2006 = evalState giro2006' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2006 5 6))
+
+giro2006' :: State StageRaceState StageRace
+giro2006' = do
+  -- Stage 1
+  outAndBackIndividualTimeTrial seraing 6.2
+
+  -- Stage 2
+  plainStage mons charleroi 197.0
+
+  -- Stage 3
+  plainStage perwez namur 202.0
+
+  -- Stage 4
+  plainStage wanze hotton 193.0
+
+  transferDay
+
+  -- Stage 5
+  teamTimeTrial piacenza cremona 38.0
+
+  -- Stage 6
+  plainStage busseto forli 227.0
+
+  -- Stage 7
+  plainStage cesena saltara 236.0
+
+  -- Stage 8
+  plainStage civitanovaMarche maielletta 171.0
+
+  -- Stage 9
+  plainStage francavillaAlMare termoli 121.0
+
+  -- Stage 10
+  plainStage termoli peschici 187.0
+
+  transferDay
+
+  -- Stage 11
+  outAndBackIndividualTimeTrial pontedera 50.0
+
+  -- Stage 12
+  plainStage livorno sestriLevante 171.0
+
+  -- Stage 13
+  plainStage alessandria laThuile 218.0
+
+  -- Stage 14
+  plainStage aosta domodossola 223.0
+
+  -- Stage 15
+  plainStage mergozzo brescia 189.0
+
+  -- Stage 16
+  plainStage rovato trento 173.0
+
+  -- Stage 17
+  plainStage tramin planDeCorones 133.0
+
+  -- Stage 18
+  plainStage sillian gemonaDelFriuli 210.0
+
+  -- Stage 19
+  plainStage pordenone passoDiSanPellegrino 224.0
+
+  -- Stage 20
+  plainStage trento aprica 211.0
+
+  -- Stage 21
+  plainStage museoDelGhisallo milan 140.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2007 :: StageRace
+giro2007 = evalState giro2007' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2007 5 12))
+
+giro2007' :: State StageRaceState StageRace
+giro2007' = do
+  -- Stage 1
+  teamTimeTrial caprera laMaddalena 25.6
+
+  -- Stage 2
+  plainStage tempioPausania bosa 205.0
+
+  -- Stage 3
+  plainStage barumini cagliari 181.0
+
+  transferDay
+
+  -- Stage 4
+  plainStage salerno montevergineDiMercogliano 153.0
+
+  -- Stage 5
+  plainStage teano frascati 173.0
+
+  -- Stage 6
+  plainStage tivoli spoleto 177.0
+
+  -- Stage 7
+  plainStage spoleto scarperia 254.0
+
+  -- Stage 8
+  plainStage barberinoDiMugello fioranoModenese 200.0
+
+  -- Stage 9
+  plainStage reggioEmilia lidoDiCamaiore 177.0
+
+  -- Stage 10
+  plainStage camaiore santuarioNostraSignoraDellaGuardia 250.0
+
+  -- Stage 11
+  plainStage serravilleScrivia pinerolo 198.0
+
+  -- Stage 12
+  plainStage scalenghe briancon 163.0
+
+  -- Stage 13
+  individualTimeTrial biella santuarioDiOropa 12.6
+
+  -- Stage 14
+  plainStage cantu bergamo 192.0
+
+  -- Stage 15
+  plainStage trento treCimeDiLavaredo 184.0
+
+  transferDay
+
+  -- Stage 16
+  plainStage agordo lienz 189.0
+
+  -- Stage 17
+  summitFinishStage lienz 142
+  addCol 142 monteZoncolan
+
+  -- Stage 18
+  plainStage udine riesePioX 203.0
+
+  -- Stage 19
+  plainStage treviso termeDiComano 179.0
+
+  -- Stage 20
+  individualTimeTrial bardolino verona 43.0
+
+  -- Stage 21
+  plainStage vestone milan 185.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2008 :: StageRace
+giro2008 = evalState giro2008' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2008 5 10))
+
+giro2008' :: State StageRaceState StageRace
+giro2008' = do
+  -- Stage 1
+  outAndBackTeamTimeTrial palermo 23.6
+
+  -- Stage 2
+  plainStage cefalu agrigento 207.0
+
+  -- Stage 3
+  plainStage catania milazzo 221.0
+
+  -- Stage 4
+  plainStage pizzoCalabro catanzaroLungomare 183.0
+
+  -- Stage 5
+  plainStage belvedereMarittimo contursiTerme 203.0
+
+  -- Stage 6
+  plainStage potenza peschici 231.6
+
+  -- Stage 7
+  plainStage vasto pescocostanzo 180.0
+
+  -- Stage 8
+  plainStage rivisondoli tivoli 208.0
+
+  -- Stage 9
+  plainStage civitavecchia sanVincenzo 218.0
+
+  transferDay
+
+  -- Stage 10
+  individualTimeTrial pesaro urbino 39.4
+
+  -- Stage 11
+  plainStage urbania cesena 199.0
+
+  -- Stage 12
+  plainStage forli carpi 172.0
+
+  -- Stage 13
+  plainStage modena cittadella 177.0
+
+  -- Stage 14
+  plainStage verona alpeDiPampeago 195.0
+
+  -- Stage 15
+  plainStage arabba passoFedaia 153.0
+
+  -- Stage 16
+  individualTimeTrial sanVigilloDiMarebbe planDeCorones 12.8
+
+  transferDay
+
+  -- Stage 17
+  plainStage sondrio locarno 146.0
+
+  -- Stage 18
+  plainStage mendrisio varese 147.0
+
+  -- Stage 19
+  plainStage legnago presolana 238.0
+
+  -- Stage 20
+  plainStage rovetta tirano 224.0
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial milan 28.5
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2009 :: StageRace
+giro2009 = evalState giro2009' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2009 5 9))
+
+giro2009' :: State StageRaceState StageRace
+giro2009' = do
+  -- Stage 1
+  outAndBackTeamTimeTrial lidoVenice 20.5
+
+  -- Stage 2
+  plainStage jesolo trieste 156.0
+
+  -- Stage 3
+  plainStage grado valdobbiadene 198.0
+
+  -- Stage 4
+  plainStage padua sanMartinoDiCastrozza 162.0
+
+  -- Stage 5
+  plainStage sanMartinoDiCastrozza alpeDiSiusi 125.0
+
+  -- Stage 6
+  plainStage brixen mayrhofen 248.0
+
+  -- Stage 7
+  plainStage innsbruck chiavenna 244.0
+
+  -- Stage 8
+  plainStage morbegno bergamo 209.0
+
+  -- Stage 9
+  criterium milan 165.0
+
+  transferDay
+
+  -- Stage 10
+  plainStage cuneo pinerolo 262.0
+
+  -- Stage 11
+  plainStage turin arenzano 214.0
+
+  -- Stage 12
+  individualTimeTrial sestriLevante riomaggiore 60.6
+
+  -- Stage 13
+  plainStage lidoDiCamaiore florence 176.0
+
+  -- Stage 14
+  plainStage campiBisenzio bologna 172.0
+
+  -- Stage 15
+  plainStage forli faenza 161.0
+
+  -- Stage 16
+  plainStage pergola montePetrano 237.0
+
+  transferDay
+
+  -- Stage 17
+  plainStage chieti blockhaus 83.0
+
+  -- Stage 18
+  plainStage sulmona benevento 182.0
+
+  -- Stage 19
+  plainStage avellino mountVesuvius 164.0
+
+  -- Stage 20
+  plainStage naples anagi 203.0
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial rome 14.4
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2010 :: StageRace
+giro2010 = evalState giro2010' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2010 5 8))
+
+giro2010' :: State StageRaceState StageRace
+giro2010' = do
+  -- Stage 1
+  outAndBackIndividualTimeTrial amsterdam 8.4
+
+  -- Stage 2
+  plainStage amsterdam utrecht 209.0
+
+  -- Stage 3
+  plainStage amsterdam middleburg 224.0
+
+  transferDay
+
+  -- Stage 4
+  teamTimeTrial savigliano cuneo 32.5
+
+  -- Stage 5
+  plainStage novara noviLigure 168.0
+
+  -- Stage 6
+  plainStage fidenza marinaDiCarrara 166.0
+
+  -- Stage 7
+  plainStage carrara montalcino 215.0
+
+  -- Stage 8
+  plainStage chianciano monteTerminillo 189.0
+
+  -- Stage 9
+  plainStage frosinone cavaDe'Tirreni 188.0
+
+  -- Stage 10
+  plainStage avellino bitonto 220.0
+
+  -- Stage 11
+  plainStage lucera l'Aquila 256.0
+
+  -- Stage 12
+  plainStage cittaSant'Angelo portoRecanati 191.0
+
+  -- Stage 13
+  plainStage portoRecanati cesenatico 222.0
+
+  -- Stage 14
+  let asoloMonteGrappa = clone monteGrappa "Asolo"
+  summitFinishStage ferrara 201
+  addCol 201 asoloMonteGrappa
+
+  -- Stage 15
+  summitFinishStage mestre 161
+  addCol 161 monteZoncolan
+
+  transferDay
+
+  -- Stage 16
+  individualTimeTrial mareo planDeCorones 12.9
+
+  -- Stage 17
+  plainStage bruneck peioTerme 173.0
+
+  -- Stage 18
+  plainStage levicoTerme brescia 151.0
+
+  -- Stage 19
+  plainStage brescia aprica 195.0
+
+  -- Stage 20
+  plainStage bormio passoDelTonale 178.0
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial verona 15.3
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2011 :: StageRace
+giro2011 = evalState giro2011' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2011 5 7))
+
+giro2011' :: State StageRaceState StageRace
+giro2011' = do
+  -- Stage 1
+  teamTimeTrial veneriaReale turin 19.3
+
+  -- Stage 2
+  plainStage alba parma 244.0
+
+  -- Stage 3
+  plainStage reggioEmilia rapallo 173.0
+
+  -- Stage 4
+  plainStage quartoDeiMille livorno 216.0
+
+  -- Stage 5
+  plainStage piombino orvieto 191.0
+
+  -- Stage 6
+  plainStage orvieto fiuggi 216.0
+
+  -- Stage 7
+  plainStage maddaloni montevergineDiMercogliano 110.0
+
+  -- Stage 8
+  plainStage sapri tropea 217.0
+
+  -- Stage 9
+  plainStage messina etna 169.0
+
+  transferDay
+
+  -- Stage 10
+  plainStage termoli teramo 159.0
+
+  -- Stage 11
+  plainStage teramo castelfidardo 142.0
+
+  -- Stage 12
+  plainStage castelfidardo ravenna 184.0
+
+  -- Stage 13
+  plainStage spilimbergo grossglockner 167.0
+
+  -- Stage 14
+  summitFinishStage lienz 170
+  addCol 170 monteZoncolan
+
+  -- Stage 15
+  plainStage conegliano gardecciaValDiFassa 229.0
+
+  transferDay
+
+  -- Stage 16
+  individualTimeTrial belluno nevegal 12.7
+
+  -- Stage 17
+  plainStage feltre tirano 230.0
+
+  -- Stage 18
+  plainStage morbegno sanPellegrinoTerme 151.0
+
+  -- Stage 19
+  plainStage bergamo macugnaga 209.0
+
+  -- Stage 20
+  plainStage verbania sestriere 242.0
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial milan 26.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2012 :: StageRace
+giro2012 = evalState giro2012' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2012 5 5))
+
+giro2012' :: State StageRaceState StageRace
+giro2012' = do
+  -- Stage 1
+  outAndBackIndividualTimeTrial herning 8.7
+
+  -- Stage 2
+  criterium herning 206.0
+
+  -- Stage 3
+  criterium horsens 190.0
+
+  transferDay
+
+  -- Stage 4
+  outAndBackTeamTimeTrial verona 33.2
+
+  -- Stage 5
+  plainStage modena fano 209.0
+
+  -- Stage 6
+  plainStage urbino portoSant'Elpidio 210.0
+
+  -- Stage 7
+  plainStage recanati roccaDiCambio 205.0
+
+  -- Stage 8
+  plainStage sulmona lagoLaceno 229.0
+
+  -- Stage 9
+  plainStage sanGiorgioDelSannio frosinone 166.0
+
+  -- Stage 10
+  plainStage civitavecchia assisi 186.0
+
+  -- Stage 11
+  plainStage assisi montecatiniTerme 255.0
+
+  -- Stage 12
+  plainStage seravezza sestriLevante 155.0
+
+  -- Stage 13
+  plainStage savona cervere 121.0
+
+  -- Stage 14
+  plainStage cherasco cervinia 206.0
+
+  -- Stage 15
+  plainStage bustoArsizio leccoPianDeiResinelli 169.0
+
+  transferDay
+
+  -- Stage 16
+  plainStage limoneSulGarda pfalzen 173.0
+
+  -- Stage 17
+  plainStage pfalzen cortinaD'Ampezzo 186.0
+
+  -- Stage 18
+  plainStage sanVitoDiCadore vedelago 149.0
+
+  -- Stage 19
+  plainStage treviso alpeDiPampeago 198.0
+
+  -- Stage 20
+  plainStage caldesValDiSole passoDelloStelvio 219.0
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial milan 28.2
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2013 :: StageRace
+giro2013 = evalState giro2013' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2013 5 4))
+
+giro2013' :: State StageRaceState StageRace
+giro2013' = do
+  -- Stage 1
+  criterium naples 130.0
+
+  -- Stage 2
+  teamTimeTrial ischia forio 17.4
+
+  -- Stage 3
+  plainStage sorrento marinaDiAscea 222.0
+
+  -- Stage 4
+  plainStage policastroBussentino serraSanBruno 246.0
+
+  -- Stage 5
+  plainStage cosenza matera 203.0
+
+  -- Stage 6
+  plainStage molaDiBari margheritaDiSavoia 169.0
+
+  -- Stage 7
+  plainStage sanSalvo pescara 177.0
+
+  -- Stage 8
+  individualTimeTrial gabicceMare saltara 54.8
+
+  -- Stage 9
+  plainStage sansepolcro florence 170.0
+
+  transferDay
+
+  -- Stage 10
+  plainStage cordenons altopianoDelMontasio 167.0
+
+  -- Stage 11
+  plainStage caveDelPredil ertoECasso 182.0
+
+  -- Stage 12
+  plainStage longarne treviso 134.0
+
+  -- Stage 13
+  plainStage busseto cherasco 254.0
+
+  -- Stage 14
+  plainStage cervere bardonecchia 180.0
+
+  -- Stage 15
+  plainStage cesanaTorinese colDuGalibierValloire 149.0
+
+  transferDay
+
+  -- Stage 16
+  plainStage valloire ivrea 238.0
+
+  -- Stage 17
+  plainStage caravaggio vicenza 214.0
+
+  -- Stage 18
+  individualTimeTrial mori polsa 20.6
+
+  -- Stage 19
+  plainStage ponteDiLegno martell 139.0
+
+  -- Stage 20
+  plainStage schlanders treCimeDiLavaredo 203.0
+
+  -- Stage 21
+  plainStage riesePioX brescia 197.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2014 :: StageRace
+giro2014 = evalState giro2014' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2014 5 9))
+
+giro2014' :: State StageRaceState StageRace
+giro2014' = do
+  -- Stage 1
+  outAndBackTeamTimeTrial belfast 21.7
+
+  -- Stage 2
+  criterium belfast 219.0
+
+  -- Stage 3
+  plainStage armagh dublin 187.0
+
+  transferDay
+
+  -- Stage 4
+  plainStage giovinazzo bari 112.0
+
+  -- Stage 5
+  plainStage taranto viggiano 203.0
+
+  -- Stage 6
+  plainStage sassono montecassino 257.0
+
+  -- Stage 7
+  plainStage frosinone foligno 211.0
+
+  -- Stage 8
+  plainStage foligno montecopiolo 179.0
+
+  -- Stage 9
+  plainStage lugo sestola 172.0
+
+  transferDay
+
+  -- Stage 10
+  plainStage modena salsomaggioreTerme 173.0
+
+  -- Stage 11
+  plainStage collecchio savona 249.0
+
+  -- Stage 12
+  individualTimeTrial barbaresco barolo 41.9
+
+  -- Stage 13
+  plainStage fossano rivaroloCanavese 157.0
+
+  -- Stage 14
+  plainStage agile oropa 164.0
+
+  -- Stage 15
+  plainStage valdengo montecampione 225.0
+
+  transferDay
+
+  -- Stage 16
+  plainStage ponteDiLegno valMartello 139.0
+
+  -- Stage 17
+  plainStage sarnonico vittorioVeneto 208.0
+
+  -- Stage 18
+  plainStage belluno rifugioPanarotta 171.0
+
+  -- Stage 19
+  individualTimeTrial bassanoDelGrappa cimaGrappa 26.8
+
+  -- Stage 20
+  summitFinishStage maniago 167
+  addCol 167 monteZoncolan
+
+  -- Stage 21
+  plainStage gemonaDelFriuli trieste 172.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+giro2015 :: StageRace
+giro2015 = evalState giro2015' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2015 5 9))
+
+giro2015' :: State StageRaceState StageRace
+giro2015' = do
+  -- Stage 1
+  teamTimeTrial sanLorenzoAlMare sanRemo 17.6
+
+  -- Stage 2
+  plainStage albenga genoa 177.0
+
+  -- Stage 3
+  plainStage rapallo sestriLevante 136.0
+
+  -- Stage 4
+  plainStage chiavari laSpezia 150.0
+
+  -- Stage 5
+  plainStage laSpezia abetone 152.0
+
+  -- Stage 6
+  plainStage montecatiniTerme castiglioneDellaPescaia 183.0
+
+  -- Stage 7
+  plainStage grosseto fiuggi 264.0
+
+  -- Stage 8
+  plainStage fiuggi campitelloMatese 186.0
+
+  -- Stage 9
+  plainStage benevento sanGiorgioDelSannio 224.0
+
+  transferDay
+
+  -- Stage 10
+  plainStage civitanovaMarche forli 200.0
+
+  -- Stage 11
+  plainStage forli autodromoEnzoEDinoFerrari 153.0
+
+  -- Stage 12
+  plainStage imola vicenzaMonteBerico 190.0
+
+  -- Stage 13
+  plainStage montecchioMaggiore jesolo 147.0
+
+  -- Stage 14
+  individualTimeTrial treviso valdobbiadene 59.4
+
+  -- Stage 15
+  plainStage marostica madonnaDiCampiglio 165.0
+
+  transferDay
+
+  -- Stage 16
+  plainStage pinzolo aprica 174.0
+
+  -- Stage 17
+  plainStage tirano lugano 134.0
+
+  -- Stage 18
+  plainStage melide verbania 170.0
+
+  -- Stage 19
+  plainStage gravellonaToce cervinia 236.0
+
+  -- Stage 20
+  plainStage saintVincent sestriere 196.0
+
+  -- Stage 21
+  plainStage turin milan 185.0
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
 giro2016 :: StageRace
 giro2016 = evalState giro2016' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2016 5 6))
 
@@ -5205,7 +6745,7 @@ giro2018' = do
   c3' 106 "Avaglio" Italy 738
   c2' 142.5 "Passo Duron" Italy 1609
   c3' 165.8 "Sella Valcalda Ravascletto" Italy 958
-  c1' 186 "Monte Zoncolan" Italy 1730
+  addCol 186 monteZoncolan
 
   -- Stage 15
   plainStage tolmezzo sappada 176

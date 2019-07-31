@@ -10,6 +10,7 @@ data Country = Andorra
              | Fiume
              | France
              | Germany
+             | Greece
              | Ireland
              | Israel
              | Italy
@@ -36,6 +37,7 @@ instance Show Country where
   show Fiume           = "Free State of Fiume"
   show France          = "France"
   show Germany         = "Germany"
+  show Greece          = "Greece"
   show Ireland         = "Ireland"
   show Israel          = "Israel"
   show Italy           = "Italy"

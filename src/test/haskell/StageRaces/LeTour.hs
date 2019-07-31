@@ -2941,7 +2941,7 @@ tdf1965' :: State StageRaceState StageRace
 tdf1965' = do
   -- Stages 1a & 1b
   enableSplitStages
-  plainStage cologne liege 149.0
+  plainStage Countries.WestGermany.cologne liege 149.0
   teamTimeTrial liege liege 22.5
   disableSplitStages
 
@@ -3382,7 +3382,7 @@ tdf1970' = do
 
   -- Stages 4a & 4b
   enableSplitStages
-  teamTimeTrial' angers 10.7
+  outAndBackTeamTimeTrial angers 10.7
   plainStage angers rennes 140.0
   disableSplitStages
 
@@ -3907,7 +3907,7 @@ tdf1981' = do
   -- Stages 2a & 2b
   enableSplitStages
   criterium nice 97.0
-  teamTimeTrial' nice 40.0
+  outAndBackTeamTimeTrial nice 40.0
   disableSplitStages
 
   -- Stage 3
@@ -4008,7 +4008,7 @@ tdf1982' = do
   teamTimeTrial orchies fontaineAuPire 73.0
 
   -- Stage 7
-  teamTimeTrial' lille 73.0
+  outAndBackTeamTimeTrial lille 73.0
 
   restDay (Left lille)
 
@@ -4408,7 +4408,7 @@ tdf1987' = do
   criterium westBerlin 105.0
 
   -- Stage 2
-  teamTimeTrial' westBerlin 40.5
+  outAndBackTeamTimeTrial westBerlin 40.5
 
   transferDay
 
@@ -4584,7 +4584,7 @@ tdf1989' = do
   criterium luxembourgCity 135.5
 
   -- Stage 2
-  teamTimeTrial' luxembourgCity 46.0
+  outAndBackTeamTimeTrial luxembourgCity 46.0
 
   -- Stage 3
   plainStage luxembourgCity spa 241.0
@@ -4664,7 +4664,7 @@ tdf1990' = do
   criterium futuroscope 138.5
 
   -- Stage 2
-  teamTimeTrial' futuroscope 44.5
+  outAndBackTeamTimeTrial futuroscope 44.5
 
   -- Stage 3
   plainStage poitiers nantes 233.0
@@ -4830,7 +4830,7 @@ tdf1992' = do
   plainStage pau bordeaux 210.0
 
   -- Stage 4
-  teamTimeTrial' libourne 63.5
+  outAndBackTeamTimeTrial libourne 63.5
 
   -- Stage 5
   plainStage nogentSurOise wasquehal 196.0
@@ -6117,7 +6117,7 @@ tdf2009' = do
   plainStage marseille laGrandeMotte 196.5
 
   -- Stage 4
-  teamTimeTrial' montpellier 39.0
+  outAndBackTeamTimeTrial montpellier 39.0
 
   -- Stage 5
   plainStage capD'Agde perpignan 196.5
@@ -6263,7 +6263,7 @@ tdf2011' = do
   plainStage passageDuGois montDesAlouettes 191.5
 
   -- Stage 2
-  teamTimeTrial' lesEssarts 23.0
+  outAndBackTeamTimeTrial lesEssarts 23.0
 
   -- Stage 3
   plainStage olonneSurMer redon 198.0
@@ -6422,7 +6422,7 @@ tdf2013' = do
   plainStage ajaccio calvi 145.5
 
   -- Stage 4
-  teamTimeTrial' nice 25.0
+  outAndBackTeamTimeTrial nice 25.0
 
   -- Stage 5
   plainStage cagnesSurMer marseille 228.5
@@ -6801,7 +6801,7 @@ tdf2018' = do
   c4 28 "Cote de Pouzauges" France 202 1 3.9
 
   -- Stage 3
-  teamTimeTrial' cholet 35.5
+  outAndBackTeamTimeTrial cholet 35.5
 
   -- Stage 4
   plainStage laBaule sarzeau 195

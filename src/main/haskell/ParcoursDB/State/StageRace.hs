@@ -135,8 +135,8 @@ teamTimeTrial start finish distance = do
                     , sRaceStages       = (xs ++ [stage])
                     } )
 
-teamTimeTrial' :: Location -> Float -> State StageRaceState ()
-teamTimeTrial' start_finish distance = teamTimeTrial start_finish start_finish distance
+outAndBackTeamTimeTrial :: Location -> Float -> State StageRaceState ()
+outAndBackTeamTimeTrial start_finish distance = teamTimeTrial start_finish start_finish distance
 
 twoManTeamTimeTrial :: Location -> Float -> State StageRaceState ()
 twoManTeamTimeTrial start_finish distance = do

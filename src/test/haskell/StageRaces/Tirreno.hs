@@ -71,7 +71,7 @@ tirreno2016 = evalState tirreno2016' (ParcoursDB.State.StageRace.init (TirrenoAd
 
 tirreno2016' :: State StageRaceState StageRace
 tirreno2016' = do
-  teamTimeTrial' lidoDiCamaiore 22.7
+  outAndBackTeamTimeTrial lidoDiCamaiore 22.7
   plainStage camaiore pomarance 207
   plainStage castelnuouvoDiValDiCecina montaltoDiCastro 176
   plainStage montaltoDiCastro foligno 216
