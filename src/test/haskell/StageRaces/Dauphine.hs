@@ -8,7 +8,9 @@ module StageRaces.Dauphine
 import Control.Monad.State
 import Countries.France
 import Data.Time
+import Mountains.Alps
 import Mountains.MassifCentral
+import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.StageRace
 import ParcoursDB.State.StageRace
@@ -26,8 +28,8 @@ dauphine2009' = do
   plainStage nancy dijon 228
   plainStage tournus saintÉTienne 182
   individualTimeTrial bourgLesValence valence 42.4
-  summitFinishStage valence 154
-  addCol 154 montVentoux
+  mountainStage (Left valence) 154
+  addCol 154 montVentoux HC
   plainStage gap briancon 106
   plainStage briancon saintFrancoisLongchamp 157
   plainStage faverges grenoble 146
@@ -64,31 +66,31 @@ dauphine2018' = do
   teamTimeTrial pontDeVaux louhans 35
 
   -- Stage 4
-  summitFinishStage chazey 181
+  mountainStage (Left chazey) 181
   c4' 102 "Col de Toutes Aures" France 620
   hc' 143.5 "Col du Mont Noir" France 1421
   c2' 181 "Lans-en-Vercors" France 1409
 
   -- Stage 5
-  summitFinishStage grenoble 130
+  mountainStage (Left grenoble) 130
   c2' 4 "Cote de Naysord" France 756
   c2' 19.5 "Col des Mouilles" France 1041
   hc' 130 "Valmorel" France 1369
 
   -- Stage 6
-  summitFinishStage frontenex 110
+  mountainStage (Left frontenex) 110
   hc' 27.5 "Monte de Bisanne" France 1723
   hc' 59.5 "Col du Pre" France 1748
-  c2' 72 "Cormet de Roselend" France 1968
+  addCol 72 cormetDeRoselend C2
   c1' 110 "La Rosiere" France 1855
 
   -- Stage 7
-  roadStage (Left moutiers) (Just saintGervaisMontBlanc) 136
-  c1' 43 "Cormet de Roselend" France 1968
+  mountainStage (Left moutiers) 136
+  addCol 43 cormetDeRoselend C1
   c3' 64.5 "Cote de la route des Villes" France 1078
   c1' 88.5 "Col des Saisies" France 1663
   c1' 126.5 "Cote des Amerands" France 888
-  c1' 136 "Montee du Bettex" France 1372
+  addCol 136 saintGervaisMontBlanc C1
 
   race <- build
   return race

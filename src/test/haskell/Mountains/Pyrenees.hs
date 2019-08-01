@@ -1,39 +1,132 @@
 module Mountains.Pyrenees where
 
 import ParcoursDB.Col
-import ParcoursDB.Country (Country(France))
+import ParcoursDB.Country (Country(Andorra,France))
+
+andorranPyreneanCol :: String -> Int -> Col
+andorranPyreneanCol name height = Col name Andorra height Nothing Nothing Nothing
+
+frenchPyreneanCol :: String -> Int -> Col
+frenchPyreneanCol name height = Col name France height Nothing Nothing Nothing
 
 -- A
-coteD'Anos    = Col "Cote d'Anos"    France C4 304  (Just 2.1)  (Just 4.6) Nothing
-colD'Aspin    = Col "Col d'Aspin"    France C1 1490 (Just 12)   (Just 6.5) Nothing
-colD'Aubisque = Col "Col d'Aubisque" France HC 1709 (Just 16.6) (Just 4.9) Nothing
+colD'Agnes :: Col
+colD'Agnes = frenchPyreneanCol "Col d'Agnes" 1570
+
+coteD'Anos :: Col
+coteD'Anos = Col "Cote d'Anos" France 304  (Just 2.1)  (Just 4.6) Nothing
+
+arcalis :: Col
+arcalis = andorranPyreneanCol "Andorra-Arcalis" 2240
+
+colDesAres :: Col
+colDesAres = frenchPyreneanCol "Col des Ares" 797
+
+colD'Aspin :: Col
+colD'Aspin = Col "Col d'Aspin" France 1490 (Just 12)   (Just 6.5) Nothing
+
+colD'Aubisque :: Col
+colD'Aubisque = Col "Col d'Aubisque" France 1709 (Just 16.6) (Just 4.9) Nothing
+
+aussieres :: Col
+aussieres = frenchPyreneanCol "Aussières" 1057
+
+ax3Domaines :: Col
+ax3Domaines = frenchPyreneanCol "Ax 3 Domaines" 1372
 
 -- B
-colDeBorderes = Col "Col de Borderes" France C2 1156 (Just 8.6) (Just 5.8) Nothing
+colDeBagargui :: Col
+colDeBagargui = frenchPyreneanCol "Col de Bagargui" 1327
+
+colDeBeixalis :: Col
+colDeBeixalis = frenchPyreneanCol "Col de Beixalis" 1796
+
+colDeBonaiga :: Col
+colDeBonaiga = frenchPyreneanCol "Col de Bonaiga" 2072
+
+colDeBorderes :: Col
+colDeBorderes = Col "Col de Bordères" France 1156 (Just 8.6) (Just 5.8) Nothing
+
+colDeBurdincurutcheta :: Col
+colDeBurdincurutcheta = frenchPyreneanCol "Col de Burdincurutcheta" 1135
+
+puertoDelCanto :: Col
+puertoDelCanto = frenchPyreneanCol "Puerto del Canto" 1725
 
 -- C
-coteDeCapvernLesBains = Col "Cote de Capvern-les-Bains" France C4 604 (Just 3.4) (Just 5.1) Nothing
+coteDeCapvernLesBains :: Col
+coteDeCapvernLesBains = Col "Cote de Capvern-les-Bains" France 604 (Just 3.4) (Just 5.1) Nothing
+
+colDuCauterets :: Col
+colDuCauterets = frenchPyreneanCol "Col du Cauterets" 1320
+
+colDeChioula :: Col
+colDeChioula = frenchPyreneanCol "Col de Chioula" 1450
+
+colDeLaCore :: Col
+colDeLaCore = frenchPyreneanCol "Col de la Core" 1395
+
+-- E
+portD'Envalira :: Col
+portD'Envalira = frenchPyreneanCol "Port d'Envalira" 2407
 
 -- F
-coteDeFanjeaux = Col "Cote de Fanjeaux" France C4 348 (Just 2.4) (Just 4.9) Nothing
+fontRomeu :: Col
+fontRomeu = frenchPyreneanCol "Font-Romeu" 1800
 
+coteDeFanjeaux :: Col
+coteDeFanjeaux = Col "Cote de Fanjeaux" France 348 (Just 2.4) (Just 4.9) Nothing
+
+-- G
+guzetNeige :: Col
+guzetNeige = frenchPyreneanCol "Guzet-Neige" 1480
+
+-- H
+hautacam :: Col
+hautacam = frenchPyreneanCol "Hautacam" 1560
+
+laHourquetteD'Ancizan :: Col
+laHourquetteD'Ancizan = frenchPyreneanCol "La Hourquette d'Ancizan" 1538
+
+-- J
+colDeJau :: Col
+colDeJau = frenchPyreneanCol "Col de Jau" 1513
 
 -- L
-coteDeLoucrup = Col "Cote de Loucrup" France C4 532 (Just 1.8) (Just 7.2) Nothing
+coteDeLoucrup :: Col
+coteDeLoucrup = Col "Cote de Loucrup" France 532 (Just 1.8) (Just 7.2) Nothing
+
+laMongie :: Col
+laMongie = frenchPyreneanCol "La Mongie" 1715
+
+laPierreSaintMartin :: Col
+laPierreSaintMartin = frenchPyreneanCol "La Pierre Saint-Martin" 1610
+
+colDeLatrape :: Col
+colDeLatrape = frenchPyreneanCol "Col de Latrape" 1110
+
+luzArdiden :: Col
+luzArdiden = frenchPyreneanCol "Luz Ardiden" 1715
 
 -- M
-coteDeMadiran     = Col "Cote de Madiran"     France C4  260 (Just 1.2)  (Just 7)   Nothing
-colDeMente        = Col "Col de Mente"        France C1 1349 (Just 6.9) (Just 8.1) Nothing
-monteDePeyragudes = Col "Monte de Peyragudes" France C1 1645 (Just 14.9) (Just 6.7) Nothing
+coteDeMadiran :: Col
+coteDeMadiran = Col "Cote de Madiran"     France 260 (Just 1.2)  (Just 7)   Nothing
+
+colDeMarieBlanque :: Col
+colDeMarieBlanque = frenchPyreneanCol "Col de Marie-Blanque" 1035
+
+colDeMente :: Col
+colDeMente = Col "Col de Menté" France 1349 (Just 6.9) (Just 8.1) Nothing
+monteDePeyragudes = Col "Monte de Peyragudes" France 1645 (Just 14.9) (Just 6.7) Nothing
 
 -- P
-coteDePamiers     = Col "Cote de Pamiers"       France C4 417 (Just 2.3) (Just 5.8) Nothing
-colDuPortillon    = Col "Col du Portillon"      France C1 1292 (Just 8.3) (Just 7.1) Nothing
-colDePortet'Aspet = Col "Col de Portet d'Aspet" France C2 1069 (Just 5.4) (Just 7.1) Nothing
-colDePortet       = Col "Col de Portet"         France HC 2215 (Just 16) (Just 8.7) Nothing
+coteDePamiers     = Col "Cote de Pamiers"       France 417 (Just 2.3) (Just 5.8) Nothing
+colDuPortillon    = Col "Col du Portillon"      France 1292 (Just 8.3) (Just 7.1) Nothing
+colDePortet'Aspet = Col "Col de Portet d'Aspet" France 1069 (Just 5.4) (Just 7.1) Nothing
+colDePortet       = Col "Col de Portet"         France 2215 (Just 16) (Just 8.7) Nothing
 
 -- T
-colDuTourmalet = Col "Col du Tourmalet" France HC 2115 (Just 17.1) (Just 7.3) Nothing
+colDuTourmalet = Col "Col du Tourmalet" France 2115 (Just 17.1) (Just 7.3) Nothing
 
 -- V
-colDeValLouronAzet = Col "Col de Val Louron-Azet" France C1 1580 (Just 7.4) (Just 8.3) Nothing
+colDeValLouronAzet = Col "Col de Val Louron-Azet" France 1580 (Just 7.4) (Just 8.3) Nothing

@@ -5,7 +5,7 @@ import Countries.France
 import Countries.UnitedKingdom
 import Data.Maybe
 import Data.Time
-import Mountains.Alpes
+import Mountains.Alps
 import Mountains.MassifCentral
 import ParcoursDB.Col
 import ParcoursDB.Location
@@ -24,10 +24,10 @@ main = hspec $ do
   let roadStage = Road (fromGregorian 1994 07 05) (Left portsmouth) (Just portsmouth) "4" 187 []
 
   -- 1979 Tdf Summit start and finish stage
-  let summitStartAndFinishRoadStage = Road (fromGregorian 1979 07 16) (Right alpeD'Huez) Nothing "18" 119 [ (IndexableCol 119 alpeD'Huez) ]
+  let summitStartAndFinishRoadStage = Road (fromGregorian 1979 07 16) (Right alpeD'Huez) Nothing "18" 119 [ (IndexableCol 119 alpeD'Huez HC) ]
 
   -- 1989 TdF summit finish mountain stage
-  let summitFinishRoadStage = Road (fromGregorian 1989 07 19) (Left briancon) Nothing "17" 165 [ (IndexableCol 165 alpeD'Huez) ]
+  let summitFinishRoadStage = Road (fromGregorian 1989 07 19) (Left briancon) Nothing "17" 165 [ (IndexableCol 165 alpeD'Huez HC) ]
 
   -- 1986 Tdf Team Time Trial
   let ttt = TeamTimeTrial (fromGregorian 1986 07 05) meudon saintQuentinEnYvelines "2" 56 []
@@ -36,7 +36,7 @@ main = hspec $ do
   let itt = IndividualTimeTrial (fromGregorian 1989 07 23) versailles (Just paris) "21" 24.5 []
 
   -- 1987 TdF mountain time trial
-  let mtt = IndividualTimeTrial (fromGregorian 1987 07 19) carpentras Nothing "18" 36.5 [ (IndexableCol 36.5 montVentoux) ]
+  let mtt = IndividualTimeTrial (fromGregorian 1987 07 19) carpentras Nothing "18" 36.5 [ (IndexableCol 36.5 montVentoux HC) ]
 
   describe "Prologue" $ do
     context "Test the Prologue attributes" $ do

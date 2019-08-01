@@ -35,6 +35,10 @@ arcEtSenans            = Location "Arc-et-Senans" France
 arcachon               = Location "Arcachon" France
 arenbergPorteDuHainaut = Location "Arenberg Porte du Hainaut" France
 argelesGazost          = Location "Argeles-Gazost" France
+
+argelesSurMer :: Location
+argelesSurMer = frenchLocation "Argelès-sur-Mer"
+
 argentan               = Location "Argentan" France
 argenteuil             = Location "Argenteuil" France
 ariege                 = Location "Ariege" France
@@ -54,9 +58,7 @@ autun                  = Location "Autun" France
 auxerre                = Location "Auxerre" France
 avesnesSurHelpe        = Location "Avesnes-sur-Helpe" France
 avignon                = Location "Avignon" France
-avoriaz                = Location "Avoriaz" France
 avranches              = Location "Avranches" France
-ax3Domaines            = Location "Ax 3 Domaines" France
 axLesThermes           = Location "Ax-les-Thermes" France
 
 -- B
@@ -151,7 +153,6 @@ chambery = Location "Chambery" France
 chambord = Location "Chambord" France
 chamonix = Location "Chamonix" France
 champagnole = Location "Champagnole" France
-chamrousse = Location "Chamrousse" France
 chantilly       = Location "Chantilly" France
 chantonnay = Location "Chantonnay" France
 charleville = Location "Charleville" France
@@ -193,7 +194,6 @@ concarneau          = Location "Concarneau" France
 corbeilEssonnes     = Location "Corbeil-Essonnes" France
 correze             = Location "Correze" France
 cosneSurLoire       = Location "Cosne-sur-Loire" France
-courchevel          = Location "Courchevel" France
 creteil             = Location "Creteil" France
 cugnaux             = Location "Cugnaux" France
 culoz               = Location "Culoz" France
@@ -261,6 +261,9 @@ futuroscope         = Location "Futuroscope" France
 gaillac :: Location
 gaillac = frenchLocation "Gaillac"
 
+gaillard :: Location
+gaillard = frenchLocation "Gaillard"
+
 gap = Location "Gap" France
 gerardmer = Location "Gerardmer" France
 gerardmerLasMauselaine = Location "Gerardmer las Mauselaine" France
@@ -276,11 +279,7 @@ gueugnon = Location "Gueugnon" France
 guillestre :: Location
 guillestre = frenchLocation "Guillestre"
 
-guzetNeige = Location "Guzet-Neige" France
-
 -- H
-hautacam = Location "Hautacam" France
-
 hendaye :: Location
 hendaye = frenchLocation "Hendaye"
 
@@ -290,7 +289,7 @@ hyeres   = Location "Hyeres" France
 -- I
 ileD'Oleron = Location "Ile d'Oleron" France
 isola = Location "Isola" France
-isola_2000 = Location "Isola 2000" France
+isola2000 = Location "Isola 2000" France
 issoire = Location "Issoire" France
 issoudun = Location "Issoudun" France
 
@@ -315,16 +314,11 @@ laGrandMotte = Location "La Grand-Motte" France
 laGrandeMotte = Location "La Grande-Motte" France
 laGuercheDeBretagne = Location "La Guerche-de-Bretagne" France
 laHaieFouassiere = Location "La Haie-Fouassiere" France
-laMongie = Location "La Mongie" France
 laMure = Location "La Mure" France
-laPierreSaintMartin = Location "La Pierre Saint-Martin" France
-laPlagne = Location "La Plagne" France
 laPlancheDesBellesFilles = Location "La Planche des Belles Filles" France
 laRocheSurYon = Location "La Roche-sur-Yon" France
 laRochelle = Location "La Rochelle" France
-laRuchere = Location "La Ruchere" France
 laTourDuPin = Location "La Tour-du-Pin" France
-laToussuire = Location "La Toussuire" France
 laToussuireLesSybelles = Location "La Toussuire - Les Sybelles" France
 labastideD'Armagnac = Location "Labastide-d'Armagnac" France
 lacDeMadine = Location "Lac de Madine" France
@@ -337,7 +331,6 @@ lanester = Location "Lanester" France
 langon = Location "Langon" France
 lannemezan = Location "Lannemezan" France
 lannion = Location "Lannion" France
-lansEnVercors = Location "Lans-en-Vercors" France
 laon = Location "Laon" France
 laplume = Location "Laplume" France
 laruns = Location "Laruns" France
@@ -355,7 +348,6 @@ leLioran = Location "Le Lioran" France
 leMans = Location "Le Mans" France
 leMonetierLesBains = Location "Le Monetier-les-Bains" France
 lePerreuxSurMarne = Location "Le Perreux-sur-Marne" France
-lePleynet = Location "Le Pleynet" France
 lePuy = Location "Le Puy" France
 lePuyDuFou = Location "Le Puy du Fou" France
 lePuyEnVelay = Location "Le Puy-en-Velay" France
@@ -363,11 +355,8 @@ leRevard = Location "Le Revard" France
 leTouquet = Location "Le Touquet" France
 leTouquetParisPlage = Location "Le Touquet-Paris-Plage" France
 leTreport = Location "Le Treport" France
-lesArcs = Location "Les Arcs" France
-lesDeuxAlpes = Location "Les Deux Alpes" France
 lesEchelles = Location "Les Echelles" France
 lesEssarts = Location "Les Essarts" France
-lesMenuires = Location "Les Menuires" France
 lesSablesD'Olonne = Location "Les Sables-d'Olonne" France
 levalloisPerret = Location "Levallois-Perret" France
 lezatSurLeze = Location "Lezat-sur-Leze" France
@@ -395,7 +384,6 @@ luchon = Location "Luchon" France
 lucon = Location "Lucon" France
 lugny = Location "Lugny" France
 luneville = Location "Luneville" France
-luzArdiden = Location "Luz Ardiden" France
 luzSaintSauveur = Location "Luz-Saint-Sauveur" France
 lyon = Location "Lyon" France
 
@@ -480,8 +468,6 @@ nuitsSaintGeorges = Location "Nuits-Saint-Georges" France
 obernai = Location "Obernai" France
 olonneSurMer = Location "Olonne-sur-Mer" France
 orchies = Location "Orchies" France
-orcieres = Location "Orcieres" France
-orcieresMerlette = Location "Orcieres-Merlette" France
 orleans = Location "Orleans" France
 orsonville = Location "Orsonville" France
 orthez = Location "Orthez" France
@@ -523,11 +509,9 @@ pornichet = Location "Pornichet" France
 porrentruy = Location "Porrentruy" France
 porteMaillot = Location "Porte Maillot, Paris" France
 portoVecchio = Location "Porto-Vecchio" France
-praLoup = Location "Pra-Loup" France
 prapoutel = Location "Prapoutel" France
 privas = Location "Privas" France
 provence = Location "Provence" France
-puyDeDome    = Location "Puy de Dome" France
 
 -- Q
 quimper = Location "Quimper" France
@@ -542,7 +526,6 @@ reims = Location "Reims" France
 renaze = Location "Renaze" France
 rennes = Location "Rennes" France
 revel = Location "Revel" France
-risoul = Location "Risoul" France
 roanne = Location "Roanne" France
 rochefort = Location "Rochefort" France
 rodez = Location "Rodez" France
@@ -577,7 +560,6 @@ saintGermain           = Location "Saint-Germain" France
 saintGermainEnLaye = Location "Saint-Germain-en-Laye" France
 saintGervais = Location "Saint-Gervais" France
 saintGervaisLesBains = Location "Saint Gervais-les-Bains" France
-saintGervaisMontBlanc  = Location "Saint-Gervais Mont Blanc" France
 saintGildasDesBois = Location "Saint-Gildas-des-Bois" France
 saintGirons = Location "Saint-Girons" France
 saintGregoire = Location "Saint Gregoire" France
@@ -648,6 +630,9 @@ tarasconSurAriege = Location "Tarascon-sur-Ariege" France
 tarbes            = Location "Tarbes" France
 thionville        = Location "Thionville" France
 thononLesBains    = Location "Thonon-les-Bains" France
+thuir :: Location
+thuir = frenchLocation "Thuir"
+
 tignes            = Location "Tignes" France
 tomblaine         = Location "Tomblaine" France
 tonnerre          = Location "Tonnerre" France
@@ -668,9 +653,7 @@ utahBeach = Location "Utah Beach (Sainte-Marie-du-Mont)" France
 -- V
 vaisonLaRomaine      = Location "Vaison-la-Romaine" France
 valD'AranPlaDeBeret  = Location "Val d'Aran/Pla-de-Beret" France
-valD'Isere           = Location "Val d'Isere" France
 valLouron            = Location "Val Louron" France
-valThorens           = Location "Val Thorens" France
 valdebloreLaColmiane = Location "Valdeblore La Colmiane" France
 valence              = Location "Valence" France
 valenceD'Agen        = Location "Valence d'Agen" France
@@ -691,14 +674,13 @@ veurey               = Location "Veurey" France
 vichy                = Location "Vichy" France
 vierzon              = Location "Vierzon" France
 villarLesDombes      = Location "Villar-les-Dombes (Parc des Oiseaux)" France
-villardDeLans        = Location "Villard-de-Lans" France
 villeD'Avray         = Location "Ville-d'Avray" France
 villefrancheSurSaone = Location "Villefranche-sur-Saone" France
 villeneuveSurLot     = Location "Villeneuve-sur-Lot" France
 villersCotterets     = Location "Villers-Cotterets" France
 villersSurMer        = Location "Villers-sur-Mer" France
 villeurbanne         = Location "Villeurbanne" France
-villieMorgon         = Location "Villie-Morgon" France
+villieMorgon         = Location "Villié-Morgon" France
 vire                 = Location "Vire" France
 viryChatillon        = Location "Viry-Chatillon" France
 vitre                = Location "Vitre" France

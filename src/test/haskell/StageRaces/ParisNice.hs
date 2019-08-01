@@ -7,6 +7,7 @@ module StageRaces.ParisNice
 import Control.Monad.State
 import Countries.France
 import Data.Time
+import Mountains.Alps
 import ParcoursDB.Country
 import ParcoursDB.StageRace
 import ParcoursDB.State.StageRace
@@ -55,7 +56,7 @@ parisNice2018' = do
   c1' 189.5 "Cote de la Colle sur Loup" France 273
 
   -- Stage 7
-  summitFinishStage nice 175
+  mountainStage (Left nice) 175
   c2' 10 "Cote de Gattieres" France 264
   c1' 84.5 "Cote de la Sainte-Baume" France 1118
   c2' 108 "Col Saint-Raphael" France 833

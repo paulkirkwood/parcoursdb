@@ -2083,9 +2083,6 @@ sestola = italianLocation "Sestola"
 sestriLevante :: Location
 sestriLevante = italianLocation "Sestri Levante"
 
-sestriere :: Location
-sestriere = italianLocation "Sestriere"
-
 siena :: Location
 siena = italianLocation "Siena"
 

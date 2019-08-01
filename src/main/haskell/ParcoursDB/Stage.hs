@@ -16,7 +16,7 @@ data Stage = Prologue            Day Location Location Distance
            | Road                Day (Either Location Col) (Maybe Location) StageID Distance [IndexableCol]
            | TeamTimeTrial       Day Location Location StageID Distance [IndexableCol]
            | TwoManTeamTimeTrial Day Location Location StageID Distance [IndexableCol]
-           | IndividualTimeTrial Day Location (Maybe Location) StageID Distance [IndexableCol]
+           | IndividualTimeTrial Day (Either Location Col) (Maybe Location) StageID Distance [IndexableCol]
            | RestDay             Day (Maybe( Either Location Col))
   deriving (Eq, Show)
 
@@ -31,7 +31,7 @@ start :: Stage -> Either Location Col
 start (Prologue _ s _ _)                = Left s
 start (TeamTimeTrial _ s _ _ _ _)       = Left s
 start (TwoManTeamTimeTrial _ s _ _ _ _) = Left s
-start (IndividualTimeTrial _ s _ _ _ _) = Left s
+start (IndividualTimeTrial _ s _ _ _ _) = s
 start (Road _ s _ _ _ _)                = s
 
 finish :: Stage -> Either Location Col
@@ -100,9 +100,9 @@ fromTo stage country =
   let s = start stage
       f = finish stage
       from = case s of Left(l)  -> qualifiedLocation l country
-                       Right(c) -> ParcoursDB.Col.name c
+                       Right(c) -> qualifiedCol c country
       to   = case f of Left(l)  -> qualifiedLocation l country
-                       Right(c) -> ParcoursDB.Col.name c
+                       Right(c) -> qualifiedCol c country
   in if from == to then
        from
        else from ++ " to " ++ to
@@ -129,7 +129,7 @@ route restDay@(RestDay dt colOrLocation) country =
     Just (Left(l))  ->
       intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay, qualifiedLocation l country ]
     Just (Right(c)) ->
-      intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay, ParcoursDB.Col.name c ]
+      intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay, qualifiedCol c country ]
     Nothing ->
       intercalate "," [ "", stageDayAndDate restDay, ParcoursDB.Stage.description restDay ]
 route stage c =
@@ -145,11 +145,11 @@ profile (TeamTimeTrial _ _ _ _ _ cs)       = map profile' cs
 profile (IndividualTimeTrial _ _ _ _ _ cs) = map profile' cs
 
 profile' :: IndexableCol -> String
-profile' (IndexableCol km col@(ParcoursDB.Col.Col name country category height Nothing Nothing Nothing)) =
+profile' (IndexableCol km col@(ParcoursDB.Col.Col name country height Nothing Nothing Nothing) category) =
   let kms            = printf "%.1f km" km
       heightInMetres = printf "%dm" height
   in intercalate "," [ kms, name, show(category), heightInMetres ]
-profile' (IndexableCol km col@(ParcoursDB.Col.Col name country category height length averageGradient Nothing)) =
+profile' (IndexableCol km col@(ParcoursDB.Col.Col name country height length averageGradient Nothing) category) =
   let kms            = printf "%.1f km" km
       desc           = printf "%s (%.1f km @ %.1f%%)" name (fromJust length) (fromJust averageGradient)
       heightInMetres = printf "%dm" height

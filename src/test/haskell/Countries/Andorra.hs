@@ -1,6 +1,5 @@
 module Countries.Andorra
 (andorra
-,arcalis
 ,escaldes
 ,pal)
 where
@@ -13,9 +12,6 @@ andorranLocation location = Location location Andorra
 
 andorra :: Location
 andorra = andorranLocation "Andorra"
-
-arcalis :: Location
-arcalis = andorranLocation "Andorra-Arcalis"
 
 escaldes :: Location
 escaldes = andorranLocation "Escaldes-Engordany"

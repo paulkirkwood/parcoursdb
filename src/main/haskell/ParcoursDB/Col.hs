@@ -21,7 +21,6 @@ instance Show ColCategory where
 
 data Col = Col { name            :: String
                , country         :: Country
-               , category        :: ColCategory
                , height          :: Int
                , length          :: Maybe Float
                , averageGradient :: Maybe Float
@@ -29,40 +28,59 @@ data Col = Col { name            :: String
                }
   deriving (Read,Show)
 
+alias :: Col -> String -> Col
+alias c@(Col n country h l aG mG) newName = Col newName country h l aG mG
+
 clone :: Col -> String -> Col
-clone c@(Col n country category h l aG mG) newName = Col (newName ++ " (" ++ n ++ ")" ) country category h l aG mG
+clone c@(Col n country h l aG mG) newName = Col (newName ++ " (" ++ n ++ ")" ) country h l aG mG
 
 jointFinish :: Col -> Location -> Col
-jointFinish c@(Col colName country category h length aG mG) l@(Location locName locCountry) =
-  Col (colName ++ " - " ++ locName ) country category h length aG mG
+jointFinish c@(Col colName country h length aG mG) l@(Location locName locCountry) =
+  Col (colName ++ " - " ++ locName ) country h length aG mG
+
+qualifiedCol :: Col -> Country -> String
+qualifiedCol col raceCountry =
+  let colCountry = country(col)
+  in if colCountry == raceCountry then
+       ParcoursDB.Col.name col
+     else
+       ParcoursDB.Col.name col ++ " (" ++ show colCountry ++ ")"
 
 instance Eq Col where
-  (Col n1 c1 cat1 h1 _ _ _) == (Col n2 c2 cat2 h2 _ _ _) = n1 == n2 && c1 == c2 && cat1 == cat2 && h1 == h2 
+  (Col n1 c1 h1 _ _ _) == (Col n2 c2 h2 _ _ _) = n1 == n2 && c1 == c2 && h1 == h2 
 
 instance Ord Col where
   compare col1 col2 =
     if countryComparison == EQ then
-      if categoryComparison == EQ then
-        if heightComparison == EQ then
-          nameComparison
-        else
-          heightComparison
+      if heightComparison == EQ then
+        nameComparison
       else
-        categoryComparison
+        heightComparison
     else
       countryComparison
     where
-      categoryComparison = (category col1) `compare` (category col2)
-      countryComparison  = (country col2) `compare` (country col2)
-      heightComparison   = (height col1) `compare` (height col2)
-      nameComparison     = (name col1) `compare` (name col2)
+      countryComparison = (country col2) `compare` (country col2)
+      heightComparison  = (height col1) `compare` (height col2)
+      nameComparison    = (name col1) `compare` (name col2)
 
 data IndexableCol = IndexableCol { km  :: Float
                                  , col :: Col
+                                 , category :: ColCategory
                                  } deriving (Read,Show)
 
 instance Eq IndexableCol where
-  (IndexableCol km1 col1) == (IndexableCol km2 col2) = km1 == km2 && col1 == col2
+  (IndexableCol km1 col1 cat1) == (IndexableCol km2 col2 cat2) = km1 == km2 && col1 == col2 && cat1 == cat2
 
 instance Ord IndexableCol where
-  compare (IndexableCol km1 col1) (IndexableCol km2 col2) = if km1 == km2 then compare col1 col2 else compare km1 km2
+  compare iCol1 iCol2 =
+    if kilometreComparison == EQ then
+      if categoryComparison == EQ then
+        colComparison
+      else
+        categoryComparison
+    else
+      kilometreComparison
+    where
+      kilometreComparison = (km iCol1) `compare` (km iCol2)
+      categoryComparison  = (category iCol1) `compare` (category iCol2)
+      colComparison       = (col iCol1) `compare` (col iCol2)

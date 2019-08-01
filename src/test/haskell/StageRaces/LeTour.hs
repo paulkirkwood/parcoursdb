@@ -23,7 +23,7 @@ import Countries.Switzerland
 import Countries.WestGermany
 import Countries.UnitedKingdom
 import Data.Time
-import Mountains.Alpes
+import Mountains.Alps
 import Mountains.MassifArmorican
 import Mountains.MassifCentral
 import Mountains.Pyrenees
@@ -93,6 +93,7 @@ tourDeFranceEditions = [ tdf1903
                        , tdf1970
                        , tdf1971
                        , tdf1972
+                       , tdf1973
                        , tdf1978
                        , tdf1979
                        , tdf1980
@@ -1919,16 +1920,17 @@ tdf1952' = do
   plainStage mulhouse lausanne 238.0
 
   -- Stage 10
-  summitFinishStage lausanne 266.0
-  addCol 266 alpeD'Huez
+  mountainStage (Left lausanne) 266.0
+  addCol 266 alpeD'Huez HC
 
   restDay (Right alpeD'Huez)
 
   -- Stage 11
-  plainStage leBourgD'Oisans sestriere 182.0
+  mountainStage (Left leBourgD'Oisans) 182
+  addCol 182 sestriere C1
 
   -- Stage 12
-  plainStage sestriere monaco 251.0
+  roadStage (Right sestriere) (Just monaco) 251.0
 
   -- Stage 13
   plainStage monaco aixEnProvence 214.0
@@ -1957,7 +1959,8 @@ tdf1952' = do
   plainStage bordeaux limoges 228.0
 
   -- Stage 21
-  plainStage limoges puyDeDome 245.0
+  mountainStage (Left limoges) 245
+  addCol 245 puyDeDome HC
 
   -- Stage 22
   individualTimeTrial clermontFerrand vichy 63.0
@@ -2436,8 +2439,8 @@ tdf1958' = do
   plainStage beziers nimes 189.0
 
   -- Stage 18
-  mountainTimeTrial bedoin 21.0
-  addCol 21 montVentoux
+  mountainTimeTrial (Left bedoin) 21.0
+  addCol 21 montVentoux HC
 
   -- Stage 19
   plainStage carpentras gap 178.0
@@ -2510,7 +2513,8 @@ tdf1959' = do
   plainStage aurillac clermontFerrand 231.0
 
   -- Stage 15
-  individualTimeTrial puyDeDome puyDeDome 12.0
+  mountainTimeTrial (Right puyDeDome) 12
+  addCol 12 puyDeDome HC
 
   -- Stage 16
   plainStage clermontFerrand saintÉTienne 210.0
@@ -2829,10 +2833,11 @@ tdf1963' = do
   plainStage saintÉTienne grenoble 174.0
 
   -- Stage 16
-  plainStage grenoble valD'Isere 202.0
+  mountainStage (Left grenoble) 202
+  addCol 202 valD'Isere C1
 
   -- Stage 17
-  plainStage valD'Isere chamonix 228.0
+  roadStage (Right valD'Isere) (Just chamonix) 228.0
 
   -- Stage 18
   plainStage chamonix lonsLeSaunier 225.0
@@ -2920,7 +2925,8 @@ tdf1964' = do
   plainStage bordeaux brive 215.0
 
   -- Stage 20
-  plainStage brive puyDeDome 217.0
+  mountainStage (Left brive) 217
+  addCol 217 puyDeDome HC
 
   -- Stage 21
   plainStage clermontFerrand orleans 311.0
@@ -2987,8 +2993,8 @@ tdf1965' = do
   plainStage perpignan montpellier 164.0
 
   -- Stage 14
-  summitFinishStage montpellier 173.0
-  addCol 173 montVentoux
+  mountainStage (Left montpellier) 173.0
+  addCol 173 montVentoux HC
 
   -- Stage 15
   plainStage carpentras gap 167.5
@@ -3177,7 +3183,8 @@ tdf1967' = do
   plainStage bordeaux limoges 217.0
 
   -- Stage 21
-  plainStage limoges puyDeDome 222.0
+  mountainStage (Left limoges) 222
+  addCol 222 puyDeDome HC
 
   -- Stage 22
   plainStage clermontFerrand fontainebleau 359.0
@@ -3352,7 +3359,8 @@ tdf1969' = do
   plainStage bordeaux brive 193.0
 
   -- Stage 20
-  plainStage brive puyDeDome 198.0
+  mountainStage (Left brive) 198
+  addCol 198 puyDeDome HC
 
   -- Stage 21
   plainStage clermontFerrand montargis 329.0
@@ -3426,8 +3434,8 @@ tdf1970' = do
   plainStage grenoble gap 194.5
 
   -- Stage 15
-  summitFinishStage gap 170.0
-  addCol 170 montVentoux
+  mountainStage (Left gap) 170.0
+  addCol 170 montVentoux HC
 
   -- Stage 16
   plainStage carpentras montpellier 140.5
@@ -3439,7 +3447,8 @@ tdf1970' = do
   plainStage toulouse saintGaudens 190.0
 
   -- Stage 19
-  plainStage saintGaudens laMongie 135.5
+  mountainStage (Left saintGaudens) 135.5
+  addCol 135.5 laMongie C1
 
   -- Stage 20
   plainStage bagneresDeBigorre mourenx 185.5
@@ -3501,7 +3510,8 @@ tdf1971' = do
   plainStage rungis nevers 257.5
 
   -- Stage 9
-  plainStage nevers puyDeDome 221.0
+  mountainStage (Left nevers) 221
+  addCol 221 puyDeDome HC
 
   -- Stage 10
   plainStage clermontFerrand saintÉTienne 153.0
@@ -3510,12 +3520,13 @@ tdf1971' = do
   plainStage saintÉTienne grenoble 188.5
 
   -- Stage 12
-  plainStage grenoble orcieres 134.0
+  mountainStage (Left grenoble) 134
+  addCol 134 orcieresMerlette C1
 
-  restDay (Left orcieres)
+  restDay (Right orcieresMerlette)
 
   -- Stage 13
-  plainStage orcieres marseille 251.0
+  roadStage (Right orcieresMerlette) (Just marseille) 251.0
 
   criterium albi 16.3
 
@@ -3593,16 +3604,17 @@ tdf1972' = do
   plainStage castres laGrandMotte 210.0
 
   -- Stage 12
-  summitFinishStage carnonPlage 207.0
-  addCol 207 montVentoux
+  mountainStage (Left carnonPlage) 207.0
+  addCol 207 montVentoux HC
 
   -- Stage 13
-  plainStage carpentras orcieres 192.0
+  mountainStage (Left carpentras) 192
+  addCol 192 orcieresMerlette C1
 
-  restDay (Left orcieres)
+  restDay (Right orcieresMerlette)
 
   -- Stage 14
-  plainStage orcieres briancon 201.0
+  roadStage (Right orcieresMerlette) (Just briancon) 201.0
 
   -- Stages 15a & 15b
   enableSplitStages
@@ -3629,6 +3641,106 @@ tdf1972' = do
   enableSplitStages
   outAndBackIndividualTimeTrial versailles 42.0
   plainStage versailles paris 89.0
+  disableSplitStages
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1973 :: StageRace
+tdf1973 = evalState tdf1973' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1973 6 30))
+
+tdf1973' :: State StageRaceState StageRace
+tdf1973' = do
+  -- Prologue
+  prologue' scheveningen 7.1
+
+  -- Stages 1a & 1b
+  enableSplitStages
+  plainStage scheveningen rotterdam 84
+  plainStage rotterdam sintNiklaas 137.5
+  disableSplitStages
+
+  -- Stages 2a & 2b
+  enableSplitStages
+  outAndBackTeamTimeTrial sintNiklaas 12.4
+  plainStage sintNiklaas roubaix 138
+  disableSplitStages
+
+  -- Stage 3
+  plainStage roubaix reims 226
+
+  -- Stage 4
+  plainStage reims nancy 214
+
+  -- Stage 5
+  plainStage nancy mulhouse 188
+
+  -- Stage 6
+  plainStage mulhouse divonneLesBains 244.5
+
+  -- Rest day
+  restDay (Left divonneLesBains)
+
+  -- Stages 7a & 7b
+  enableSplitStages
+  plainStage divonneLesBains gaillard 86.5
+  mountainStage (Left gaillard) 150.5
+  addCol 150.5 meribelLesAllues C1
+  disableSplitStages
+
+  -- Stage 8
+  mountainStage (Left moutiers) 237.5
+  addCol 237.5 lesOrres C1
+
+  -- Stage 9
+  plainStage embrun nice 234.5
+
+  -- Stage 10
+  plainStage nice aubagne 222.5
+
+  -- Stage 11
+  plainStage montpellier argelesSurMer 238
+
+  -- Stages 12a & 12b
+  let pyrenees2000 = alias fontRomeu "Pyrénées 2000"
+  enableSplitStages
+  individualTimeTrial perpignan thuir 28.3
+  mountainStage (Left thuir) 76
+  addCol 76 pyrenees2000 C1
+  disableSplitStages
+
+  -- Rest day
+  restDay (Right pyrenees2000)
+
+  -- Stage 13
+  plainStage bourgMadame luchon 235
+
+  -- Stage 14
+  plainStage luchon pau 227.5
+
+  -- Stage 15
+  plainStage pau fleurance 137
+
+  -- Stages 16a & 16b
+  enableSplitStages
+  plainStage fleurance bordeaux 210
+  outAndBackIndividualTimeTrial bordeaux 12.4
+  disableSplitStages
+
+  -- Stage 17
+  plainStage sainteFoyLaGrande briveLaGaillarde 248
+
+  -- Stage 18
+  mountainStage (Left briveLaGaillarde) 216.5
+  addCol 216.5 puyDeDome HC
+
+  -- Stage 19
+  plainStage bourges versailles 233.5
+
+  -- Stages 20a & 20b
+  enableSplitStages
+  outAndBackIndividualTimeTrial versailles 16
+  plainStage versailles paris 89
   disableSplitStages
 
   edition <- ParcoursDB.State.StageRace.build
@@ -3690,14 +3802,15 @@ tdf1978' = do
   plainStage figeac superBesse 221.0
 
   -- Stage 15
-  individualTimeTrial besseEnChandesse puyDeDome 52.0
+  mountainTimeTrial (Left besseEnChandesse) 52
+  addCol 52 puyDeDome HC
 
   -- Stage 16
   plainStage saintDierD'Auvergne saintÉTienne 196.0
 
   -- Stage 17
-  summitFinishStage saintÉTienne 241.0
-  addCol 241 alpeD'Huez
+  mountainStage (Left saintÉTienne) 241.0
+  addCol 241 alpeD'Huez HC
 
   restDay (Right alpeD'Huez)
 
@@ -3776,17 +3889,18 @@ tdf1979' = do
   individualTimeTrial evianLesBains morzineAvoriaz 54.0
 
   -- Stage 17
-  plainStage morzineAvoriaz lesMenuires 201.0
+  mountainStage (Left morzineAvoriaz) 201
+  addCol 201 lesMenuires C1
 
-  restDay (Left lesMenuires)
+  restDay (Right lesMenuires)
 
   -- Stage 18
-  summitFinishStage lesMenuires 167.0
-  addCol 167 alpeD'Huez
+  roadStage (Right lesMenuires) Nothing 167.0
+  addCol 167 alpeD'Huez HC
 
   -- Stage 19
   roadStage (Right alpeD'Huez) Nothing 119.0
-  addCol 119 alpeD'Huez
+  addCol 119 alpeD'Huez HC
 
   -- Stage 20
   roadStage (Right alpeD'Huez) (Just saintPriest) 162.0
@@ -3871,7 +3985,8 @@ tdf1980' = do
   plainStage montpellier martigues 160.0
 
   -- Stage 17
-  plainStage trets praLoup 209.0
+  mountainStage (Left trets) 209
+  addCol 209 praLoup C1
 
   -- Stage 18
   plainStage serreChevalier morzine 242.0
@@ -3963,11 +4078,12 @@ tdf1981' = do
   restDay (Left morzine)
 
   -- Stage 18
-  summitFinishStage morzine 230.0
-  addCol 230 alpeD'Huez
+  mountainStage (Left morzine) 230.0
+  addCol 230 alpeD'Huez HC
 
   -- Stage 19
-  plainStage leBourgD'Oisans lePleynet 134.0
+  mountainStage (Left leBourgD'Oisans) 134
+  addCol 134 lePleynet C1
 
   -- Stage 20
   plainStage veurey saintPriest 118.0
@@ -4042,11 +4158,12 @@ tdf1982' = do
   outAndBackIndividualTimeTrial martigues 33.0
 
   -- Stage 16
-  plainStage manosque orcieresMerlette 208.0
+  mountainStage (Left manosque) 208
+  addCol 208 orcieresMerlette C1
 
   -- Stage 17
-  summitFinishStage orcieresMerlette 123.0
-  addCol 123 alpeD'Huez
+  mountainStage (Right orcieresMerlette) 123.0
+  addCol 123 alpeD'Huez HC
 
   -- Stage 18
   plainStage leBourgD'Oisans morzine 251.0
@@ -4117,14 +4234,15 @@ tdf1983' = do
   plainStage aurillac issoire 149.0
 
   -- Stage 16
-  individualTimeTrial clermontFerrand puyDeDome 16.0
+  mountainTimeTrial (Left clermontFerrand) 16
+  addCol 16 puyDeDome HC
 
   -- Stage 17
   plainStage issoire saintÉTienne 144.0
 
   -- Stage 18
-  summitFinishStage laTourDuPin 233.0
-  addCol 233 alpeD'Huez
+  mountainStage (Left laTourDuPin) 233.0
+  addCol 233 alpeD'Huez HC
 
   restDay (Right alpeD'Huez)
 
@@ -4132,7 +4250,8 @@ tdf1983' = do
   plainStage leBourgD'Oisans morzine 247.0
 
   -- Stage 20
-  individualTimeTrial morzine avoriaz 15.0
+  mountainTimeTrial (Left morzine) 15
+  addCol 15 avoriaz C1
 
   -- Stage 21
   plainStage morzine dijon 291.0
@@ -4185,7 +4304,8 @@ tdf1984' = do
   plainStage langon pau 198.0
 
   -- Stage 11
-  plainStage pau guzetNeige 227.0
+  mountainStage (Left pau) 227
+  addCol 227 guzetNeige C1
 
   -- Stage 12
   plainStage saintGirons blagnac 111.0
@@ -4202,23 +4322,26 @@ tdf1984' = do
   restDay (Left grenoble)
 
   -- Stage 16
-  individualTimeTrial lesEchelles laRuchere 22.0
+  mountainTimeTrial (Left lesEchelles) 22
+  addCol 22 laRuchere C1
 
   -- Stage 17
-  summitFinishStage grenoble 151.0
-  addCol 151 alpeD'Huez
+  mountainStage (Left grenoble) 151.0
+  addCol 151 alpeD'Huez HC
 
   -- Stage 18
-  plainStage leBourgD'Oisans laPlagne 185.0
+  mountainStage (Left leBourgD'Oisans) 185
+  addCol 185 laPlagne HC
 
   -- Stage 19
-  plainStage laPlagne morzine 186.0
+  roadStage (Right laPlagne) (Just morzine) 186.0
 
   -- Stage 20
-  plainStage morzine cransMontana 141.0
+  mountainStage (Left morzine) 141
+  addCol 141 cransMontana C1
 
   -- Stage 21
-  plainStage cransMontana villefrancheSurSaone 320.0
+  roadStage (Right cransMontana) (Just villefrancheSurSaone) 320.0
 
   -- Stage 22
   individualTimeTrial villieMorgon villefrancheSurSaone 51.0
@@ -4271,12 +4394,14 @@ tdf1985' = do
   plainStage pontarlier morzineAvoriaz 195.0
 
   -- Stage 12
-  plainStage morzineAvoriaz lansEnVercors 269.0
+  mountainStage (Left morzineAvoriaz) 269
+  addCol 269 lansEnVercors C1
 
   -- Stage 13
-  outAndBackIndividualTimeTrial villardDeLans 32.0
+  mountainTimeTrial (Right villardDeLans) 32
+  addCol 32 villardDeLans C1
 
-  restDay (Left villardDeLans)
+  restDay (Right villardDeLans)
 
   -- Stage 14
   plainStage autrans saintÉTienne 179.0
@@ -4288,7 +4413,8 @@ tdf1985' = do
   plainStage aurillac toulouse 247.0
 
   -- Stage 17
-  plainStage toulouse luzArdiden 209.0
+  mountainStage (Left toulouse) 209
+  addCol 209 luzArdiden HC
 
   -- Stages 18a & 18b
   enableSplitStages
@@ -4372,19 +4498,20 @@ tdf1986' = do
   plainStage gap serreChevalier 190.0
 
   -- Stage 19
-  summitFinishStage briancon 162.5
-  addCol 162.5 alpeD'Huez
+  mountainStage (Left briancon) 162.5
+  addCol 162.5 alpeD'Huez HC
 
   restDay (Right alpeD'Huez)
 
   -- Stage 20
-  plainStage villardDeLans saintÉTienne 179.5
+  roadStage (Right villardDeLans) (Just saintÉTienne) 179.5
 
   -- Stage 21
   outAndBackIndividualTimeTrial saintÉTienne 58.0
 
   -- Stage 22
-  plainStage saintÉTienne puyDeDome 190.0
+  mountainStage (Left saintÉTienne) 190
+  addCol 190 puyDeDome HC
 
   -- Stage 23
   plainStage clermontFerrand nevers 194.0
@@ -4447,7 +4574,8 @@ tdf1987' = do
   plainStage bayonne pau 219.0
 
   -- Stage 14
-  plainStage pau luzArdiden 166.0
+  mountainStage (Left pau) 166
+  addCol 166 luzArdiden HC
 
   -- Stage 15
   plainStage tarbes blagnac 164.0
@@ -4461,21 +4589,23 @@ tdf1987' = do
   restDay (Left avignon)
 
   -- Stage 18
-  mountainTimeTrial carpentras 36.5
-  addCol 36.5 montVentoux
+  mountainTimeTrial (Left carpentras) 36.5
+  addCol 36.5 montVentoux HC
 
   -- Stage 19
-  plainStage valreas villardDeLans 185.0
+  mountainStage (Left valreas) 185
+  addCol 185 villardDeLans C1
 
   -- Stage 20
-  summitFinishStage villardDeLans 201
-  addCol 201 alpeD'Huez
+  mountainStage (Right villardDeLans) 201
+  addCol 201 alpeD'Huez HC
 
   -- Stage 21
-  plainStage leBourgD'Oisans laPlagne 185.5
+  mountainStage (Left leBourgD'Oisans) 185.5
+  addCol 185.5 laPlagne HC
 
   -- Stage 22
-  plainStage laPlagne morzine 186.0
+  roadStage (Right laPlagne) (Just morzine) 186.0
 
   -- Stage 23
   plainStage saintJulienEnGenevois dijon 224.5
@@ -4532,23 +4662,26 @@ tdf1988' = do
   plainStage besancon morzine 232.0
 
   -- Stage 13
-  summitFinishStage morzine 227
-  addCol 227 alpeD'Huez
+  mountainStage (Left morzine) 227
+  addCol 227 alpeD'Huez HC
 
   -- Stage 14
-  individualTimeTrial grenoble villardDeLans 38.0
+  mountainTimeTrial (Left grenoble) 38
+  addCol 38 villardDeLans C1
 
   restDay (Left blagnac)
 
   -- Stage 15
-  plainStage blagnac guzetNeige 163.0
+  mountainStage (Left blagnac) 163
+  addCol 163 guzetNeige C1
 
   -- Stage 16
-  plainStage saintGirons luzArdiden 187.5
+  mountainStage (Left saintGirons) 187.5
+  addCol 187.5 luzArdiden HC
 
   -- Stage 17
   enableMorningStage
-  plainStage luzArdiden pau 38.0
+  roadStage (Right luzArdiden) (Just pau) 38.0
 
   -- Stage 18
   plainStage pau bordeaux 210.0
@@ -4557,7 +4690,8 @@ tdf1988' = do
   plainStage ruelleSurTourve limoges 93.5
 
   -- Stage 20
-  plainStage limoges puyDeDome 188.0
+  mountainStage (Left limoges) 188
+  addCol 188 puyDeDome HC
 
   -- Stage 21
   plainStage clermontFerrand chalonSurSaone 233.5
@@ -4625,22 +4759,24 @@ tdf1989' = do
   plainStage marseille gap 240.0
 
   -- Stage 15
-  individualTimeTrial gap orcieresMerlette 39.0
+  mountainTimeTrial (Left gap) 39
+  addCol 39 orcieresMerlette C1
 
-  restDay (Left orcieresMerlette)
+  restDay (Right orcieresMerlette)
 
   -- Stage 16
   plainStage gap briancon 175.0
 
   -- Stage 17
-  summitFinishStage briancon 165
-  addCol 165 alpeD'Huez
+  mountainStage (Left briancon) 165
+  addCol 165 alpeD'Huez HC
 
   -- Stage 18
-  plainStage leBourgD'Oisans villardDeLans 91.5
+  mountainStage (Left leBourgD'Oisans) 91.5
+  addCol 91.5 villardDeLans C1
 
   -- Stage 19
-  plainStage villardDeLans aixLesBains 125.0
+  roadStage (Right villardDeLans) (Just aixLesBains) 125.0
 
   -- Stage 20
   plainStage aixLesBains l'IsleD'Abeau 130.0
@@ -4693,16 +4829,17 @@ tdf1990' = do
   plainStage geneva saintGervais 118.5
 
   -- Stage 11
-  summitFinishStage saintGervais 182.5
-  addCol 182.5 alpeD'Huez
+  mountainStage (Left saintGervais) 182.5
+  addCol 182.5 alpeD'Huez HC
 
   -- Stage 12
-  individualTimeTrial fontaine villardDeLans 33.5
+  mountainTimeTrial (Left fontaine) 33.5
+  addCol 33.5 villardDeLans C1
 
-  restDay (Left villardDeLans)
+  restDay (Right villardDeLans)
 
   -- Stage 13
-  plainStage villardDeLans saintÉTienne 149.0
+  roadStage (Right villardDeLans) (Just saintÉTienne) 149.0
 
   -- Stage 14
   plainStage lePuyEnVelay millau 205.0
@@ -4711,7 +4848,8 @@ tdf1990' = do
   plainStage millau revel 170.0
 
   -- Stage 16
-  plainStage blagnac luzArdiden 215.0
+  mountainStage (Left blagnac) 215
+  addCol 215 luzArdiden HC
 
   -- Stage 17
   plainStage lourdes pau 150.0
@@ -4791,8 +4929,8 @@ tdf1991' = do
   plainStage ales gap 215.0
 
   -- Stage 17
-  summitFinishStage gap 125
-  addCol 125 alpeD'Huez
+  mountainStage (Left gap) 125
+  addCol 125 alpeD'Huez HC
 
   -- Stage 18
   plainStage leBourgD'Oisans morzine 255.0
@@ -4859,11 +4997,12 @@ tdf1992' = do
   restDay (Left dole)
 
   -- Stage 13
-  plainStage saintGervais sestriere 254.5
+  mountainStage (Left saintGervais) 254.5
+  addCol 254.5 sestriere C1
 
   -- Stage 14
-  summitFinishStage sestriere 186.5
-  addCol 186.5 alpeD'Huez
+  mountainStage (Right sestriere) 186.5
+  addCol 186.5 alpeD'Huez HC
 
   -- Stage 15
   plainStage leBourgD'Oisans saintÉTienne 198.0
@@ -4924,13 +5063,13 @@ tdf1993' = do
   -- Stage 9
   outAndBackIndividualTimeTrial lacDeMadine 59.0
 
-  restDay (Left villardDeLans)
+  restDay (Right villardDeLans)
 
   -- Stage 10
-  plainStage villardDeLans serreChevalier 203.0
+  roadStage (Right villardDeLans) (Just serreChevalier) 203.0
 
   -- Stage 11
-  plainStage serreChevalier isola_2000 179.0
+  plainStage serreChevalier isola2000 179.0
 
   -- Stage 12
   plainStage isola marseille 286.5
@@ -5003,12 +5142,14 @@ tdf1994' = do
   plainStage bergerac cahors 160.5
 
   -- Stage 11
-  plainStage cahors hautacam 263.5
+  mountainStage (Left cahors) 263.5
+  addCol 263.5 hautacam HC
 
   restDay (Left lourdes)
 
   -- Stage 12
-  plainStage lourdes luzArdiden 204.5
+  mountainStage (Left lourdes) 204.5
+  addCol 204.5 luzArdiden HC
 
   -- Stage 13
   plainStage bagneresDeBigorre albi 223.0
@@ -5020,17 +5161,19 @@ tdf1994' = do
   plainStage montpellier carpentras 231.0
 
   -- Stage 16
-  summitFinishStage valreas 224.5
-  addCol 224.5 alpeD'Huez
+  mountainStage (Left valreas) 224.5
+  addCol 224.5 alpeD'Huez HC
 
   -- Stage 17
-  plainStage leBourgD'Oisans valThorens 149.0
+  mountainStage (Left leBourgD'Oisans) 149
+  addCol 149 valThorens HC
 
   -- Stage 18
   plainStage moutiers cluses 174.5
 
   -- Stage 19
-  individualTimeTrial cluses avoriaz 47.5
+  mountainTimeTrial (Left cluses) 47.5
+  addCol 47.5 avoriaz C1
 
   -- Stage 20
   plainStage morzine lacSaintPoint 208.5
@@ -5076,11 +5219,12 @@ tdf1995' = do
   restDay (Left leGrandBornand)
 
   -- Stage 9
-  plainStage leGrandBornand laPlagne 160.0
+  mountainStage (Left leGrandBornand) 160
+  addCol 160 laPlagne HC
 
   -- Stage 10
-  summitFinishStage laPlagne 162.5
-  addCol 162.5 alpeD'Huez
+  roadStage (Right laPlagne) Nothing 162.5
+  addCol 162.5 alpeD'Huez HC
 
   -- Stage 11
   plainStage leBourgD'Oisans saintÉTienne 199.0
@@ -5092,7 +5236,8 @@ tdf1995' = do
   plainStage mende revel 245.0
 
   -- Stage 14
-  plainStage saintOrensDeGameville guzetNeige 164.0
+  mountainStage (Left saintOrensDeGameville) 164
+  addCol 164 guzetNeige C1
 
   restDay (Left saintGirons)
 
@@ -5144,13 +5289,16 @@ tdf1996' = do
   plainStage arcEtSenans aixLesBains 207.0
 
   -- Stage 7
-  plainStage chambery lesArcs 200.0
+  mountainStage (Left chambery) 200
+  addCol 200 lesArcs C1
 
   -- Stage 8
-  individualTimeTrial bourgSaintMaurice valD'Isere 30.5
+  mountainTimeTrial (Left bourgSaintMaurice) 30.5
+  addCol 30.5 valD'Isere C1
 
   -- Stage 9
-  plainStage leMonetierLesBains sestriere 46.0
+  mountainStage (Left leMonetierLesBains) 46
+  addCol 46 sestriere C1
 
   -- Stage 10
   plainStage turin gap 208.5
@@ -5173,7 +5321,8 @@ tdf1996' = do
   plainStage briveLaGaillarde villeneuveSurLot 176.0
 
   -- Stage 16
-  plainStage agen hautacam 199.0
+  mountainStage (Left agen) 199
+  addCol 199 hautacam HC
 
   -- Stage 17
   plainStage argelesGazost pamplona 262.0
@@ -5229,10 +5378,11 @@ tdf1997' = do
   plainStage pau loudenvielle 182.0
 
   -- Stage 10
-  plainStage luchon arcalis 182.0
+  mountainStage (Left luchon) 182
+  addCol 182 arcalis C1
 
   -- Stage 11
-  plainStage arcalis perpignan 192.0
+  roadStage (Right arcalis) (Just perpignan) 192.0
 
   restDay (Left saintÉTienne)
 
@@ -5240,14 +5390,15 @@ tdf1997' = do
   individualTimeTrial saintÉTienne saintÉTienne 55.0
 
   -- Stage 13
-  summitFinishStage saintÉTienne 203.5
-  addCol 203.5 alpeD'Huez
+  mountainStage (Left saintÉTienne) 203.5
+  addCol 203.5 alpeD'Huez HC
 
   -- Stage 14
-  plainStage leBourgD'Oisans courchevel 148.0
+  mountainStage (Left leBourgD'Oisans) 148
+  addCol 148 courchevel C1
 
   -- Stage 15
-  plainStage courchevel morzine 208.5
+  roadStage (Right courchevel) (Just morzine) 208.5
 
   -- Stage 16
   plainStage morzine fribourg 181.0
@@ -5323,7 +5474,8 @@ tdf1998' = do
   plainStage valreas grenoble 186.5
 
   -- Stage 15
-  plainStage grenoble lesDeuxAlpes 189.0
+  mountainStage (Left grenoble) 189
+  addCol 189 lesDeuxAlpes C1
 
   -- Stage 16
   plainStage vizelle albertville 204.0
@@ -5381,11 +5533,12 @@ tdf1999' = do
   restDay (Left leGrandBornand)
 
   -- Stage 9
-  plainStage leGrandBornand sestriere 213.5
+  mountainStage (Left leGrandBornand) 213.5
+  addCol 213.5 sestriere C1
 
   -- Stage 10
-  summitFinishStage sestriere 220.5
-  addCol 220.5 alpeD'Huez
+  mountainStage (Right sestriere) 220.5
+  addCol 220.5 alpeD'Huez HC
 
   -- Stage 11
   plainStage leBourgD'Oisans saintÉTienne 198.5
@@ -5455,7 +5608,8 @@ tdf2000' = do
   plainStage agen dax 181.0
 
   -- Stage 10
-  plainStage dax hautacam 205.0
+  mountainStage (Left dax) 205
+  addCol 205 hautacam HC
 
   -- Stage 11
   plainStage bagneresDeBigorre revel 218.5
@@ -5463,8 +5617,8 @@ tdf2000' = do
   restDay (Left provence)
 
   -- Stage 12
-  summitFinishStage carpentras 149
-  addCol 149 montVentoux
+  mountainStage (Left carpentras) 149
+  addCol 149 montVentoux HC
 
   -- Stage 13
   plainStage avignon draguignan 185.5
@@ -5473,12 +5627,13 @@ tdf2000' = do
   plainStage draguignan briancon 249.5
 
   -- Stage 15
-  plainStage briancon courchevel 173.5
+  mountainStage (Left briancon) 173.5
+  addCol 173.5 courchevel C1
 
-  restDay (Left courchevel)
+  restDay (Right courchevel)
 
   -- Stage 16
-  plainStage courchevel morzine 196.5
+  roadStage (Right courchevel) (Just morzine) 196.5
 
   -- Stage 17
   plainStage evianLesBains lausanne 155.0
@@ -5534,11 +5689,12 @@ tdf2001' = do
   plainStage pontarlier aixLesBains 185.0
 
   -- Stage 10
-  summitFinishStage aixLesBains 209
-  addCol 209 alpeD'Huez
+  mountainStage (Left aixLesBains) 209
+  addCol 209 alpeD'Huez HC
 
   -- Stage 11
-  individualTimeTrial grenoble chamrousse 32.0
+  mountainTimeTrial (Left grenoble) 32
+  addCol 32 chamrousse C1
 
   restDay (Left perpignan)
 
@@ -5549,7 +5705,8 @@ tdf2001' = do
   plainStage foix saintLarySoulanPlaD'Adet 194.0
 
   -- Stage 14
-  plainStage tarbes luzArdiden 141.5
+  mountainStage (Left tarbes) 141.5
+  addCol 141.5 luzArdiden HC
 
   restDay (Left pau)
 
@@ -5614,7 +5771,8 @@ tdf2002' = do
   plainStage bazas pau 147.0
 
   -- Stage 12
-  plainStage pau laMongie 158.0
+  mountainStage (Left pau) 158
+  addCol 158 laMongie C1
 
   -- Stage 13
   plainStage lannemezan plateauDeBeille 199.5
@@ -5623,16 +5781,18 @@ tdf2002' = do
   plainStage lavelanet beziers 171.0
 
   -- Stage 15
-  summitFinishStage lodeve 221
-  addCol 221 montVentoux
+  mountainStage (Left lodeve) 221
+  addCol 221 montVentoux HC
 
   restDay (Left vaucluse)
 
   -- Stage 16
-  plainStage vaisonLaRomaine lesDeuxAlpes 226.5
+  mountainStage (Left vaisonLaRomaine) 226.5
+  addCol 226.5 lesDeuxAlpes C1
 
   -- Stage 17
-  plainStage lesDeuxAlpes laPlagne 179.5
+  roadStage (Right lesDeuxAlpes) Nothing 179.5
+  addCol 179.5 laPlagne HC
 
   -- Stage 18
   plainStage aime cluses 142.0
@@ -5679,8 +5839,8 @@ tdf2003' = do
   plainStage lyon morzine 230.5
 
   -- Stage 9
-  summitFinishStage sallanches 219.0
-  addCol 219 alpeD'Huez
+  mountainStage (Left sallanches) 219.0
+  addCol 219 alpeD'Huez HC
 
   -- Stage 10
   plainStage leBourgD'Oisans gap 184.5
@@ -5697,13 +5857,15 @@ tdf2003' = do
   individualTimeTrial gaillac capDecouverte 47.0
 
   -- Stage 14
-  plainStage toulouse ax3Domaines 197.5
+  mountainStage (Left toulouse) 197.5
+  addCol 197.5 ax3Domaines C1
 
   -- Stage 15
   plainStage saintGirons loudenville 191.5
 
   -- Stage 16
-  plainStage bagneresDeBigorre luzArdiden 159.5
+  mountainStage (Left bagneresDeBigorre) 159.5
+  addCol 159.5 luzArdiden HC
 
   restDay (Left pau)
 
@@ -5769,7 +5931,8 @@ tdf2004' = do
   plainStage saintFlour figeac 164.0
 
   -- Stage 13
-  plainStage castelsarrasin laMongie 197.5
+  mountainStage (Left castelsarrasin) 197.5
+  addCol 197.5 laMongie C1
 
   -- Stage 14
   plainStage lannemezan plateauDeBeille 205.5
@@ -5780,11 +5943,12 @@ tdf2004' = do
   restDay (Left nimes)
 
   -- Stage 16
-  plainStage valreas villardDeLans 180.5
+  mountainStage (Left valreas) 180.5
+  addCol 180.5 villardDeLans C1
 
   -- Stage 17
-  mountainTimeTrial leBourgD'Oisans 15.5
-  addCol 15.5 alpeD'Huez
+  mountainTimeTrial (Left leBourgD'Oisans) 15.5
+  addCol 15.5 alpeD'Huez HC
 
   -- Stage 18
   plainStage leBourgD'Oisans leGrandBornand 204.5
@@ -5834,12 +5998,13 @@ tdf2005' = do
   plainStage gerardmer mulhouse 171.0
 
   -- Stage 10
-  plainStage grenoble courchevel 177.0
+  mountainStage (Left grenoble) 177
+  addCol 177 courchevel C1
 
   restDay (Left grenoble)
 
   -- Stage 11
-  plainStage courchevel briancon 173.0
+  roadStage (Right courchevel) (Just briancon) 173.0
 
   -- Stage 12
   plainStage briancon digneLesBains 187.0
@@ -5848,7 +6013,8 @@ tdf2005' = do
   plainStage miramas montpellier 173.5
 
   -- Stage 14
-  plainStage agde ax3Domaines 220.5
+  mountainStage (Left agde) 220.5
+  addCol 220.5 ax3Domaines C1
 
   -- Stage 15
   plainStage lezatSurLeze saintLarySoulanPlaD'Adet 205.5
@@ -5930,11 +6096,12 @@ tdf2006' = do
   restDay (Left gap)
 
   -- Stage 16
-  summitFinishStage gap 187.0
-  addCol 187 alpeD'Huez
+  mountainStage (Left gap) 187.0
+  addCol 187 alpeD'Huez HC
 
   -- Stage 17
-  plainStage leBourgD'Oisans laToussuire 182.0
+  mountainStage (Left leBourgD'Oisans) 182
+  addCol 182 laToussuire C1
 
   -- Stage 18
   plainStage saintJeanDeMaurienne morzine 200.5
@@ -5986,7 +6153,7 @@ tdf2007' = do
   restDay (Left tignes)
 
   -- Stage 10
-  plainStage valD'Isere briancon 159.5
+  roadStage (Right valD'Isere) (Just briancon) 159.5
 
   -- Stage 11
   plainStage tallard marseille 229.5
@@ -6059,7 +6226,8 @@ tdf2008' = do
   plainStage toulouse bagneresDeBigorre 224.0
 
   -- Stage 10
-  plainStage pau hautacam 156.0
+  mountainStage (Left pau) 156
+  addCol 156 hautacam HC
 
   restDay (Left pau)
 
@@ -6084,8 +6252,8 @@ tdf2008' = do
   plainStage cuneo jausiers 157.0
 
   -- Stage 17
-  summitFinishStage embrun 210.5
-  addCol 210.5 alpeD'Huez
+  mountainStage (Left embrun) 210.5
+  addCol 210.5 alpeD'Huez HC
 
   -- Stage 18
   plainStage bourgD'Oisans saintÉTienne 196.5
@@ -6126,7 +6294,8 @@ tdf2009' = do
   plainStage girona barcelona 181.5
 
   -- Stage 7
-  plainStage barcelona arcalis 224.0
+  mountainStage (Left barcelona) 224
+  addCol 224 arcalis C1
 
   -- Stage 8
   plainStage andorraLaVella saintGirons 176.5
@@ -6152,9 +6321,10 @@ tdf2009' = do
   plainStage colmar besancon 199.0
 
   -- Stage 15
-  plainStage pontarlier verbier 207.5
+  mountainStage (Left pontarlier) 207.5
+  addCol 207.5 verbier C1
 
-  restDay (Left verbier)
+  restDay (Right verbier)
 
   -- Stage 16
   plainStage martigny bourgSaintMaurice 159.0
@@ -6169,8 +6339,8 @@ tdf2009' = do
   plainStage bourgoinJallieu aubenas 178.0
 
   -- Stage 20
-  summitFinishStage montelimar 167
-  addCol 167 montVentoux
+  mountainStage (Left montelimar) 167
+  addCol 167 montVentoux HC
 
   -- Stage 21
   plainStage montereauFaultYonne paris 164.0
@@ -6228,7 +6398,8 @@ tdf2010' = do
   plainStage rodez revel 196.0
 
   -- Stage 15
-  plainStage revel ax3Domaines 184.5
+  mountainStage (Left revel) 184.5
+  addCol 184.5 ax3Domaines C1
 
   -- Stage 16
   plainStage pamiers bagneresDeLuchon 187.5
@@ -6239,8 +6410,8 @@ tdf2010' = do
   restDay (Left pau)
 
   -- Stage 18
-  summitFinishStage pau 174
-  addCol 174 colDuTourmalet
+  mountainStage (Left pau) 174
+  addCol 174 colDuTourmalet HC
 
   -- Stage 19
   plainStage saliesDeBearn bordeaux 198.0
@@ -6269,8 +6440,8 @@ tdf2011' = do
   plainStage olonneSurMer redon 198.0
 
   -- Stage 4
-  summitFinishStage lorient 172.5
-  addCol 172.5 murDeBretagne
+  roadStage (Left lorient) Nothing 172.5
+  addCol 172.5 murDeBretagne C3
 
   -- Stage 5
   plainStage carhaix capFrehel 164.5
@@ -6296,7 +6467,8 @@ tdf2011' = do
   plainStage blayeLesMines lavaur 167.5
 
   -- Stage 12
-  plainStage cugnaux luzArdiden 211.0
+  mountainStage (Left cugnaux) 211
+  addCol 211 luzArdiden HC
 
   -- Stage 13
   plainStage pau lourdes 152.5
@@ -6317,12 +6489,12 @@ tdf2011' = do
 
   -- Stage 18
   let colDuGalibierSerreChevalier = jointFinish colDuGalibier serreChevalier
-  summitFinishStage pinerolo 200.5
-  addCol 200.5 colDuGalibierSerreChevalier
+  mountainStage (Left pinerolo) 200.5
+  addCol 200.5 colDuGalibierSerreChevalier HC
 
   -- Stage 19
-  summitFinishStage modane 109.5
-  addCol 109.5 alpeD'Huez
+  mountainStage (Left modane) 109.5
+  addCol 109.5 alpeD'Huez HC
 
   -- Stage 20
   outAndBackIndividualTimeTrial grenoble 42.5
@@ -6434,7 +6606,8 @@ tdf2013' = do
   plainStage montpellier albi 205.5
 
   -- Stage 8
-  plainStage castres ax3Domaines 195.0
+  mountainStage (Left castres) 195
+  addCol 195 ax3Domaines C1
 
   -- Stage 9
   plainStage saintGirons bagneresDeBigorre 168.5
@@ -6457,8 +6630,8 @@ tdf2013' = do
   plainStage saintPourcainSurSioule lyon 191.0
 
   -- Stage 15
-  summitFinishStage givors 242.5
-  addCol 242.5 montVentoux
+  mountainStage (Left givors) 242.5
+  addCol 242.5 montVentoux HC
 
   restDay (Left vaucluse)
 
@@ -6469,8 +6642,8 @@ tdf2013' = do
   individualTimeTrial embrun chorges 32.0
 
   -- Stage 18
-  summitFinishStage gap 172.5
-  addCol 172.5 alpeD'Huez
+  mountainStage (Left gap) 172.5
+  addCol 172.5 alpeD'Huez HC
 
   -- Stage 19
   plainStage leBourgD'Oisans leGrandBornand 204.5
@@ -6528,10 +6701,12 @@ tdf2014' = do
   plainStage bourgEnBresse saintÉTienne 185.5
 
   -- Stage 13
-  plainStage saintÉTienne chamrousse 197.5
+  mountainStage (Left saintÉTienne) 197.5
+  addCol 197.5 chamrousse C1
 
   -- Stage 14
-  plainStage grenoble risoul 177.0
+  mountainStage (Left grenoble) 177
+  addCol 177 risoul C1
 
   -- Stage 15
   plainStage tallard nimes 222.0
@@ -6545,7 +6720,8 @@ tdf2014' = do
   plainStage saintGaudens saintLaryPlaD'Adet 124.5
 
   -- Stage 18
-  plainStage pau hautacam 145.5
+  mountainStage (Left pau) 145.5
+  addCol 145.5 hautacam HC
 
   -- Stage 19
   plainStage maubourguetPaysDuValD'Adour bergerac 208.5
@@ -6586,8 +6762,8 @@ tdf2015' = do
   plainStage livarot fougeres 190.5
 
   -- Stage 8
-  summitFinishStage rennes 181.5
-  addCol 181.5 murDeBretagne
+  mountainStage (Left rennes) 181.5
+  addCol 181.5 murDeBretagne C3
 
   -- Stage 9
   teamTimeTrial vannes plumelec 28.0
@@ -6595,7 +6771,8 @@ tdf2015' = do
   restDay (Left pau)
 
   -- Stage 10
-  plainStage tarbes laPierreSaintMartin 167.0
+  mountainStage (Left tarbes) 167
+  addCol 167 laPierreSaintMartin C1
 
   -- Stage 11
   plainStage pau cauterets 188.0
@@ -6618,7 +6795,8 @@ tdf2015' = do
   restDay (Left gap)
 
   -- Stage 17
-  plainStage digneLesBains praLoup 161.0
+  mountainStage (Left digneLesBains) 161
+  addCol 161 praLoup C1
 
   -- Stage 18
   plainStage gap saintJeanDeMaurienne 186.5
@@ -6627,8 +6805,8 @@ tdf2015' = do
   plainStage saintJeanDeMaurienne laToussuireLesSybelles 138.0
 
   -- Stage 20
-  summitFinishStage modane 110.5
-  addCol 110.5 alpeD'Huez
+  mountainStage (Left modane) 110.5
+  addCol 110.5 alpeD'Huez HC
 
   -- Stage 21
   plainStage sevres paris 109.5
@@ -6666,9 +6844,10 @@ tdf2016' = do
   plainStage pau bagneresDeLuchon 184.0
 
   -- Stage 9
-  plainStage vielhaValD'Aran arcalis 184.5
+  mountainStage (Left vielhaValD'Aran) 184.5
+  addCol 184.5 arcalis C1
 
-  restDay (Left arcalis)
+  restDay (Right arcalis)
 
   -- Stage 10
   plainStage escaldes revel 197.0
@@ -6694,7 +6873,8 @@ tdf2016' = do
   restDay (Left bern)
 
   -- Stage 17
-  plainStage bern finhautEmosson 184.5
+  mountainStage (Left bern) 184.5
+  addCol 184.5 finhautEmosson C1
 
   -- Stage 18
   individualTimeTrial sallanches megeve 17.0
@@ -6772,8 +6952,8 @@ tdf2017' = do
   plainStage laMure serreChevalier 183.0
 
   -- Stage 18
-  summitFinishStage briancon 179.5
-  addCol 179.5 colD'Izoard
+  mountainStage (Left briancon) 179.5
+  addCol 179.5 colD'Izoard HC
 
   -- Stage 19
   plainStage embrun salonDeProvence 222.5
@@ -6809,18 +6989,18 @@ tdf2018' = do
 
   -- Stage 5
   plainStage lorient quimper 204.5
-  addCol 106 coteDeKaliforn
-  addCol 113 coteDeTrimen
-  addCol 140.5 coteDeLaRocheDuFeu
-  addCol 159.5 coteDeMenezQuelerc'h
-  addCol 184.5 coteDeLaMontagneDeLocranan
+  addCol 106 coteDeKaliforn C4
+  addCol 113 coteDeTrimen C4
+  addCol 140.5 coteDeLaRocheDuFeu C3
+  addCol 159.5 coteDeMenezQuelerc'h C3
+  addCol 184.5 coteDeLaMontagneDeLocranan C3
 
   -- Stage 6
-  summitFinishStage brest 181
-  addCol 44 coteDePloudiry
-  addCol 68.5 coteDeRoc'hTrevezel
-  addCol 165 murDeBretagne
-  addCol 181 murDeBretagne
+  roadStage (Left brest) Nothing 181
+  addCol 44 coteDePloudiry C3
+  addCol 68.5 coteDeRoc'hTrevezel C4
+  addCol 165 murDeBretagne C3
+  addCol 181 murDeBretagne C3
 
   -- Stage 7
   plainStage fougres chartres 231
@@ -6837,75 +7017,75 @@ tdf2018' = do
   restDay (Left annecy)
 
   -- Stage 10
-  mountainStage annecy leGrandBornand 158.5
-  addCol 19 colDeBluffy
-  addCol 43 colDeLaCroixFry
-  addCol 68.5 monteeDuPlateauDesGlieres
-  addCol 130 colDeRomme
-  addCol 144 colDeLaColombiere
+  plainStage annecy leGrandBornand 158.5
+  addCol 19 colDeBluffy C4
+  addCol 43 colDeLaCroixFry C1
+  addCol 68.5 monteeDuPlateauDesGlieres HC
+  addCol 130 colDeRomme C1
+  addCol 144 colDeLaColombiere C1
 
   -- Stage 11
-  summitFinishStage albertville 108.5
-  addCol 26 monteeDuBisanne
-  addCol 57.5 colDuPre
-  addCol 70 cormetDeRoselend
-  addCol 108.5 laRosiere
+  mountainStage (Left albertville) 108.5
+  addCol 26 monteeDuBisanne HC
+  addCol 57.5 colDuPre HC
+  addCol 70 cormetDeRoselend C1
+  addCol 108.5 laRosiere C1
 
   -- Stage 12
-  summitFinishStage bourgSaintMaurice 175.5
-  addCol 53.5 colDeLaMadeleine
-  addCol 83 lacetsDeMontvernier
-  addCol 121 colDeLaCroixDeFer
-  addCol 175.5 alpeD'Huez
+  mountainStage (Left bourgSaintMaurice) 175.5
+  addCol 53.5 colDeLaMadeleine HC
+  addCol 83 lacetsDeMontvernier C2
+  addCol 121 croixDeFer HC
+  addCol 175.5 alpeD'Huez HC
 
   -- Stage 13
   plainStage leBourgD'Oisans valence 169.5
-  addCol 32.5 coteDeBrie
-  addCol 109.5 coteDeSainteEulalie
+  addCol 32.5 coteDeBrie C3
+  addCol 109.5 coteDeSainteEulalie C4
 
   -- Stage 14
   plainStage saintPaulTroisChateaux mende 188
-  addCol 81 coteDuGrandChataignier
-  addCol 129 colDeLaCroixDeBerthel
-  addCol 142 colDuPontSansEau
-  addCol 186.5 coteDeLaCroixNeuve
+  addCol 81 coteDuGrandChataignier C4
+  addCol 129 colDeLaCroixDeBerthel C2
+  addCol 142 colDuPontSansEau C3
+  addCol 186.5 coteDeLaCroixNeuve C2
 
   -- Stage 15
   plainStage millau carcassonne 181.5
-  addCol 9 coteDeLuzencon
-  addCol 64.5 colDeSie
-  addCol 140 picDeNore
+  addCol 9 coteDeLuzencon C3
+  addCol 64.5 colDeSie C2
+  addCol 140 picDeNore C1
 
   restDay (Left lourdes)
 
   -- Stage 16
-  mountainStage carcassonne bagneresDeLuchon 218
-  addCol 25 coteDeFanjeaux
-  addCol 72 coteDePamiers
-  addCol 155.5 colDePortet'Aspet
-  addCol 171 colDeMente
-  addCol 208 colDuPortillon
+  plainStage carcassonne bagneresDeLuchon 218
+  addCol 25 coteDeFanjeaux C4
+  addCol 72 coteDePamiers C4
+  addCol 155.5 colDePortet'Aspet C2
+  addCol 171 colDeMente C1
+  addCol 208 colDuPortillon C1
 
   -- Stage 17
   let colDePortet' = clone colDePortet "Saint-Lary-Soulan"
-  summitFinishStage bagneresDeLuchon 65
-  addCol 15 monteDePeyragudes
-  addCol 37 colDeValLouronAzet
-  addCol 65 colDePortet'
+  mountainStage (Left bagneresDeLuchon) 65
+  addCol 15 monteDePeyragudes C1
+  addCol 37 colDeValLouronAzet C1
+  addCol 65 colDePortet' HC
 
   -- Stage 18
-  mountainStage trieSurBasie pau 171
-  addCol 53.5 coteDeMadiran
-  addCol 152.5 coteD'Anos
+  plainStage trieSurBasie pau 171
+  addCol 53.5 coteDeMadiran C4
+  addCol 152.5 coteD'Anos C4
 
   -- Stage 19
-  mountainStage lourdes laruns 200.5
-  addCol 7 coteDeLoucrup
-  addCol 40 coteDeCapvernLesBains
-  addCol 78.5 colD'Aspin
-  addCol 108 colDuTourmalet
-  addCol 159.5 colDeBorderes
-  addCol 180.5 colD'Aubisque
+  plainStage lourdes laruns 200.5
+  addCol 7 coteDeLoucrup C4
+  addCol 40 coteDeCapvernLesBains C4
+  addCol 78.5 colD'Aspin C1
+  addCol 108 colDuTourmalet HC
+  addCol 159.5 colDeBorderes C2
+  addCol 180.5 colD'Aubisque HC
 
   -- Stage 20
   individualTimeTrial saintPeeSurNivelle espelette 31

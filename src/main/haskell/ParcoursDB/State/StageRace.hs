@@ -112,11 +112,8 @@ plainStage start finish distance = do
 criterium :: Location -> Float -> State StageRaceState ()
 criterium start distance = roadStage (Left start) (Just start) distance
 
-mountainStage :: Location -> Location -> Float -> State StageRaceState()
-mountainStage start finish distance = roadStage (Left start) (Just finish) distance
-
-summitFinishStage :: Location -> Float -> State StageRaceState ()
-summitFinishStage start distance = roadStage (Left start) Nothing distance
+mountainStage :: Either Location Col -> Float -> State StageRaceState ()
+mountainStage start distance = roadStage start Nothing distance
 
 teamTimeTrial :: Location -> Location -> Float -> State StageRaceState ()
 teamTimeTrial start finish distance = do
@@ -153,15 +150,15 @@ twoManTeamTimeTrial start_finish distance = do
                     } )
 
 individualTimeTrial :: Location -> Location -> Float -> State StageRaceState ()
-individualTimeTrial start finish distance = individualTimeTrial' start (Just finish) distance
+individualTimeTrial start finish distance = individualTimeTrial' (Left start) (Just finish) distance
 
 outAndBackIndividualTimeTrial :: Location -> Float -> State StageRaceState()
-outAndBackIndividualTimeTrial start_finish distance = individualTimeTrial' start_finish (Just start_finish) distance
+outAndBackIndividualTimeTrial start_finish distance = individualTimeTrial' (Left start_finish) (Just start_finish) distance
 
-mountainTimeTrial :: Location -> Float -> State StageRaceState ()
+mountainTimeTrial :: Either Location Col -> Float -> State StageRaceState ()
 mountainTimeTrial start distance = individualTimeTrial' start Nothing distance
 
-individualTimeTrial' :: Location -> Maybe Location -> Float -> State StageRaceState ()
+individualTimeTrial' :: Either Location Col -> Maybe Location -> Float -> State StageRaceState ()
 individualTimeTrial' start finish distance = do
   currentState    <- get
   nextDay         <- nextStageDay
@@ -228,13 +225,13 @@ hc km name country height length averageGradient
   | height < 0          = error "Height must be greater than zero"
   | length < 0          = error "Length must be greater than zero"
   | averageGradient < 0 = error "Average gradient must be greater than zero"
-  | otherwise           = addCol km (Col name country HC height (Just length) (Just averageGradient) Nothing)
+  | otherwise           = addCol km (Col name country height (Just length) (Just averageGradient) Nothing) HC
 
 hc' :: Float -> String -> Country -> Int -> State StageRaceState()
 hc' km name country height 
   | km < 0     = error "km must be greater than zero"
   | height < 0 = error "Height must be greater than zero"
-  | otherwise  = addCol km (Col name country HC height Nothing Nothing Nothing)
+  | otherwise  = addCol km (Col name country height Nothing Nothing Nothing) HC
 
 c1 :: Float -> String -> Country -> Int -> Float -> Float -> State StageRaceState ()
 c1 km name country height length averageGradient
@@ -242,13 +239,13 @@ c1 km name country height length averageGradient
   | height < 0          = error "Height must be greater than zero"
   | length < 0          = error "Length must be greater than zero"
   | averageGradient < 0 = error "Average gradient must be greater than zero"
-  | otherwise           = addCol km (Col name country C1 height (Just length) (Just averageGradient) Nothing)
+  | otherwise           = addCol km (Col name country height (Just length) (Just averageGradient) Nothing) C1
 
 c1' :: Float -> String -> Country -> Int -> State StageRaceState()
 c1' km name country height
   | km < 0     = error "km must be greater than zero"
   | height < 0 = error "Height must be greater than zero"
-  | otherwise  = addCol km (Col name country C1 height Nothing Nothing Nothing)
+  | otherwise  = addCol km (Col name country height Nothing Nothing Nothing) C1
 
 c2 :: Float -> String -> Country -> Int -> Float -> Float -> State StageRaceState ()
 c2 km name country height length averageGradient
@@ -256,13 +253,13 @@ c2 km name country height length averageGradient
   | height < 0          = error "Height must be greater than zero"
   | length < 0          = error "Length must be greater than zero"
   | averageGradient < 0 = error "Average gradient must be greater than zero"
-  | otherwise           = addCol km (Col name country C2 height (Just length) (Just averageGradient) Nothing)
+  | otherwise           = addCol km (Col name country height (Just length) (Just averageGradient) Nothing) C2
 
 c2' :: Float -> String -> Country -> Int -> State StageRaceState ()
 c2' km name country height
   | km < 0     = error "km must be greater than zero"
   | height < 0 = error "Height must be greater than zero"
-  | otherwise  = addCol km (Col name country C2 height Nothing Nothing Nothing)
+  | otherwise  = addCol km (Col name country height Nothing Nothing Nothing) C2
 
 c3 :: Float -> String -> Country -> Int -> Float -> Float -> State StageRaceState ()
 c3 km name country height length averageGradient
@@ -270,13 +267,13 @@ c3 km name country height length averageGradient
   | height < 0          = error "Height must be greater than zero"
   | length < 0          = error "Length must be greater than zero"
   | averageGradient < 0 = error "Average gradient must be greater than zero"
-  | otherwise           = addCol km (Col name country C3 height (Just length) (Just averageGradient) Nothing)
+  | otherwise           = addCol km (Col name country height (Just length) (Just averageGradient) Nothing) C3
 
 c3' :: Float -> String -> Country -> Int -> State StageRaceState ()
 c3' km name country height
   | km < 0     = error "km must be greater than zero"
   | height < 0 = error "Height must be greater than zero"
-  | otherwise  = addCol km (Col name country C3 height Nothing Nothing Nothing)
+  | otherwise  = addCol km (Col name country height Nothing Nothing Nothing) C3
 
 c4 :: Float -> String -> Country -> Int -> Float -> Float -> State StageRaceState ()
 c4 km name country height length averageGradient
@@ -284,25 +281,25 @@ c4 km name country height length averageGradient
   | height < 0          = error "Height must be greater than zero"
   | length < 0          = error "Length must be greater than zero"
   | averageGradient < 0 = error "Average gradient must be greater than zero"
-  | otherwise           = addCol km (Col name country C4 height (Just length) (Just averageGradient) Nothing)
+  | otherwise           = addCol km (Col name country height (Just length) (Just averageGradient) Nothing) C4
 
 c4' :: Float -> String -> Country -> Int -> State StageRaceState ()
 c4' km name country height
   | km < 0     = error "km must be greater than zero"
   | height < 0 = error "Height must be greater than zero"
-  | otherwise  = addCol km (Col name country C4 height Nothing Nothing Nothing)
+  | otherwise  = addCol km (Col name country height Nothing Nothing Nothing) C4
 
-addCol :: Float -> Col -> State StageRaceState ()
-addCol km c
+addCol :: Float -> Col -> ColCategory -> State StageRaceState ()
+addCol km c category
   | (stageHasCol km) == True = error "There is already a Col at that point in the stage"
-  | otherwise = addCol' km c
+  | otherwise = addCol' km c category
 
-addCol' :: Float -> Col-> State StageRaceState ()
-addCol' km c = do
+addCol' :: Float -> Col -> ColCategory -> State StageRaceState ()
+addCol' km c category = do
   currentState <- get
   let stages    = sRaceStages currentState
   let lastStage = last stages
-  let col       = IndexableCol km c
+  let col       = IndexableCol km c category
   let stage     = addColToStage lastStage col
   put (currentState { sRaceStages = ((Data.List.init stages) ++ [stage]) } )
 

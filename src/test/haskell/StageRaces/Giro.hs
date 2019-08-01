@@ -32,14 +32,14 @@ import Countries.VaticanCity
 import Countries.WestGermany
 import Countries.Yugoslavia
 import Data.Time
-import Mountains.Alpes
+import Mountains.Alps
 import Mountains.Dolomites
 import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.Location
 import ParcoursDB.StageRace hiding (distance)
 import ParcoursDB.State.StageRace
-import ParcoursDB.State.NonConsecutiveStageRace hiding (teamTimeTrial)
+import ParcoursDB.State.NonConsecutiveStageRace hiding (roadStage,teamTimeTrial)
 
 giroEditions :: [StageRace]
 giroEditions = [ giro1909
@@ -2915,8 +2915,8 @@ giro1968' = do
   plainStage brescia lidoDiCaldonazzo 210.0
 
   -- Stage 10
-  summitFinishStage trento 136
-  addCol 136 monteGrappa
+  mountainStage (Left trento) 136
+  addCol 136 monteGrappa C1
 
   -- Stage 11
   plainStage bassanoDelGrappa trieste 197.0
@@ -3240,8 +3240,8 @@ giro1972' = do
   plainStage forteDeiMarmi savona 200.0
 
   -- Stage 14
-  summitFinishStage savona 256
-  addCol 256 monteJafferau
+  mountainStage (Left savona) 256
+  addCol 256 monteJafferau C1
 
   transferDay
 
@@ -4748,7 +4748,8 @@ giro1991' = do
   plainStage savona pianDelRe 182.0
 
   -- Stage 13
-  plainStage savigliano sestriere 192.0
+  mountainStage (Left savigliano) 192
+  addCol 192 sestriere C1
 
   -- Stage 14
   plainStage turin morbegno 239.0
@@ -4916,7 +4917,8 @@ giro1993' = do
   plainStage sampeyre fossano 150.0
 
   -- Stage 19
-  individualTimeTrial pinerolo sestriere 55.0
+  mountainTimeTrial (Left pinerolo) 55
+  addCol 55 sestriere C1
 
   -- Stage 20
   plainStage turin santuarioDiOropa 162.0
@@ -4993,10 +4995,12 @@ giro1994' = do
   plainStage lavagna bra 212.0
 
   -- Stage 20
-  plainStage cuneo lesDeuxAlpes 206.0
+  mountainStage (Left cuneo) 206
+  addCol 206 lesDeuxAlpes C1
 
   -- Stage 21
-  plainStage lesDeuxAlpes sestriere 121.0
+  mountainStage (Right lesDeuxAlpes) 121
+  addCol 121 sestriere C1
 
   -- Stage 22
   plainStage turin milan 198.0
@@ -5453,7 +5457,8 @@ giro2000' = do
   plainStage saluzzo briancon 176.0
 
   -- Stage 20
-  individualTimeTrial briancon sestriere 32.0
+  mountainTimeTrial (Left briancon) 32
+  addCol 32 sestriere C1
 
   -- Stage 21
   plainStage turin milan 189.0
@@ -5653,8 +5658,8 @@ giro2003' = do
   plainStage faenza sanDonaDiPiave 222.0
 
   -- Stage 12
-  summitFinishStage sanDonaDiPiave 185
-  addCol 185 monteZoncolan
+  mountainStage (Left sanDonaDiPiave) 185
+  addCol 185 monteZoncolan C1
 
   -- Stage 13
   plainStage pordenone marostica 149.0
@@ -5830,7 +5835,8 @@ giro2005' = do
   individualTimeTrial chieri turin 34.0
 
   -- Stage 19
-  plainStage savigliano sestriere 190.0
+  mountainStage (Left savigliano) 190
+  addCol 190 sestriere C1
 
   -- Stage 20
   plainStage albeseConCassano milan 119.0
@@ -5971,8 +5977,8 @@ giro2007' = do
   plainStage agordo lienz 189.0
 
   -- Stage 17
-  summitFinishStage lienz 142
-  addCol 142 monteZoncolan
+  mountainStage (Left lienz) 142
+  addCol 142 monteZoncolan C1
 
   -- Stage 18
   plainStage udine riesePioX 203.0
@@ -6187,12 +6193,12 @@ giro2010' = do
 
   -- Stage 14
   let asoloMonteGrappa = clone monteGrappa "Asolo"
-  summitFinishStage ferrara 201
-  addCol 201 asoloMonteGrappa
+  mountainStage (Left ferrara) 201
+  addCol 201 asoloMonteGrappa C1
 
   -- Stage 15
-  summitFinishStage mestre 161
-  addCol 161 monteZoncolan
+  mountainStage (Left mestre) 161
+  addCol 161 monteZoncolan C1
 
   transferDay
 
@@ -6264,8 +6270,8 @@ giro2011' = do
   plainStage spilimbergo grossglockner 167.0
 
   -- Stage 14
-  summitFinishStage lienz 170
-  addCol 170 monteZoncolan
+  mountainStage (Left lienz) 170
+  addCol 170 monteZoncolan C1
 
   -- Stage 15
   plainStage conegliano gardecciaValDiFassa 229.0
@@ -6285,7 +6291,8 @@ giro2011' = do
   plainStage bergamo macugnaga 209.0
 
   -- Stage 20
-  plainStage verbania sestriere 242.0
+  mountainStage (Left verbania) 242
+  addCol 242 sestriere C1
 
   -- Stage 21
   outAndBackIndividualTimeTrial milan 26.0
@@ -6512,8 +6519,8 @@ giro2014' = do
   individualTimeTrial bassanoDelGrappa cimaGrappa 26.8
 
   -- Stage 20
-  summitFinishStage maniago 167
-  addCol 167 monteZoncolan
+  mountainStage (Left maniago) 167
+  addCol 167 monteZoncolan C1
 
   -- Stage 21
   plainStage gemonaDelFriuli trieste 172.0
@@ -6588,7 +6595,8 @@ giro2015' = do
   plainStage gravellonaToce cervinia 236.0
 
   -- Stage 20
-  plainStage saintVincent sestriere 196.0
+  mountainStage (Left saintVincent) 196
+  addCol 196 sestriere C1
 
   -- Stage 21
   plainStage turin milan 185.0
@@ -6626,7 +6634,8 @@ giro2016' = do
   plainStage bressanone andalo 132
   plainStage molveno cassanoDAdda 196
   plainStage muggio pinerolo 244
-  plainStage pinerolo risoul 162
+  mountainStage (Left pinerolo) 162
+  addCol 162 risoul C1
   plainStage guillestre sant'AnnaDiVinadio 134
   plainStage cuneo torino 163
   race <- ParcoursDB.State.StageRace.build
@@ -6702,14 +6711,14 @@ giro2018' = do
   c4' 111.8 "Partanna" Italy 405
 
   -- Stage 6
-  summitFinishStage caltanissetta 169
+  mountainStage (Left caltanissetta) 169
   c1' 169 "Mount Etna" Italy 1736
 
   -- Stage 7
   plainStage pizzo praiaAMare 159
 
   -- Stage 8
-  summitFinishStage praiaAMare 209
+  mountainStage (Left praiaAMare) 209
   c2' 209 "Montevergine Di Mercogliano" Italy 1260
 
   -- Stage 9
@@ -6740,12 +6749,12 @@ giro2018' = do
   c4' 160.7 "Montello" Italy 242
 
   -- Stage 14
-  summitFinishStage sanVitoAlTagliamento 186
+  mountainStage (Left sanVitoAlTagliamento) 186
   c3' 43.3 "Monte di Ragogna" Italy 494
   c3' 106 "Avaglio" Italy 738
   c2' 142.5 "Passo Duron" Italy 1609
   c3' 165.8 "Sella Valcalda Ravascletto" Italy 958
-  addCol 186 monteZoncolan
+  addCol 186 monteZoncolan C1
 
   -- Stage 15
   plainStage tolmezzo sappada 176
@@ -6764,18 +6773,18 @@ giro2018' = do
   c3' 71.5 "Lodrino" Italy 736
 
   -- Stage 18
-  summitFinishStage abbiategrasso 196
+  mountainStage (Left abbiategrasso) 196
   c1' 196 "Prato Nevoso" Italy 1607
 
   -- Stage 19
-  summitFinishStage veneriaReale 185
+  mountainStage (Left veneriaReale) 185
   c2' 48.9 "Colle del Lys" Italy 1311
   c1' 110.7 "Colle delle Finestre" Italy 2178
   c3' 138.4 "Sestriere" Italy 2035
-  addCol 185 (ParcoursDB.Col.clone monteJafferau "Bardonecchia")
+  addCol 185 (ParcoursDB.Col.clone monteJafferau "Bardonecchia") C1
 
   -- Stage 20
-  summitFinishStage susa 214
+  mountainStage (Left susa) 214
   c1' 146.5 "Col Tsecore (Col du Mont-Tseuc)" Italy 1623
   c1' 185.8 "Col de Saint-Pantaleon" Italy 1664
   c1' 214 "Cervinia" Italy 2001

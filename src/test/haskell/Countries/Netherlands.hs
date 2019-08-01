@@ -13,6 +13,7 @@ module Countries.Netherlands
 ,middleburg
 ,nijmegen
 ,rotterdam
+,scheveningen
 ,sHertogenbosch
 ,sintWillebrord
 ,utrecht
@@ -79,6 +80,9 @@ rotterdam :: Location
 rotterdam = dutchLocation "Rotterdam"
 
 -- S
+scheveningen :: Location
+scheveningen = dutchLocation "Scheveningen"
+
 sHertogenbosch :: Location
 sHertogenbosch = dutchLocation "'s-Hertogenbosch"
 
