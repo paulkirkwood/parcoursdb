@@ -2006,10 +2006,11 @@ tdf1953' = do
   plainStage bordeaux pau 197.0
 
   -- Stage 10
-  plainStage pau cauterets 103.0
+  mountainStage (Left pau) 103
+  addCol 103 cauterets HC
 
   -- Stage 11
-  plainStage cauterets luchon 115.0
+  roadStage (Right cauterets) (Just luchon) 115.0
 
   -- Stage 12
   plainStage luchon albi 228.0
@@ -2674,7 +2675,8 @@ tdf1961' = do
   plainStage perpignan toulouse 206.0
 
   -- Stage 16
-  plainStage toulouse superbagneres 208.0
+  mountainStage (Left toulouse) 208
+  addCol 208 superbagneres HC
 
   -- Stage 17
   plainStage luchon pau 197.0
@@ -2742,7 +2744,8 @@ tdf1962' = do
   plainStage pau saintGaudens 207.5
 
   -- Stage 13
-  individualTimeTrial luchon superbagneres 18.5
+  mountainTimeTrial (Left luchon) 18.5
+  addCol 18.5 superbagneres HC
 
   -- Stage 14
   plainStage luchon carcassonne 215.0
@@ -3534,7 +3537,8 @@ tdf1971' = do
   plainStage revel luchon 214.5
 
   -- Stage 16
-  plainStage luchon superbagneres 19.6
+  mountainStage (Left luchon) 19.6
+  addCol 19.6 superbagneres HC
 
   -- Stages 17a & 17b
   enableSplitStages
@@ -3847,7 +3851,8 @@ tdf1979' = do
   plainStage fleurance luchon 225.0
 
   -- Stage 3
-  individualTimeTrial luchon superbagneres 24.0
+  mountainTimeTrial (Left luchon) 24
+  addCol 24 superbagneres HC
 
   -- Stage 4
   plainStage luchon pau 180.0
@@ -4483,10 +4488,11 @@ tdf1986' = do
   plainStage bayonne pau 217.5
 
   -- Stage 13
-  plainStage pau superbagneres 186.0
+  mountainStage (Left pau) 186
+  addCol 186 superbagneres HC
 
   -- Stage 15
-  plainStage superbagneres blagnac 154.0
+  roadStage (Right superbagneres) (Just blagnac) 154.0
 
   -- Stage 16
   plainStage carcassonne nimes 225.5
@@ -4741,10 +4747,12 @@ tdf1989' = do
   plainStage labastideD'Armagnac pau 157.0
 
   -- Stage 9
-  plainStage pau cauterets 147.0
+  mountainStage (Left pau) 147
+  addCol 147 cauterets HC
 
   -- Stage 110
-  plainStage cauterets superbagneres 136.0
+  mountainStage (Right cauterets) 136
+  addCol 136 superbagneres HC
 
   -- Stage 11
   plainStage luchon blagnac 158.5
@@ -5242,7 +5250,8 @@ tdf1995' = do
   restDay (Left saintGirons)
 
   -- Stage 15
-  plainStage saintGirons cauterets 206.0
+  mountainStage (Left saintGirons) 206
+  addCol 206 cauterets HC
 
   -- Stage 16
   plainStage tarbes pau 149.0
@@ -5460,7 +5469,8 @@ tdf1998' = do
   plainStage pau luchon 196.5
 
   -- Stage 11
-  plainStage luchon plateauDeBeille 170.0
+  mountainStage (Left luchon) 170
+  addCol 170 plateauDeBeille C1
 
   restDay (Left ariege)
 
@@ -5555,7 +5565,8 @@ tdf1999' = do
   restDay (Left saintGaudens)
 
   -- Stage 15
-  plainStage saintGaudens piauEngaly 173.0
+  mountainStage (Left saintGaudens) 173
+  addCol 173 piauEngaly C1
 
   -- Stage 16
   plainStage lannemezan pau 192.0
@@ -5699,7 +5710,8 @@ tdf2001' = do
   restDay (Left perpignan)
 
   -- Stage 12
-  plainStage perpignan plateauDeBonascre 165.5
+  mountainStage (Left perpignan) 165.5
+  addCol 165.5 plateauDeBonascre C1
 
   -- Stage 13
   plainStage foix saintLarySoulanPlaD'Adet 194.0
@@ -5775,7 +5787,8 @@ tdf2002' = do
   addCol 158 laMongie C1
 
   -- Stage 13
-  plainStage lannemezan plateauDeBeille 199.5
+  mountainStage (Left lannemezan) 199.5
+  addCol 199.5 plateauDeBeille C1
 
   -- Stage 14
   plainStage lavelanet beziers 171.0
@@ -5935,7 +5948,8 @@ tdf2004' = do
   addCol 197.5 laMongie C1
 
   -- Stage 14
-  plainStage lannemezan plateauDeBeille 205.5
+  mountainStage (Left lannemezan) 205.5
+  addCol 205.5 plateauDeBeille C1
 
   -- Stage 15
   plainStage carcassonne nimes 192.5
@@ -6082,7 +6096,8 @@ tdf2006' = do
   plainStage camboLesBains pau 190.5
 
   -- Stage 12
-  plainStage tarbes valD'AranPlaDeBeret 206.5
+  mountainStage (Left tarbes) 206.5
+  addCol 206.5 valD'AranPlaDeBeret C1
 
   -- Stage 13
   plainStage luchon carcassonne 211.5
@@ -6168,7 +6183,8 @@ tdf2007' = do
   outAndBackIndividualTimeTrial albi 54.0
 
   -- Stage 15
-  plainStage mazamet plateauDeBeille 197.0
+  mountainStage (Left mazamet) 197
+  addCol 197 plateauDeBeille C1
 
   -- Stage 16
   plainStage foix loudenvielle 196.0
@@ -6474,7 +6490,8 @@ tdf2011' = do
   plainStage pau lourdes 152.5
 
   -- Stage 14
-  plainStage saintGaudens plateauDeBeille 168.5
+  mountainStage (Left saintGaudens) 168.5
+  addCol 168.5 plateauDeBeille C1
 
   -- Stage 15
   plainStage limoux montpellier 192.5
@@ -6565,7 +6582,8 @@ tdf2012' = do
   plainStage pau bagneresDeLuchon 197.0
 
   -- Stage 18
-  plainStage bagneresDeLuchon peyragudes 143.5
+  mountainStage (Left bagneresDeLuchon) 143.5
+  addCol 143.5 peyragudes C1
 
   -- Stage 19
   plainStage blagnac briveLaGaillarde 222.5
@@ -6775,10 +6793,12 @@ tdf2015' = do
   addCol 167 laPierreSaintMartin C1
 
   -- Stage 11
-  plainStage pau cauterets 188.0
+  mountainStage (Left pau) 188
+  addCol 188 cauterets HC
 
   -- Stage 12
-  plainStage lannemezan plateauDeBeille 195.0
+  mountainStage (Left lannemezan) 195
+  addCol 195 plateauDeBeille C1
 
   -- Stage 13
   plainStage muret rodez 198.5
@@ -6932,7 +6952,8 @@ tdf2017' = do
   plainStage eymet pau 203.5
 
   -- Stage 12
-  plainStage pau peyragudes 214.5
+  mountainStage (Left pau) 214.5
+  addCol 214.5 peyragudes C1
 
   -- Stage 13
   plainStage saintGirons foix 101.0
@@ -7069,7 +7090,7 @@ tdf2018' = do
   -- Stage 17
   let colDePortet' = clone colDePortet "Saint-Lary-Soulan"
   mountainStage (Left bagneresDeLuchon) 65
-  addCol 15 monteDePeyragudes C1
+  addCol 15 peyragudes C1
   addCol 37 colDeValLouronAzet C1
   addCol 65 colDePortet' HC
 

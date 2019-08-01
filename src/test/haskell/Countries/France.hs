@@ -141,7 +141,6 @@ castelnaudary = Location "Castelnaudary" France
 castelsarrasin = Location "Castelsarrasin" France
 castillonLaBataille = Location "Castillon-la-Bataille" France
 castres = Location "Castres" France
-cauterets = Location "Cauterets" France
 cergyPontoise = Location "Cergy-Pontoise" France
 cerilly = Location "Cerilly" France
 chablis = Location "Chablis" France
@@ -489,12 +488,8 @@ perigueux = Location "Périgueux" France
 peronne = Location "Peronne" France
 perpignan = Location "Perpignan" France
 perrosGuirec = Location "Perros-Guirec" France
-peyragudes = Location "Peyragudes" France
 peyrehorade = Location "Peyrehorade" France
-piauEngaly = Location "Piau-Engaly" France
 plaD'Adet = Location "Pla d'Adet" France
-plateauDeBeille = Location "Plateau de Beille" France
-plateauDeBonascre = Location "Plateau de Bonascre" France
 plouay = Location "Plouay" France
 plumelec = Location "Plumelec" France
 poitiers     = Location "Poitiers" France
@@ -621,7 +616,6 @@ stationDesRousses = Location "Station des Rousses" France
 strasbourg = Location "Strasbourg" France
 superBesse = Location "Super Besse" France
 superBesseSancy = Location "Super-Besse Sancy" France
-superbagneres = Location "Superbagneres" France
 suresnes               = Location "Suresnes, Paris" France
 
 -- T
@@ -652,7 +646,6 @@ utahBeach = Location "Utah Beach (Sainte-Marie-du-Mont)" France
 
 -- V
 vaisonLaRomaine      = Location "Vaison-la-Romaine" France
-valD'AranPlaDeBeret  = Location "Val d'Aran/Pla-de-Beret" France
 valLouron            = Location "Val Louron" France
 valdebloreLaColmiane = Location "Valdeblore La Colmiane" France
 valence              = Location "Valence" France
