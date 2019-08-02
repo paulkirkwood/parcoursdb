@@ -97,6 +97,7 @@ tourDeFranceEditions = [ tdf1903
                        , tdf1971
                        , tdf1972
                        , tdf1973
+                       , tdf1974
                        , tdf1978
                        , tdf1979
                        , tdf1980
@@ -3605,7 +3606,7 @@ tdf1972' = do
   plainStage pau luchon 163.5
 
   -- Stage 10
-  plainStage luchon colombiers 179.0
+  plainStage luchon colomiers 179.0
 
   -- Stage 11
   plainStage castres laGrandMotte 210.0
@@ -3749,6 +3750,101 @@ tdf1973' = do
   outAndBackIndividualTimeTrial versailles 16
   plainStage versailles paris 89
   disableSplitStages
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1974 :: StageRace
+tdf1974 = evalState tdf1974' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1974 6 27))
+
+tdf1974' :: State StageRaceState StageRace
+tdf1974' = do
+  -- Prologue
+  prologue' brest 7
+
+  -- Stage 1
+  plainStage brest saintPolDeLeon 144
+
+  -- Stage 2
+  criterium plymouth 164
+
+  -- Stage 3
+  plainStage morlaix saintMalo 190
+
+  -- Stage 4
+  plainStage saintMalo caen 184
+
+  -- Stage 5
+  plainStage caen dieppe 165
+
+  -- Stages 6a & 6b
+  enableSplitStages
+  plainStage dieppe harelbeke 239
+  outAndBackTeamTimeTrial harelbeke 9
+  disableSplitStages
+
+  -- Stage 7
+  plainStage mons chalonsSurMarne 221
+
+  -- Stages 8a & 8b
+  enableSplitStages
+  plainStage chalonsSurMarne chaumont 136
+  plainStage chaumont besancon 152
+  disableSplitStages
+
+  -- Stage 9
+  plainStage besancon gaillard 241
+
+  -- Stage 10
+  plainStage gaillard aixLesBains 131
+
+  -- Stage 11
+  plainStage aixLesBains serreChevalier 199
+
+  restDay (Left aixLesBains)
+
+  -- Stage 12
+  plainStage savinesLeLac orange 231
+
+  -- Stage 13
+  plainStage avignon montpellier 126
+
+  -- Stage 14
+  plainStage lodeve colomiers 249
+
+  restDay (Left colomiers)
+
+  -- Stage 15
+  plainStage colomiers laSeuD'Urgell 225
+
+  -- Stage 16
+  mountainStage (Left laSeuD'Urgell) 209
+  addCol 209 saintLarySoulanPlaDAdet C1
+
+  -- Stage 17
+  mountainStage (Left saintLarySoulan) 119
+  addCol 119 laMongie C1
+
+  -- Stage 18
+  plainStage bagneresDeBigorre pau 141
+
+  -- Stages 19a & 19b
+  enableSplitStages
+  plainStage pau bordeaux 196
+  outAndBackIndividualTimeTrial bordeaux 12
+  disableSplitStages
+
+  -- Stage 20
+  plainStage saintGillesCroixDeVie nantes 120
+
+  -- Stages 21a & 21b
+  enableSplitStages
+  plainStage vouvray orleans 113
+  outAndBackIndividualTimeTrial orleans 37
+  disableSplitStages
+
+  -- Stage 22
+  plainStage orleans paris 146
 
   edition <- ParcoursDB.State.StageRace.build
   return edition

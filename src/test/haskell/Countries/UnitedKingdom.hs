@@ -7,6 +7,7 @@ brighton
 ,harrogate
 ,leeds
 ,london
+,plymouth
 ,portsmouth
 ,sheffield
 ,york
@@ -39,6 +40,9 @@ leeds = britishLocation "Leeds"
 
 london :: Location
 london = britishLocation "London"
+
+plymouth :: Location
+plymouth = britishLocation "Plymouth"
 
 portsmouth :: Location
 portsmouth = britishLocation "Portsmouth"

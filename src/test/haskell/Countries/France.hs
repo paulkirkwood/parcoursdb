@@ -80,7 +80,10 @@ belleville :: Location
 belleville = frenchLocation "Belleville"
 
 bergerac               = Location "Bergerac" France
-besancon               = Location "Besancon" France
+
+besancon :: Location
+besancon = frenchLocation "Besançon"
+
 besse                  = Location "Besse" France
 besseEnChandesse       = Location "Besse-en-Chandesse" France
 bethune                = Location "Bethune" France
@@ -147,11 +150,18 @@ chablis = Location "Chablis" France
 chaletReynard = Location "Chalet Reynard (Mont Ventoux)" France
 challans = Location "Challans" France
 chalonSurSaone = Location "Chalon-sur-Saone" France
-chalonsSurMarne = Location "Chalons-sur-Marne" France
+
+chalonsSurMarne :: Location
+chalonsSurMarne = frenchLocation "Châlons-sur-Marne"
+
 chambery = Location "Chambery" France
 chambord = Location "Chambord" France
 chamonix = Location "Chamonix" France
 champagnole = Location "Champagnole" France
+
+chaumont :: Location
+chaumont = frenchLocation "Chaumont"
+
 chantilly       = Location "Chantilly" France
 chantonnay = Location "Chantonnay" France
 charleville = Location "Charleville" France
@@ -186,7 +196,7 @@ clermontFerrand     = Location "Clermont-Ferrand" France
 cluses              = Location "Cluses" France
 cognac              = Location "Cognac" France
 colmar              = Location "Colmar" France
-colombiers          = Location "Colombiers" France
+colomiers           = Location "Colomiers" France
 commercy            = Location "Commercy" France
 compiegne           = Location "Compiegne" France
 concarneau          = Location "Concarneau" France
@@ -320,7 +330,10 @@ labastideD'Armagnac = Location "Labastide-d'Armagnac" France
 lacDeMadine = Location "Lac de Madine" France
 lacDePayolle = Location "Lac de Payolle" France
 lacDeVassiviere = Location "Lac de Vassiviere" France
+
+lacSaintPoint :: Location
 lacSaintPoint = Location "Lac Saint-Point" France
+
 laissacSeveracL'Eglise = Location "Laissac-Severac-l'Eglise" France
 lamballe = Location "Lamballe" France
 lanester = Location "Lanester" France
@@ -364,7 +377,10 @@ limoges = Location "Limoges" France
 limoux = Location "Limoux" France
 lisieux = Location "Lisieux" France
 livarot = Location "Livarot" France
-lodeve = Location "Lodeve" France
+
+lodeve :: Location
+lodeve = Location "Lodève" France
+
 longjumeau = Location "Longjumeau" France
 longwy = Location "Longwy" France
 lonsLeSaunier = Location "Lons-le-Saunier" France
@@ -429,6 +445,10 @@ montlucon = Location "Montlucon" France
 montpellier            = Location "Montpellier" France
 montponMenesterol = Location "Montpon-Menesterol" France
 montreuil = Location "Montreuil" France
+
+morlaix :: Location
+morlaix = frenchLocation "Morlaix"
+
 morzine = Location "Morzine" France
 morzineAvoriaz = Location "Morzine-Avoriaz" France
 mouilleronSaintGermain = Location "Mouilleron-Saint-Germain" France
@@ -462,8 +482,15 @@ nuitsSaintGeorges = Location "Nuits-Saint-Georges" France
 -- O
 obernai = Location "Obernai" France
 olonneSurMer = Location "Olonne-sur-Mer" France
+
+orange :: Location
+orange = frenchLocation "Orange"
+
 orchies = Location "Orchies" France
-orleans = Location "Orleans" France
+
+orleans :: Location
+orleans = frenchLocation "Orléans"
+
 orsonville = Location "Orsonville" France
 orthez = Location "Orthez" France
 
@@ -552,6 +579,10 @@ saintGermainEnLaye = Location "Saint-Germain-en-Laye" France
 saintGervais = Location "Saint-Gervais" France
 saintGervaisLesBains = Location "Saint Gervais-les-Bains" France
 saintGildasDesBois = Location "Saint-Gildas-des-Bois" France
+
+saintGillesCroixDeVie :: Location
+saintGillesCroixDeVie = frenchLocation "Saint-Gilles-Croix-de-Vie"
+
 saintGirons = Location "Saint-Girons" France
 saintGregoire = Location "Saint Gregoire" France
 saintHerblain = Location "Saint-Herblain" France
@@ -564,7 +595,7 @@ saintJeanDeMonts = Location "Saint-Jean-de-Monts" France
 saintJulienEnGenevois = Location "Saint-Julien-en-Genevois" France
 saintJust              = Location "Saint-Just-Saint-Rambert" France
 saintLaryPlaD'Adet = Location "Saint-Lary Pla d'Adet" France
-saintLarySoulan        = Location "Saint-Lary-Soulan (Col de Portet)" France
+saintLarySoulan        = Location "Saint-Lary-Soulan" France
 saintLarySoulanPlaD'Adet = Location "Saint-Lary-Soulan Pla d'Adet" France
 saintLeonardDeNoblat = Location "Saint-Leonard-de-Noblat" France
 saintLo = Location "Saint-Lo" France
@@ -577,6 +608,10 @@ saintOmer = Location "Saint-Omer" France
 saintOrensDeGameville = Location "Saint-Orens-de-Gameville" France
 saintPaulTroisChateaux = Location "Saint-Paul-Trois-Chateaux" France
 saintPeeSurNivelle     = Location "Saint-Pee-sur-Nivelle" France
+
+saintPolDeLeon :: Location
+saintPolDeLeon = frenchLocation "Saint-Pol-de-Léon"
+
 saintPourcainSurSioule = Location "Saint-Pourcain-sur-Sioule" France
 saintPriest = Location "Saint-Priest" France
 saintQuentin = Location "Saint-Quentin" France
@@ -597,6 +632,10 @@ sarrebourg = Location "Sarrebourg" France
 sarzeau                = Location "Sarzeau" France
 saumur = Location "Saumur" France
 sauternes = Location "Sauternes" France
+
+savinesLeLac :: Location
+savinesLeLac = frenchLocation "Savines-le-Lac"
+
 sceaux = Location "Sceaux" France
 sedan = Location "Sedan" France
 semnoz = Location "Semnoz" France
@@ -674,6 +713,10 @@ viryChatillon        = Location "Viry-Chatillon" France
 vitre                = Location "Vitre" France
 vittel               = Location "Vittel" France
 vizelle              = Location "Vizelle" France
+
+vouvray :: Location
+vouvray = frenchLocation "Vouvray"
+
 voreppe              = Location "Voreppe" France
 
 -- W
