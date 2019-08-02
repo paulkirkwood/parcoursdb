@@ -9,6 +9,7 @@ import Control.Monad.State
 import Countries.France
 import Data.Time
 import Mountains.Alps
+import Mountains.Alps.Provence (montVentoux)
 import Mountains.MassifCentral
 import ParcoursDB.Col
 import ParcoursDB.Country

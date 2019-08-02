@@ -288,7 +288,6 @@ hyeres   = Location "Hyeres" France
 -- I
 ileD'Oleron = Location "Ile d'Oleron" France
 isola = Location "Isola" France
-isola2000 = Location "Isola 2000" France
 issoire = Location "Issoire" France
 issoudun = Location "Issoudun" France
 
@@ -302,7 +301,6 @@ jonzac = Location "Jonzac" France
 l'IsleD'Abeau = Location "L'Isle-d'Abeau" France
 l'IsleJourdain = Location "L'Isle-Jourdain" France
 laBaule = Location "La Baule" France
-laBourboule = Location "La Bourboule" France
 laCaverneDuPontD'Arc = Location "La Caverne du Pont-d'Arc" France
 laChataigneraie = Location "La Chataigneraie" France
 laChatre = Location "La Chatre" France
@@ -314,7 +312,6 @@ laGrandeMotte = Location "La Grande-Motte" France
 laGuercheDeBretagne = Location "La Guerche-de-Bretagne" France
 laHaieFouassiere = Location "La Haie-Fouassiere" France
 laMure = Location "La Mure" France
-laPlancheDesBellesFilles = Location "La Planche des Belles Filles" France
 laRocheSurYon = Location "La Roche-sur-Yon" France
 laRochelle = Location "La Rochelle" France
 laTourDuPin = Location "La Tour-du-Pin" France
@@ -343,7 +340,6 @@ leCapD'Agde = Location "Le Cap d'Agde" France
 leCreusot = Location "Le Creusot" France
 leGrandBornand = Location "Le Grand Bornand" France
 leHavre = Location "Le Havre" France
-leLioran = Location "Le Lioran" France
 leMans = Location "Le Mans" France
 leMonetierLesBains = Location "Le Monetier-les-Bains" France
 lePerreuxSurMarne = Location "Le Perreux-sur-Marne" France
@@ -594,6 +590,7 @@ saliesDeBearn = Location "Salies-de-Bearn" France
 sallanches = Location "Sallanches" France
 salonDeProvence = Location "Salon-de-Provence" France
 samatan = Location "Samatan" France
+
 santennay = Location "Santennay" France
 sarran = Location "Sarran" France
 sarrebourg = Location "Sarrebourg" France
@@ -614,8 +611,6 @@ sisteron = Location "Sisteron" France
 soissons = Location "Soissons" France
 stationDesRousses = Location "Station des Rousses" France
 strasbourg = Location "Strasbourg" France
-superBesse = Location "Super Besse" France
-superBesseSancy = Location "Super-Besse Sancy" France
 suresnes               = Location "Suresnes, Paris" France
 
 -- T

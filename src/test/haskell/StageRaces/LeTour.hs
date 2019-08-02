@@ -24,9 +24,12 @@ import Countries.WestGermany
 import Countries.UnitedKingdom
 import Data.Time
 import Mountains.Alps
+import Mountains.Alps.Maritime (isola2000)
+import Mountains.Alps.Provence (montVentoux)
 import Mountains.MassifArmorican
 import Mountains.MassifCentral
 import Mountains.Pyrenees
+import Mountains.Vosges (laPlancheDesBellesFilles)
 import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.StageRace hiding (distance)
@@ -1960,7 +1963,7 @@ tdf1952' = do
 
   -- Stage 21
   mountainStage (Left limoges) 245
-  addCol 245 puyDeDome HC
+  addCol 245 puyDeDome C1
 
   -- Stage 22
   individualTimeTrial clermontFerrand vichy 63.0
@@ -2515,7 +2518,7 @@ tdf1959' = do
 
   -- Stage 15
   mountainTimeTrial (Right puyDeDome) 12
-  addCol 12 puyDeDome HC
+  addCol 12 puyDeDome C1
 
   -- Stage 16
   plainStage clermontFerrand saintÉTienne 210.0
@@ -2929,7 +2932,7 @@ tdf1964' = do
 
   -- Stage 20
   mountainStage (Left brive) 217
-  addCol 217 puyDeDome HC
+  addCol 217 puyDeDome C1
 
   -- Stage 21
   plainStage clermontFerrand orleans 311.0
@@ -3187,7 +3190,7 @@ tdf1967' = do
 
   -- Stage 21
   mountainStage (Left limoges) 222
-  addCol 222 puyDeDome HC
+  addCol 222 puyDeDome C1
 
   -- Stage 22
   plainStage clermontFerrand fontainebleau 359.0
@@ -3363,7 +3366,7 @@ tdf1969' = do
 
   -- Stage 20
   mountainStage (Left brive) 198
-  addCol 198 puyDeDome HC
+  addCol 198 puyDeDome C1
 
   -- Stage 21
   plainStage clermontFerrand montargis 329.0
@@ -3514,7 +3517,7 @@ tdf1971' = do
 
   -- Stage 9
   mountainStage (Left nevers) 221
-  addCol 221 puyDeDome HC
+  addCol 221 puyDeDome C1
 
   -- Stage 10
   plainStage clermontFerrand saintÉTienne 153.0
@@ -3736,7 +3739,7 @@ tdf1973' = do
 
   -- Stage 18
   mountainStage (Left briveLaGaillarde) 216.5
-  addCol 216.5 puyDeDome HC
+  addCol 216.5 puyDeDome C1
 
   -- Stage 19
   plainStage bourges versailles 233.5
@@ -3803,11 +3806,12 @@ tdf1978' = do
   disableSplitStages
 
   -- Stage 14
-  plainStage figeac superBesse 221.0
+  mountainStage (Left figeac) 221
+  addCol 221 superBesse C3
 
   -- Stage 15
   mountainTimeTrial (Left besseEnChandesse) 52
-  addCol 52 puyDeDome HC
+  addCol 52 puyDeDome C1
 
   -- Stage 16
   plainStage saintDierD'Auvergne saintÉTienne 196.0
@@ -4517,7 +4521,7 @@ tdf1986' = do
 
   -- Stage 22
   mountainStage (Left saintÉTienne) 190
-  addCol 190 puyDeDome HC
+  addCol 190 puyDeDome C1
 
   -- Stage 23
   plainStage clermontFerrand nevers 194.0
@@ -5016,10 +5020,11 @@ tdf1992' = do
   plainStage leBourgD'Oisans saintÉTienne 198.0
 
   -- Stage 16
-  plainStage saintÉTienne laBourboule 212.0
+  mountainStage (Left saintÉTienne) 212
+  addCol 212 laBourboule C1
 
   -- Stage 17
-  plainStage laBourboule montlucon 189.0
+  roadStage (Right laBourboule) (Just montlucon) 189.0
 
   -- Stage 18
   plainStage montlucon tours 212.0
@@ -5077,7 +5082,8 @@ tdf1993' = do
   roadStage (Right villardDeLans) (Just serreChevalier) 203.0
 
   -- Stage 11
-  plainStage serreChevalier isola2000 179.0
+  mountainStage (Left serreChevalier) 179
+  addCol 179 isola2000 HC
 
   -- Stage 12
   plainStage isola marseille 286.5
@@ -5321,7 +5327,8 @@ tdf1996' = do
   plainStage valence lePuyEnVelay 143.5
 
   -- Stage 13
-  plainStage lePuyEnVelay superBesse 177.0
+  mountainStage (Left lePuyEnVelay) 177
+  addCol 177 superBesse C3
 
   -- Stage 14
   plainStage besse tulle 186.5
@@ -6230,7 +6237,8 @@ tdf2008' = do
   plainStage cholet chateauroux 232.0
 
   -- Stage 6
-  plainStage aigurande superBesseSancy 195.0
+  mountainStage (Left aigurande) 195
+  addCol 195 superBesse C2
 
   -- Stage 7
   plainStage brioude aurillac 159.0
@@ -6469,12 +6477,13 @@ tdf2011' = do
   plainStage leMans chateauroux 218.0
 
   -- Stage 8
-  plainStage aigurande superBesse 189.0
+  mountainStage (Left aigurande) 189
+  addCol 189 superBesse C3
 
   -- Stage 9
   plainStage issoire saintFlour 208.0
 
-  restDay (Left leLioran)
+  restDay (Right leLioran)
 
   -- Stage 10
   plainStage aurillac carmaux 158.0
@@ -6548,7 +6557,8 @@ tdf2012' = do
   plainStage epernay metz 207.5
 
   -- Stage 8
-  plainStage tomblaine laPlancheDesBellesFilles 199.0
+  mountainStage (Left tomblaine) 199
+  addCol 199 laPlancheDesBellesFilles C1
 
   -- Stage 9
   plainStage belfort porrentruy 157.5
@@ -6708,7 +6718,8 @@ tdf2014' = do
   plainStage gerardmer mulhouse 170.0
 
   -- Stage 10
-  plainStage mulhouse laPlancheDesBellesFilles 161.5
+  mountainStage (Left mulhouse) 161.5
+  addCol 161.5 laPlancheDesBellesFilles C1
 
   restDay (Left besancon)
 
@@ -6852,7 +6863,8 @@ tdf2016' = do
   plainStage saumur limoges 237.5
 
   -- Stage 5
-  plainStage limoges leLioran 216.0
+  mountainStage (Left limoges) 216
+  addCol 216 leLioran C1
 
   -- Stage 6
   plainStage arpajonSurCere montauban 190.5
@@ -6929,7 +6941,8 @@ tdf2017' = do
   plainStage mondorfLesBains vittel 207.5
 
   -- Stage 5
-  plainStage vittel laPlancheDesBellesFilles 160.5
+  mountainStage (Left vittel) 160.5
+  addCol 160.5 laPlancheDesBellesFilles C1
 
   -- Stage 6
   plainStage vesoul troyes 216.0
