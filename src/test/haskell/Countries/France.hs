@@ -20,11 +20,18 @@ albi                   = Location "Albi" France
 alencon                = Location "Alencon" France
 ales                   = Location "Ales" France
 alfortville            = Location "Alfortville" France
+
+altkirch :: Location
+altkirch = frenchLocation "Altkirch"
+
 amiens                 = Location "Amiens" France
 ancenis                = Location "Ancenis" France
 andorraLaVella         = Location "Andorra la Vella" France
 angers                 = Location "Angers" France
-angouleme              = Location "Angouleme" France
+
+angouleme :: Location
+angouleme = frenchLocation "Angoulême"
+
 annecy                 = Location "Annecy" France
 annemasse              = Location "Annemasse" France
 annonayDavezieux       = Location "Annonay-Davezieux" France
@@ -49,6 +56,10 @@ arras                  = Location "Arras" France
 aubagne                = Location "Aubagne" France
 aubenas                = Location "Aubenas" France
 aubisque               = Location "Aubisque" France
+
+auch :: Location
+auch = frenchLocation "Auch"
+
 aulay                  = Location "Aulay" France
 aulnaySousBois         = Location "Aulnay-sous-Bois" France
 aurillac               = Location "Aurillac" France
@@ -66,6 +77,10 @@ bagneresDeBigorre      = Location "Bagnères-de-Bigorre" France
 bagneresDeLuchon       = Location "Bagnères-de-Luchon" France
 bagnolesDeL'Orne       = Location "Bagnoles-de-l'Orne" France
 ballonD'Alsace         = Location "Ballon d'Alsace" France
+
+barcelonette :: Location
+barcelonette = frenchLocation "Barcelonnette"
+
 barLeDuc               = Location "Bar-le-Duc" France
 bastia                 = Location "Bastia" France
 bayonne                = Location "Bayonne" France
@@ -149,7 +164,9 @@ cerilly = Location "Cerilly" France
 chablis = Location "Chablis" France
 chaletReynard = Location "Chalet Reynard (Mont Ventoux)" France
 challans = Location "Challans" France
-chalonSurSaone = Location "Chalon-sur-Saone" France
+
+chalonSurSaone :: Location
+chalonSurSaone = frenchLocation "Chalon-sur-Saône"
 
 chalonsSurMarne :: Location
 chalonsSurMarne = frenchLocation "Châlons-sur-Marne"
@@ -172,6 +189,10 @@ chateauThierry      = Location "Chateau-Thierry" France
 chateaubriant       = Location "Chateaubriant" France
 chateaulin          = Location "Chateaulin" France
 chateauroux         = Location "Chateauroux" France
+
+chatel :: Location
+chatel = frenchLocation "Châtel"
+
 chatelGuyon         = Location "Chatel-Guyon" France
 chatellerault       = Location "Chatellerault" France
 chatou              = Location "Chatou" France
@@ -302,6 +323,9 @@ issoire = Location "Issoire" France
 issoudun = Location "Issoudun" France
 
 -- J
+jaunayClan :: Location
+jaunayClan = frenchLocation "Jaunay-Clan"
+
 jausiers = Location "Jausiers" France
 joigny = Location "Joigny" France
 joinville = Location "Joinville" France
@@ -327,6 +351,10 @@ laRochelle = Location "La Rochelle" France
 laTourDuPin = Location "La Tour-du-Pin" France
 laToussuireLesSybelles = Location "La Toussuire - Les Sybelles" France
 labastideD'Armagnac = Location "Labastide-d'Armagnac" France
+
+lacanau :: Location
+lacanau = frenchLocation "Lacanau"
+
 lacDeMadine = Location "Lac de Madine" France
 lacDePayolle = Location "Lac de Payolle" France
 lacDeVassiviere = Location "Lac de Vassiviere" France
@@ -347,6 +375,10 @@ laval = Location "Laval" France
 lavalanet = Location "Lavalanet" France
 lavaur = Location "Lavaur" France
 lavelanet = Location "Lavelanet" France
+
+leBarcares :: Location
+leBarcares = frenchLocation "Le Barcarès"
+
 leBlanc = Location "Le Blanc" France
 leBourgD'Oisans = Location "Le Bourg-d'Oisans" France
 leCapD'Agde = Location "Le Cap d'Agde" France
@@ -446,6 +478,9 @@ montpellier            = Location "Montpellier" France
 montponMenesterol = Location "Montpon-Menesterol" France
 montreuil = Location "Montreuil" France
 
+morcenx :: Location
+morcenx = frenchLocation "Morenx"
+
 morlaix :: Location
 morlaix = frenchLocation "Morlaix"
 
@@ -482,6 +517,9 @@ nuitsSaintGeorges = Location "Nuits-Saint-Georges" France
 -- O
 obernai = Location "Obernai" France
 olonneSurMer = Location "Olonne-sur-Mer" France
+
+oloronSainteMarie :: Location
+oloronSainteMarie = frenchLocation "Oloron-Sainte-Marie"
 
 orange :: Location
 orange = frenchLocation "Orange"
@@ -527,6 +565,10 @@ pornichet = Location "Pornichet" France
 porrentruy = Location "Porrentruy" France
 porteMaillot = Location "Porte Maillot, Paris" France
 portoVecchio = Location "Porto-Vecchio" France
+
+pouillyEnAuxois :: Location
+pouillyEnAuxois = frenchLocation "Pouilly-en-Auxois"
+
 prapoutel = Location "Prapoutel" France
 privas = Location "Privas" France
 provence = Location "Provence" France
@@ -550,6 +592,10 @@ rodez = Location "Rodez" France
 romansSurIsere = Location "Romans-sur-Isere" France
 roquefortSurSoulzon = Location "Roquefort-sur-Soulzon" France
 roscoff = Location "Roscoff" France
+
+rossignolVoiron :: Location
+rossignolVoiron = frenchLocation "Rossignol Voiron"
+
 roubaix = Location "Roubaix" France
 rouen = Location "Rouen" France
 royan = Location "Royan" France
@@ -558,6 +604,9 @@ ruffex = Location "Ruffex" France
 rungis = Location "Rungis" France
 
 -- S
+sableSurSarthe :: Location
+sableSurSarthe = frenchLocation "Sablé-sur-Sarthe"
+
 saintAmandLesEaux = Location "Saint-Amand-les-Eaux" France
 saintAmandMontrond = Location "Saint-Amand-Montrond" France
 saintBrieuc = Location "Saint-Brieuc" France
@@ -617,6 +666,10 @@ saintPriest = Location "Saint-Priest" France
 saintQuentin = Location "Saint-Quentin" France
 saintQuentinEnYvelines = Location "Saint-Quentin-en-Yvelines" France
 saintRaphael = Location "Saint-Raphael" France
+
+saintTrivierSurMoignans :: Location
+saintTrivierSurMoignans = frenchLocation "Saint-Trivier-sur-Moignans"
+
 saintValeryEnCaux = Location "Saint-Valery-en-Caux" France
 sainteFoyLaGrande = Location "Sainte-Foy-la-Grande" France
 sainteGenevieveDesBois = Location "Sainte-Genevieve-des-Bois" France
@@ -638,6 +691,10 @@ savinesLeLac = frenchLocation "Savines-le-Lac"
 
 sceaux = Location "Sceaux" France
 sedan = Location "Sedan" France
+
+seignosseLePenon :: Location
+seignosseLePenon = frenchLocation "Seignosse le Penon"
+
 semnoz = Location "Semnoz" France
 semurEnAuxois = Location "Semur-en-Auxois" France
 senlis = Location "Senlis" France
@@ -685,6 +742,10 @@ valdebloreLaColmiane = Location "Valdeblore La Colmiane" France
 valence              = Location "Valence" France
 valenceD'Agen        = Location "Valence d'Agen" France
 valenciennes         = Location "Valenciennes" France
+
+valentigney :: Location
+valentigney = frenchLocation "Valentigney"
+
 valloire             = Location "Valloire" France
 valmorel             = Location "Valmorel" France
 valreas              = Location "Valreas" France

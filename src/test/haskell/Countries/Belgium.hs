@@ -3,15 +3,25 @@ module Countries.Belgium where
 import ParcoursDB.Country
 import ParcoursDB.Location
 
+belgianLocation :: String -> Location
+belgianLocation name = Location name Belgium
+
 -- A
 ans     = Location "Ans" Belgium
 antwerp = Location "Antwerp" Belgium
 arlon   = Location "Arlon" Belgium
 
 -- B
+bastogne :: Location
+bastogne = belgianLocation "Bastogne"
+
 beauraing  = Location "Beauraing" Belgium
 beringen   = Location "Beringen" Belgium
 beveren    = Location "Beveren"  Belgium
+
+bornem :: Location
+bornem = belgianLocation "Bornem"
+
 brasschaat = Location "Brasschaat" Belgium
 brussels   = Location "Brussels"  Belgium
 
@@ -47,6 +57,9 @@ jambes = Location "Jambes" Belgium
 kuurne = Location "Kuurne" Belgium
 
 -- L
+leuven :: Location
+leuven = belgianLocation "Leuven"
+
 liege   = Location "Liège" Belgium
 lokeren = Location "Lokeren" Belgium
 
@@ -55,6 +68,10 @@ marcheEnFamenne = Location "Marche-en-Famenne" Belgium
 marcinelle      = Location "Marcinelle" Belgium
 mariakerke      = Location "Mariakerke" Belgium
 meerbeke        = Location "Meerbeke" Belgium
+
+molenbeek :: Location
+molenbeek = belgianLocation "Molenbeek"
+
 mons            = Location "Mons" Belgium
 mouscron        = Location "Mouscron" Belgium
 

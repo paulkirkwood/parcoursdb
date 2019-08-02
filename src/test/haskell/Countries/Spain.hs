@@ -7,6 +7,7 @@ module Countries.Spain
 ,pamplona
 ,sanSebastian
 ,vielhaValD'Aran
+,vitoriaGasteiz
 )
 where
 
@@ -39,3 +40,6 @@ sanSebastian = spanishLocation "San Sebastian"
 
 vielhaValD'Aran :: Location
 vielhaValD'Aran = spanishLocation "Vielha Val d'Aran"
+
+vitoriaGasteiz :: Location
+vitoriaGasteiz = spanishLocation "Vitoria-Gasteiz"

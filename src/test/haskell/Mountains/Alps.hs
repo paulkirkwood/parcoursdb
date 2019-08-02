@@ -207,7 +207,7 @@ montCenis :: Col
 montCenis = frenchAlpineCol "Mont-Cenis" 2083
 
 montgenevre :: Col
-montgenevre = frenchAlpineCol "Montgenèvre" 1860
+montgenevre = frenchAlpineCol "Montgenèvre" 1860
 
 colDesMosses :: Col
 colDesMosses = swissAlpineCol "Col des Mosses" 1448

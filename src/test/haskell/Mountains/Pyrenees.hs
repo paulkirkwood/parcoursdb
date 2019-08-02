@@ -188,6 +188,9 @@ puertoDeBeret = frenchPyreneanCol "Puerto de Beret" 1860
 puymorens :: Col
 puymorens = frenchPyreneanCol "Puymorens" 1915
 
+pyrenees2000 :: Col
+pyrenees2000 = alias fontRomeu "Pyrénées 2000"
+
 -- S
 coteDeSaintSarraille :: Col
 coteDeSaintSarraille = frenchPyreneanCol "Côté de Saint-Sarraille" 810

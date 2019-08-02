@@ -98,6 +98,9 @@ tourDeFranceEditions = [ tdf1903
                        , tdf1972
                        , tdf1973
                        , tdf1974
+                       , tdf1975
+                       , tdf1976
+                       , tdf1977
                        , tdf1978
                        , tdf1979
                        , tdf1980
@@ -3710,7 +3713,6 @@ tdf1973' = do
   plainStage montpellier argelesSurMer 238
 
   -- Stages 12a & 12b
-  let pyrenees2000 = alias fontRomeu "Pyrénées 2000"
   enableSplitStages
   individualTimeTrial perpignan thuir 28.3
   mountainStage (Left thuir) 76
@@ -3845,6 +3847,293 @@ tdf1974' = do
 
   -- Stage 22
   plainStage orleans paris 146
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1975 :: StageRace
+tdf1975 = evalState tdf1975' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1975 6 26))
+
+tdf1975' :: State StageRaceState StageRace
+tdf1975' = do
+
+  -- Prologue
+  prologue' charleroi 6
+
+  -- Stages 1a & 1b
+  enableSplitStages
+  plainStage charleroi molenbeek 94
+  plainStage molenbeek roubaix 109
+  disableSplitStages
+
+  -- Stage 2
+  plainStage roubaix amiens 121
+
+  -- Stage 3
+  plainStage amiens versailles 170
+
+  -- Stage 4
+  plainStage versailles leMans 223
+
+  -- Stage 5
+  plainStage sableSurSarthe merlinPlage 222
+
+  -- Stage 6
+  outAndBackIndividualTimeTrial merlinPlage 16
+
+  -- Stage 7
+  plainStage saintGillesCroixDeVie angouleme 236
+
+  -- Stage 8
+  plainStage angouleme bordeaux 134
+
+  -- Stages 9a & 9b
+  enableSplitStages
+  plainStage langon fleurance 131
+  individualTimeTrial fleurance auch 37
+  disableSplitStages
+
+  restDay (Left auch)
+
+  -- Stage 10
+  plainStage auch pau 206
+
+  -- Stage 11
+  mountainStage (Left pau) 160
+  addCol 160 saintLarySoulanPlaDAdet HC
+
+  -- Stage 12
+  plainStage tarbes albi 242
+
+  -- Stage 13
+  mountainStage (Left albi) 260
+  addCol 260 leLioran C1
+
+  -- Stage 14
+  mountainStage (Left aurillac) 174
+  addCol 174 puyDeDome C1
+
+  restDay (Left nice)
+
+  -- Stage 15
+  mountainStage (Left nice) 217
+  addCol 217 praLoup C1
+
+  -- Stage 16
+  plainStage barcelonette serreChevalier 107
+
+  -- Stage 17
+  plainStage valloire morzineAvoriaz 225
+
+  -- Stage 18
+  individualTimeTrial morzine chatel 40
+
+  -- Stage 19
+  plainStage thononLesBains chalonSurSaone 229
+
+  -- Stage 20
+  plainStage pouillyEnAuxois melun 256
+
+  -- Stage 21
+  plainStage melun senlis 220
+
+  -- Stage 22
+  criterium paris 164
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1976 :: StageRace
+tdf1976 = evalState tdf1976' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1976 6 24))
+
+tdf1976' :: State StageRaceState StageRace
+tdf1976' = do
+
+  -- Prologue
+  prologue' saintJeanDeMonts 8
+
+  -- Stage 1
+  plainStage saintJeanDeMonts angers 173
+
+  -- Stage 2
+  plainStage angers caen 237
+
+  -- Stage 3
+  outAndBackIndividualTimeTrial leTouquetParisPlage 37
+
+  -- Stage 4
+  plainStage leTouquetParisPlage bornem 258
+
+  -- Stages 5a & 5b
+  enableSplitStages
+  outAndBackTeamTimeTrial leuven 4
+  plainStage leuven verviers 144
+  disableSplitStages
+
+  -- Stage 6
+  plainStage bastogne nancy 209
+
+  -- Stage 7
+  plainStage nancy mulhouse 206
+
+  -- Stage 8
+  plainStage valentigney divonneLesBains 220
+
+  restDay (Left divonneLesBains)
+  
+  -- Stage 9
+  mountainStage (Left divonneLesBains) 258
+  addCol 258 alpeD'Huez HC
+
+  -- Stage 10
+  mountainStage (Left leBourgD'Oisans) 166
+  addCol 166 montgenevre C1
+
+  -- Stage 11
+  roadStage (Right montgenevre) (Just manosque) 224
+
+  restDay (Left leBarcares)
+
+  -- Stage 12
+  mountainStage (Left leBarcares) 205
+  addCol 205 pyrenees2000 C1
+  
+  -- Stage 13
+  roadStage (Right pyrenees2000) (Just saintGaudens) 188
+
+  -- Stage 14
+  plainStage saintGaudens saintLarySoulan 139
+
+  -- Stage 15
+  plainStage saintLarySoulan pau 195
+
+  -- Stage 16
+  plainStage pau fleurance 152
+
+  -- Stage 17
+  individualTimeTrial fleurance auch 39
+
+  -- Stages 18a, 18b & 18c
+  enableSplitStages
+  plainStage auch langon 86
+  plainStage langon lacanau 123
+  plainStage lacanau bordeaux 70
+  disableSplitStages
+
+  -- Stage 19
+  plainStage sainteFoyLaGrande tulle 220
+
+  -- Stage 20
+  mountainStage (Left tulle) 220
+  addCol 220 puyDeDome C1
+
+  -- Stage 21
+  plainStage montargis versailles 145
+
+  -- Stages 22a & 22b
+  enableSplitStages
+  outAndBackIndividualTimeTrial paris 6
+  criterium paris 91
+  disableSplitStages
+
+  edition <- ParcoursDB.State.StageRace.build
+  return edition
+
+tdf1977 :: StageRace
+tdf1977 = evalState tdf1977' (ParcoursDB.State.StageRace.init (TourDeFrance []) (fromGregorian 1977 6 30))
+
+tdf1977' :: State StageRaceState StageRace
+tdf1977' = do
+
+  -- Prologue
+  prologue' fleurance 5
+
+  -- Stage 1
+  plainStage fleurance auch 237
+
+  -- Stage 2
+  plainStage auch pau 253
+
+  -- Stage 3
+  plainStage oloronSainteMarie vitoriaGasteiz 248
+
+  -- Stage 4
+  plainStage vitoriaGasteiz seignosseLePenon 256
+
+  -- Stages 5a & 5b
+  enableSplitStages
+  plainStage morcenx bordeaux 139
+  outAndBackIndividualTimeTrial bordeaux 30
+  disableSplitStages
+
+  restDay (Left bordeaux)
+
+  -- Stage 6
+  plainStage bordeaux limoges 225
+
+  -- Stages 7a & 7b
+  enableSplitStages
+  plainStage jaunayClan angers 140
+  outAndBackTeamTimeTrial angers 4
+  disableSplitStages
+
+  -- Stage 8
+  plainStage angers lorient 247
+
+  -- Stage 9
+  plainStage lorient rennes 187
+
+  -- Stage 10
+  plainStage bagnolesDeL'Orne rouen 174
+
+  -- Stage 11
+  plainStage rouen roubaix 242
+
+  -- Stage 12
+  plainStage roubaix charleroi 193
+
+  -- Stages 13a & 13b
+  enableSplitStages
+  criterium Countries.WestGermany.freiburg 46
+  plainStage altkirch besancon 160
+  disableSplitStages
+
+  restDay (Left Countries.WestGermany.freiburg)
+
+  -- Stage 14
+  plainStage besancon thononLesBains 230
+
+  -- Stages 15a & 15b
+  enableSplitStages
+  plainStage thononLesBains morzine 105
+  mountainTimeTrial (Left morzine) 14
+  addCol 14 avoriaz C1
+  disableSplitStages
+
+  -- Stage 16
+  plainStage morzine chamonix 121
+
+  -- Stage 17
+  mountainStage (Left chamonix) 185
+  addCol 185 alpeD'Huez HC
+
+  -- Stage 18
+  plainStage rossignolVoiron saintÉTienne 199
+
+  -- Stage 19
+  plainStage saintTrivierSurMoignans dijon 172
+
+  -- Stage 20
+  outAndBackIndividualTimeTrial dijon 50
+
+  -- Stage 21
+  plainStage montereauFaultYonne versailles 142
+
+  -- Stages 22a & 22b
+  enableSplitStages
+  outAndBackIndividualTimeTrial paris 6
+  criterium paris 91
+  disableSplitStages
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
