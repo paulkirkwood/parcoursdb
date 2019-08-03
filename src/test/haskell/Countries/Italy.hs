@@ -17,7 +17,7 @@ abbazia :: Location
 abbazia = italianLocation "Abbazia"
 
 abbiategrasso :: Location
-abbiategrasso   = italianLocation "Abbiategrasso"
+abbiategrasso = italianLocation "Abbiategrasso"
 
 abetone :: Location
 abetone = italianLocation "Abetone"
@@ -264,7 +264,7 @@ bordighera :: Location
 bordighera = italianLocation "Bordighera"
 
 borgo :: Location
-borgo          = italianLocation "Borgo Val di Taro"
+borgo = italianLocation "Borgo Val di Taro"
 
 borgoAMozzano :: Location
 borgoAMozzano = italianLocation "Borgo a Mozzano"
@@ -309,7 +309,7 @@ bresciaSant'Eufemia :: Location
 bresciaSant'Eufemia = italianLocation "Brescia Sant'Eufemia"
 
 bressanone :: Location
-bressanone     = italianLocation "Bressanone"
+bressanone = italianLocation "Bressanone"
 
 breuilCervinia :: Location
 breuilCervinia = italianLocation "Breuil-Cervinia"
@@ -324,7 +324,7 @@ bruneck :: Location
 bruneck = italianLocation "Bruneck"
 
 bucchianico :: Location
-bucchianico    = italianLocation "Bucchianico"
+bucchianico = italianLocation "Bucchianico"
 
 busseto :: Location
 busseto = italianLocation "Busseto"
@@ -340,7 +340,7 @@ caldesValDiSole :: Location
 caldesValDiSole = italianLocation "Caldes-Val di Sole"
 
 caltagirone :: Location
-caltagirone               = italianLocation "Caltagirone"
+caltagirone = italianLocation "Caltagirone"
 
 caltanissetta :: Location
 caltanissetta = italianLocation "Caltanissetta"
@@ -433,7 +433,7 @@ caserta :: Location
 caserta = italianLocation "Caserta"
 
 cassanoDAdda :: Location
-cassanoDAdda              = italianLocation "Cassano d'Adda"
+cassanoDAdda = italianLocation "Cassano d'Adda"
 
 casteggio :: Location
 casteggio = italianLocation "Casteggio"
@@ -457,19 +457,19 @@ castellanaGrotte :: Location
 castellanaGrotte = italianLocation "Castellana Grotte"
 
 castellania :: Location
-castellania               = italianLocation "Castellania"
+castellania = italianLocation "Castellania"
 
 castelnuouvoDiValDiCecina :: Location
 castelnuouvoDiValDiCecina = italianLocation "Castelnuouvo di Val di Cecina"
 
 castelraimondo :: Location
-castelraimondo            = italianLocation "Castelraimondo"
+castelraimondo = italianLocation "Castelraimondo"
 
 castelrotto :: Location
-castelrotto               = italianLocation "Castelrotto"            
+castelrotto = italianLocation "Castelrotto"            
 
 castigilioneDellaPescaia :: Location
-castigilioneDellaPescaia  = italianLocation "Castiglione della Pescaia"
+castigilioneDellaPescaia = italianLocation "Castiglione della Pescaia"
 
 castiglioneDelLago :: Location
 castiglioneDelLago = italianLocation "Castiglione del Lago"
@@ -532,7 +532,7 @@ cento :: Location
 cento = italianLocation "Cento"
 
 cepagatti :: Location
-cepagatti                 = italianLocation "Cepagatti"
+cepagatti = italianLocation "Cepagatti"
 
 certosaDiPavia :: Location
 certosaDiPavia = italianLocation "Certosa di Pavia"
@@ -607,10 +607,10 @@ cittadella :: Location
 cittadella = italianLocation "Cittadella"
 
 cittareale :: Location
-cittareale                = italianLocation "Cittareale"
+cittareale = italianLocation "Cittareale"
 
 cividaleDelFruili :: Location
-cividaleDelFruili         = italianLocation "Cividale del Friuli"
+cividaleDelFruili = italianLocation "Cividale del Friuli"
 
 civitanovaMarche :: Location
 civitanovaMarche = italianLocation "Civitanova Marche"
@@ -817,7 +817,7 @@ forio :: Location
 forio = italianLocation "Forio"
 
 forli :: Location
-forli   = italianLocation "Forlì"
+forli = italianLocation "Forlì"
 
 formia :: Location
 formia = italianLocation "Formia"
@@ -1462,7 +1462,7 @@ ortisei :: Location
 ortisei = italianLocation "Ortisei"
 
 ortona :: Location
-ortona  = italianLocation "Ortona"
+ortona = italianLocation "Ortona"
 
 orvieto :: Location
 orvieto = italianLocation "Orvieto"
@@ -1574,7 +1574,7 @@ peschici :: Location
 peschici = italianLocation "Peschici"
 
 pescoSannita :: Location
-pescoSannita     = italianLocation "Pesco Sannita"
+pescoSannita = italianLocation "Pesco Sannita"
 
 pescocostanzo :: Location
 pescocostanzo = italianLocation "Pescocostanzo"
@@ -1856,7 +1856,7 @@ sacroMonteDiVarese :: Location
 sacroMonteDiVarese = italianLocation "Sacro Monte di Varese"
 
 saintVincent :: Location
-saintVincent          = italianLocation "Saint-Vincent"
+saintVincent = italianLocation "Saint-Vincent"
 
 salaBaganza :: Location
 salaBaganza = italianLocation "Sala Baganza"
@@ -1937,7 +1937,7 @@ sanVincenzo :: Location
 sanVincenzo = italianLocation "San Vincenzo"
 
 sanVitoAlTagliamento :: Location
-sanVitoAlTagliamento  = italianLocation "San Vito al Tagliamento"
+sanVitoAlTagliamento = italianLocation "San Vito al Tagliamento"
 
 sanVitoDiCadore :: Location
 sanVitoDiCadore = italianLocation "San Vito di Cadore"
