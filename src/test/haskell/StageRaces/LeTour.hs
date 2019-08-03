@@ -3589,7 +3589,7 @@ tdf1972' = do
   disableSplitStages
 
   -- Stage 5
-  plainStage melinPlage royan 236.0
+  plainStage merlinPlage royan 236.0
 
   -- Stages 6a & 6b
   enableSplitStages
@@ -4420,10 +4420,10 @@ tdf1981' = do
   disableSplitStages
 
   -- Stage 3
-  plainStage nice martingues 254.0
+  plainStage nice martigues 254.0
 
   -- Stage 4
-  plainStage martingues narbonne 232.0
+  plainStage martigues narbonne 232.0
 
   -- Stage 5
   teamTimeTrial narbonne carcassonne 77.0
@@ -4541,7 +4541,7 @@ tdf1982' = do
   outAndBackIndividualTimeTrial valenceD'Agen 57.0
 
   -- Stage 13
-  plainStage fleurence pau 249.0
+  plainStage fleurance pau 249.0
 
   -- Stage 14
   plainStage pau saintLarySoulanPlaD'Adet 122.0
@@ -6266,7 +6266,7 @@ tdf2003' = do
   addCol 197.5 ax3Domaines C1
 
   -- Stage 15
-  plainStage saintGirons loudenville 191.5
+  plainStage saintGirons loudenvielle 191.5
 
   -- Stage 16
   mountainStage (Left bagneresDeBigorre) 159.5

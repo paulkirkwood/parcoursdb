@@ -21,19 +21,19 @@ britishLocation :: String -> Location
 britishLocation loc = Location loc UnitedKingdom
 
 brighton :: Location
-brighton   = britishLocation "Brighton"
+brighton = britishLocation "Brighton"
 
 cambridge :: Location
-cambridge  = britishLocation "Cambridge"
+cambridge = britishLocation "Cambridge"
 
 canterbury :: Location
 canterbury = britishLocation "Canterbury"
 
 dover :: Location
-dover      = britishLocation "Dover"
+dover = britishLocation "Dover"
 
 harrogate :: Location
-harrogate  = britishLocation "Harrogate"
+harrogate = britishLocation "Harrogate"
 
 leeds :: Location
 leeds = britishLocation "Leeds"

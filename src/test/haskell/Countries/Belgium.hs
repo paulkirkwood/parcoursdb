@@ -1,4 +1,58 @@
-module Countries.Belgium where
+module Countries.Belgium
+(ans
+,antwerp
+,arlon
+,bastogne
+,beauraing
+,beringen
+,beveren
+,bornem
+,brasschaat
+,brussels
+,charleroi
+,circuitZolder
+,dinant
+,esneux
+,evergem
+,forest
+,gentbrugge
+,ghent
+,harelbeke
+,hasselt
+,herentals
+,hotton
+,huy
+,jambes
+,kuurne
+,leuven
+,liege
+,lokeren
+,marcheEnFamenne
+,marcinelle
+,mariakerke
+,meerbeke
+,molenbeek
+,mons
+,mouscron
+,namur
+,oudenaarde
+,perwez
+,rochefort
+,rocourt
+,seraing
+,sintNiklaas
+,sintPietersWoluwe
+,spa
+,tournai
+,verviers
+,vise
+,wanze
+,waregem
+,waterloo
+,wetteren
+,ypres
+)
+where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
@@ -7,105 +61,178 @@ belgianLocation :: String -> Location
 belgianLocation name = Location name Belgium
 
 -- A
-ans     = Location "Ans" Belgium
-antwerp = Location "Antwerp" Belgium
-arlon   = Location "Arlon" Belgium
+ans :: Location
+ans = belgianLocation "Ans"
+
+antwerp :: Location
+antwerp = belgianLocation "Antwerp"
+
+arlon :: Location
+arlon = belgianLocation "Arlon"
 
 -- B
 bastogne :: Location
 bastogne = belgianLocation "Bastogne"
 
-beauraing  = Location "Beauraing" Belgium
-beringen   = Location "Beringen" Belgium
-beveren    = Location "Beveren"  Belgium
+beauraing :: Location
+beauraing = belgianLocation "Beauraing"
+
+beringen :: Location
+beringen = belgianLocation "Beringen"
+
+beveren :: Location
+beveren = belgianLocation "Beveren"
 
 bornem :: Location
 bornem = belgianLocation "Bornem"
 
-brasschaat = Location "Brasschaat" Belgium
-brussels   = Location "Brussels"  Belgium
+brasschaat :: Location
+brasschaat = belgianLocation "Brasschaat"
+
+brussels :: Location
+brussels = belgianLocation "Brussels"
 
 -- C
-charleroi       = Location "Charleroi" Belgium
-circuitZolder   = Location "Circuit Zolder" Belgium
+charleroi :: Location
+charleroi = belgianLocation "Charleroi"
+
+circuitZolder :: Location
+circuitZolder = belgianLocation "Circuit Zolder"
 
 -- D
-dinant          = Location "Dinant" Belgium
+dinant :: Location
+dinant = belgianLocation "Dinant"
 
 -- E
-esneux  = Location "Esneux" Belgium
-evergem = Location "Evergem" Belgium
+esneux :: Location
+esneux  = belgianLocation "Esneux"
+
+evergem :: Location
+evergem = belgianLocation "Evergem"
 
 -- F
-forest          = Location "Forest" Belgium
+forest :: Location
+forest = belgianLocation "Forest"
 
 -- G
-gentbrugge      = Location "Gentbrugge" Belgium
-ghent           = Location "Ghent" Belgium
+gentbrugge :: Location
+gentbrugge = belgianLocation "Gentbrugge"
+
+ghent :: Location
+ghent = belgianLocation "Ghent"
 
 -- H
-harelbeke = Location "Harelbeke" Belgium
-hasselt   = Location "Hasselt" Belgium
-herentals = Location "Herentals" Belgium
-hotton    = Location "Hotton" Belgium
-huy       = Location "Huy" Belgium
+harelbeke :: Location
+harelbeke = belgianLocation "Harelbeke"
+
+hasselt :: Location
+hasselt = belgianLocation "Hasselt"
+
+herentals :: Location
+herentals = belgianLocation "Herentals"
+
+hotton :: Location
+hotton = belgianLocation "Hotton"
+
+huy :: Location
+huy = belgianLocation "Huy"
 
 -- J
-jambes = Location "Jambes" Belgium
+jambes :: Location
+jambes = belgianLocation "Jambes"
 
 -- K
-kuurne = Location "Kuurne" Belgium
+kuurne :: Location
+kuurne = belgianLocation "Kuurne"
 
 -- L
 leuven :: Location
 leuven = belgianLocation "Leuven"
 
-liege   = Location "Liège" Belgium
-lokeren = Location "Lokeren" Belgium
+liege :: Location
+liege = belgianLocation "Liège"
+
+lokeren :: Location
+lokeren = belgianLocation "Lokeren"
 
 -- M
-marcheEnFamenne = Location "Marche-en-Famenne" Belgium
-marcinelle      = Location "Marcinelle" Belgium
-mariakerke      = Location "Mariakerke" Belgium
-meerbeke        = Location "Meerbeke" Belgium
+marcheEnFamenne :: Location
+marcheEnFamenne = belgianLocation "Marche-en-Famenne"
+
+marcinelle :: Location
+marcinelle = belgianLocation "Marcinelle"
+
+mariakerke :: Location
+mariakerke = belgianLocation "Mariakerke"
+
+meerbeke :: Location
+meerbeke = belgianLocation "Meerbeke"
 
 molenbeek :: Location
 molenbeek = belgianLocation "Molenbeek"
 
-mons            = Location "Mons" Belgium
-mouscron        = Location "Mouscron" Belgium
+mons :: Location
+mons = belgianLocation "Mons"
+
+mouscron :: Location
+mouscron = belgianLocation "Mouscron"
 
 -- N
-namur = Location "Namur" Belgium
+namur :: Location
+namur = belgianLocation "Namur"
 
 -- O
-oudenaarde = Location "Oudenaarde" Belgium
+oudenaarde :: Location
+oudenaarde = belgianLocation "Oudenaarde"
 
 -- P
-perwez = Location "Perwez" Belgium
+perwez :: Location
+perwez = belgianLocation "Perwez"
 
 -- R
-rochefort = Location "Rochefort" Belgium
-rocourt   = Location "Rocourt" Belgium
+rochefort :: Location
+rochefort = belgianLocation "Rochefort"
+
+rocourt :: Location
+rocourt = belgianLocation "Rocourt"
 
 -- S
-seraing           = Location "Seraing" Belgium
-sintNiklaas       = Location "Sint-Niklaas" Belgium
-sintPietersWoluwe = Location "Sint-Pieters-Woluwe" Belgium
-spa               = Location "Spa" Belgium
+seraing :: Location
+seraing = belgianLocation "Seraing"
+
+sintNiklaas :: Location
+sintNiklaas = belgianLocation "Sint-Niklaas"
+
+sintPietersWoluwe :: Location
+sintPietersWoluwe = belgianLocation "Sint-Pieters-Woluwe"
+
+spa :: Location
+spa = belgianLocation "Spa"
 
 -- T
-tournai         = Location "Tournai" Belgium
+tournai :: Location
+tournai = belgianLocation "Tournai"
 
 -- V
-verviers        = Location "Verviers" Belgium
-vise            = Location "Vise" Belgium
+verviers :: Location
+verviers = belgianLocation "Verviers"
+
+vise :: Location
+vise = belgianLocation "Vise"
 
 -- W
-wanze    = Location "Wanze" Belgium
-waregem  = Location "Waregem" Belgium
-waterloo = Location "Waterloo" Belgium
-wetteren = Location "Wetteren" Belgium
+wanze :: Location
+wanze = belgianLocation "Wanze"
+
+waregem :: Location
+waregem  = belgianLocation "Waregem"
+
+waterloo :: Location
+waterloo = belgianLocation "Waterloo"
+
+wetteren :: Location
+wetteren = belgianLocation "Wetteren"
 
 -- Y
-ypres           = Location "Ypres" Belgium
+ypres :: Location
+ypres = belgianLocation "Ypres"

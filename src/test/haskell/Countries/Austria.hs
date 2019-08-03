@@ -5,7 +5,8 @@ module Countries.Austria
 ,lienz
 ,mayrhofen
 ,veldenAmWorther
-)where
+)
+where
 
 import ParcoursDB.Country
 import ParcoursDB.Location
