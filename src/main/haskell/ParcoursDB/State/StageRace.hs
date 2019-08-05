@@ -24,6 +24,7 @@ data StageRaceState = StageRaceState { sStageRace       :: StageRace
 init :: StageRace -> Day -> StageRaceState
 init tdf@(TourDeFrance _) date         = init' tdf date
 init giro@(Giro _) date                = init' giro date
+init vuelta@(Vuelta _) date            = init' vuelta date
 init parisNice@(ParisNice _) date      = init' parisNice date
 init tirreno@(TirrenoAdriatico _) date = init' tirreno date
 init dauphine@(Dauphine _) date        = init' dauphine date
@@ -328,6 +329,11 @@ build' (Giro _) = do
   currentState <- get
   let stages = sRaceStages currentState
   let edition = Giro stages
+  return edition
+build' (Vuelta _) = do
+  currentState <- get
+  let stages = sRaceStages currentState
+  let edition = Vuelta stages
   return edition
 build' (ParisNice _) = do
   currentState <- get

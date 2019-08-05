@@ -8,6 +8,7 @@ module Countries.Belgium
 ,beveren
 ,bornem
 ,brasschaat
+,bruges
 ,brussels
 ,charleroi
 ,circuitZolder
@@ -88,6 +89,9 @@ bornem = belgianLocation "Bornem"
 
 brasschaat :: Location
 brasschaat = belgianLocation "Brasschaat"
+
+bruges :: Location
+bruges = belgianLocation "Bruges"
 
 brussels :: Location
 brussels = belgianLocation "Brussels"

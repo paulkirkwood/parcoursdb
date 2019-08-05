@@ -9,6 +9,7 @@ import ParcoursDB.Stage
 
 data StageRace = TourDeFrance     [Stage]
                | Giro             [Stage]
+               | Vuelta           [Stage]
                | ParisNice        [Stage]
                | TirrenoAdriatico [Stage]
                | Dauphine         [Stage]
@@ -17,6 +18,7 @@ data StageRace = TourDeFrance     [Stage]
 name :: StageRace -> String
 name (TourDeFrance _)     = "Le Tour de France"
 name (Giro _)             = "Giro d'Italia"
+name (Vuelta _)           = "Vuelta a España"
 name (ParisNice _)        = "Paris-Nice"
 name (TirrenoAdriatico _) = "Tirreno Adriatico"
 name dauphine@(Dauphine _)
@@ -27,11 +29,13 @@ name dauphine@(Dauphine _)
 country :: StageRace -> Country
 country (Giro _)             = Italy
 country (TirrenoAdriatico _) = Italy
+country (Vuelta _)           = Spain
 country _                    = France
 
 stages :: StageRace -> [Stage]
 stages (TourDeFrance xs)     = xs
 stages (Giro xs)             = xs
+stages (Vuelta xs)           = xs
 stages (ParisNice xs)        = xs
 stages (TirrenoAdriatico xs) = xs
 stages (Dauphine xs)         = xs

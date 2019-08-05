@@ -78,6 +78,9 @@ coteDeFanjeaux :: Col
 coteDeFanjeaux = Col "Cote de Fanjeaux" France 348 (Just 2.4) (Just 4.9) Nothing
 
 -- G
+collDeLaGallina :: Col
+collDeLaGallina = andorranCol "Coll de la Gallina" 1580
+
 guzetNeige :: Col
 guzetNeige = frenchPyreneanCol "Guzet-Neige" 1480
 

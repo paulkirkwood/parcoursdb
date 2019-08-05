@@ -1,6 +1,8 @@
 module Countries.Andorra
 (andorra
-,escaldes
+,andorraLaVella
+,escaldesEngordany
+,naturlandia
 ,pal)
 where
 
@@ -13,8 +15,14 @@ andorranLocation location = Location location Andorra
 andorra :: Location
 andorra = andorranLocation "Andorra"
 
-escaldes :: Location
-escaldes = andorranLocation "Escaldes-Engordany"
+andorraLaVella :: Location
+andorraLaVella = andorranLocation "Andorra la Vella"
+
+escaldesEngordany :: Location
+escaldesEngordany = andorranLocation "Escaldes-Engordany"
+
+naturlandia :: Location
+naturlandia = andorranLocation "Naturlandia"
 
 pal :: Location
 pal = andorranLocation "Pal"

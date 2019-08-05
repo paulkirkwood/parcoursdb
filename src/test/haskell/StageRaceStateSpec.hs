@@ -9,10 +9,10 @@ import StageRaces.Giro (giroEditions)
 import StageRaces.LeTour (tourDeFranceEditions)
 import StageRaces.ParisNice (parisNiceEditions)
 import StageRaces.Tirreno (tirrenoAdriaticoEditions)
+import StageRaces.Vuelta (vueltaEditions)
 import ParcoursDB.Country
 import ParcoursDB.Stage
 import ParcoursDB.StageRace
-import ParcoursDB.State.StageRace
 import System.IO
 import Test.Hspec
 import Text.Printf
@@ -21,7 +21,8 @@ editions = dauphineEditions ++
            giroEditions ++
            parisNiceEditions ++
            tirrenoAdriaticoEditions ++
-           tourDeFranceEditions
+           tourDeFranceEditions ++
+           vueltaEditions
 
 main :: IO ()
 main = hspec $ do

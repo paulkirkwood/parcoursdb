@@ -20,6 +20,7 @@ import Countries.Belgium
 import Countries.France
 import Countries.Italy
 import Countries.Netherlands
+import Countries.Switzerland
 import ParcoursDB.Classic
 import ParcoursDB.Location
 import Test.Hspec

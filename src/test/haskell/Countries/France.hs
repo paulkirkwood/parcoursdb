@@ -55,9 +55,6 @@ amiens = frenchLocation "Amiens"
 ancenis :: Location
 ancenis = frenchLocation "Ancenis"
 
-andorraLaVella :: Location
-andorraLaVella = frenchLocation "Andorra la Vella"
-
 angers :: Location
 angers = frenchLocation "Angers"
 
@@ -721,6 +718,9 @@ granville = frenchLocation "Granville"
 grenoble :: Location
 grenoble = frenchLocation "Grenoble"
 
+gruissan :: Location
+gruissan = frenchLocation "Gruissan"
+
 gueret :: Location
 gueret = frenchLocation "Gueret"
 
@@ -1217,7 +1217,7 @@ nice :: Location
 nice = frenchLocation "Nice"
 
 nimes :: Location
-nimes = frenchLocation "Nimes"
+nimes = frenchLocation "Nîmes"
 
 niort :: Location
 niort = frenchLocation "Niort"
@@ -1349,6 +1349,9 @@ portoVecchio = frenchLocation "Porto-Vecchio"
 
 pouillyEnAuxois :: Location
 pouillyEnAuxois = frenchLocation "Pouilly-en-Auxois"
+
+prades :: Location
+prades = frenchLocation "Prades"
 
 prapoutel :: Location
 prapoutel = frenchLocation "Prapoutel"

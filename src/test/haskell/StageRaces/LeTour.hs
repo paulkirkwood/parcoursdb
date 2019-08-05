@@ -7267,7 +7267,7 @@ tdf2016' = do
   restDay (Right arcalis)
 
   -- Stage 10
-  plainStage escaldes revel 197.0
+  plainStage escaldesEngordany revel 197.0
 
   -- Stage 11
   plainStage carcassonne montpellier 162.5
