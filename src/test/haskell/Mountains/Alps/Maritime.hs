@@ -1,13 +1,24 @@
 module Mountains.Alps.Maritime
-(colDeBraus
+(colD'Espigoulier
+,colD'Eze
+,colDeBraus
+,colDeCalaison
+,colDeMacuegne
+,colDesQuatreChemins
 ,colDuCastillon
 ,colDuColmiane
-,colD'Espigoulier
+,colDuTurini
+,colSaintRaphael
+,coteDeChateauneuf
+,coteDeGattieres
+,coteDeLaSainteBaume
+,coteDeLevens
+,coteDePeille
+,coteDeVillarsSurVar
 ,isola2000
 ,montFaron
-,colDuTurini
+,valdebloreLaColmiane
 ,vasson
-,colDeMacuegne
 )
 where
 
@@ -43,3 +54,36 @@ vasson = alpesMaritimeCol "Vasson" 1700
 
 colDeMacuegne :: Col
 colDeMacuegne = alpesMaritimeCol "Col de Macuègne" 1068
+
+coteDeLevens :: Col
+coteDeLevens = alpesMaritimeCol "Cote de Levens" 477
+
+coteDeChateauneuf :: Col
+coteDeChateauneuf = alpesMaritimeCol "Cote de Chateauneuf" 633
+
+colDeCalaison :: Col
+colDeCalaison = alpesMaritimeCol "Col de Calaison" 468
+
+coteDePeille :: Col
+coteDePeille = alpesMaritimeCol "Cote de Peille" 653
+
+colD'Eze :: Col
+colD'Eze = alpesMaritimeCol "Col d'Eze" 508
+
+colDesQuatreChemins :: Col
+colDesQuatreChemins = alpesMaritimeCol "Col des Quatre Chemins" 338
+
+coteDeGattieres :: Col
+coteDeGattieres = alpesMaritimeCol "Cote de Gattieres" 264
+
+coteDeLaSainteBaume :: Col
+coteDeLaSainteBaume = alpesMaritimeCol "Cote de la Sainte-Baume" 1118
+
+colSaintRaphael :: Col
+colSaintRaphael = alpesMaritimeCol "Col Saint-Rapael" 833
+
+coteDeVillarsSurVar :: Col
+coteDeVillarsSurVar = alpesMaritimeCol "Cote de Villars-sur-Var" 417
+
+valdebloreLaColmiane :: Col
+valdebloreLaColmiane = alpesMaritimeCol "Valdeblore La Colmiane" 1500

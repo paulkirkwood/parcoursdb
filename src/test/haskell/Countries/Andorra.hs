@@ -1,6 +1,9 @@
 module Countries.Andorra
 (andorra
 ,andorraLaVella
+,envalira
+,estacioDePal
+,estacioD'EsquiD'OrdinoArcalis
 ,escaldesEngordany
 ,naturlandia
 ,pal)
@@ -17,6 +20,15 @@ andorra = andorranLocation "Andorra"
 
 andorraLaVella :: Location
 andorraLaVella = andorranLocation "Andorra la Vella"
+
+envalira :: Location
+envalira = andorranLocation "Envalira"
+
+estacioDePal :: Location
+estacioDePal = andorranLocation "Estacio de Pal"
+
+estacioD'EsquiD'OrdinoArcalis :: Location
+estacioD'EsquiD'OrdinoArcalis = andorranLocation "Estacio d'Esqui d'Ordino-Alcalis"
 
 escaldesEngordany :: Location
 escaldesEngordany = andorranLocation "Escaldes-Engordany"

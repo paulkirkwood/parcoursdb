@@ -3304,7 +3304,7 @@ tdf1969 = evalState tdf1969' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1969' :: State StageRaceState StageRace
 tdf1969' = do
   -- Prologue
-  prologue' roubaix 10.0
+  outAndBackPrologue roubaix 10.0
 
   -- Stages 2a & 2b
   enableSplitStages
@@ -3390,7 +3390,7 @@ tdf1970 = evalState tdf1970' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1970' :: State StageRaceState StageRace
 tdf1970' = do
   -- Prologue
-  prologue' limoges 7.4
+  outAndBackPrologue limoges 7.4
 
   -- Stage 2
   plainStage limoges laRochelle 224.0
@@ -3487,7 +3487,7 @@ tdf1971 = evalState tdf1971' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1971' :: State StageRaceState StageRace
 tdf1971' = do
   -- Prologue
-  prologue' mulhouse 11.0
+  outAndBackPrologue mulhouse 11.0
 
   -- Stages 2a, 2b & 2c
   enableSplitStages
@@ -3574,7 +3574,7 @@ tdf1972 = evalState tdf1972' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1972' :: State StageRaceState StageRace
 tdf1972' = do
   -- Prologue
-  prologue' angers 7.2
+  outAndBackPrologue angers 7.2
 
   -- Stage 2
   plainStage angers saintBrieuc 235.5
@@ -3663,7 +3663,7 @@ tdf1973 = evalState tdf1973' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1973' :: State StageRaceState StageRace
 tdf1973' = do
   -- Prologue
-  prologue' scheveningen 7.1
+  outAndBackPrologue scheveningen 7.1
 
   -- Stages 1a & 1b
   enableSplitStages
@@ -3762,7 +3762,7 @@ tdf1974 = evalState tdf1974' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1974' :: State StageRaceState StageRace
 tdf1974' = do
   -- Prologue
-  prologue' brest 7
+  outAndBackPrologue brest 7
 
   -- Stage 1
   plainStage brest saintPolDeLeon 144
@@ -3858,7 +3858,7 @@ tdf1975' :: State StageRaceState StageRace
 tdf1975' = do
 
   -- Prologue
-  prologue' charleroi 6
+  outAndBackPrologue charleroi 6
 
   -- Stages 1a & 1b
   enableSplitStages
@@ -3950,7 +3950,7 @@ tdf1976' :: State StageRaceState StageRace
 tdf1976' = do
 
   -- Prologue
-  prologue' saintJeanDeMonts 8
+  outAndBackPrologue saintJeanDeMonts 8
 
   -- Stage 1
   plainStage saintJeanDeMonts angers 173
@@ -4046,7 +4046,7 @@ tdf1977' :: State StageRaceState StageRace
 tdf1977' = do
 
   -- Prologue
-  prologue' fleurance 5
+  outAndBackPrologue fleurance 5
 
   -- Stage 1
   plainStage fleurance auch 237
@@ -4144,7 +4144,7 @@ tdf1978 = evalState tdf1978' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1978' :: State StageRaceState StageRace
 tdf1978' = do
   -- Prologue
-  prologue' leiden 5.0
+  outAndBackPrologue leiden 5.0
 
   -- Stages 1a & 1b
   enableSplitStages
@@ -4234,7 +4234,7 @@ tdf1979 = evalState tdf1979' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1979' :: State StageRaceState StageRace
 tdf1979' = do
   -- Prologue
-  prologue' fleurance 5.0
+  outAndBackPrologue fleurance 5.0
 
   -- Stage 2
   plainStage fleurance luchon 225.0
@@ -4323,7 +4323,7 @@ tdf1980 = evalState tdf1980' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1980' :: State StageRaceState StageRace
 tdf1980' = do
   -- Prologue
-  prologue' frankfurt 8.0
+  outAndBackPrologue frankfurt 8.0
 
   -- Stages 2a & 2b
   enableSplitStages
@@ -4411,7 +4411,7 @@ tdf1981 = evalState tdf1981' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1981' :: State StageRaceState StageRace
 tdf1981' = do
   -- Prologue
-  prologue' nice 6.0
+  outAndBackPrologue nice 6.0
 
   -- Stages 2a & 2b
   enableSplitStages
@@ -4500,7 +4500,7 @@ tdf1982 = evalState tdf1982' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1982' :: State StageRaceState StageRace
 tdf1982' = do
   -- Prologue
-  prologue' basel 7.0
+  outAndBackPrologue basel 7.0
 
   -- Stage 2
   plainStage basel mohin 207.0
@@ -4583,7 +4583,7 @@ tdf1983 = evalState tdf1983' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1983' :: State StageRaceState StageRace
 tdf1983' = do
   -- Prologue
-  prologue' fontenaySousBois 6.0
+  outAndBackPrologue fontenaySousBois 6.0
 
   -- Stage 2
   plainStage nogentSurMarne creteil 163.0
@@ -4752,7 +4752,7 @@ tdf1985 = evalState tdf1985' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1985' :: State StageRaceState StageRace
 tdf1985' = do
   -- Prologue
-  prologue' plumelec 6.0
+  outAndBackPrologue plumelec 6.0
 
   -- Stage 1
   plainStage vannes lanester 256.0
@@ -4837,7 +4837,7 @@ tdf1986 = evalState tdf1986' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1986' :: State StageRaceState StageRace
 tdf1986' = do
   -- Prologue
-  prologue' boulogneBillancourt 4.6
+  outAndBackPrologue boulogneBillancourt 4.6
 
   -- Stage 1
   enableMorningStage
@@ -4923,7 +4923,7 @@ tdf1987 = evalState tdf1987' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1987' :: State StageRaceState StageRace
 tdf1987' = do
   -- Prologue
-  prologue' westBerlin 6.0
+  outAndBackPrologue westBerlin 6.0
 
   -- Stage 1
   enableMorningStage
@@ -5106,7 +5106,7 @@ tdf1989 = evalState tdf1989' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1989' :: State StageRaceState StageRace
 tdf1989' = do
   -- Prologue
-  prologue' luxembourgCity 7.8
+  outAndBackPrologue luxembourgCity 7.8
 
   -- Stage 1
   enableMorningStage
@@ -5190,7 +5190,7 @@ tdf1990 = evalState tdf1990' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1990' :: State StageRaceState StageRace
 tdf1990' = do
   -- Prologue
-  prologue' futuroscope 6.3
+  outAndBackPrologue futuroscope 6.3
 
   -- Stage 1
   enableMorningStage
@@ -5272,7 +5272,7 @@ tdf1991 = evalState tdf1991' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1991' :: State StageRaceState StageRace
 tdf1991' = do
   -- Prologue
-  prologue' lyon 5.4
+  outAndBackPrologue lyon 5.4
 
   -- Stage 1
   enableMorningStage
@@ -5353,7 +5353,7 @@ tdf1992 = evalState tdf1992' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1992' :: State StageRaceState StageRace
 tdf1992' = do
   -- Prologue
-  prologue' sanSebastian 8.0
+  outAndBackPrologue sanSebastian 8.0
 
   -- Stage 1
   criterium sanSebastian 194.5
@@ -5432,7 +5432,7 @@ tdf1993 = evalState tdf1993' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1993' :: State StageRaceState StageRace
 tdf1993' = do
   -- Prologue
-  prologue' lePuyDuFou 6.8
+  outAndBackPrologue lePuyDuFou 6.8
 
   -- Stage 1
   plainStage lucon lesSablesD'Olonne 215.0
@@ -5508,7 +5508,7 @@ tdf1994 = evalState tdf1994' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1994' :: State StageRaceState StageRace
 tdf1994' = do
   -- Prologue
-  prologue' lille 7.2
+  outAndBackPrologue lille 7.2
 
   -- Stage 1
   plainStage lille armentieres 234.0
@@ -5589,7 +5589,7 @@ tdf1995 = evalState tdf1995' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1995' :: State StageRaceState StageRace
 tdf1995' = do
   -- Prologue
-  prologue' saintBrieuc 7.3
+  outAndBackPrologue saintBrieuc 7.3
 
   -- Stage 1
   plainStage dinan lannion 233.5
@@ -5668,7 +5668,7 @@ tdf1996 = evalState tdf1996' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1996' :: State StageRaceState StageRace
 tdf1996' = do
   -- Prologue
-  prologue' sHertogenbosch 9.4
+  outAndBackPrologue sHertogenbosch 9.4
 
   -- Stage 1
   criterium sHertogenbosch 209.0
@@ -5749,7 +5749,7 @@ tdf1997 = evalState tdf1997' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1997' :: State StageRaceState StageRace
 tdf1997' = do
   -- Prologue
-  prologue' rouen 7.3
+  outAndBackPrologue rouen 7.3
 
   -- Stage 1
   plainStage rouen forgesLesEaux 192.0
@@ -5828,7 +5828,7 @@ tdf1998 = evalState tdf1998' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1998' :: State StageRaceState StageRace
 tdf1998' = do
   -- Prologue
-  prologue' dublin 5.6
+  outAndBackPrologue dublin 5.6
 
   -- Stage 1
   criterium dublin 180.5
@@ -5906,7 +5906,7 @@ tdf1999 = evalState tdf1999' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf1999' :: State StageRaceState StageRace
 tdf1999' = do
   -- Prologue
-  prologue' lePuyDuFou 6.8
+  outAndBackPrologue lePuyDuFou 6.8
 
   -- Stage 1
   plainStage montaigu challans 208.0
@@ -6062,7 +6062,7 @@ tdf2001 = evalState tdf2001' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2001' :: State StageRaceState StageRace
 tdf2001' = do
   -- Prologue
-  prologue' dunkerque 8.2
+  outAndBackPrologue dunkerque 8.2
 
   -- Stage 1
   plainStage saintOmer boulogneSurMer 194.5
@@ -6141,7 +6141,7 @@ tdf2002 = evalState tdf2002' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2002' :: State StageRaceState StageRace
 tdf2002' = do
   -- Prologue
-  prologue' luxembourgCity 7.0
+  outAndBackPrologue luxembourgCity 7.0
 
   criterium luxembourgCity 192.5
 
@@ -6220,7 +6220,7 @@ tdf2003 = evalState tdf2003' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2003' :: State StageRaceState StageRace
 tdf2003' = do
   -- Prologue
-  prologue' paris 6.5
+  outAndBackPrologue paris 6.5
 
   -- Stage 2
   plainStage saintDenis meaux 168.0
@@ -6298,7 +6298,7 @@ tdf2004 = evalState tdf2004' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2004' :: State StageRaceState StageRace
 tdf2004' = do
   -- Prologue
-  prologue' liege 6.1
+  outAndBackPrologue liege 6.1
 
   -- Stage 2
   plainStage liege charleroi 202.5
@@ -6454,7 +6454,7 @@ tdf2006 = evalState tdf2006' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2006' :: State StageRaceState StageRace
 tdf2006' = do
   -- Prologue
-  prologue' strasbourg 7.1
+  outAndBackPrologue strasbourg 7.1
 
   criterium strasbourg 184.5
 
@@ -6531,7 +6531,7 @@ tdf2007 = evalState tdf2007' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2007' :: State StageRaceState StageRace
 tdf2007' = do
   -- Prologue
-  prologue' london 7.9
+  outAndBackPrologue london 7.9
 
   -- Stage 2
   plainStage london canterbury 203.0
@@ -6763,7 +6763,7 @@ tdf2010 = evalState tdf2010' (ParcoursDB.State.StageRace.init (TourDeFrance []) 
 tdf2010' :: State StageRaceState StageRace
 tdf2010' = do
   -- Prologue
-  prologue' rotterdam 8.9
+  outAndBackPrologue rotterdam 8.9
 
   -- Stage 2
   plainStage rotterdam brussels 223.5

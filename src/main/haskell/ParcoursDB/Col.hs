@@ -46,6 +46,9 @@ qualifiedCol col raceCountry =
      else
        ParcoursDB.Col.name col ++ " (" ++ show colCountry ++ ")"
 
+vicinity :: Col -> String -> Col
+vicinity (Col n c h l aG mG) s = Col (n ++ " (" ++ s ++ ")" ) c h l aG mG
+
 instance Eq Col where
   (Col n1 c1 h1 _ _ _) == (Col n2 c2 h2 _ _ _) = n1 == n2 && c1 == c2 && h1 == h2 
 

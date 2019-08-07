@@ -2713,7 +2713,8 @@ giro1965' = do
   plainStage saasFee madesimo 282.0
 
   -- Stage 20
-  plainStage madesimo passoDelloStelvio 160.0
+  mountainStage (Left madesimo) 160
+  addCol 160 passoDelloStelvio C1
 
   -- Stage 21
   plainStage bormio brescia 179.0
@@ -2885,7 +2886,7 @@ giro1968 = evalState giro1968' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1968' :: State StageRaceState StageRace
 giro1968' = do
   -- Prologue
-  prologue' campioneD'Italia 5.7
+  outAndBackPrologue campioneD'Italia 5.7
 
   -- Stage 1
   plainStage campioneD'Italia novara 128.0
@@ -3252,7 +3253,8 @@ giro1972' = do
   plainStage parabiago livigno 256.0
 
   -- Stage 17
-  plainStage livigno passoDelloStelvio 88.0
+  mountainStage (Left livigno) 88
+  addCol 88 passoDelloStelvio C1
 
   -- Stage 18
   plainStage sulden asiago 223.0
@@ -3499,7 +3501,8 @@ giro1975' = do
   plainStage pordenone alleghe 197.0
 
   -- Stage 21
-  plainStage alleghe passoDelloStelvio 186.0
+  mountainStage (Left alleghe) 186
+  addCol 186 passoDelloStelvio C1
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
@@ -3683,7 +3686,7 @@ giro1978 = evalState giro1978' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1978' :: State StageRaceState StageRace
 giro1978' = do
   -- Prologue
-  prologue' saintVincent 2.0
+  outAndBackPrologue saintVincent 2.0
 
   -- Stage 1
   plainStage saintVincent noviLigure 175.0
@@ -3759,7 +3762,7 @@ giro1979 = evalState giro1979' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1979' :: State StageRaceState StageRace
 giro1979' = do
   -- Prologue
-  prologue' florence 2.0
+  outAndBackPrologue florence 2.0
 
   -- Stage 1
   plainStage florence perugia 156.0
@@ -3829,7 +3832,7 @@ giro1980 = evalState giro1980' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1980' :: State StageRaceState StageRace
 giro1980' = do
   -- Prologue
-  prologue' genoa 7.0
+  outAndBackPrologue genoa 7.0
 
   -- Stage 1
   plainStage genoa imperia 123.0
@@ -3908,7 +3911,7 @@ giro1981 = evalState giro1981' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1981' :: State StageRaceState StageRace
 giro1981' = do
   -- Prologue
-  prologue' trieste 6.6
+  outAndBackPrologue trieste 6.6
 
   -- Stages 1a & 1b
   enableSplitStages
@@ -3994,7 +3997,7 @@ giro1982 = evalState giro1982' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1982' :: State StageRaceState StageRace
 giro1982' = do
   -- Prologue
-  prologue' milan 16.0
+  outAndBackPrologue milan 16.0
 
   -- Stage 1
   plainStage parma viareggio 174.0
@@ -4075,7 +4078,7 @@ giro1983 = evalState giro1983' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1983' :: State StageRaceState StageRace
 giro1983' = do
   -- Prologue
-  prologue' brescia 8.0
+  outAndBackPrologue brescia 8.0
 
   -- Stage 1
   teamTimeTrial brescia mantua 70.0
@@ -4159,7 +4162,7 @@ giro1984 = evalState giro1984' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1984' :: State StageRaceState StageRace
 giro1984' = do
   -- Prologue
-  prologue' lucca 5.0
+  outAndBackPrologue lucca 5.0
 
   -- Stage 1
   teamTimeTrial lucca marinaDiPietrasanta 55.0
@@ -4240,7 +4243,7 @@ giro1985 = evalState giro1985' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1985' :: State StageRaceState StageRace
 giro1985' = do
   -- Prologue
-  prologue' verona 6.6
+  outAndBackPrologue verona 6.6
 
   -- Stage 1
   plainStage verona bustoArsizio 218.0
@@ -4325,7 +4328,7 @@ giro1986' :: State StageRaceState StageRace
 giro1986' = do
   -- Prologue and Stage 1
   enableMorningStage
-  prologue' palermo 1.0
+  outAndBackPrologue palermo 1.0
   plainStage palermo sciacca 140.0
 
   -- Stage 2
@@ -4400,7 +4403,7 @@ giro1987 = evalState giro1987' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1987' :: State StageRaceState StageRace
 giro1987' = do
   -- Prologue
-  prologue' sanRemo 4.0
+  outAndBackPrologue sanRemo 4.0
 
   -- Stages 1a & 1b
   enableSplitStages
@@ -4636,7 +4639,7 @@ giro1990 = evalState giro1990' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1990' :: State StageRaceState StageRace
 giro1990' = do
   -- Prologue
-  prologue' bari 13.0
+  outAndBackPrologue bari 13.0
 
   -- Stage 1
   plainStage bari salaConsilina 239.0
@@ -4684,7 +4687,8 @@ giro1990' = do
   plainStage veldenAmWorther dobbiaco 226.0
 
   -- Stage 15
-  plainStage dobbiaco passoPordoi 171.0
+  mountainStage (Left dobbiaco) 171
+  addCol 171 passoPordoi C1
 
   -- Stage 16
   plainStage moena aprica 223.0
@@ -4761,7 +4765,8 @@ giro1991' = do
   plainStage tirano selvaDiValGardena 220.0
 
   -- Stage 17
-  plainStage selvaDiValGardena passoPordoi 169.0
+  mountainStage (Left selvaDiValGardena) 169
+  addCol 169 passoPordoi C1
 
   -- Stage 18
   plainStage pozzaDiFassa castelfrancoVeneto 165.0
@@ -5149,7 +5154,8 @@ giro1996' = do
   individualTimeTrial vicenza marostica 62.0
 
   -- Stage 20
-  plainStage marostica passoPordoi 220.0
+  mountainStage (Left marostica) 220
+  addCol 220 passoPordoi C1
 
   -- Stage 21
   plainStage cavalese aprica 250.0
@@ -5242,7 +5248,7 @@ giro1998 = evalState giro1998' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro1998' :: State StageRaceState StageRace
 giro1998' = do
   -- Prologue
-  prologue' nice 8.0
+  outAndBackPrologue nice 8.0
 
   -- Stage 1
   plainStage nice cuneo 159.0
@@ -5395,7 +5401,7 @@ giro2000 = evalState giro2000' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro2000' :: State StageRaceState StageRace
 giro2000' = do
   -- Prologue
-  prologue' rome 4.6
+  outAndBackPrologue rome 4.6
 
   -- Stage 1
   plainStage rome terracina 125.0
@@ -5511,7 +5517,8 @@ giro2001' = do
   plainStage gradiscaD'Isonzo montebelluna 139.0
 
   -- Stage 14
-  plainStage montebelluna passoPordoi 225.0
+  mountainStage (Left montebelluna) 225
+  addCol 225 passoPordoi C1
 
   -- Stage 15
   plainStage cavalese arco 160.0
@@ -5548,7 +5555,7 @@ giro2002 = evalState giro2002' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro2002' :: State StageRaceState StageRace
 giro2002' = do
   -- Prologue
-  prologue' groningen 6.5
+  outAndBackPrologue groningen 6.5
 
   -- Stage 1
   plainStage groningen munster 215.0
@@ -5699,7 +5706,7 @@ giro2004 = evalState giro2004' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro2004' :: State StageRaceState StageRace
 giro2004' = do
   -- Prologue
-  prologue' genoa 6.9
+  outAndBackPrologue genoa 6.9
 
   -- Stage 1
   plainStage genoa alba 143.0
@@ -5774,7 +5781,7 @@ giro2005 = evalState giro2005' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 giro2005' :: State StageRaceState StageRace
 giro2005' = do
   -- Prologue
-  prologue' reggioCalabria 1.1
+  outAndBackPrologue reggioCalabria 1.1
 
   -- Stage 1
   plainStage reggioCalabria tropea 208.0
@@ -6367,7 +6374,8 @@ giro2012' = do
   plainStage treviso alpeDiPampeago 198.0
 
   -- Stage 20
-  plainStage caldesValDiSole passoDelloStelvio 219.0
+  mountainStage (Left caldesValDiSole) 219
+  addCol 219 passoDelloStelvio C1
 
   -- Stage 21
   outAndBackIndividualTimeTrial milan 28.2

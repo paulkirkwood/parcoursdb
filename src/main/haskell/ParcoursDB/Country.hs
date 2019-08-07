@@ -18,6 +18,7 @@ data Country = Andorra
              | Monaco
              | Netherlands
              | NorthernIreland
+             | Portugal
              | SanMarino
              | Slovenia
              | Spain
@@ -45,6 +46,7 @@ instance Show Country where
   show Monaco          = "Monaco"
   show Netherlands     = "Netherlands"
   show NorthernIreland = "Northern Ireland"
+  show Portugal        = "Portugal"
   show SanMarino       = "San Marino"
   show Slovenia        = "Slovenia"
   show Spain           = "Spain"

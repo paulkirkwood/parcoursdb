@@ -86,8 +86,8 @@ prologue start finish distance = do
                     , sRaceStages     = (prologue:xs)
                     } )
 
-prologue' :: Location -> Float -> State StageRaceState ()
-prologue' start_finish distance = prologue start_finish start_finish distance
+outAndBackPrologue :: Location -> Float -> State StageRaceState ()
+outAndBackPrologue start_finish distance = prologue start_finish start_finish distance
 
 roadStage :: Either Location Col -> Maybe Location -> Float -> State StageRaceState ()
 roadStage start finish distance = do
@@ -145,6 +145,20 @@ twoManTeamTimeTrial start_finish distance = do
   let day         = sStageDay currentState
   let xs          = sRaceStages currentState
   let stage       = TwoManTeamTimeTrial day start_finish start_finish stageId distance []
+  put (currentState { sStageDay    = nextDay
+                    , sStageNumber = nextStageNumber
+                    , sRaceStages  = (xs ++ [stage])
+                    } )
+
+threeManTeamTimeTrial :: Location -> Float -> State StageRaceState ()
+threeManTeamTimeTrial start_finish distance = do
+  currentState    <- get
+  nextDay         <- nextStageDay
+  stageId         <- getStageId
+  nextStageNumber <- nextStageNumber
+  let day         = sStageDay currentState
+  let xs          = sRaceStages currentState
+  let stage       = ThreeManTeamTimeTrial day start_finish start_finish stageId distance []
   put (currentState { sStageDay    = nextDay
                     , sStageNumber = nextStageNumber
                     , sRaceStages  = (xs ++ [stage])

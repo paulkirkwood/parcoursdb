@@ -2,8 +2,10 @@ module Countries.Netherlands
 (arnhem
 ,amsterdam
 ,apeldoorn
+,assen
 ,breda
 ,elsloo
+,emmen
 ,groningen
 ,heerlen
 ,helmond
@@ -18,7 +20,9 @@ module Countries.Netherlands
 ,sintWillebrord
 ,utrecht
 ,valkenburg
+,venlo
 ,zeeland
+,zutphen
 )
 where
 
@@ -38,6 +42,9 @@ amsterdam = dutchLocation "Amsterdam"
 apeldoorn :: Location
 apeldoorn = dutchLocation "Apeldoorn"
 
+assen :: Location
+assen = dutchLocation "Assen"
+
 -- B
 breda :: Location
 breda = dutchLocation "Breda"
@@ -45,6 +52,9 @@ breda = dutchLocation "Breda"
 -- E
 elsloo :: Location
 elsloo = dutchLocation "Elsloo"
+
+emmen :: Location
+emmen = dutchLocation "Emmen"
 
 -- G
 groningen :: Location
@@ -97,6 +107,12 @@ utrecht = dutchLocation "Utrecht"
 valkenburg :: Location
 valkenburg = dutchLocation "Valkenburg"
 
+venlo :: Location
+venlo = dutchLocation "Venlo"
+
 -- Z
 zeeland :: Location
 zeeland = dutchLocation "Zeeland"
+
+zutphen :: Location
+zutphen = dutchLocation "Zutphen"

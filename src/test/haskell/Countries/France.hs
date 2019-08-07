@@ -1552,7 +1552,7 @@ saintPaulTroisChateaux :: Location
 saintPaulTroisChateaux = frenchLocation "Saint-Paul-Trois-Chateaux"
 
 saintPeeSurNivelle :: Location
-saintPeeSurNivelle = frenchLocation "Saint-Pee-sur-Nivelle"
+saintPeeSurNivelle = frenchLocation "Saint-Pée-sur-Nivelle"
 
 saintPolDeLeon :: Location
 saintPolDeLeon = frenchLocation "Saint-Pol-de-Léon"
@@ -1736,9 +1736,6 @@ vaisonLaRomaine = frenchLocation "Vaison-la-Romaine"
 
 valLouron :: Location
 valLouron = frenchLocation "Val Louron"
-
-valdebloreLaColmiane :: Location
-valdebloreLaColmiane = frenchLocation "Valdeblore La Colmiane"
 
 valence :: Location
 valence = frenchLocation "Valence"

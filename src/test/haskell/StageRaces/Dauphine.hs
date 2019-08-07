@@ -43,7 +43,7 @@ dauphine2018 = evalState dauphine2018' (ParcoursDB.State.StageRace.init (Dauphin
 dauphine2018' :: State StageRaceState StageRace
 dauphine2018' = do
   -- Prologue
-  prologue' valence 6.6
+  outAndBackPrologue valence 6.6
 
   -- Stage 1
   plainStage valence saintJust 179
@@ -80,16 +80,16 @@ dauphine2018' = do
 
   -- Stage 6
   mountainStage (Left frontenex) 110
-  hc' 27.5 "Monte de Bisanne" France 1723
-  hc' 59.5 "Col du Pre" France 1748
+  addCol 27.5 monteeDuBisanne HC
+  addCol 59.5 colDuPre HC
   addCol 72 cormetDeRoselend C2
-  c1' 110 "La Rosiere" France 1855
+  addCol 110 laRosiere C1
 
   -- Stage 7
   mountainStage (Left moutiers) 136
   addCol 43 cormetDeRoselend C1
   c3' 64.5 "Cote de la route des Villes" France 1078
-  c1' 88.5 "Col des Saisies" France 1663
+  addCol 88.5 colDesSaisies C1
   c1' 126.5 "Cote des Amerands" France 888
   addCol 136 saintGervaisMontBlanc C1
 

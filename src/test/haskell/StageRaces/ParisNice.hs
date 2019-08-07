@@ -8,6 +8,9 @@ import Control.Monad.State
 import Countries.France
 import Data.Time
 import Mountains.Alps
+import Mountains.Alps.Maritime
+import Mountains.Alps.Provence
+import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.StageRace
 import ParcoursDB.State.StageRace
@@ -57,20 +60,20 @@ parisNice2018' = do
 
   -- Stage 7
   mountainStage (Left nice) 175
-  c2' 10 "Cote de Gattieres" France 264
-  c1' 84.5 "Cote de la Sainte-Baume" France 1118
-  c2' 108 "Col Saint-Raphael" France 833
-  c2' 134.5 "Cote de Villars-sur-Var" France 417
-  c1' 175 "Valdeblore La Colmiane" France 1500
+  addCol 10    coteDeGattieres C2
+  addCol 84.5  coteDeLaSainteBaume C2
+  addCol 108   colSaintRaphael C2
+  addCol 134.5 coteDeVillarsSurVar C2
+  addCol 175   valdebloreLaColmiane C1
 
   -- Stage 8
   criterium nice 110
-  c2' 20.5 "Cote de Levens" France 477
-  c1' 36.5 "Cote de Chateauneuf" France 633
-  c2' 51 "Col de Calaison" France 468
-  c1' 67.5 "Cote de Peille" France 653
-  c1' 83.5 "Col d'Eze" France 508
-  c2' 101 "Col des Quatre Chemins" France 338
+  addCol 20.5 coteDeLevens C2
+  addCol 36.5 coteDeChateauneuf C2
+  addCol 51   colDeCalaison C2
+  addCol 67.5 coteDePeille C2
+  addCol 83.5 colD'Eze C1
+  addCol 101  colDesQuatreChemins C2
 
   race <- build
   return race

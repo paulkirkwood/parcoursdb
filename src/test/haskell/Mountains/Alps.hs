@@ -321,6 +321,9 @@ colDuSemnoz = frenchAlpineCol "Col du Semnoz" 1655
 colDeLaSentinelle :: Col
 colDeLaSentinelle = frenchAlpineCol "Col de la Sentinelle" 980
 
+passoDelloStelvio :: Col
+passoDelloStelvio = italianAlpineCol "Passo dello Stelvio" 2757
+
 sestriere :: Col
 sestriere = italianAlpineCol "Sestrière" 2035
 

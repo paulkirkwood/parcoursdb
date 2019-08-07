@@ -17,6 +17,9 @@ instance Ord Location where
 description :: Location -> String
 description (Location n c) = n ++ ", " ++ show c
 
+vicinity :: Location -> String -> Location
+vicinity (Location n c) s = Location (n ++ " (" ++ s ++ ")") c
+
 qualifiedLocation :: Location -> Country -> String
 qualifiedLocation loc c =
   let locationCountry = country(loc)

@@ -1519,9 +1519,6 @@ passoDelBocco = italianLocation "Passo del Bocco"
 passoDelTonale :: Location
 passoDelTonale = italianLocation "Passo del Tonale"
 
-passoDelloStelvio :: Location
-passoDelloStelvio = italianLocation "Passo dello Stelvio"
-
 passoDiPampeagno :: Location
 passoDiPampeagno = italianLocation "Passo di Pampeagno"
 
@@ -1530,9 +1527,6 @@ passoDiSanPellegrino = italianLocation "Passo di San Pellegrino"
 
 passoFedaia :: Location
 passoFedaia = italianLocation "Passo Fedaia"
-
-passoPordoi :: Location
-passoPordoi = italianLocation "Passo Pordoi"
 
 passoRolle :: Location
 passoRolle = italianLocation "Passo Rolle"
