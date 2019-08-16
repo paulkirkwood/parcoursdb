@@ -94,9 +94,6 @@ andalo = italianLocation "Andalo"
 aosta :: Location
 aosta = italianLocation "Aosta"
 
-aprica :: Location
-aprica = italianLocation "Aprica"
-
 arabba :: Location
 arabba = italianLocation "Arabba"
 
@@ -435,6 +432,9 @@ caserta = italianLocation "Caserta"
 cassanoDAdda :: Location
 cassanoDAdda = italianLocation "Cassano d'Adda"
 
+cassino :: Location
+cassino = italianLocation "Cassino"
+
 casteggio :: Location
 casteggio = italianLocation "Casteggio"
 
@@ -648,6 +648,9 @@ comacchio = italianLocation "Comacchio"
 comerio :: Location
 comerio = italianLocation "Comerio"
 
+commezzadura :: Location
+commezzadura = italianLocation "Commezzadura"
+
 como :: Location
 como = italianLocation "Como"
 
@@ -842,6 +845,9 @@ frascati = italianLocation "Frascati"
 
 frosinone :: Location
 frosinone = italianLocation "Frosinone"
+
+fucecchio :: Location
+fucecchio = italianLocation "Fucecchio"
 
 -- G
 gabicceMare :: Location
@@ -1084,6 +1090,9 @@ loreto = italianLocation "Loreto"
 loretoAprutino :: Location
 loretoAprutino = italianLocation "Loreto Aprutino"
 
+lovere :: Location
+lovere = italianLocation "Lovere"
+
 lucca :: Location
 lucca = italianLocation "Lucca"
 
@@ -1111,9 +1120,6 @@ maddaloni = italianLocation "Maddaloni"
 
 madesimo :: Location
 madesimo = italianLocation "Madesimo"
-
-madonnaDelGhisallo :: Location
-madonnaDelGhisallo = italianLocation "Madonna del Ghisallo"
 
 madonnaDiCampiglio :: Location
 madonnaDiCampiglio = italianLocation "Madonna di Campiglio"
@@ -1528,9 +1534,6 @@ passoDiSanPellegrino = italianLocation "Passo di San Pellegrino"
 passoFedaia :: Location
 passoFedaia = italianLocation "Passo Fedaia"
 
-passoRolle :: Location
-passoRolle = italianLocation "Passo Rolle"
-
 pavia :: Location
 pavia = italianLocation "Pavia"
 
@@ -1897,14 +1900,17 @@ sanGiorgioDelSannio = italianLocation "San Giorgio del Sannio"
 sanGiorgioPiacentino :: Location
 sanGiorgioPiacentino = italianLocation "San Giorgio Piacentino"
 
+sanGiovanniRotondo :: Location
+sanGiovanniRotondo = italianLocation "San Giovanni Rotondo"
+
 sanLorenzoAlMare :: Location
 sanLorenzoAlMare = italianLocation "San Lorenzo al Mare"
 
+sanLuca :: Location
+sanLuca = italianLocation "San Luca"
+
 sanMarcelloPistoiese :: Location
 sanMarcelloPistoiese = italianLocation "San Marcello Pistoiese"
-
-sanMartinoDiCastrozza :: Location
-sanMartinoDiCastrozza = italianLocation "San Martino di Castrozza"
 
 sanPellegrinoTerme :: Location
 sanPellegrinoTerme = italianLocation "San Pellegrino Terme"
@@ -1959,6 +1965,9 @@ santaMariaDelCedro = italianLocation "Santa Maria del Cedro"
 
 santaMariaDellaVersa :: Location
 santaMariaDellaVersa = italianLocation "Santa Maria della Versa"
+
+santaMariaDiSala :: Location
+santaMariaDiSala = italianLocation "Santa Maria di Sala"
 
 santarcangeloDiRomagna :: Location
 santarcangeloDiRomagna = italianLocation "Santarcangelo di Romagna"
@@ -2207,6 +2216,9 @@ tortona = italianLocation "Tortona"
 tortoreto :: Location
 tortoreto = italianLocation "Tortoreto"
 
+tortoretoLido :: Location
+tortoretoLido = italianLocation "Tortoreto Lido"
+
 tramin :: Location
 tramin = italianLocation "Tramin"
 
@@ -2265,6 +2277,9 @@ vajoletTowers = italianLocation "Vajolet Towers"
 
 valMartello :: Location
 valMartello = italianLocation "Val Martello"
+
+valdaora :: Location
+valdaora = italianLocation "Valdaora"
 
 valdengo :: Location
 valdengo = italianLocation "Valdengo"
@@ -2364,6 +2379,9 @@ villafrancaTirrena = italianLocation "Villafranca Tirrena"
 
 villapianaLido :: Location
 villapianaLido = italianLocation "Villapiana Lido"
+
+vinci :: Location
+vinci = italianLocation "Vinci"
 
 viterbo :: Location
 viterbo = italianLocation "Viterbo"

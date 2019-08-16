@@ -22,6 +22,9 @@ colD'Allos = frenchAlpineCol "Col d'Allos" 2250
 alpeD'Huez :: Col
 alpeD'Huez = Col "Alpe d'Huez" France 1850 (Just 13.8) (Just 8.1) Nothing
 
+aprica :: Col
+aprica = italianAlpineCol "Aprica" 1173
+
 lesArcs :: Col
 lesArcs = frenchAlpineCol "Les Arcs" 1700
 
@@ -48,6 +51,12 @@ coteDeBrie :: Col
 coteDeBrie = Col "Cote de Brie"  France 450 (Just 2.4) (Just 6.9) Nothing
 
 -- C
+ceresoleReale :: Col
+ceresoleReale = italianAlpineCol "Ceresole Reale" 2247
+
+cevo :: Col
+cevo = italianAlpineCol "Cevo" 1054
+
 colDeLaCabre :: Col
 colDeLaCabre = frenchAlpineCol "Col de la Cabre" 1180
 
@@ -81,6 +90,9 @@ colDuCorbier = frenchAlpineCol "Col du Corbier" 1325
 colDeCordon :: Col
 colDeCordon = frenchAlpineCol "Col de Cordon" 975
 
+colmaDiSormano :: Col
+colmaDiSormano = italianAlpineCol "Colman di Sormano" 1124
+
 cormetDeRoselend :: Col
 cormetDeRoselend = Col "Cormet de Roselend" France 1968 (Just 5.7) (Just 6.5) Nothing
 
@@ -95,6 +107,9 @@ colDeLaCroix = swissAlpineCol "Col de la Croix" 1778
 
 colleDelMorte :: Col
 colleDelMorte = frenchAlpineCol "Colle del Morte" 710
+
+colleSanCarlo :: Col
+colleSanCarlo = italianAlpineCol "Colle San Carlo" 1951
 
 croixDeFer :: Col
 croixDeFer = Col "Croix de Fer" France 2067 (Just 29) (Just 5.2) Nothing
@@ -187,9 +202,15 @@ lesMenuires = frenchAlpineCol "Les Menuires" 1809
 colDuLuitel :: Col
 colDuLuitel = frenchAlpineCol "Luitel" 1262
 
+colleDelLys :: Col
+colleDelLys = italianAlpineCol "Colle del Lys" 1311
+
 -- M
 colDeLaMadeleine :: Col
 colDeLaMadeleine = Col "Col de la Madeleine" France 2000 (Just 25.3) (Just 6.2) Nothing
+
+madonnaDelGhisallo :: Col
+madonnaDelGhisallo = italianAlpineCol "Madonna del Ghisallo" 754
 
 colDeManse :: Col
 colDeManse = frenchAlpineCol "Col de Manse" 1268
@@ -208,6 +229,9 @@ montCenis = frenchAlpineCol "Mont-Cenis" 2083
 
 montgenevre :: Col
 montgenevre = frenchAlpineCol "Montgenèvre" 1860
+
+montoso :: Col
+montoso = italianAlpineCol "Montoso" 1248
 
 colDesMosses :: Col
 colDesMosses = swissAlpineCol "Col des Mosses" 1448
@@ -238,6 +262,9 @@ colDuPre = Col "Col du Pre" France 1748 (Just 12.6) (Just 7.7) Nothing
 pasDeMorgins :: Col
 pasDeMorgins = frenchAlpineCol "Pas-de-Morgins" 1369
 
+passoDelMortirolo :: Col
+passoDelMortirolo = italianAlpineCol "Passo del Mortirolo" 1854
+
 colDeParmenie :: Col
 colDeParmenie = frenchAlpineCol "Col de Parménie" 571
 
@@ -258,6 +285,9 @@ lePleynet = frenchAlpineCol "Le Pleynet" 1445
 
 colDePorte :: Col
 colDePorte = frenchAlpineCol "Col de Porte" 1326
+
+pianDelLupo :: Col
+pianDelLupo = italianAlpineCol "Pian del Lupo" 1405
 
 praLoup :: Col
 praLoup = frenchAlpineCol "Pra-Loup" 1630
@@ -342,6 +372,9 @@ monteeDeTignes = frenchAlpineCol "Montée de Tignes" 2068
 colDeTournoi :: Col
 colDeTournoi = frenchAlpineCol "Col de Tourniol" 1145
 
+trucD'Arbe :: Col
+trucD'Arbe = italianAlpineCol "Truc d'Arbe" 1256
+
 -- V
 valD'Isere :: Col
 valD'Isere = frenchAlpineCol "Val d'Isère" 1820
@@ -354,6 +387,12 @@ colDeVars = frenchAlpineCol "Col de Vars" 2109
 
 verbier :: Col
 verbier = swissAlpineCol "Verbier" 1468
+
+verrayes :: Col
+verrayes = italianAlpineCol "Verrayes" 1017
+
+verrogne :: Col
+verrogne = italianAlpineCol "Verrogne" 1582
 
 villardDeLans :: Col
 villardDeLans = frenchAlpineCol "Villard-de-Lans" 1150

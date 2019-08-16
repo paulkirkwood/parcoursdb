@@ -6,6 +6,7 @@ module StageRaces.Giro
 ,giro2016
 ,giro2017
 ,giro2018
+,giro2019
 ,giroEditions
 )where
 
@@ -33,6 +34,7 @@ import Countries.WestGermany
 import Countries.Yugoslavia
 import Data.Time
 import Mountains.Alps
+import Mountains.Appennines
 import Mountains.Dolomites
 import ParcoursDB.Col
 import ParcoursDB.Country
@@ -143,6 +145,7 @@ giroEditions = [ giro1909
                , giro2016
                , giro2017
                , giro2018
+               , giro2019
                ]
 
 giro1909Stages :: [NonConsecutiveStage]
@@ -1877,10 +1880,11 @@ giro1954' = do
   plainStage padua grado 177.0
 
   -- Stage 19
-  plainStage grado sanMartinoDiCastrozza 247.0
+  mountainStage (Left grado) 247
+  addCol 247 sanMartinoDiCastrozza C2
 
   -- Stage 20
-  plainStage sanMartinoDiCastrozza bolzano 152.0
+  roadStage (Right sanMartinoDiCastrozza) (Just bolzano) 152.0
 
   -- Stage 21
   plainStage bolzano saintMoritz 222.0
@@ -2473,13 +2477,15 @@ giro1962' = do
   transferDay
 
   -- Stage 14
-  plainStage belluno passoRolle 160.0
+  mountainStage (Left belluno) 160
+  addCol 160 passoRolle C2
 
   -- Stage 15
-  plainStage moena aprica 215.0
+  mountainStage (Left moena) 215
+  addCol 215 aprica C3
 
   -- Stage 16
-  plainStage aprica pianDelResinelli 123.0
+  roadStage (Right aprica) (Just pianDelResinelli) 123.0
 
   -- Stage 17
   plainStage lecco casaleMonferrato 194.0
@@ -2873,8 +2879,9 @@ giro1967' = do
 
   -- Stages 22a & 22b
   enableSplitStages
-  plainStage tirano madonnaDelGhisallo 137.0
-  plainStage madonnaDelGhisallo milan 68.0
+  mountainStage (Left tirano) 137
+  addCol 137 madonnaDelGhisallo C3
+  roadStage (Right madonnaDelGhisallo) (Just milan) 68.0
   disableSplitStages
 
   edition <- ParcoursDB.State.StageRace.build
@@ -4049,7 +4056,8 @@ giro1982' = do
   plainStage urbino comacchio 190.0
 
   -- Stage 16
-  plainStage comacchio sanMartinoDiCastrozza 243.0
+  mountainStage (Left comacchio) 243
+  addCol 243 sanMartinoDiCastrozza C2
 
   -- Stage 17
   plainStage fieraDiPrimiero boarioTerme 235.0
@@ -4691,10 +4699,11 @@ giro1990' = do
   addCol 171 passoPordoi C1
 
   -- Stage 16
-  plainStage moena aprica 223.0
+  mountainStage (Left moena) 223
+  addCol 223 aprica C3
 
   -- Stage 17
-  plainStage aprica gallarate 180.0
+  roadStage (Right aprica) (Just gallarate) 180.0
 
   -- Stage 18
   individualTimeTrial gallarate sacroMonteDiVarese 39.0
@@ -4759,7 +4768,8 @@ giro1991' = do
   plainStage turin morbegno 239.0
 
   -- Stage 15
-  plainStage morbegno aprica 132.0
+  mountainStage (Left morbegno) 132
+  addCol 132 aprica C3
 
   -- Stage 16
   plainStage tirano selvaDiValGardena 220.0
@@ -4985,7 +4995,8 @@ giro1994' = do
   plainStage lienz merano 235.0
 
   -- Stage 15
-  plainStage merano aprica 195.0
+  mountainStage (Left merano) 195
+  addCol 195 aprica C3
 
   -- Stage 16
   plainStage sondrio stradella 220.0
@@ -5158,7 +5169,8 @@ giro1996' = do
   addCol 220 passoPordoi C1
 
   -- Stage 21
-  plainStage cavalese aprica 250.0
+  mountainStage (Left cavalese) 250
+  addCol 250 aprica C3
 
   -- Stage 22
   plainStage sondrio milan 176.0
@@ -5387,7 +5399,8 @@ giro1999' = do
   plainStage predazzo madonnaDiCampiglio 175.0
 
   -- Stage 21
-  plainStage madonnaDiCampiglio aprica 190.0
+  mountainStage (Left madonnaDiCampiglio) 190
+  addCol 190 aprica C3
 
   -- Stage 22
   plainStage darfoBoarioTerme milan 170.0
@@ -5918,7 +5931,8 @@ giro2006' = do
   plainStage pordenone passoDiSanPellegrino 224.0
 
   -- Stage 20
-  plainStage trento aprica 211.0
+  mountainStage (Left trento) 211
+  addCol 211 aprica C3
 
   -- Stage 21
   plainStage museoDelGhisallo milan 140.0
@@ -6092,10 +6106,11 @@ giro2009' = do
   plainStage grado valdobbiadene 198.0
 
   -- Stage 4
-  plainStage padua sanMartinoDiCastrozza 162.0
+  mountainStage (Left padua) 162
+  addCol 162 sanMartinoDiCastrozza C2
 
   -- Stage 5
-  plainStage sanMartinoDiCastrozza alpeDiSiusi 125.0
+  roadStage (Right sanMartinoDiCastrozza) (Just alpeDiSiusi) 125.0
 
   -- Stage 6
   plainStage brixen mayrhofen 248.0
@@ -6219,7 +6234,8 @@ giro2010' = do
   plainStage levicoTerme brescia 151.0
 
   -- Stage 19
-  plainStage brescia aprica 195.0
+  mountainStage (Left brescia) 195
+  addCol 195 aprica C3
 
   -- Stage 20
   plainStage bormio passoDelTonale 178.0
@@ -6591,7 +6607,8 @@ giro2015' = do
   transferDay
 
   -- Stage 16
-  plainStage pinzolo aprica 174.0
+  mountainStage (Left pinzolo) 174
+  addCol 174 aprica C3
 
   -- Stage 17
   plainStage tirano lugano 134.0
@@ -6617,35 +6634,80 @@ giro2016 = evalState giro2016' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 
 giro2016' :: State StageRaceState StageRace
 giro2016' = do
+  -- Stage 1
   outAndBackIndividualTimeTrial apeldoorn 9.8
+
+  -- Stage 2
   plainStage arnhem nijmegen 190
+
+  -- Stage 3
   plainStage nijmegen arnhem 190
+
   transferDay
+
+  -- Stage 4
   plainStage catanzaro praiaAMare 200
+
+  -- Stage 5
   plainStage praiaAMare benevento 233
+
+  -- Stage 6
   let aremogna = Location "Roccaraso (Aremogna)" Italy
   plainStage ponte aremogna 157
+
+  -- Stage 7
   plainStage sulmona foligno 211
+
+  -- Stage 8
   plainStage foligno arezzo 186
+
+  -- Stage 9
   let chianti = Location "Chianti Classico Stage" Italy
   outAndBackIndividualTimeTrial chianti 40.5
+
   transferDay
+
+  -- Stage 10
   plainStage campiBisenzio sestola 219
+
+  -- Stage 11
   plainStage modena asolo 227
+
+  -- Stage 12
   plainStage noale bibione 182
+
+  -- Stage 13
   plainStage palmanova cividaleDelFruili 170
+
+  -- Stage 14
   let farra = Location "Alpago (Farra)" Italy
   plainStage farra corvara 210
+
+  -- Stage 15
   let seiseralm = Location "Alpe di Siusi/Seiseralm" Italy
   individualTimeTrial castelrotto seiseralm 10.8
+
   transferDay
+
+  -- Stage 16
   plainStage bressanone andalo 132
+
+  -- Stage 17
   plainStage molveno cassanoDAdda 196
+
+  -- Stage 18
   plainStage muggio pinerolo 244
+
+  -- Stage 19
   mountainStage (Left pinerolo) 162
   addCol 162 risoul C1
+
+  -- Stage 20
   plainStage guillestre sant'AnnaDiVinadio 134
+
+  -- Stage 21
   plainStage cuneo torino 163
+
   race <- ParcoursDB.State.StageRace.build
   return race
 
@@ -6654,38 +6716,85 @@ giro2017 = evalState giro2017' (ParcoursDB.State.StageRace.init (Giro [])(fromGr
 
 giro2017' :: State StageRaceState StageRace
 giro2017' = do
+  -- Stage 1
   plainStage alghero olbia 206
+
+  -- Stage 2
   plainStage olbia tortoli 221
+
+  -- Stage 3
   plainStage tortoli cagliari 148
+
   transferDay
+
+  -- Stage 4
   plainStage cefalu etna 181
+
+  -- Stage 5
   plainStage pedara messina 159
+
+  -- Stage 6
   plainStage reggioCalabria termeLuigiane 217
+
+  -- Stage 6
   let alberobello = Location "Alberobello (Valle D'Itria)" Italy
+
+  -- Stage 7
   plainStage castrovillari alberobello 224
+
+  -- Stage 8
   plainStage molfetta peschici 189
+
+  -- Stage 9
   plainStage monteneroDiBisaccia blockhaus 149
+
   transferDay
+
+  -- Stage 10
   individualTimeTrial foligno montefalco 39.8
+
+  -- Stage 11
   let firenze = Location "Firenze (Ponte a Ema)" Italy
   plainStage firenze bagnoDiRomagna 161
+
+  -- Stage 12
   plainStage forli reggioEmilia 234
+
+  -- Stage 13
   plainStage reggioEmilia tortona 167
+
+  -- Stage 14
   let oropa = Location "Oropa (Biella)" Italy
   plainStage castellania oropa 131
+
+  -- Stage 15
   plainStage valdengo bergamo 199
+
   transferDay
+
+  -- Stage 16
   plainStage rovetta bormio 222
+
+  -- Stage 17
   let canazei = Location "Canazei (Val di Fassa)" Italy
   plainStage tirano canazei 219
+
+  -- Stage 18
   let moena = Location "Moena (Val di Fassa)" Italy
   let ortisei = Location "Ortisei/St. Ulrich (Val Gardena)" Italy
   plainStage moena ortisei 137
+
+  -- Stage 19
   let sanCandido = Location "San Candido/Innichen" Italy
   let piancavallo = Location "Piancavallo (Monte Jafferau)" Italy
   plainStage sanCandido piancavallo 191
+
+  -- Stage 20
   plainStage pordenone asiago 190
+
+  -- Stage 21
   individualTimeTrial monza milan 29.3
+
   race <- ParcoursDB.State.StageRace.build
   return race
 
@@ -6799,6 +6908,123 @@ giro2018' = do
 
   -- Stage 21
   criterium rome 115
+
+  race <- ParcoursDB.State.StageRace.build
+  return race
+
+giro2019 :: StageRace
+giro2019 = evalState giro2019' (ParcoursDB.State.StageRace.init (Giro []) (fromGregorian 2019 5 11))
+
+giro2019' :: State StageRaceState StageRace
+giro2019' = do
+  -- Stage 1
+  individualTimeTrial bologna sanLuca 8
+
+  -- Stage 2
+  plainStage bologna fucecchio 205
+  addCol 157.6 montalbano C3
+  addCol 178.7 sanBaronto C4
+
+  -- Stage 3
+  plainStage vinci orbetello 220
+  addCol 182 poggioL'Appartita C4
+
+  -- Stage 4
+  plainStage orbetello frascati 235
+  addCol 32.8 manciano C4
+
+  -- Stage 5
+  plainStage frascati terracina 140
+  addCol 87.2 sezze C4
+
+  -- Stage 6
+  plainStage cassino sanGiovanniRotondo 238
+  addCol 220.1 coppaCasarinelle C2
+
+  -- Stage 7
+  plainStage vasto l'Aquila 185
+  addCol 138.8 leSvolteDiPopoli C2
+
+  -- Stage 8
+  plainStage tortoretoLido pesaro 239
+  addCol 168.5 monteDellaMattera C3
+  addCol 203.7 monteluro C4
+  addCol 214.9 gabicceMonte C4
+
+  -- Stage 9
+  individualTimeTrial riccione sanMarino 34.8
+
+  transferDay
+
+  -- Stage 10
+  plainStage ravenna modena 145
+
+  -- Stage 11
+  plainStage carpi noviLigure 221
+  
+  -- Stage 12
+  plainStage cuneo pinerolo 158
+  addCol 125.9 montoso C1
+
+  -- Stage 13
+  let ceresoleReale' = ParcoursDB.Col.vicinity ceresoleReale "Lago Serrù"
+  mountainStage (Left pinerolo) 196
+  addCol 54.3 colleDelLys C1
+  addCol 134.3 pianDelLupo C2
+  addCol 196 ceresoleReale' C1
+
+  -- Stage 14
+  let courmayeurSkyWayMonteBianco = ParcoursDB.Location.vicinity courmayeur "Skyway Monte Bianco"
+  plainStage saintVincent courmayeurSkyWayMonteBianco 131
+  addCol 13.8 verrayes C2
+  addCol 51.5 verrogne C1
+  addCol 75.9 trucD'Arbe C2
+  addCol 106.1 colleSanCarlo C1
+
+  -- Stage 15
+  plainStage ivrea como 232
+  addCol 173.7 madonnaDelGhisallo C2
+  addCol 189.6 colmaDiSormano C2
+
+  transferDay
+
+  -- Stage 16
+  plainStage lovere ponteDiLegno 194
+  addCol 89.6 cevo C3
+  addCol 128.2 aprica C3
+  addCol 166.3 passoDelMortirolo C1
+
+  -- Stage 17
+  let commezzadura' = ParcoursDB.Location.vicinity commezzadura "Val di Sole"
+  let anterselvaAntholz = ParcoursDB.Col.dualNameCol anterselva antholz
+  mountainStage (Left commezzadura') 181
+  addCol 114 elvas C4
+  addCol 135.3 terento C3
+  addCol 181 anterselvaAntholz C3
+
+  -- Stage 18
+  let valdaoraOlang = commune valdaora "Olang"
+  plainStage valdaoraOlang santaMariaDiSala 222
+  addCol 118.1 pieveDiAlpago C4
+
+  -- Stage 19
+  mountainStage (Left treviso) 151
+  addCol 66.6 passoDiSanBoldo C3
+  addCol 116.5 lamon C4
+  addCol 151 sanMartinoDiCastrozza C2
+
+  -- Stage 20
+  let croceD'AuneMonteAvena = clone monteAvena "Croce d'Aune-Monte Avena"
+  mountainStage (Left feltre) 194
+  addCol 27.1 cimaCampo C2
+  addCol 78 passoManghen C1
+  addCol 133.1 passoRolle C2
+  addCol 183.1 croceD'Aune C2
+  addCol 194 monteAvena C1
+
+  -- Stage 21
+  outAndBackIndividualTimeTrial verona 17
+  addCol 9.5 torricelle C4
 
   race <- ParcoursDB.State.StageRace.build
   return race

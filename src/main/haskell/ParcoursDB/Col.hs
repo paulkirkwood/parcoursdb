@@ -38,6 +38,9 @@ jointFinish :: Col -> Location -> Col
 jointFinish c@(Col colName country h length aG mG) l@(Location locName locCountry) =
   Col (colName ++ " - " ++ locName ) country h length aG mG
 
+dualNameCol :: Col -> Col -> Col
+dualNameCol c1@(Col n1 c h l aG mG) c2@(Col n2 _ _ _ _ _) = Col (n1 ++ "/" ++ n2) c h l aG mG
+
 qualifiedCol :: Col -> Country -> String
 qualifiedCol col raceCountry =
   let colCountry = country(col)

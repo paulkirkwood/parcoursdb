@@ -14,6 +14,9 @@ instance Eq Location where
 instance Ord Location where
   compare (Location a b) (Location c d) = if a == c then compare b d else compare a c
 
+commune :: Location -> String -> Location
+commune (Location n c) s = Location (n ++ "/" ++ s) c 
+
 description :: Location -> String
 description (Location n c) = n ++ ", " ++ show c
 
