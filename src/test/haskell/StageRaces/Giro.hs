@@ -3124,69 +3124,69 @@ giro1971 = evalState giro1971' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 
 giro1971' :: State StageRaceState StageRace
 giro1971' = do
-  -- Stage 1
-  teamTimeTrial lecce brindisi 62.2
+  -- Prologue
+  prologueTeamTimeTrial lecce brindisi 62.2
 
-  -- Stage 2
+  -- Stage 1
   plainStage brindisi bari 175.0
 
-  -- Stage 3
+  -- Stage 2
   plainStage bari potenza 260.0
 
-  -- Stage 4
+  -- Stage 3
   plainStage potenza benevento 177.0
 
-  -- Stage 5
+  -- Stage 4
   plainStage benevento pescasseroli 203.0
 
-  -- Stage 6
+  -- Stage 5
   plainStage pescasseroli granSassoD'Italia 198.0
 
-  -- Stage 7
+  -- Stage 6
   plainStage l'Aquila orvieto 163.0
 
-  -- Stage 8
+  -- Stage 7
   plainStage orvieto sanVincenzo 220.0
 
-  -- Stage 9
+  -- Stage 8
   plainStage sanVincenzo cascianaTerme 203.0
 
-  -- Stage 10
+  -- Stage 9
   plainStage cascianaTerme forteDeiMarmi 141.0
 
-  -- Stage 11
+  -- Stage 10
   criterium forteDeiMarmi 141.0
 
-  -- Stage 12
+  -- Stage 11
   plainStage sestola mantua 199.0
 
   transferDay
 
-  -- Stage 13
+  -- Stage 12
   individualTimeTrial desenzanoDelGarda sernigaDiSalo 28.0
 
-  -- Stage 14
+  -- Stage 13
   plainStage salo sottomarinaDiChioggia 218.0
 
-  -- Stage 15
+  -- Stage 14
   plainStage chioggia bibione 170.0
 
-  -- Stage 16
+  -- Stage 15
   plainStage bibione Countries.Yugoslavia.ljubljana 201.0
 
-  -- Stage 17
+  -- Stage 16
   plainStage Countries.Yugoslavia.ljubljana tarvisio 100.0
 
-  -- Stage 18
+  -- Stage 17
   plainStage tarvisio grossglockner 206.0
 
-  -- Stage 19
+  -- Stage 18
   plainStage lienz falcade 195.0
 
-  -- Stage 20
+  -- Stage 19
   plainStage falcade ponteDiLegno 182.0
 
-  -- Stages 21a & 21b
+  -- Stages 20a & 20b
   enableSplitStages
   plainStage ponteDiLegno lainate 185.0
   individualTimeTrial lainate milan 20.0
@@ -3283,71 +3283,71 @@ giro1973 = evalState giro1973' (ParcoursDB.State.StageRace.init (Giro []) (fromG
 
 giro1973' :: State StageRaceState StageRace
 giro1973' = do
-  -- Stage 1
-  twoManTeamTimeTrial verviers 5.2
+  -- Prologue
+  prologueTwoManTeamTimeTrial verviers 5.2
 
-  -- Stage 2
+  -- Stage 1
   plainStage verviers Countries.WestGermany.cologne 137.0
 
-  -- Stage 3
+  -- Stage 2
   plainStage Countries.WestGermany.cologne luxembourg 227.0
 
-  -- Stage 4
+  -- Stage 3
   plainStage luxembourg strasbourg 239.0
 
-  -- Stage 5
+  -- Stage 4
   plainStage geneva aosta 163.0
 
   transferDay
 
-  -- Stage 6
+  -- Stage 5
   plainStage saintVincent milan 173.0
 
-  -- Stage 7
+  -- Stage 6
   plainStage milan iseo 144.0
 
-  -- Stage 8
+  -- Stage 7
   plainStage iseo lidoDelleNazioni 248.0
 
-  -- Stage 9
+  -- Stage 8
   plainStage lidoDelleNazioni monteCarpegna 156.0
 
-  -- Stage 10
+  -- Stage 9
   plainStage carpegna albaAdriatica 243.0
 
-  -- Stage 11
+  -- Stage 10
   plainStage albaAdriatica lanciano 174.0
 
-  -- Stage 12
+  -- Stage 11
   plainStage lanciano benevento 230.0
 
-  -- Stage 13
+  -- Stage 12
   plainStage benevento fiuggi 236.0
 
-  -- Stage 14
+  -- Stage 13
   plainStage fiuggi bolsena 215.0
 
-  -- Stage 15
+  -- Stage 14
   plainStage bolsena florence 202.0
 
-  -- Stage 16
+  -- Stage 15
   plainStage florence forteDeiMarmi 150.0
 
   transferDay
 
-  -- Stage 17
+  -- Stage 16
   outAndBackIndividualTimeTrial forteDeiMarmi 37.0
 
-  -- Stage 18
+  -- Stage 17
   plainStage forteDeiMarmi verona 244.0
 
-  -- Stage 19
+  -- Stage 18
   plainStage verona andalo 173.0
 
-  -- Stage 20
+  -- Stage 19
   plainStage andalo auronzoDiCadore 208.0
 
-  -- Stage 21
+  -- Stage 20
   plainStage auronzoDiCadore trieste 197.0
 
   edition <- ParcoursDB.State.StageRace.build

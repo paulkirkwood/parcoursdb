@@ -92,6 +92,30 @@ prologue start finish distance = do
 outAndBackPrologue :: Location -> Float -> State StageRaceState ()
 outAndBackPrologue startFinish distance = prologue startFinish startFinish distance
 
+prologueTeamTimeTrial :: Location -> Location -> Float -> State StageRaceState ()
+prologueTeamTimeTrial start finish distance = do
+  currentState <- get
+  let day      = sStageDay currentState
+  nextDay      <- nextStageDay
+  let xs       = sRaceStages currentState
+  let prologue = PrologueTeamTimeTrial day start finish distance
+  put (currentState { sStageDay       = nextDay
+                    , sIsMorningStage = False
+                    , sRaceStages     = (prologue:xs)
+                    } )
+
+prologueTwoManTeamTimeTrial :: Location -> Float -> State StageRaceState ()
+prologueTwoManTeamTimeTrial startFinish distance = do
+  currentState <- get
+  let day      = sStageDay currentState
+  nextDay      <- nextStageDay
+  let xs       = sRaceStages currentState
+  let prologue = PrologueTwoManTeamTimeTrial day startFinish startFinish distance
+  put (currentState { sStageDay       = nextDay
+                    , sIsMorningStage = False
+                    , sRaceStages     = (prologue:xs)
+                    } )
+
 roadStage :: Either Location Col -> Maybe Location -> Float -> State StageRaceState ()
 roadStage start finish distance = do
   currentState    <- get
@@ -138,20 +162,6 @@ teamTimeTrial start finish distance = do
 
 outAndBackTeamTimeTrial :: Location -> Float -> State StageRaceState ()
 outAndBackTeamTimeTrial startFinish distance = teamTimeTrial startFinish startFinish distance
-
-twoManTeamTimeTrial :: Location -> Float -> State StageRaceState ()
-twoManTeamTimeTrial startFinish distance = do
-  currentState    <- get
-  nextDay         <- nextStageDay
-  stageId         <- getStageId
-  nextStageNumber <- nextStageNumber
-  let day         = sStageDay currentState
-  let xs          = sRaceStages currentState
-  let stage       = TwoManTeamTimeTrial day startFinish startFinish stageId distance []
-  put (currentState { sStageDay    = nextDay
-                    , sStageNumber = nextStageNumber
-                    , sRaceStages  = (xs ++ [stage])
-                    } )
 
 threeManTeamTimeTrial :: Location -> Float -> State StageRaceState ()
 threeManTeamTimeTrial startFinish distance = do
