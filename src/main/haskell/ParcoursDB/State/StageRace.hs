@@ -12,13 +12,14 @@ import ParcoursDB.Stage
 import ParcoursDB.StageRace
 import Text.Printf
 
-data StageRaceState = StageRaceState { sStageRace       :: StageRace
-                                     , sStageDay        :: Day
-                                     , sStageNumber      :: Int
-                                     , sSplitStageSuffix :: Char
-                                     , sIsSplitStage     :: Bool
-                                     , sIsMorningStage   :: Bool
-                                     , sRaceStages       :: [Stage]
+data StageRaceState = StageRaceState { sStageRace      :: StageRace
+                                     , sStageDay       :: Day
+                                     , sStageNumber    :: Int
+                                     , sStageSuffix    :: Char
+                                     , sIsSplitStage   :: Bool
+                                     , sIsMorningStage :: Bool
+                                     , sIsABStages     :: Bool
+                                     , sRaceStages     :: [Stage]
                                      }
 
 init :: StageRace -> Day -> StageRaceState
@@ -29,24 +30,24 @@ init parisNice@(ParisNice _) date      = init' parisNice date
 init tirreno@(TirrenoAdriatico _) date = init' tirreno date
 init dauphine@(Dauphine _) date        = init' dauphine date
 
-init' stageRace d = StageRaceState { sStageRace       = stageRace
-                                   , sStageDay        = d
-                                   , sStageNumber      = 1
-                                   , sSplitStageSuffix = 'a'
-                                   , sIsSplitStage     = False
-                                   , sIsMorningStage   = False
-                                   , sRaceStages       = []
+init' stageRace d = StageRaceState { sStageRace      = stageRace
+                                   , sStageDay       = d
+                                   , sStageNumber    = 1
+                                   , sStageSuffix    = 'a'
+                                   , sIsSplitStage   = False
+                                   , sIsMorningStage = False
+                                   , sIsABStages     = False
+                                   , sRaceStages     = []
                                    }
 
 getStageId :: State StageRaceState String
 getStageId = do
   currentState <- get
   let current = sStageNumber currentState
-  let suffix  = sSplitStageSuffix currentState
+  let suffix  = sStageSuffix currentState
   let isSplit = sIsSplitStage currentState
-  let s = if isSplit
-            then printf "%d%c" current suffix
-            else printf "%d" current
+  let isAB    = sIsABStages currentState
+  let s       = if isSplit || isAB then printf "%d%c" current suffix else printf "%d" current
   return s
             
 nextStageDay :: State StageRaceState Day
@@ -63,15 +64,17 @@ nextStageNumber = do
   currentState <- get
   let current = sStageNumber currentState
   let isSplit = sIsSplitStage currentState
-  let next = if isSplit then current else current + 1
+  let isAB    = sIsABStages currentState
+  let next    = if isSplit || isAB then current else current + 1
   return next
 
-nextSplitStageSuffix :: State StageRaceState Char
-nextSplitStageSuffix = do
+nextStageSuffix :: State StageRaceState Char
+nextStageSuffix = do
   currentState <- get
-  let current = sSplitStageSuffix currentState
+  let current = sStageSuffix currentState
   let isSplit = sIsSplitStage currentState
-  let next = if isSplit then succ current else current
+  let isAB    = sIsABStages currentState
+  let next    = if isSplit || isAB then succ current else current
   return next
 
 prologue :: Location -> Location -> Float -> State StageRaceState ()
@@ -87,7 +90,7 @@ prologue start finish distance = do
                     } )
 
 outAndBackPrologue :: Location -> Float -> State StageRaceState ()
-outAndBackPrologue start_finish distance = prologue start_finish start_finish distance
+outAndBackPrologue startFinish distance = prologue startFinish startFinish distance
 
 roadStage :: Either Location Col -> Maybe Location -> Float -> State StageRaceState ()
 roadStage start finish distance = do
@@ -95,13 +98,13 @@ roadStage start finish distance = do
   nextDay         <- nextStageDay
   stageId         <- getStageId
   nextStageNumber <- nextStageNumber
-  nextSuffix      <- nextSplitStageSuffix
+  nextSuffix      <- nextStageSuffix
   let day         = sStageDay currentState
   let xs          = sRaceStages currentState
   let stage       = Road day start finish stageId distance []
   put (currentState { sStageDay         = nextDay
                     , sStageNumber      = nextStageNumber
-                    , sSplitStageSuffix = nextSuffix
+                    , sStageSuffix = nextSuffix
                     , sIsMorningStage   = False
                     , sRaceStages       = (xs ++ [stage])
                     } )
@@ -122,43 +125,43 @@ teamTimeTrial start finish distance = do
   nextDay         <- nextStageDay
   stageId         <- getStageId
   nextStageNumber <- nextStageNumber
-  nextSuffix      <- nextSplitStageSuffix
+  nextSuffix      <- nextStageSuffix
   let day         = sStageDay currentState
   let xs          = sRaceStages currentState
   let stage       = TeamTimeTrial day start finish stageId distance []
   put (currentState { sStageDay         = nextDay
                     , sStageNumber      = nextStageNumber
-                    , sSplitStageSuffix = nextSuffix
+                    , sStageSuffix = nextSuffix
                     , sIsMorningStage   = False
                     , sRaceStages       = (xs ++ [stage])
                     } )
 
 outAndBackTeamTimeTrial :: Location -> Float -> State StageRaceState ()
-outAndBackTeamTimeTrial start_finish distance = teamTimeTrial start_finish start_finish distance
+outAndBackTeamTimeTrial startFinish distance = teamTimeTrial startFinish startFinish distance
 
 twoManTeamTimeTrial :: Location -> Float -> State StageRaceState ()
-twoManTeamTimeTrial start_finish distance = do
+twoManTeamTimeTrial startFinish distance = do
   currentState    <- get
   nextDay         <- nextStageDay
   stageId         <- getStageId
   nextStageNumber <- nextStageNumber
   let day         = sStageDay currentState
   let xs          = sRaceStages currentState
-  let stage       = TwoManTeamTimeTrial day start_finish start_finish stageId distance []
+  let stage       = TwoManTeamTimeTrial day startFinish startFinish stageId distance []
   put (currentState { sStageDay    = nextDay
                     , sStageNumber = nextStageNumber
                     , sRaceStages  = (xs ++ [stage])
                     } )
 
 threeManTeamTimeTrial :: Location -> Float -> State StageRaceState ()
-threeManTeamTimeTrial start_finish distance = do
+threeManTeamTimeTrial startFinish distance = do
   currentState    <- get
   nextDay         <- nextStageDay
   stageId         <- getStageId
   nextStageNumber <- nextStageNumber
   let day         = sStageDay currentState
   let xs          = sRaceStages currentState
-  let stage       = ThreeManTeamTimeTrial day start_finish start_finish stageId distance []
+  let stage       = ThreeManTeamTimeTrial day startFinish startFinish stageId distance []
   put (currentState { sStageDay    = nextDay
                     , sStageNumber = nextStageNumber
                     , sRaceStages  = (xs ++ [stage])
@@ -168,7 +171,7 @@ individualTimeTrial :: Location -> Location -> Float -> State StageRaceState ()
 individualTimeTrial start finish distance = individualTimeTrial' (Left start) (Just finish) distance
 
 outAndBackIndividualTimeTrial :: Location -> Float -> State StageRaceState()
-outAndBackIndividualTimeTrial start_finish distance = individualTimeTrial' (Left start_finish) (Just start_finish) distance
+outAndBackIndividualTimeTrial startFinish distance = individualTimeTrial' (Left startFinish) (Just startFinish) distance
 
 mountainTimeTrial :: Either Location Col -> Float -> State StageRaceState ()
 mountainTimeTrial start distance = individualTimeTrial' start Nothing distance
@@ -179,13 +182,13 @@ individualTimeTrial' start finish distance = do
   nextDay         <- nextStageDay
   stageId         <- getStageId
   nextStageNumber <- nextStageNumber
-  nextSuffix      <- nextSplitStageSuffix
+  nextSuffix      <- nextStageSuffix
   let day         = sStageDay currentState
   let xs          = sRaceStages currentState
   let stage       = IndividualTimeTrial day start finish stageId distance []
   put (currentState { sStageDay         = nextDay
                     , sStageNumber      = nextStageNumber
-                    , sSplitStageSuffix = nextSuffix
+                    , sStageSuffix = nextSuffix
                     , sIsMorningStage   = False
                     , sRaceStages       = (xs ++ [stage])
                     } )
@@ -213,8 +216,8 @@ transferDay = do
 enableSplitStages :: State StageRaceState ()
 enableSplitStages = do
   currentState <- get
-  put (currentState { sIsSplitStage     = True
-                    , sSplitStageSuffix = 'a'
+  put (currentState { sIsSplitStage = True
+                    , sStageSuffix  = 'a'
                     } )
 
 disableSplitStages :: State StageRaceState ()
@@ -233,6 +236,23 @@ enableMorningStage :: State StageRaceState ()
 enableMorningStage = do
   currentState <- get
   put (currentState { sIsMorningStage = True })
+
+enableABStages :: State StageRaceState ()
+enableABStages = do
+  currentState <- get
+  put (currentState { sIsABStages  = True
+                    , sStageSuffix = 'A'
+                    } )
+
+disableABStages :: State StageRaceState ()
+disableABStages = do
+  currentState <- get
+  let current = sStageNumber currentState
+  let nextStageNumber = current + 1
+  put (currentState { sIsABStages  = False
+                    , sStageNumber = nextStageNumber
+                    , sStageSuffix = 'a'
+                    } )
 
 hc :: Float -> String -> Country -> Int -> Float -> Float -> State StageRaceState ()
 hc km name country height length averageGradient

@@ -1691,64 +1691,65 @@ vuelta1969 = evalState vuelta1969' (ParcoursDB.State.StageRace.init (Vuelta []) 
 
 vuelta1969' :: State StageRaceState StageRace
 vuelta1969' = do
-  -- Stage 1
+
+  -- Stage 1A & 1B
+  enableABStages
   outAndBackIndividualTimeTrial badajoz 6.5
+  criterium badajoz 246.0
+  disableABStages
 
   -- Stage 2
-  criterium badajoz 246.0
-
-  -- Stage 3
   plainStage badajoz caceres 135.0
 
-  -- Stage 4
+  -- Stage 3
   plainStage caceres talaveraDeLaReina 190.0
 
-  -- Stage 5
+  -- Stage 4
   plainStage talaveraDeLaReina madrid 124.0
 
-  -- Stage 6
+  -- Stage 5
   plainStage madrid alcazarDeSanJuan 162.0
 
-  -- Stage 7
+  -- Stage 6
   plainStage alcazarDeSanJuan almansa 231.0
 
-  -- Stage 8
+  -- Stage 7
   plainStage almansa nules 233.0
 
-  -- Stage 9
+  -- Stage 8
   plainStage nules benicassim 199.0
 
-  -- Stage 10
+  -- Stage 9
   plainStage benicassim reus 169.0
 
-  -- Stage 11
+  -- Stage 10
   plainStage reus barcelona 146.0
 
-  -- Stage 12
+  -- Stage 11
   plainStage barcelona santFeliuDeGuixols 118.0
 
-  -- Stage 13
+  -- Stage 12
   plainStage santFeliuDeGuixols moia 151.0
 
-  -- Stage 14
+  -- Stage 13
   plainStage moia barbastro 229.0
 
-  -- Stages 15a & 15b
+  -- Stages 14a & 14b
   enableSplitStages
   plainStage barbastro zaragoza 125.0
   outAndBackIndividualTimeTrial zaragoza 4.0
   disableSplitStages
 
-  -- Stage 16
+  -- Stage 15
   plainStage zaragoza pamplona 176.0
 
-  -- Stage 17
+  -- Stage 16
   individualTimeTrial irun sanSebastian 25.0
 
-  -- Stage 18
+  -- Stage 17
   plainStage sanSebastian vitoria 129.0
 
-  -- Stages 19a & 19b
+  -- Stages 18a & 18b
   enableSplitStages
   plainStage vitoria llodio 76.0
   individualTimeTrial llodio bilbao 29.0
