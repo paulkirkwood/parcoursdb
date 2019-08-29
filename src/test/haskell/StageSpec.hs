@@ -6,6 +6,7 @@ import Countries.UnitedKingdom
 import Data.Maybe
 import Data.Time
 import Mountains.Alps
+import Mountains.Alps.Provence (montVentoux)
 import Mountains.MassifCentral
 import ParcoursDB.Col
 import ParcoursDB.Location
@@ -14,8 +15,6 @@ import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
-
-  let july1st   = fromGregorian 2018 07 01
 
   -- 1991 Tdf Prologue
   let prologue  = Prologue (fromGregorian 1991 07 06) lyon lyon 5.4
@@ -33,10 +32,10 @@ main = hspec $ do
   let ttt = TeamTimeTrial (fromGregorian 1986 07 05) meudon saintQuentinEnYvelines "2" 56 []
 
   -- 1989 Tdf final Individual time time trial
-  let itt = IndividualTimeTrial (fromGregorian 1989 07 23) versailles (Just paris) "21" 24.5 []
+  let itt = IndividualTimeTrial (fromGregorian 1989 07 23) (Left versailles) (Just paris) "21" 24.5 []
 
   -- 1987 TdF mountain time trial
-  let mtt = IndividualTimeTrial (fromGregorian 1987 07 19) carpentras Nothing "18" 36.5 [ (IndexableCol 36.5 montVentoux HC) ]
+  let mtt = IndividualTimeTrial (fromGregorian 1987 07 19) (Left carpentras) Nothing "18" 36.5 [ (IndexableCol 36.5 montVentoux HC) ]
 
   describe "Prologue" $ do
     context "Test the Prologue attributes" $ do
@@ -56,6 +55,8 @@ main = hspec $ do
         isTeamTimeTrial prologue `shouldBe` False
       it "is not an Individual time trial" $ do
         isIndividualTimeTrial prologue `shouldBe` False
+      it "is not a summit finish" $ do
+        isSummitFinish prologue `shouldBe` False
 
   describe "Non-summit Road stage" $ do
     context "Test the attributes of a road stage with a non-summit finish" $ do
@@ -75,6 +76,8 @@ main = hspec $ do
         isTeamTimeTrial roadStage `shouldBe` False
       it "is not an Individual time trial" $ do
         isIndividualTimeTrial roadStage `shouldBe` False
+      it "is not a summit finish" $ do
+        isSummitFinish roadStage `shouldBe` False
 
   describe "Road stage with a summit finish" $ do
     context "Test the attributes of a road stage with a summit finish" $ do
@@ -94,6 +97,8 @@ main = hspec $ do
         isTeamTimeTrial summitFinishRoadStage `shouldBe` False
       it "is not an Individual time trial" $ do
         isIndividualTimeTrial summitFinishRoadStage `shouldBe` False
+      it "is a summit finish" $ do
+        isSummitFinish summitFinishRoadStage `shouldBe` True
 
   describe "Summit start/finish road stage" $ do
     context "Test the attributes of a road stage with a summit start and finish" $ do
@@ -101,6 +106,8 @@ main = hspec $ do
         start summitStartAndFinishRoadStage `shouldBe` Right(alpeD'Huez)
       it "finishes at Alpe d'Huez" $ do
         finish summitStartAndFinishRoadStage `shouldBe` Right(alpeD'Huez)
+      it "is a summit finish" $ do
+        isSummitFinish summitStartAndFinishRoadStage `shouldBe` True
 
   describe "Team time trial" $ do
     context "Test the attributes of a team time trial" $ do
@@ -120,6 +127,8 @@ main = hspec $ do
         isTeamTimeTrial ttt `shouldBe` True
       it "is not an Individual time trial" $ do
         isIndividualTimeTrial ttt `shouldBe` False
+      it "is not a summit finish" $ do
+        isSummitFinish ttt `shouldBe` False
 
   describe "Individual time trial" $ do
     context "Test the attributes of a non-mountain time trial" $ do
@@ -139,6 +148,8 @@ main = hspec $ do
         isTeamTimeTrial itt `shouldBe` False
       it "is an Individual time trial" $ do
         isIndividualTimeTrial itt `shouldBe` True
+      it "is not a summit finish" $ do
+        isSummitFinish itt `shouldBe` False
 
   describe "Mountain time trial" $ do
     context "Test the attributes of a mountain time trial" $ do
@@ -158,3 +169,5 @@ main = hspec $ do
         isTeamTimeTrial mtt `shouldBe` False
       it "is an Individual time trial" $ do
         isIndividualTimeTrial mtt `shouldBe` True
+      it "is a summit finish" $ do
+        isSummitFinish mtt `shouldBe` True

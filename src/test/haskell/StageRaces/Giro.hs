@@ -137,7 +137,7 @@ giroEditions = [ giro1909
                , giro2008
                , giro2009
                , giro2010
-               , giro2012
+               , giro2011
                , giro2012
                , giro2013
                , giro2014

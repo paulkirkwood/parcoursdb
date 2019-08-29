@@ -89,8 +89,10 @@ prologueKms :: StageRace -> Float
 prologueKms stageRace = prologueKms' (firstStage stageRace)
 
 prologueKms' :: Stage -> Float
-prologueKms' p@(Prologue _ _ _ d) = d
-prologueKms' _                    = 0
+prologueKms' p@(Prologue _ _ _ d)                    = d
+prologueKms' p@(PrologueTeamTimeTrial _ _ _ d)       = d
+prologueKms' p@(PrologueTwoManTeamTimeTrial _ _ _ d) = d
+prologueKms' _                                       = 0
 
 roadStages :: StageRace -> [Stage]
 roadStages stageRace = filter isRoadStage $ stages stageRace
@@ -139,3 +141,24 @@ startDate stageRace = startDate' $ stages stageRace
 startDate' :: [Stage] -> (Integer,Int,Int)
 startDate' [] = error "No stages"
 startDate' (x:_) = toGregorian $ date x
+
+summitFinishes :: StageRace -> [Stage]
+summitFinishes stageRace = filter isSummitFinish $ stages stageRace
+
+numberOfSummitFinishes :: StageRace -> Int
+numberOfSummitFinishes stageRace = length $ summitFinishes stageRace
+
+longestStage :: StageRace -> Stage
+longestStage stageRace = longestStage' $ sortStagesByDistance $ filter isRacingStage $ stages stageRace
+
+longestStage' :: [Stage] -> Stage
+longestStage' [] = error "No cols"
+longestStage' [x] = x
+longestStage' (x:xs) = longestStage' xs 
+
+sortStagesByDistance :: [Stage] -> [Stage]
+sortStagesByDistance [] = []
+sortStagesByDistance (x:xs) =
+  let smallerOrEqual = [a | a <- xs, (ParcoursDB.Stage.distance a) <= (ParcoursDB.Stage.distance x)];
+              larger = [a | a <- xs, (ParcoursDB.Stage.distance a) > (ParcoursDB.Stage.distance x)]
+  in sortStagesByDistance smallerOrEqual ++ [x] ++ sortStagesByDistance larger

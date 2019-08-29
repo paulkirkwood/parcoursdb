@@ -163,3 +163,13 @@ profile' (IndexableCol km col@(ParcoursDB.Col.Col name country height length ave
       desc           = printf "%s (%.1f km @ %.1f%%)" name (fromJust length) (fromJust averageGradient)
       heightInMetres = printf "%dm" height
   in intercalate "," [ kms, desc, show(category), heightInMetres ]
+
+isSummitFinish :: Stage -> Bool
+isSummitFinish (Road _ _ f _ _ cs)                = isSummitFinish' f cs
+isSummitFinish (IndividualTimeTrial _ _ f _ _ cs) = isSummitFinish' f cs
+isSummitFinish _                                  = False
+
+isSummitFinish' :: Maybe Location -> [IndexableCol] -> Bool
+isSummitFinish' (Just f) _  = False
+isSummitFinish' Nothing [] = False
+isSummitFinish' Nothing (cs) = True

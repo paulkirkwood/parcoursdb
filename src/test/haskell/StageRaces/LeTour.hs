@@ -114,7 +114,7 @@ tourDeFranceEditions = [ tdf1903
                        , tdf1988
                        , tdf1989
                        , tdf1990
-                       , tdf1981
+                       , tdf1991
                        , tdf1992
                        , tdf1993
                        , tdf1994
