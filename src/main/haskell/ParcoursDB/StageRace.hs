@@ -1,11 +1,16 @@
 module ParcoursDB.StageRace where
 
+import Control.Monad
+import Data.List
 import Data.Maybe
+import qualified Data.Set as Set
 import Data.Time
 import ParcoursDB.Col hiding(length)
 import ParcoursDB.Country
 import ParcoursDB.Location
 import ParcoursDB.Stage
+import Text.Printf (printf)
+import Text.Regex.Posix
 
 data StageRace = TourDeFrance     [Stage]
                | Giro             [Stage]
@@ -132,6 +137,22 @@ restDays stageRace =
 numberOfRestDays :: StageRace -> Int
 numberOfRestDays stageRace = length $ restDays stageRace
 
+splitStages :: StageRace -> [Stage]
+splitStages stageRace = filter isSplitStage $ stages stageRace
+
+numberOfSplitStages :: StageRace -> Int
+numberOfSplitStages stageRace = length $ splitStages stageRace
+
+isSplitStage :: Stage -> Bool
+isSplitStage (Road _ _ _ i _ _)                  = isSplitStage' i
+isSplitStage (TeamTimeTrial _ _ _ i _ _)         = isSplitStage' i
+isSplitStage (ThreeManTeamTimeTrial _ _ _ i _ _) = isSplitStage' i
+isSplitStage (IndividualTimeTrial _ _ _ i _ _)   = isSplitStage' i
+isSplitStage _                                   = False
+
+isSplitStage' :: String -> Bool
+isSplitStage' id = id =~ "a$" :: Bool
+
 route :: StageRace -> [String]
 route stageRace = map(\s -> ParcoursDB.Stage.route s (ParcoursDB.StageRace.country stageRace)) (stages stageRace)
 
@@ -162,3 +183,96 @@ sortStagesByDistance (x:xs) =
   let smallerOrEqual = [a | a <- xs, (ParcoursDB.Stage.distance a) <= (ParcoursDB.Stage.distance x)];
               larger = [a | a <- xs, (ParcoursDB.Stage.distance a) > (ParcoursDB.Stage.distance x)]
   in sortStagesByDistance smallerOrEqual ++ [x] ++ sortStagesByDistance larger
+
+summary :: StageRace -> String
+summary stageRace =
+  let totalRoadStages = numberOfRoadStages stageRace
+      totalTTTs       = numberOfTeamTimeTrials stageRace
+      totalITTs       = numberOfIndividualTimeTrials stageRace
+      totalSplitStages = numberOfSplitStages stageRace
+      totalStages     = totalRoadStages + totalTTTs + totalITTs - totalSplitStages
+      hasPrologue     = (prologueKms stageRace) > 0
+  in summary' totalStages totalSplitStages hasPrologue
+
+summary' :: Int -> Int -> Bool -> String
+summary' totalStages totalSplitStages hasPrologue
+  | hasPrologue == True && totalSplitStages > 1 = printf "%d stages + Prologue including %d split stages" totalStages totalSplitStages
+  | hasPrologue == True && totalSplitStages == 1 = printf "%d stages + Prologue including 1 split stage" totalStages
+  | hasPrologue == True = printf "%d stages + Prologue" totalStages
+  | totalSplitStages > 1 = printf "%d stages including %d split stages" totalStages totalSplitStages
+  | totalSplitStages == 1 = printf "%d stages including 1 split stage" totalStages
+  | otherwise = printf "%d stages" totalStages
+
+stageComposition :: StageRace -> String
+stageComposition stageRace =
+  let road = numberOfRoadStages stageRace
+      ttt  = numberOfTeamTimeTrials stageRace
+      itt  = numberOfIndividualTimeTrials stageRace
+      rest = numberOfRestDays stageRace
+      composition = join [ if road > 0 then [(roadStageComposition stageRace)] else []
+                         , if ttt > 0 || itt > 0 then [(timeTrialComposition stageRace)] else []
+                         , if rest > 0 then [(restDayComposition stageRace)] else []
+                         ]
+  in intercalate ", " composition
+
+roadStageComposition :: StageRace -> String
+roadStageComposition stageRace
+  | road == 0 = error "No road stages"
+  | road == 1 = "1 road stage"
+  | otherwise = printf "%d road stages" road
+  where
+    road = numberOfRoadStages stageRace
+
+timeTrialComposition :: StageRace -> String
+timeTrialComposition stageRace
+  | ttt == 0 && itt == 0 = error "No time trials"
+  | ttt > 0 && itt == 0 = teamTimeTrialComposition stageRace
+  | ttt == 0 && itt > 0 = individualTimeTrialComposition stageRace
+  | ttt > 0 && itt > 0  =
+    printf "%d Time Trials (%s; %s)"
+      (ttt + itt) (teamTimeTrialComposition stageRace) (individualTimeTrialComposition stageRace)
+  where
+     ttt = numberOfTeamTimeTrials stageRace
+     itt = numberOfIndividualTimeTrials stageRace
+
+teamTimeTrialComposition :: StageRace -> String
+teamTimeTrialComposition stageRace
+  | ttt == 0  = error "No team time trials"
+  | ttt == 1  = "1 Team Time Trial"
+  | otherwise = printf "%d Team Time Trials" ttt
+  where
+     ttt = numberOfTeamTimeTrials stageRace
+
+individualTimeTrialComposition :: StageRace -> String
+individualTimeTrialComposition stageRace
+  | itt == 0  = error "No individual time trials"
+  | itt == 1  = "1 Individual Time Trial"
+  | otherwise = printf "%d Individual Time Trials" itt
+  where
+     itt = numberOfIndividualTimeTrials stageRace
+
+restDayComposition :: StageRace -> String
+restDayComposition stageRace
+  | rest == 1 = "1 rest day"
+  | otherwise = printf "%d rest days" rest
+  where
+    rest = numberOfRestDays stageRace
+
+highPoint :: StageRace -> Col
+highPoint stageRace =
+  let racingStages  = filter isRacingStage $ stages stageRace
+      indexableCols = map(\s -> ParcoursDB.Stage.cols s) racingStages
+      cols          = map ParcoursDB.Col.col $ mconcat indexableCols
+  in highPoint' $ sortColsByHeight cols
+
+sortColsByHeight :: [Col] -> [Col]
+sortColsByHeight [] = []
+sortColsByHeight (x:xs) =
+  let shorterOrEqual = [a | a <- xs, (ParcoursDB.Col.height a) <= (ParcoursDB.Col.height x)];
+              taller = [a | a <- xs, (ParcoursDB.Col.height a) > (ParcoursDB.Col.height x)]
+  in sortColsByHeight shorterOrEqual ++ [x] ++ sortColsByHeight taller
+
+highPoint' :: [Col] -> Col
+highPoint' []     = error "No cols"
+highPoint' [x]    = x
+highPoint' (x:xs) = highPoint' xs

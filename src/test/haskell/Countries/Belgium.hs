@@ -51,6 +51,7 @@ module Countries.Belgium
 ,waregem
 ,waterloo
 ,wetteren
+,wevelgem
 ,ypres
 )
 where
@@ -236,6 +237,9 @@ waterloo = belgianLocation "Waterloo"
 
 wetteren :: Location
 wetteren = belgianLocation "Wetteren"
+
+wevelgem :: Location
+wevelgem = belgianLocation "Wevelgem"
 
 -- Y
 ypres :: Location

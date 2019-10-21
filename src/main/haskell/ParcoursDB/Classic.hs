@@ -56,7 +56,10 @@ distance (AmstelGoldRace _ d _)       = d
 
 name :: Classic -> String
 name (ParisRoubaix _ _ _)          = "Paris-Roubaix"
-name (ParisTours _ _ _ _)          = "Paris-Tours"
+name (ParisTours d _ _ _)
+  | year `elem` [1976 .. 1987] = "Grand Prix d'Automne"
+  | otherwise                  = "Paris-Tours"
+  where (year,_,_) = toGregorian d
 name (TourOfFlanders _ _ _ _)      = "Tour of Flanders"
 name (MilanoSanRemo _ _ _)         = "Milano-San Remo"
 name (LiegeBastogneLiege _ _ _)    = "Liège-Bastogne-Liège"
@@ -127,15 +130,13 @@ start (AmstelGoldRace d _ _)
   | otherwise                = Location "Maastricht" Netherlands
   where (year,_,_) = toGregorian d
 start (LaFlecheWallonne d _ _)
-  | year `elem` [1936..1938] = Location "Tournai" Belgium
-  | year `elem` [1939..1947] = Location "Mons" Belgium
-  | year `elem` [1948..1959] = Location "Chareloi" Belgium
+  | year `elem` [1936..1938]           = Location "Tournai" Belgium
+  | year `elem` [1939..1947] ++ [1980] = Location "Mons" Belgium
+  | year `elem` [1948..1959] ++ [1982..1984] = Location "Charleroi" Belgium
   | year `elem` [1960..1971] = Location "Liège" Belgium
   | year `elem` [1972..1978] = Location "Verviers" Belgium
   | year `elem` [1979]       = Location "Esneux" Belgium
-  | year `elem` [1980]       = Location "Mons" Belgium
-  | year `elem` [1981]       = Location "Spa" Belgium
-  | year `elem` [1982..1984] = Location "Chareloi" Belgium
+  | year `elem` [1982..1984] = Location "Charleroi" Belgium
   | year `elem` [1985]       = Location "Huy" Belgium
   | otherwise                = Location "Spa" Belgium
   where (year,_,_) = toGregorian d
@@ -144,7 +145,7 @@ finish :: Classic -> Location
 finish (ParisRoubaix _ _ _)          = Location "Roubaix" France
 finish (MilanoSanRemo _ _ _)         = Location "San Remo" Italy
 finish (GrandPrixDePlouay _ _)       = Location "Plouay" France
-finish (GentWevelgem _ _ _)          = Location "Ghent" Belgium
+finish (GentWevelgem _ _ _)          = Location "Wevelgem" Belgium
 finish (E3Harelbeke _ _ _)           = Location "Harelbeke" Belgium
 finish (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium
 finish (TourOfFlanders d _ _ _)
@@ -181,23 +182,19 @@ finish (AmstelGoldRace d _ _)
   | year `elem` [1966,1967] ++ [1969..1990] = Location "Meerssen" Netherlands
   | year == 1968                            = Location "Elsloo" Netherlands
   | year `elem` [1991..2002]                = Location "Maastricht" Netherlands
-  | otherwise                               = Location "Valkenburg" Netherlands
+  | year `elem` [2003..2012]                = Location "Valkenburg" Netherlands
+  | otherwise                               = Location "Berg en Terblijt" Netherlands
   where (year,_,_) = toGregorian d
 finish (LaFlecheWallonne d _ _)
-  | year `elem` [1936]       = Location "Liège" Belgium
-  | year `elem` [1937]       = Location "Ans" Belgium
-  | year `elem` [1938..1941] = Location "Rocourt" Belgium
-  | year `elem` [1942]       = Location "Marcinelle" Belgium
-  | year `elem` [1943..1945] = Location "Chareloi" Belgium
-  | year `elem` [1946..1959] = Location "Liège" Belgium
-  | year `elem` [1960..1964] = Location "Chareloi" Belgium
-  | year `elem` [1965..1973] = Location "Marcinelle" Belgium
-  | year `elem` [1974..1978] = Location "Verviers" Belgium
-  | year `elem` [1979]       = Location "Marcinelle" Belgium
-  | year `elem` [1980]       = Location "Spa" Belgium
-  | year `elem` [1981]       = Location "Mons" Belgium
-  | year `elem` [1982]       = Location "Spa" Belgium
-  | otherwise                = Location "Huy" Belgium
+  | year `elem` [1936] ++ [1946..1959]           = Location "Liège" Belgium
+  | year `elem` [1937]                           = Location "Ans" Belgium
+  | year `elem` [1938..1941]                     = Location "Rocourt" Belgium
+  | year `elem` [1942] ++ [1965..1973] ++ [1979] = Location "Marcinelle" Belgium
+  | year `elem` [1943..1945] ++ [1960..1964]     = Location "Charleroi" Belgium
+  | year `elem` [1974..1978]                     = Location "Verviers" Belgium
+  | year `elem` [1980,1982]                      = Location "Spa" Belgium
+  | year `elem` [1981]                           = Location "Mons" Belgium
+  | otherwise                                    = Location "Huy" Belgium
   where (year,_,_) = toGregorian d
 
 pave :: Classic -> [String]

@@ -22,6 +22,7 @@ data Stage = Prologue                    Day Location Location Distance
            | RestDay                     Day (Maybe( Either Location Col))
   deriving (Eq, Show)
 
+-- | The length of the stage in kilometres
 distance :: Stage -> Distance
 distance (Prologue _ _ _ d)                    = d
 distance (PrologueTeamTimeTrial _ _ _ d)       = d
@@ -31,6 +32,7 @@ distance (TeamTimeTrial _ _ _ _ d _)           = d
 distance (ThreeManTeamTimeTrial _ _ _ _ d _)   = d
 distance (IndividualTimeTrial _ _ _ _ d _)     = d
 
+-- | Stage start: either a location or on top of a Mountain such as Tdf 1979 stage 19: Alpe d'Huez to Alpe d'Huez
 start :: Stage -> Either Location Col
 start (Prologue _ s _ _)                    = Left s
 start (PrologueTeamTimeTrial _ s _ _)       = Left s
@@ -40,6 +42,7 @@ start (ThreeManTeamTimeTrial _ s _ _ _ _)   = Left s
 start (IndividualTimeTrial _ s _ _ _ _)     = s
 start (Road _ s _ _ _ _)                    = s
 
+-- | Stage finish: either a location or on top of a mountain
 finish :: Stage -> Either Location Col
 finish (Prologue _ _ f _)                    = Left f
 finish (PrologueTeamTimeTrial _ _ f _)       = Left f
@@ -49,6 +52,7 @@ finish (ThreeManTeamTimeTrial _ _ f _ _ _)   = Left f
 finish (Road _ _ f _ _ cs)                   = finish' f cs
 finish (IndividualTimeTrial _ _ f _ _ cs)    = finish' f cs
 
+-- | If there is a location, that's the finish otherwise if there is no location and some cols, the last climb is the finish
 finish' :: Maybe Location -> [IndexableCol] -> Either Location Col
 finish' (Just f) _  = Left f
 finish' Nothing (cs) = Right $ col $ last cs
@@ -63,6 +67,7 @@ date (ThreeManTeamTimeTrial d _ _ _ _ _)   = d
 date (IndividualTimeTrial d _ _ _ _ _)     = d
 date (RestDay d _)                         = d
 
+-- | Prologues are always have a id of "P"
 id :: Stage -> String
 id (Road _ _ _ i _ _)                  = i
 id (TeamTimeTrial _ _ _ i _ _)         = i
@@ -70,6 +75,7 @@ id (ThreeManTeamTimeTrial _ _ _ i _ _) = i
 id (IndividualTimeTrial _ _ _ i _ _)   = i
 id _                                   = "P"
 
+-- | Prologues are always flat
 cols :: Stage -> [IndexableCol]
 cols (Road _ _ _ _ _ cs)                  = cs
 cols (TeamTimeTrial _ _ _ _ _ cs)         = cs
@@ -86,8 +92,6 @@ isRoadStage _                  = False
 
 isTeamTimeTrial :: Stage -> Bool
 isTeamTimeTrial (TeamTimeTrial _ _ _ _ _ _)           = True
-isTeamTimeTrial (PrologueTeamTimeTrial _ _ _ _)       = True
-isTeamTimeTrial (PrologueTwoManTeamTimeTrial _ _ _ _) = True
 isTeamTimeTrial (ThreeManTeamTimeTrial _ _ _ _ _ _)   = True
 isTeamTimeTrial _                                     = False
 

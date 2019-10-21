@@ -254,8 +254,8 @@ boulogneBillancourt = frenchLocation "Boulogne-Billancourt"
 boulogneSurMer :: Location
 boulogneSurMer = frenchLocation "Boulogne-sur-Mer"
 
-bourgD'Oisans :: Location
-bourgD'Oisans = frenchLocation "Bourg-d'Oisans"
+--bourgD'Oisans :: Location
+--bourgD'Oisans = frenchLocation "Bourg-d'Oisans"
 
 bourgDePeage :: Location
 bourgDePeage = frenchLocation "Bourg-de-Peage"
@@ -338,9 +338,6 @@ cannes = frenchLocation "Cannes"
 
 capD'Agde :: Location
 capD'Agde = frenchLocation "Cap d'Agde"
-
-capD'Agne :: Location
-capD'Agne = frenchLocation "Cap d'Agne"
 
 capDecouverte :: Location
 capDecouverte = frenchLocation "Cap Decouverte"
@@ -439,7 +436,7 @@ chateaubriant :: Location
 chateaubriant = frenchLocation "Chateaubriant"
 
 chateaulin :: Location
-chateaulin = frenchLocation "Chateaulin"
+chateaulin = frenchLocation "Châteaulin"
 
 chateauroux :: Location
 chateauroux = frenchLocation "Chateauroux"
@@ -889,9 +886,6 @@ leBlanc = frenchLocation "Le Blanc"
 
 leBourgD'Oisans :: Location
 leBourgD'Oisans = frenchLocation "Le Bourg-d'Oisans"
-
-leCapD'Agde :: Location
-leCapD'Agde = frenchLocation "Le Cap d'Agde"
 
 leCreusot :: Location
 leCreusot = frenchLocation "Le Creusot"

@@ -173,7 +173,7 @@ tdf1905Stages = [ NonConsecutiveRoadStage {month=7, day=9,  start=paris,      fi
                 , NonConsecutiveRoadStage {month=7, day=24, start=bordeaux,   finish=laRochelle, distance=257.0}
                 , NonConsecutiveRoadStage {month=7, day=26, start=laRochelle, finish=rennes,     distance=263.0}
                 , NonConsecutiveRoadStage {month=7, day=28, start=rennes,     finish=caen,       distance=167.0}
-                , NonConsecutiveRoadStage {month=7, day=28, start=caen,       finish=paris,      distance=253.0}
+                , NonConsecutiveRoadStage {month=7, day=29, start=caen,       finish=paris,      distance=253.0}
                 ]
 
 tdf1906Stages :: [NonConsecutiveStage]
@@ -4518,7 +4518,7 @@ tdf1982' = do
   teamTimeTrial orchies fontaineAuPire 73.0
 
   -- Stage 7
-  outAndBackTeamTimeTrial lille 73.0
+  criterium lille 233.0
 
   restDay (Left lille)
 
@@ -5867,7 +5867,7 @@ tdf1998' = do
   restDay (Left ariege)
 
   -- Stage 12
-  plainStage tarasconSurAriege leCapD'Agde 222.0
+  plainStage tarasconSurAriege capD'Agde 222.0
 
   -- Stage 13
   plainStage frontignanLaPeyrade carpentras 196.0
@@ -6665,7 +6665,7 @@ tdf2008' = do
   addCol 210.5 alpeD'Huez HC
 
   -- Stage 18
-  plainStage bourgD'Oisans saintÉTienne 196.5
+  plainStage leBourgD'Oisans saintÉTienne 196.5
 
   -- Stage 19
   plainStage roanne montlucon 165.5
@@ -6963,7 +6963,7 @@ tdf2012' = do
   plainStage saintJeanDeMaurienne annonayDavezieux 226.0
 
   -- Stage 14
-  plainStage saintPaulTroisChateaux capD'Agne 217.0
+  plainStage saintPaulTroisChateaux capD'Agde 217.0
 
   -- Stage 15
   plainStage limoux foix 191.0

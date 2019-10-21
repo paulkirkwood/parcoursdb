@@ -45,49 +45,56 @@ matchEditionFinish year (x:xs)
 
 
 amstelGoldRaceStartFinish :: [StartFinish]
-amstelGoldRaceStartFinish = [ StartFinish { years = [ 1966 .. 1966 ], actualStart = breda,      actualFinish = meerssen }
-                            , StartFinish { years = [ 1967 .. 1967 ], actualStart = helmond,    actualFinish = meerssen }
-                            , StartFinish { years = [ 1968 .. 1968 ], actualStart = helmond,    actualFinish = elsloo }
-                            , StartFinish { years = [ 1969 .. 1970 ], actualStart = helmond,    actualFinish = elsloo }
-                            , StartFinish { years = [ 1971 .. 1990 ], actualStart = heerlen,    actualFinish = meerssen }
-                            , StartFinish { years = [ 1991 .. 1997 ], actualStart = heerlen,    actualFinish = maastricht }
-                            , StartFinish { years = [ 1998 .. 2002 ], actualStart = maastricht, actualFinish = maastricht }
-                            , StartFinish { years = [ 2003 .. 2019 ], actualStart = maastricht, actualFinish = valkenburg }
-                            ]
+amstelGoldRaceStartFinish =
+  [ StartFinish { years = [ 1966 .. 1966 ], actualStart = breda,      actualFinish = meerssen }
+  , StartFinish { years = [ 1967 .. 1967 ], actualStart = helmond,    actualFinish = meerssen }
+  , StartFinish { years = [ 1968 .. 1968 ], actualStart = helmond,    actualFinish = elsloo }
+  , StartFinish { years = [ 1969 .. 1970 ], actualStart = helmond,    actualFinish = meerssen }
+  , StartFinish { years = [ 1971 .. 1990 ], actualStart = heerlen,    actualFinish = meerssen }
+  , StartFinish { years = [ 1991 .. 1997 ], actualStart = heerlen,    actualFinish = maastricht }
+  , StartFinish { years = [ 1998 .. 2002 ], actualStart = maastricht, actualFinish = maastricht }
+  , StartFinish { years = [ 2003 .. 2012 ], actualStart = maastricht, actualFinish = valkenburg }
+  , StartFinish { years = [ 2013 .. 2019 ], actualStart = maastricht, actualFinish = bergEnTerblijt }
+  ]
 
 e3HarelbekeStartFinish :: [StartFinish]
-e3HarelbekeStartFinish = [ StartFinish { years = [ 1958 .. 2019 ], actualStart = harelbeke, actualFinish = harelbeke } ]
+e3HarelbekeStartFinish =
+  [ StartFinish { years = [ 1958 .. 2019 ], actualStart = harelbeke, actualFinish = harelbeke } ]
 
 gentWevelgemStartFinish :: [StartFinish]
-gentWevelgemStartFinish = [ StartFinish { years = [ 1934 .. 2019 ], actualStart = ghent, actualFinish = ghent } ]
+gentWevelgemStartFinish =
+  [ StartFinish { years = [ 1934 .. 2019 ], actualStart = ghent, actualFinish = wevelgem } ]
 
 grandPrixDePlouayStartFinish :: [StartFinish]
-grandPrixDePlouayStartFinish = [ StartFinish { years = [ 1931 .. 2019 ], actualStart = plouay, actualFinish = plouay } ]
+grandPrixDePlouayStartFinish =
+  [ StartFinish { years = [ 1931 .. 2019 ], actualStart = plouay, actualFinish = plouay } ]
 
 kuurneBrusselsKuurneStartFinish :: [StartFinish]
-kuurneBrusselsKuurneStartFinish = [ StartFinish { years = [ 1946 .. 2019 ], actualStart = kuurne, actualFinish = kuurne } ]
+kuurneBrusselsKuurneStartFinish =
+  [ StartFinish { years = [ 1946 .. 2019 ], actualStart = kuurne, actualFinish = kuurne } ]
 
 laFlecheWallonneStartFinish :: [StartFinish]
-laFlecheWallonneStartFinish = [ StartFinish { years = [ 1936 .. 1936 ], actualStart = tournai,   actualFinish = liege }
-                              , StartFinish { years = [ 1937 .. 1937 ], actualStart = tournai,   actualFinish = ans }
-                              , StartFinish { years = [ 1938 .. 1938 ], actualStart = tournai,   actualFinish = rocourt }
-                              , StartFinish { years = [ 1939 .. 1941 ], actualStart = mons,      actualFinish = rocourt }
-                              , StartFinish { years = [ 1942 .. 1942 ], actualStart = mons,      actualFinish = marcinelle }
-                              , StartFinish { years = [ 1943 .. 1945 ], actualStart = mons,      actualFinish = charleroi }
-                              , StartFinish { years = [ 1946 .. 1947 ], actualStart = mons,      actualFinish = liege }
-                              , StartFinish { years = [ 1948 .. 1959 ], actualStart = charleroi, actualFinish = liege }
-                              , StartFinish { years = [ 1960 .. 1964 ], actualStart = liege,     actualFinish = charleroi }
-                              , StartFinish { years = [ 1965 .. 1971 ], actualStart = liege,     actualFinish = marcinelle }
-                              , StartFinish { years = [ 1972 .. 1973 ], actualStart = verviers,  actualFinish = marcinelle }
-                              , StartFinish { years = [ 1974 .. 1978 ], actualStart = verviers,  actualFinish = verviers }
-                              , StartFinish { years = [ 1979 .. 1979 ], actualStart = esneux,    actualFinish = marcinelle }
-                              , StartFinish { years = [ 1980 .. 1980 ], actualStart = mons,      actualFinish = spa }
-                              , StartFinish { years = [ 1981 .. 1981 ], actualStart = spa,       actualFinish = mons }
-                              , StartFinish { years = [ 1982 .. 1982 ], actualStart = charleroi, actualFinish = spa }
-                              , StartFinish { years = [ 1983 .. 1984 ], actualStart = charleroi, actualFinish = huy }
-                              , StartFinish { years = [ 1985 .. 1985 ], actualStart = huy,       actualFinish = huy }
-                              , StartFinish { years = [ 1986 .. 2019 ], actualStart = spa,       actualFinish = huy }
-                              ]
+laFlecheWallonneStartFinish =
+  [ StartFinish { years = [ 1936 .. 1936 ], actualStart = tournai,   actualFinish = liege }
+  , StartFinish { years = [ 1937 .. 1937 ], actualStart = tournai,   actualFinish = ans }
+  , StartFinish { years = [ 1938 .. 1938 ], actualStart = tournai,   actualFinish = rocourt }
+  , StartFinish { years = [ 1939 .. 1941 ], actualStart = mons,      actualFinish = rocourt }
+  , StartFinish { years = [ 1942 .. 1942 ], actualStart = mons,      actualFinish = marcinelle }
+  , StartFinish { years = [ 1943 .. 1945 ], actualStart = mons,      actualFinish = charleroi }
+  , StartFinish { years = [ 1946 .. 1947 ], actualStart = mons,      actualFinish = liege }
+  , StartFinish { years = [ 1948 .. 1959 ], actualStart = charleroi, actualFinish = liege }
+  , StartFinish { years = [ 1960 .. 1964 ], actualStart = liege,     actualFinish = charleroi }
+  , StartFinish { years = [ 1965 .. 1971 ], actualStart = liege,     actualFinish = marcinelle }
+  , StartFinish { years = [ 1972 .. 1973 ], actualStart = verviers,  actualFinish = marcinelle }
+  , StartFinish { years = [ 1974 .. 1978 ], actualStart = verviers,  actualFinish = verviers }
+  , StartFinish { years = [ 1979 .. 1979 ], actualStart = esneux,    actualFinish = marcinelle }
+  , StartFinish { years = [ 1980 .. 1980 ], actualStart = mons,      actualFinish = spa }
+  , StartFinish { years = [ 1981 .. 1981 ], actualStart = spa,       actualFinish = mons }
+  , StartFinish { years = [ 1982 .. 1982 ], actualStart = charleroi, actualFinish = spa }
+  , StartFinish { years = [ 1983 .. 1984 ], actualStart = charleroi, actualFinish = huy }
+  , StartFinish { years = [ 1985 .. 1985 ], actualStart = huy,       actualFinish = huy }
+  , StartFinish { years = [ 1986 .. 2019 ], actualStart = spa,       actualFinish = huy }
+  ]
 
 liegeBastogneLiegeStartFinish :: [StartFinish]
 liegeBastogneLiegeStartFinish = [ StartFinish { years = [ 1892 .. 1991 ], actualStart = liege, actualFinish = liege }

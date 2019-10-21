@@ -3,6 +3,7 @@ module Countries.Netherlands
 ,amsterdam
 ,apeldoorn
 ,assen
+,bergEnTerblijt
 ,breda
 ,elsloo
 ,emmen
@@ -46,6 +47,9 @@ assen :: Location
 assen = dutchLocation "Assen"
 
 -- B
+bergEnTerblijt :: Location
+bergEnTerblijt = dutchLocation "Berg en Terblijt"
+
 breda :: Location
 breda = dutchLocation "Breda"
 

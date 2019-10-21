@@ -76,6 +76,7 @@ causseNoir = massifCentralCol "Causse Noir" 835
 -- M
 lesMonedieres :: Col
 lesMonedieres = massifCentralCol "Les Monédières" 860 
+
 colDuMinier :: Col
 colDuMinier = massifCentralCol "Col du Minier" 1270
 

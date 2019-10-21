@@ -26,15 +26,18 @@ instance Eq Pave where
   (Pave n1 l1 r1) == (Pave n2 l2 r2) = n1 == n2 && l1 == l2 && r1 == r2
 
 instance Ord Pave where
-  compare pave1 pave2 = if ratingComparison == EQ then
-                          if lengthComparison == EQ then
-                            nameComparison
-                          else lengthComparison
-                        else ratingComparison
-                        where
-                          ratingComparison = (rating pave1) `compare` (rating pave2)
-                          lengthComparison = (ParcoursDB.Pave.length pave1) `compare` (ParcoursDB.Pave.length pave2)
-                          nameComparison   = (ParcoursDB.Pave.name pave1) `compare` (ParcoursDB.Pave.name pave2)
+  compare pave1 pave2 =
+    if ratingComparison == EQ then
+      if lengthComparison == EQ then
+        nameComparison
+      else
+        lengthComparison
+    else
+      ratingComparison
+    where
+      ratingComparison = (rating pave1) `compare` (rating pave2)
+      lengthComparison = (ParcoursDB.Pave.length pave1) `compare` (ParcoursDB.Pave.length pave2)
+      nameComparison   = (ParcoursDB.Pave.name pave1) `compare` (ParcoursDB.Pave.name pave2)
 
 data IndexablePave = IndexablePave { km     :: Float
                                    , sector :: Int
