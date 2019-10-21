@@ -14,4 +14,9 @@ has 'country' => (
     required => 1,
 );
 
+sub fqnc {
+    my ( $self ) = @_;
+    return sprintf( "%s (%s)", $self->name, $self->country->name );
+}
+
 1;

@@ -1,0 +1,106 @@
+use strict;
+use warnings;
+
+use ParcoursDB::Classic::LaFlecheWallonne::Factory;
+use Test::More;
+
+my $factory = ParcoursDB::Classic::LaFlecheWallonne::Factory->new;
+
+test_edition( 1936, 'Tournai (Belgium)', 'Liège (Belgium)' );
+test_edition( 1937, 'Tournai (Belgium)', 'Ans (Belgium)' );
+test_edition( 1938, 'Tournai (Belgium)', 'Rocourt (Belgium)' );
+test_edition( 1939, 'Mons (Belgium)', 'Rocourt (Belgium)' );
+test_edition( 1940, 'Mons (Belgium)', 'Rocourt (Belgium)' );
+test_edition( 1941, 'Mons (Belgium)', 'Rocourt (Belgium)' );
+test_edition( 1942, 'Mons (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1943, 'Mons (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1944, 'Mons (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1945, 'Mons (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1946, 'Mons (Belgium)', 'Liège (Belgium)' );
+test_edition( 1947, 'Mons (Belgium)', 'Liège (Belgium)' );
+test_edition( 1948, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1948, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1949, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1950, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1951, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1952, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1953, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1954, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1955, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1956, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1957, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1958, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1959, 'Charleroi (Belgium)', 'Liège (Belgium)' );
+test_edition( 1960, 'Liège (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1961, 'Liège (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1962, 'Liège (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1963, 'Liège (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1964, 'Liège (Belgium)', 'Charleroi (Belgium)' );
+test_edition( 1965, 'Liège (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1966, 'Liège (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1967, 'Liège (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1968, 'Liège (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1969, 'Liège (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1970, 'Liège (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1971, 'Liège (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1972, 'Verviers (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1973, 'Verviers (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1974, 'Verviers (Belgium)', 'Verviers (Belgium)' );
+test_edition( 1975, 'Verviers (Belgium)', 'Verviers (Belgium)' );
+test_edition( 1976, 'Verviers (Belgium)', 'Verviers (Belgium)' );
+test_edition( 1977, 'Verviers (Belgium)', 'Verviers (Belgium)' );
+test_edition( 1978, 'Verviers (Belgium)', 'Verviers (Belgium)' );
+test_edition( 1979, 'Esneux (Belgium)', 'Marcinelle (Belgium)' );
+test_edition( 1980, 'Mons (Belgium)', 'Spa (Belgium)' );
+test_edition( 1981, 'Spa (Belgium)', 'Mons (Belgium)' );
+test_edition( 1982, 'Charleroi (Belgium)', 'Spa (Belgium)' );
+test_edition( 1983, 'Charleroi (Belgium)', 'Huy (Belgium)' );
+test_edition( 1984, 'Charleroi (Belgium)', 'Huy (Belgium)' );
+test_edition( 1985, 'Huy (Belgium)', 'Huy (Belgium)' );
+test_edition( 1986, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1987, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1988, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1989, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1990, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1991, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1992, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1993, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1994, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1995, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1996, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1997, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1998, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 1999, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2000, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2001, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2002, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2003, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2004, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2005, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2006, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2007, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2008, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2009, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2010, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2011, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2012, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2013, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2014, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2015, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2016, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2017, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2018, 'Spa (Belgium)', 'Huy (Belgium)' );
+test_edition( 2019, 'Spa (Belgium)', 'Huy (Belgium)' );
+
+done_testing();
+
+sub test_edition {
+    my ( $year, $expected_start, $expected_finish ) = @_;
+
+    subtest "La Flèche Wallonne [$year]" => sub {
+        my $edition = $factory->edition( $year );
+        is( $edition->name, "La Flèche Wallonne", "'name' is as expected" );
+        is( $edition->start->fqnc, $expected_start, "'start' is as expected" );
+        is( $edition->finish->fqnc, $expected_finish, "'finish' is as expected" );
+    };
+}

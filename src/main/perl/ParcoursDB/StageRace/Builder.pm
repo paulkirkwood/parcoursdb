@@ -2,19 +2,13 @@ package ParcoursDB::StageRace::Builder;
 
 use Moose;
 use ParcoursDB::Col;
+use ParcoursDB::Col::Collection;
 use ParcoursDB::Location;
-use ParcoursDB::Stage;
-use ParcoursDB::StageRace;
-
-has 'ordinal' => (
-    traits  => ['Counter'],
-    is      => 'ro',
-    isa     => 'Num',
-    default => 1,
-    handles => {
-        inc_ordinal => 'inc',
-    },
-);
+use ParcoursDB::Stage::Prologue;
+use ParcoursDB::Stage::Road;
+use ParcoursDB::Stage::TeamTimeTrial;
+use ParcoursDB::Stage::IndividualTimeTrial;
+use ParcoursDB::Stage::RestDay;
 
 has 'stage_number' => (
     traits  => ['Counter'],
@@ -37,15 +31,9 @@ has 'suffix' => (
     },
 );
 
-has 'name' => (
+has 'edition' => (
     is       => 'ro',
-    isa      => 'Str',
-    required => 1,
-);
-
-has 'country' => (
-    is       => 'ro',
-    isa      => 'ParcoursDB::Country',
+    isa      => 'ParcoursDB::StageRace',
     required => 1,
 );
 
@@ -61,85 +49,189 @@ has 'split_stage' => (
     default => sub { 0 },
 );
 
-has 'stages' => (
-    traits => ['Array'],
-    is     => 'ro',
-    isa    => 'ArrayRef[ParcoursDB::Stage]',
-    default => sub { [] },
-    handles => {
-        all_stages    => 'elements',
-        add_stage     => 'push',
-        map_stages    => 'map',
-        filter_stages => 'grep',
-        find_stage    => 'first',
-        get_stage     => 'get',
-        count_stages  => 'count',
-        sorted_stages => 'sort',
-    },
+has 'edition' => (
+    is       => 'ro',
+    isa      => 'ParcoursDB::StageRace',
+    required => 1,
+);
+
+has 'stage_start' => (
+    is => 'rw',
 );
 
 has 'cols' => (
-    traits => ['Hash'],
     is     => 'ro',
-    isa    => 'HashRef[ParcoursDB::Col]',
-    default => sub { {} },
-    handles => {
-        all_cols    => 'kv',
-        get_col     => 'get',
-        set_col     => 'set',
-        has_col     => 'exists',
-        has_no_cols => 'is_empty',
-        empty_cols  => 'clear',
-        col_summits => 'keys',
-    },
+    isa    => 'ParcoursDB::Col::Collection',
+    default => sub { ParcoursDB::Col::Collection->new },
 );
 
 sub build {
     my ( $self ) = @_;
-    die "A stage race needs stages" if $self->count_stages == 0;
+    die "A stage race needs stages" if $self->edition->count_stages == 0;
 
     #
     # A stage race cannot finish with a rest day
     #
-    my $last_stage = $self->get_stage( -1 );
-    if ( ref( $last_stage ) eq 'ParcoursDB::RestDay' ) {
+    if ( ref( $self->edition->last_stage ) eq 'ParcoursDB::RestDay' ) {
         die "A stage race cannot finish with a rest day";
     }
 
-    my $stage_race = ParcoursDB::StageRace->new( name => $self->name, country => $self->country );
-    $self->map_stages( sub { $stage_race->add_stage( $_ ) } );
-    return $stage_race;
+    return $self->edition;
 }
 
 sub prologue {
-    my $self = shift;
-    return $self->_add_stage( type => 'Prologue', @_ );
+    my ( $self, $start, $finish, $distance ) = @_;
+
+    if ( $self->edition->count_stages > 1 ) {
+        die "The Prologue must be the first stage";
+    }
+
+    if ( ref( $self->edition->first_stage ) eq 'ParcoursDB::Stage::Prologue' ) {
+        die "There can only be one Prologue";
+    }
+
+    my $prologue = ParcoursDB::Stage::Prologue->new(
+        date     => $self->date->clone,
+        distance => $distance,
+        finish   => $finish,
+        start    => $start,
+    );
+
+    $self->edition->add_stage( $prologue );
+
+    unless ( $self->split_stage ) {
+        $self->date( $self->date->add( days => 1 ) );
+    }
+}
+
+sub out_and_back_prologue {
+    my ( $self, $start, $distance ) = @_;
+    $self->prologue( $start, $start, $distance );
 }
 
 sub road_stage {
-    my $self = shift;
-    return $self->_add_stage( type => 'RoadStage', @_ );
+    my ( $self, $start, $finish, $distance ) = @_;
+
+    my $road_stage = ParcoursDB::Stage::Road->new(
+        date     => $self->date->clone,
+        distance => $distance,
+        finish   => $finish,
+        id       => $self->_stage_id,
+        start    => $start,
+    );
+
+    #
+    # Copy the cols into the stage
+    #
+    foreach my $km ( $self->cols->summits ) {
+        $road_stage->cols->set_col( $km, $self->cols->get_col( $km ) );
+    }
+    $self->cols->empty_cols;
+
+    $self->edition->add_stage( $road_stage );
+
+    if ( $self->split_stage ) {
+        $self->inc_suffix;
+    }
+    else {
+        $self->inc_stage_number;
+        $self->date( $self->date->add( days => 1 ) );
+    }
 }
  
+sub criterium {
+    my ( $self, $start, $distance ) = @_;
+    $self->road_stage( $start, $start, $distance );
+}
+
 sub team_time_trial {
-    my $self = shift;
-    return $self->_add_stage( type => 'TeamTimeTrial', @_ );
+    my ( $self, $start, $finish, $distance ) = @_;
+    
+    my $ttt = ParcoursDB::Stage::TeamTimeTrial->new(
+        date     => $self->date->clone,
+        distance => $distance,
+        finish   => $finish,
+        id       => $self->_stage_id,
+        start    => $start,
+    );
+    
+    $self->edition->add_stage( $ttt );
+    $self->inc_suffix if $self->split_stage;
+    unless ( $self->split_stage ) {
+        $self->inc_stage_number;
+        $self->date( $self->date->add( days => 1 ) );
+    }
+}
+
+sub out_and_back_team_time_trial {
+    my ( $self, $start, $distance ) = @_;
+    $self->team_time_trial( $start, $start, $distance );
 }
 
 sub individual_time_trial {
-    my $self = shift;
-    return $self->_add_stage( type => 'IndividualTimeTrial', @_ );
+    my ( $self, $start, $finish, $distance ) = @_;
+    
+    my $itt = ParcoursDB::Stage::IndividualTimeTrial->new(
+        date     => $self->date->clone,
+        distance => $distance,
+        finish   => $finish,
+        id       => $self->_stage_id,
+        start    => $start,
+    );
+    
+    $self->edition->add_stage( $itt );
+    $self->inc_suffix if $self->split_stage;
+
+    unless ( $self->split_stage ) {
+        $self->inc_stage_number;
+        $self->date( $self->date->add( days => 1 ) );
+    }
+}
+
+sub out_and_back_individual_time_trial {
+    my ( $self, $start, $distance ) = @_;
+    $self->individual_time_trial( $start, $start, $distance );
 }
 
 sub rest_day {
-    my $self = shift;
-    die "A stage race cannot start with a rest day" if $self->count_stages == 0;
+    my ( $self, $location ) = @_;
+    my $rest_day = ParcoursDB::Stage::RestDay->new(
+        date     => $self->date->clone,
+        location => $location,
+    );
+    $self->_rest_day( $rest_day );
+}
+
+sub transfer_day {
+    my ( $self ) = @_;
+    $self->_rest_day( ParcoursDB::Stage::RestDay->new( date => $self->date->clone ) );
+}
+
+sub _rest_day {
+    my ( $self, $rest_day ) = @_;
+
+    die "A stage race cannot start with a rest day" if $self->edition->count_stages == 0;
     die "Cannot add a rest day as part of a split stage" if $self->split_stage;
-    my $last_stage = $self->get_stage( -1 );
-    if ( ref( $last_stage ) eq 'ParcoursDB::RestDay' ) {
+
+    if ( ref( $self->edition->last_stage ) eq 'ParcoursDB::RestDay' ) {
         die "A rest day cannot follow a rest day";
     }
-    return $self->_add_stage( type => 'RestDay', @_ );
+    
+    die "Only rest days can be added as rest days" unless $rest_day->isa( 'ParcoursDB::Stage::RestDay' );
+
+    $self->edition->add_stage( $rest_day );
+    $self->date( $self->date->add( days => 1 ) );
+}
+
+sub mountain_stage {
+    my ( $self, $start ) = @_;
+    $self->stage_start( $start );
+}
+
+sub summit_finish {
+    my ( $self, $col, $category, $km ) = @_;
+    $self->cols->set_col( $km, { category => $category, col => $col } );
+    $self->road_stage( $self->stage_start, $col, $km );
 }
 
 sub enable_split_stages {
@@ -155,126 +247,35 @@ sub disable_split_stages {
     $self->inc_stage_number;
 }
 
-sub hc {
+#
+# Private methods
+#
+sub _make_col {
     my $self = shift;
-    return $self->_add_col( category => "HC", @_ );
-}
+    my %args = ( country => $self->edition->country, @_);
 
-sub c1 {
-    my $self = shift;
-    return $self->_add_col( category => "C1", @_ );
-}
+    $args{name} || die "No Col 'name'";
+    $args{height} || die "No Col 'height'";
 
-sub c2 {
-    my $self = shift;
-    return $self->_add_col( category => "C2", @_ );
-}
-
-sub c3 {
-    my $self = shift;
-    return $self->_add_col( category => "C3", @_ );
-}
-
-sub c4 {
-    my $self = shift;
-    return $self->_add_col( category => "C4", @_ );
-}
-
-sub uncategorised_col {
-    my $self = shift;
-    return $self->_add_col( category => "UC", @_ );
-}
-
-sub _location {
-    my ( $self, $loc ) = @_;
-    return ref( $loc ) eq 'ParcoursDB::Location' ? $loc : ParcoursDB::Location->new( name => $loc, country => $self->country );
-}
-
-sub _add_stage {
-    my $self = shift;
-    my %args = (@_);
-
-    $args{type} || die "No 'type'";
-
-    if ( $args{type} ne 'RestDay' ) {
-        $args{start} || die "No 'start'";
-        $args{distance} || die "No 'distance'";
-    }
-
-    if ( $args{type} eq 'RestDay' ) {
-        my %attrs = (
-            date    => $self->date->clone,
-            ordinal => $self->ordinal,
-        );
-        $attrs{location} = $self->_location( $args{location} ) if $args{location};
-
-        my $rest_day = ParcoursDB::RestDay->new( %attrs );
-        $self->add_stage( $rest_day );
-        $self->date( $self->date->add( days => 1 ) );
-    }
-    else {
-        if ( $args{type} eq 'Prologue' && $self->find_stage( sub { $_->id eq 'P' } ) ) {
-            die "There can only be one Prologue in a stage race";
-        }
-
-        my $class = "ParcoursDB::" . $args{type};
-
-        my @id;
-        push @id, $self->stage_number;
-        push @id, chr( $self->suffix ) if $self->split_stage;
-
-        my $start = $self->_location( $args{start} );
-        my $finish = $args{finish} ? $self->_location( $args{finish} ) : $start;
-
-        my $stage = $class->new(
-            start    => $start,
-            finish   => $finish,
-            distance => $args{distance},
-            date     => $self->date->clone,
-            id       => $args{type} eq 'Prologue' ? 'P' : join( q{}, @id ),
-            cols     => $self->cols,
-            ordinal  => $self->ordinal,
-        );
-
-        $self->add_stage( $stage );
-        $self->empty_cols;
-
-        if ( $self->split_stage ) {
-            $self->inc_suffix;
-        }
-        else {
-            $self->date( $self->date->add( days => 1 ) ) if !$args{morning_stage};
-            $self->inc_stage_number if $args{type} ne 'Prologue';
-        }
-    }
-
-    $self->inc_ordinal;
+    return ParcoursDB::Col->new( %args );
 }
 
 sub _add_col {
-    my $self = shift;
-    my %args = (@_);
+    my ( $self, $col, $category, $km ) = @_;
 
-    $args{category} || die "No Col 'category'";
-    $args{name} || die "No Col 'name'";
-    $args{height} || die "No Col 'height'";
-    $args{summit_km} || die "No Col 'summit_km'";
-
-    if ( $args{category} eq 'HC' && $self->country->name ne "France" ) {
-        die "Only French races have 'HC' climbs";
+    if ( $self->cols->has_col( $km ) ) {
+        die "There is already a Col at " . $km . "km : " . $self->cols->get_col( $km )->{col}->name;
     }
 
-    if ( $args{category} eq 'UC' && $self->name ne "Tirreno Adriatico" ) {
-        die "Only 'Tirreno-Adriatico' has uncategorised climbs";
-    }
+    $self->cols->set_col( $km, { category => $category, col => $col } );
+}
 
-    if ( $self->has_col( $args{summit_km} ) ) {
-        my $col = $self->get_col( $args{summit_km} );
-        die "There is already a Col at " . $args{summit_km} . "km : " . $col->name;
-    }
-
-    my $col = ParcoursDB::Col->new( %args );
-    $self->set_col( $args{summit_km}, $col );
+sub _stage_id {
+    my ( $self ) = @_;
+    my @id;
+    push @id, $self->stage_number;
+    push @id, chr( $self->suffix ) if $self->split_stage;
+    return join( q{}, @id );
 }
 
 no Moose;

@@ -32,7 +32,9 @@ has '_stages' => (
 
 sub prologue {
     my ( $self ) = @_;
-    return $self->find_stage( sub { $_->ordinal == 1 && $_->id eq 'P' } );
+    my @racing_stages = $self->racing_stages;
+    my @prologue = grep { $_->id eq 'P' } @racing_stages;
+    return @prologue ? $prologue[0] : undef;
 }
 
 sub has_prologue {
@@ -43,38 +45,34 @@ sub has_prologue {
 
 sub racing_stages {
     my ( $self ) = @_;
-    return $self->filter_stages( sub { !$_->isa( "ParcoursDB::RestDay" ) } );
+    return $self->filter_stages( sub { !$_->isa( 'ParcoursDB::Stage::RestDay' ) } );
 }
 
 sub road_stages {
     my ( $self ) = @_;
-    return $self->_clone( 'ParcoursDB::RoadStage' );
+    return $self->filter_stages( sub { $_->isa( 'ParcoursDB::Stage::Road' ) } );
 }
 
 sub team_time_trials {
     my ( $self ) = @_;
-    return $self->_clone( 'ParcoursDB::TeamTimeTrial' );
+    return $self->filter_stages( sub { $_->isa( 'ParcoursDB::Stage::TeamTimeTrial' ) } );
 }
 
 sub individual_time_trials {
     my ( $self ) = @_;
-    return $self->_clone( 'ParcoursDB::IndividualTimeTrial' );
+    return $self->filter_stages( sub { $_->isa( 'ParcoursDB::Stage::IndividualTimeTrial' ) } );
 }
 
 sub rest_days {
     my ( $self ) = @_;
-    return $self->_clone( 'ParcoursDB::RestDay' );
+    return $self->filter_stages( sub { $_->isa( 'ParcoursDB::Stage::RestDay' ) } );
 }
 
 sub distance {
     my ( $self ) = @_;
 
     my $distance = 0;
-    foreach my $stage ( $self->all_stages ) {
-        next if ( ref( $stage ) eq 'ParcoursDB::RestDay' );
-        $distance += $stage->distance;
-    }
-
+    map { $distance += $_->distance } $self->racing_stages;
     return $distance;
 }
 
@@ -85,7 +83,7 @@ sub route {
     my @route;
     foreach my $stage ( @stages ) {
 
-        my $is_rest_day = ref( $stage ) eq 'ParcoursDB::RestDay';
+        my $is_rest_day = ref( $stage ) eq 'ParcoursDB::Stage::RestDay';
 
         my @components;
         push @components, $is_rest_day ? q{} : $stage->id;
@@ -117,13 +115,22 @@ sub route {
 
 sub first_stage {
     my ( $self ) = @_;
-    return $self->find_stage( sub { $_->ordinal == 1 } );
+    return $self->get_stage(0);
 }
 
 sub last_stage {
     my ( $self ) = @_;
-    my @ordinals = sort { $a <=> $b } map { $_->ordinal } $self->racing_stages;
-    return $self->find_stage( sub { $_->ordinal == $ordinals[-1] } );
+    return $self->get_stage(-1);
+}
+
+sub start_date {
+    my ( $self ) = @_;
+    return $self->first_stage->date;
+}
+
+sub end_date {
+    my ( $self ) = @_;
+    return $self->last_stage->date;
 }
 
 sub depart {
@@ -149,9 +156,9 @@ sub stage_summary {
     my ( $self ) = @_;
 
     my @racing_stages = $self->racing_stages;
-    my @road = grep { $_->isa( 'ParcoursDB::RoadStage' ) } @racing_stages;
-    my @ttt  = grep { $_->isa( 'ParcoursDB::TeamTimeTrial' ) } @racing_stages;
-    my @itt  = grep { $_->isa( 'ParcoursDB::IndividualTimeTrial' ) } @racing_stages;
+    my @road = grep { $_->isa( 'ParcoursDB::Stage::Road' ) } @racing_stages;
+    my @ttt  = grep { $_->isa( 'ParcoursDB::Stage::TeamTimeTrial' ) } @racing_stages;
+    my @itt  = grep { $_->isa( 'ParcoursDB::Stage::IndividualTimeTrial' ) } @racing_stages;
 
     my @split_stage_days = grep { $_->id =~ /\d+a/ } @racing_stages;
     my $total = @road + @ttt + @itt - @split_stage_days;
@@ -185,7 +192,7 @@ sub high_point {
     my ( $self ) = @_;
     my @cols;
     foreach my $stage( $self->racing_stages ) {
-        push @cols, $stage->all_cols;
+        push @cols, map { $_->{col} } $stage->cols->all_cols;
     }
     my @sorted = sort { $a->height <=> $b->height } @cols;
     return $sorted[-1];
@@ -195,12 +202,6 @@ sub _format_location {
     my ( $self, $location ) = @_;
     return sprintf( "%s", $location->name ) if $location->country->name eq $self->country->name;
     return sprintf( "%s (%s)", $location->name, $location->country->name );
-}
-
-sub _clone {
-    my ( $self, $stage_class_name ) = @_;
-    my @stages = $self->filter_stages( sub { ref( $_ ) eq $stage_class_name } );
-    return __PACKAGE__->new( name => $self->name, country => $self->country, _stages => \@stages );
 }
 
 no Moose;

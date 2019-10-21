@@ -2,10 +2,9 @@ package ParcoursDB::Country;
 
 use Moose;
 
-has 'name' => (
-    is       => 'ro',
-    isa      => 'Str',
-    required => 1,
-);
+sub name {
+    my ( $self ) = @_;
+    return ( split( '::', ref( $self ) ) )[-1];
+}
 
 1;

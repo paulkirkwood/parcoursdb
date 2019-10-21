@@ -8,9 +8,9 @@ has 'name' => (
     required => 1,
 );
 
-has 'category' => (
+has 'country' => (
     is       => 'ro',
-    isa      => 'Str',
+    isa      => 'ParcoursDB::Country',
     required => 1,
 );
 
