@@ -18,7 +18,7 @@ our @EXPORT_OK = qw(
     bruges
     brussels
     charleroi
-    circuitZolder
+    circuit_zolder
     dinant
     esneux
     evergem
@@ -35,7 +35,7 @@ our @EXPORT_OK = qw(
     leuven
     liege
     lokeren
-    marcheEnFamenne
+    marche_en_famenne
     marcinelle
     mariakerke
     meerbeke
@@ -48,8 +48,8 @@ our @EXPORT_OK = qw(
     rochefort
     rocourt
     seraing
-    sintNiklaas
-    sintPietersWoluwe
+    sint_niklaas
+    sint_pieters_woluwe
     spa
     tournai
     verviers
@@ -118,7 +118,7 @@ sub charleroi {
     return _belgian_location( "Charleroi" );
 }
 
-sub circuitZolder {
+sub circuit_zolder {
     return _belgian_location( "Circuit Zolder" );
 }
 
@@ -195,7 +195,7 @@ sub lokeren {
 }
 
 # M
-sub marcheEnFamenne {
+sub marche_en_famenne {
     return _belgian_location( "Marche-en-Famenne" );
 }
 
@@ -252,11 +252,11 @@ sub seraing {
     return _belgian_location( "Seraing" );
 }
 
-sub sintNiklaas {
+sub sint_niklaas {
     return _belgian_location( "Sint-Niklaas" );
 }
 
-sub sintPietersWoluwe {
+sub sint_pieters_woluwe {
     return _belgian_location( "Sint-Pieters-Woluwe" );
 }
 
