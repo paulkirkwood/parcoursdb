@@ -60,7 +60,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 belgianLocation :: String -> Location
-belgianLocation name = Location name Belgium
+belgianLocation name = Location name Belgium Nothing
 
 -- A
 ans :: Location

@@ -7,4 +7,4 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 vaticanCity :: Location
-vaticanCity = Location "Vatican City" VaticanCity
+vaticanCity = Location "Vatican City" VaticanCity Nothing

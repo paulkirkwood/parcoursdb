@@ -4,7 +4,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 spanishLocation :: String -> Location
-spanishLocation loc = Location loc Spain
+spanishLocation loc = Location loc Spain Nothing
 
 --A
 aCoruna :: Location
@@ -23,7 +23,7 @@ adra :: Location
 adra = spanishLocation "Adra"
 
 aguilarDeCampoo :: Location
-aguilarDeCampoo = spanishLocation "Aguilar de Campoo"
+aguilarDeCampoo = Location "Aguilar de Campoo" Spain (Just 1650)
 
 aguilas :: Location
 aguilas = spanishLocation "Águilas"
@@ -123,36 +123,6 @@ alqueriasDelNinoPerdido = spanishLocation "Alquerias del Nino Perdido"
 
 altoCampoo :: Location
 altoCampoo = spanishLocation "Alto Campoo"
-
-altoDeAbantos :: Location
-altoDeAbantos = spanishLocation "Alto de Abantos"
-
-altoDeAitana :: Location
-altoDeAitana = spanishLocation "Alto de Aitana"
-
-altoDeCotobello :: Location
-altoDeCotobello = spanishLocation "Alto de Cotobello"
-
-altoDeHazaLlana :: Location
-altoDeHazaLlana = spanishLocation "Alto de Haza Llana"
-
-altoDeLaCobertoria :: Location
-altoDeLaCobertoria = spanishLocation "Alto de la Cobertoria"
-
-altoDeNavacerrada :: Location
-altoDeNavacerrada = spanishLocation "Alto de Navacerrada"
-
-altoDePenasBlancas :: Location
-altoDePenasBlancas = spanishLocation "Alto de Peñas Blancas"
-
-altoDeVelefique :: Location
-altoDeVelefique = spanishLocation "Alto de Velefique"
-
-altoDelMorredero :: Location
-altoDelMorredero = spanishLocation "Alto del Morredero"
-
-altoDelNaranco :: Location
-altoDelNaranco = spanishLocation "Alto del Naranco"
 
 alzira :: Location
 alzira = spanishLocation "Alzira"
@@ -345,6 +315,9 @@ calahora = spanishLocation "Calahora"
 calahorra :: Location
 calahorra = spanishLocation "Calahorra"
 
+calarAltoObservatory :: Location
+calarAltoObservatory = Location "Calar Alto Observatory" Spain (Just 2186)
+
 calatayud :: Location
 calatayud = spanishLocation "Calatayud"
 
@@ -416,6 +389,9 @@ castroUrdiales = spanishLocation "Castro Urdiales"
 
 cercedilla :: Location
 cercedilla = spanishLocation "Cercedilla"
+
+cerler :: Location
+cerler = Location "Cerler" Spain (Just 1500)
 
 circuitoDeNavarra :: Location
 circuitoDeNavarra = spanishLocation "Circuito de Navarra"
@@ -565,7 +541,7 @@ finisterra :: Location
 finisterra = spanishLocation "Finisterra"
 
 formigal :: Location
-formigal = spanishLocation "Formigal"
+formigal = Location "Formigal" Spain (Just 1510)
 
 fuengirola :: Location
 fuengirola = spanishLocation "Fuengirola"
@@ -681,7 +657,7 @@ laCamperona :: Location
 laCamperona = spanishLocation "La Camperona"
 
 laCovatilla :: Location
-laCovatilla = spanishLocation "La Covatilla"
+laCovatilla = Location "La Covatilla" Spain (Just 2000)
 
 laFarrapona :: Location
 laFarrapona = spanishLocation "La Farrapona"
@@ -951,9 +927,6 @@ najera = spanishLocation "Nájera"
 naranco :: Location
 naranco = spanishLocation "Naranco"
 
-navacerrada :: Location
-navacerrada = spanishLocation "Navacerrada"
-
 noja :: Location
 noja = spanishLocation "Noja"
 
@@ -1099,9 +1072,6 @@ puertoBanus = spanishLocation "Puerto Banus"
 
 puertoDeAncares :: Location
 puertoDeAncares = spanishLocation "Puerto de Ancares"
-
-puertoDeNavacerrada :: Location
-puertoDeNavacerrada = spanishLocation "Puerto de Navacerrada"
 
 puertoLumbreras :: Location
 puertoLumbreras = spanishLocation "Puerto Lumbreras"
@@ -1307,7 +1277,7 @@ sierraDeLaDemanda :: Location
 sierraDeLaDemanda = spanishLocation "Sierra de la Demanda"
 
 sierraNevada :: Location
-sierraNevada = spanishLocation "Sierra Nevada"
+sierraNevada = Location "Sierra Nevada" Spain (Just 2100)
 
 sitges :: Location
 sitges = spanishLocation "Sitges"

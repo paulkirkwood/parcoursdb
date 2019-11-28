@@ -153,6 +153,16 @@ isSplitStage _                                   = False
 isSplitStage' :: String -> Bool
 isSplitStage' id = id =~ "a$" :: Bool
 
+isNonSplitStage :: Stage -> Bool
+isNonSplitStage (Road _ _ _ i _ _)                  = isNonSplitStage' i
+isNonSplitStage (TeamTimeTrial _ _ _ i _ _)         = isNonSplitStage' i
+isNonSplitStage (ThreeManTeamTimeTrial _ _ _ i _ _) = isNonSplitStage' i
+isNonSplitStage (IndividualTimeTrial _ _ _ i _ _)   = isNonSplitStage' i
+isNonSplitStage _                                   = False
+
+isNonSplitStage' :: String -> Bool
+isNonSplitStage' id = id =~ "^([0-9]+[AB]?)$" :: Bool
+
 route :: StageRace -> [String]
 route stageRace = map(\s -> ParcoursDB.Stage.route s (ParcoursDB.StageRace.country stageRace)) (stages stageRace)
 
@@ -186,22 +196,20 @@ sortStagesByDistance (x:xs) =
 
 summary :: StageRace -> String
 summary stageRace =
-  let totalRoadStages = numberOfRoadStages stageRace
-      totalTTTs       = numberOfTeamTimeTrials stageRace
-      totalITTs       = numberOfIndividualTimeTrials stageRace
-      totalSplitStages = numberOfSplitStages stageRace
-      totalStages     = totalRoadStages + totalTTTs + totalITTs - totalSplitStages
-      hasPrologue     = (prologueKms stageRace) > 0
-  in summary' totalStages totalSplitStages hasPrologue
+  let nonSplit    = length $ filter isNonSplitStage $ stages stageRace
+      split       = length $ filter isSplitStage $ stages stageRace
+      hasPrologue = (prologueKms stageRace) > 0
+  in summary' nonSplit split hasPrologue
 
 summary' :: Int -> Int -> Bool -> String
-summary' totalStages totalSplitStages hasPrologue
-  | hasPrologue == True && totalSplitStages > 1 = printf "%d stages + Prologue including %d split stages" totalStages totalSplitStages
-  | hasPrologue == True && totalSplitStages == 1 = printf "%d stages + Prologue including 1 split stage" totalStages
-  | hasPrologue == True = printf "%d stages + Prologue" totalStages
-  | totalSplitStages > 1 = printf "%d stages including %d split stages" totalStages totalSplitStages
-  | totalSplitStages == 1 = printf "%d stages including 1 split stage" totalStages
-  | otherwise = printf "%d stages" totalStages
+summary' nonSplit split hasPrologue
+  | hasPrologue == True && split > 1 = printf "%d stages + Prologue including %d split stages" total split
+  | hasPrologue == True && split == 1 = printf "%d stages + Prologue including 1 split stage" total
+  | hasPrologue == True = printf "%d stages + Prologue" total
+  | split > 1 = printf "%d stages including %d split stages" total split
+  | split == 1 = printf "%d stages including 1 split stage" total
+  | otherwise = printf "%d stages" total
+  where total = nonSplit + split
 
 stageComposition :: StageRace -> String
 stageComposition stageRace =

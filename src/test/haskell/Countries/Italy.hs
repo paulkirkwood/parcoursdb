@@ -4,7 +4,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 italianLocation :: String -> Location
-italianLocation loc = Location loc Italy
+italianLocation loc = Location loc Italy Nothing
 
 -- A
 abanoTerme :: Location
@@ -52,6 +52,9 @@ albaAdriatica = italianLocation "Alba Adriatica"
 albenga :: Location
 albenga = italianLocation "Albenga"
 
+alberobello :: Location
+alberobello = italianLocation "Alberobello"
+
 albeseConCassano :: Location
 albeseConCassano = italianLocation "Albese con Cassano"
 
@@ -63,6 +66,9 @@ alghero = italianLocation "Alghero"
 
 alleghe :: Location
 alleghe = italianLocation "Alleghe"
+
+alpago :: Location
+alpago = italianLocation "Alpago"
 
 alpeDiPampeago :: Location
 alpeDiPampeago = italianLocation "Alpe di Pampeago"
@@ -1396,9 +1402,6 @@ morbegno = italianLocation "Morbegno"
 mori :: Location
 mori = italianLocation "Mori"
 
-mountEtna :: Location
-mountEtna = italianLocation "Mount Etna"
-
 mountVesuvius :: Location
 mountVesuvius = italianLocation "Mount Vesuvius"
 
@@ -1885,6 +1888,9 @@ sampeyre = italianLocation "Sampeyre"
 sanBenedettoDelTronto :: Location
 sanBenedettoDelTronto = italianLocation "San Benedetto del Tronto"
 
+sanCandido :: Location
+sanCandido = italianLocation "San Candido"
+
 sanDonaDiPiave :: Location
 sanDonaDiPiave = italianLocation "San Dona di Piave"
 
@@ -1968,6 +1974,9 @@ santaMariaDellaVersa = italianLocation "Santa Maria della Versa"
 
 santaMariaDiSala :: Location
 santaMariaDiSala = italianLocation "Santa Maria di Sala"
+
+santaNinfa :: Location
+santaNinfa = italianLocation "Santa Ninfa"
 
 santarcangeloDiRomagna :: Location
 santarcangeloDiRomagna = italianLocation "Santarcangelo di Romagna"
@@ -2082,6 +2091,9 @@ serravilleScrivia = italianLocation "Serraville Scrivia"
 
 sestola :: Location
 sestola = italianLocation "Sestola"
+
+sestriere :: Location
+sestriere = Location "Sestrière" Italy (Just 2035)
 
 sestriLevante :: Location
 sestriLevante = italianLocation "Sestri Levante"

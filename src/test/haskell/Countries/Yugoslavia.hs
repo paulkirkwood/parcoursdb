@@ -7,4 +7,4 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 ljubljana :: Location
-ljubljana = Location "Ljubljana" Yugoslavia
+ljubljana = Location "Ljubljana" Yugoslavia Nothing

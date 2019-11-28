@@ -13,15 +13,20 @@ import Countries.Spain
 import Data.Time
 import Mountains.Asturias
 import Mountains.Cantabrian
+import Mountains.Galicia
+import Mountains.Prebaetic
 import Mountains.Pyrenees
+import Mountains.SierraDeGuadarrama
+import Mountains.SierraDeLaDemanda
 import Mountains.SierraDeLosFilabres
+import Mountains.SierraMorena
 import Mountains.SierraNevada
 import Mountains.SierraSurDeJaen
+import Mountains.SistemaCentral
 import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.Location
 import ParcoursDB.StageRace hiding (distance)
-import ParcoursDB.State.NonConsecutiveStageRace hiding (roadStage,teamTimeTrial)
 import ParcoursDB.State.StageRace
 
 vueltaEditions :: [StageRace]
@@ -1948,7 +1953,8 @@ vuelta1972' = do
   plainStage manresa zaragoza 259.0
 
   -- Stage 12
-  plainStage zaragoza formigal 169.0
+  mountainStage (Left zaragoza) 169
+  addCol 169 Mountains.Pyrenees.formigal C1
 
   -- Stage 13
   plainStage sanguesa arrate 201.0
@@ -2170,7 +2176,8 @@ vuelta1975' = do
   plainStage barcelona tremp 189.0
 
   -- Stage 14
-  plainStage tremp formigal 233.0
+  mountainStage (Left tremp) 233
+  addCol 233 Mountains.Pyrenees.formigal C1
 
   -- Stage 15
   plainStage jaca irache 160.0
@@ -2321,10 +2328,11 @@ vuelta1977' = do
   plainStage laSeuD'Urgell monzon 200.0
 
   -- Stage 15
-  plainStage monzon formigal 166.0
+  mountainStage (Left monzon) 166
+  addCol 166 Mountains.Pyrenees.formigal C1
 
   -- Stage 16
-  plainStage formigal cordovilla 170.0
+  plainStage Countries.Spain.formigal cordovilla 170.0
 
   -- Stage 17
   plainStage cordovilla bilbao 183.0
@@ -2429,7 +2437,8 @@ vuelta1979' = do
   plainStage seville cordoba 188.0
 
   -- Stage 3
-  plainStage cordoba sierraNevada 190.0
+  mountainStage (Left cordoba) 190
+  addCol 190 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 4
   plainStage granada puertoLumbreras 222.0
@@ -2594,7 +2603,8 @@ vuelta1981' = do
   -- Stages 8a & 8b
   enableSplitStages
   plainStage jaen granada 100.0
-  individualTimeTrial granada sierraNevada 30.5
+  mountainTimeTrial (Left granada) 30.5
+  addCol 30.5 Mountains.SierraNevada.sierraNevada C1
   disableSplitStages
 
   -- Stage 9
@@ -2699,7 +2709,8 @@ vuelta1982' = do
   plainStage campoDeCriptana sanFernandoDeHenares 176.0
 
   -- Stage 17
-  plainStage sanFernandoDeHenares navacerrada 178.0
+  mountainStage (Left sanFernandoDeHenares) 178
+  addCol 178 puertoDeNavacerrada C1
 
   -- Stage 18
   criterium palazuelosDeEresmaDestileriasDYC 184.0
@@ -2882,7 +2893,8 @@ vuelta1985' = do
   addCol 145 lagosDeCovadonga C1
 
   -- Stage 7
-  plainStage cangasDeOnis altoCampoo 190.0
+  mountainStage (Left cangasDeOnis) 190
+  addCol 190 Mountains.Cantabrian.altoCampoo HC
 
   -- Stage 8
   plainStage aguilarDeCampoo logrono 224.0
@@ -2954,7 +2966,8 @@ vuelta1986' = do
   plainStage cangasDeOnis oviedo 180.0
 
   -- Stage 8
-  individualTimeTrial oviedo altoDelNaranco 9.7
+  mountainTimeTrial (Left oviedo) 9.7
+  addCol 9.7 altoDelNaranco C1
 
   -- Stage 9
   plainStage oviedo sanIsidro 180.0
@@ -2981,7 +2994,8 @@ vuelta1986' = do
   plainStage albacete jaen 264.0
 
   -- Stage 17
-  plainStage jaen sierraNevada 172.0
+  mountainStage (Left jaen) 172
+  addCol 172 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 18
   plainStage granada benalmadena 191.0
@@ -3027,7 +3041,7 @@ vuelta1987' = do
 
   -- Stage 7
   mountainStage (Left laSeuD'Urgell) 186
-  addCol 186 cerler C1
+  addCol 186 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 8
   plainStage benasque zaragoza 219.0
@@ -3036,7 +3050,8 @@ vuelta1987' = do
   plainStage zaragoza pamplona 180.0
 
   -- Stage 10
-  plainStage mirandaDeEbro altoCampoo 213.0
+  mountainStage (Left mirandaDeEbro) 213
+  addCol 213 Mountains.Cantabrian.altoCampoo HC
 
   -- Stage 11
   mountainStage (Left santander) 179
@@ -3121,7 +3136,7 @@ vuelta1988' = do
 
   -- Stage 13
   mountainStage (Left jaca) 178.2
-  addCol 178.2 cerler C1
+  addCol 178.2 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 14
   plainStage benasque andorraLaVella 190.3
@@ -3193,7 +3208,7 @@ vuelta1989' = do
 
   -- Stage 12
   mountainStage (Left lleida) 190
-  addCol 190 cerler C1
+  addCol 190 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 13
   plainStage benasque jaca 190.0
@@ -3249,7 +3264,8 @@ vuelta1990' = do
   plainStage murcia almeria 226.2
 
   -- Stage 5
-  plainStage almeria sierraNevada 198.0
+  mountainStage (Left almeria) 198
+  addCol 198 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 6
   plainStage loja ubrique 195.2
@@ -3289,7 +3305,7 @@ vuelta1990' = do
 
   -- Stage 18
   mountainStage (Left jaca) 178.5
-  addCol 178.5 cerler C1
+  addCol 178.5 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 19
   plainStage benasque zaragoza 223.6
@@ -3349,7 +3365,7 @@ vuelta1991' = do
 
   -- Stage 12
   mountainStage (Left bossost) 111
-  addCol 111 cerler C1
+  addCol 111 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 13
   plainStage benasque zaragoza 219.0
@@ -3365,7 +3381,8 @@ vuelta1991' = do
   addCol 186.6 lagosDeCovadonga C1
 
   -- Stage 17
-  plainStage cangasDeOnis altoDelNaranco 152.0
+  mountainStage(Left cangasDeOnis) 152
+  addCol 152 altoDelNaranco C1
 
   -- Stage 18
   plainStage leon valladolid 137.5
@@ -3416,7 +3433,7 @@ vuelta1992' = do
 
   -- Stage 9
   mountainStage (Left vielha) 144
-  addCol 144 luzArdiden C1
+  addCol 144 Mountains.Pyrenees.luzArdiden C1
 
   -- Stage 10
   plainStage luzSaintSauveur sabinanigo 196.0
@@ -3435,7 +3452,8 @@ vuelta1992' = do
   addCol 213.4 lagosDeCovadonga C1
 
   -- Stage 15
-  plainStage cangasDeOnis altoDelNaranco 163.0
+  mountainStage (Left cangasDeOnis) 163
+  addCol 163 altoDelNaranco C1
 
   -- Stage 16
   plainStage oviedo leon 162.0
@@ -3479,7 +3497,8 @@ vuelta1993' = do
   plainStage salamanca avila 219.8
 
   -- Stage 6
-  individualTimeTrial palazuelosDeEresmaDestileriasDYC navacerrada 24.1
+  mountainTimeTrial (Left palazuelosDeEresmaDestileriasDYC) 24.1
+  addCol 24.1 puertoDeNavacerrada C1
 
   -- Stage 7
   plainStage palazuelosDeEresmaDestileriasDYC madrid 184.0
@@ -3495,7 +3514,7 @@ vuelta1993' = do
 
   -- Stage 11
   mountainStage (Left lleida) 221
-  addCol 221 cerler C1
+  addCol 221 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 12
   plainStage benasque zaragoza 220.7
@@ -3512,7 +3531,8 @@ vuelta1993' = do
   plainStage santoDomingoDeLaCalzada santander 226.2
 
   -- Stage 16
-  plainStage santander altoCampoo 160.0
+  mountainStage (Left santander) 160
+  addCol 160 Mountains.Cantabrian.altoCampoo HC
 
   -- Stage 17
   mountainStage (Left santander) 179.5
@@ -3522,7 +3542,8 @@ vuelta1993' = do
   plainStage cangasDeOnis gijon 170.0
 
   -- Stage 19
-  plainStage gijon altoDelNaranco 153.0
+  mountainStage (Left gijon) 153
+  addCol 153 altoDelNaranco C1
 
   -- Stage 20
   plainStage salas ferol 247.0
@@ -3554,7 +3575,8 @@ vuelta1994' = do
   plainStage cordoba granada 166.9
 
   -- Stage 6
-  plainStage granada sierraNevada 151.7
+  mountainStage (Left granada) 151.7
+  addCol 151.7 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 7
   plainStage baza alicante 256.5
@@ -3571,7 +3593,7 @@ vuelta1994' = do
 
   -- Stage 11
   mountainStage (Left andorraLaVella) 195.3
-  addCol 195.3 cerler C1
+  addCol 195.3 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 12
   plainStage benasque zaragoza 226.7
@@ -3622,7 +3644,8 @@ vuelta1995' = do
   plainStage sanAsensio santander 223.5
 
   -- Stage 3
-  plainStage santander altoDelNaranco 206.0
+  mountainStage (Left santander) 206
+  addCol 206 altoDelNaranco C1
 
   -- Stage 4
   plainStage tapiaDeCasariego aCoruna 82.6
@@ -3649,7 +3672,8 @@ vuelta1995' = do
   plainStage seville marbella 162.5
 
   -- Stage 12
-  plainStage marbella sierraNevada 238.5
+  mountainStage (Left marbella) 238.5
+  addCol 238.5 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 13
   plainStage olulaDelRio murcia 181.0
@@ -3668,7 +3692,7 @@ vuelta1995' = do
   -- Stage 17
   let salardu' = ParcoursDB.Location.vicinity salardu "Naut Aran"
   mountainStage (Left salardu') 179.2
-  addCol 179.2 luzArdiden C1
+  addCol 179.2 Mountains.Pyrenees.luzArdiden C1
 
   -- Stage 18
   plainStage luzSaintSauveur sabinanigo 157.8
@@ -3726,7 +3750,8 @@ vuelta1996' = do
   plainStage avila salamanca 188.0
 
   -- Stage 12
-  plainStage benavente aldoDelNaranco 188.0
+  mountainStage (Left benavente) 188
+  addCol 188 altoDelNaranco C1
 
   -- Stage 13
   mountainStage (Left oviedo) 159
@@ -3745,7 +3770,7 @@ vuelta1996' = do
 
   -- Stage 17
   mountainStage (Left sabinanigo) 165.7
-  addCol 165.7 cerler C1
+  addCol 165.7 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 18
   plainStage benasque zaragoza 219.5
@@ -3789,7 +3814,8 @@ vuelta1997' = do
   plainStage malaga granada 147.0
 
   -- Stage 7
-  plainStage guadix sierraNevada 219.0
+  mountainStage (Left guadix) 219
+  addCol 219 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 8
   plainStage granada cordoba 176.0
@@ -3804,13 +3830,15 @@ vuelta1997' = do
   plainStage almendralejo plasencia 194.0
 
   -- Stage 12
-  plainStage leon altoDelMorredero 147.0
+  mountainStage (Left leon) 147
+  addCol 147 altoDeMorredero C1
 
   -- Stage 13
   plainStage ponferrada estacionValgrandePajares 196.0
 
   -- Stage 14
-  plainStage oviedo altoDelNaranco 169.0
+  mountainStage (Left oviedo) 169
+  addCol 169 altoDelNaranco C1
 
   -- Stage 15
   mountainStage (Left oviedo) 160
@@ -3879,7 +3907,7 @@ vuelta1998' = do
 
   -- Stage 11
   mountainStage (Left andorraLaVella) 186
-  addCol 186 cerler C1
+  addCol 186 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 12
   let jaca' = ParcoursDB.Location.vicinity jaca "Canfranc International Station"
@@ -3907,7 +3935,8 @@ vuelta1998' = do
   plainStage avila segovia 170.4
 
   -- Stage 20
-  plainStage segovia altoDeNavacerrada 206.0
+  mountainStage (Left segovia) 206
+  addCol 206 puertoDeNavacerrada C1
 
   -- Stage 21
   outAndBackIndividualTimeTrial fuenlabrada 39.0
@@ -3984,7 +4013,8 @@ vuelta1999' = do
   plainStage bronchales guadalajara 225.0
 
   -- Stage 18
-  plainStage guadalajara altoDeAbantos 166.3
+  mountainStage (Left guadalajara) 166.3
+  addCol 166.3 altoDeAbantos C1
 
   -- Stage 19
   plainStage sanLorenzoDeElEscorial avila 184.6
@@ -4068,7 +4098,8 @@ vuelta2000' = do
   plainStage salamanca avila 130.0
 
   -- Stage 20
-  plainStage avila altoDeAbantos 128.2
+  mountainStage (Left avila) 128.2
+  addCol 128.2 altoDeAbantos C1
 
   -- Stage 21
   outAndBackIndividualTimeTrial madrid 38.0
@@ -4129,7 +4160,8 @@ vuelta2001' = do
   plainStage tarragona vinaros 170.5
 
   -- Stage 15
-  plainStage valencia altoDeAitana 207.2
+  mountainStage (Left valencia) 207.2
+  addCol 207.2 altoDeAitana HC
 
   transferDay
 
@@ -4146,7 +4178,8 @@ vuelta2001' = do
   plainStage cuenca guadalajara 168.0
 
   -- Stage 20
-  plainStage guadalajara altoDeAbantos 176.3
+  mountainStage (Left guadalajara) 176.3
+  addCol 176.3 altoDeAbantos C1
 
   -- Stage 21
   outAndBackIndividualTimeTrial madrid 38.0
@@ -4172,7 +4205,8 @@ vuelta2002' = do
   plainStage aguilas roquetasDeMar 149.5
 
   -- Stage 5
-  plainStage elEjido sierraNevada 198.0
+  mountainStage (Left elEjido) 198
+  addCol 198 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 6
   mountainStage (Left granada) 153.1
@@ -4217,7 +4251,8 @@ vuelta2002' = do
   plainStage benavente salamanca 146.6
 
   -- Stage 18
-  plainStage salamanca laCovatilla 193.7
+  mountainStage (Left salamanca) 193.7
+  addCol 193.7 Mountains.SistemaCentral.laCovatilla C1
 
   -- Stage 19
   plainStage bejar avila 177.8
@@ -4257,10 +4292,10 @@ vuelta2003' = do
 
   -- Stage 7
   mountainStage (Left huesca) 190
-  addCol 190 cauterets C1
+  addCol 190 Mountains.Pyrenees.cauterets C1
 
   -- Stage 8
-  roadStage (Right cauterets) (Just plaDeBeretValD'Aran) 166.0
+  plainStage Countries.France.cauterets plaDeBeretValD'Aran 166.0
 
   -- Stage 9
   plainStage vielha envalira 174.8
@@ -4288,7 +4323,8 @@ vuelta2003' = do
   transferDay
 
   -- Stage 16
-  plainStage jaen sierraNevada 162.0
+  mountainStage (Left jaen) 162
+  addCol 162 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 17
   plainStage granada cordoba 188.4
@@ -4300,7 +4336,8 @@ vuelta2003' = do
   plainStage alcobendas colladoVillalba 164.0
 
   -- Stage 20
-  individualTimeTrial sanLorenzoDeElEscorial altoDeAbantos 11.2
+  mountainTimeTrial (Left sanLorenzoDeElEscorial) 11.2
+  addCol 11.2 altoDeAbantos C1
 
   -- Stage 21
   criterium madrid 148.5
@@ -4338,7 +4375,8 @@ vuelta2004' = do
   outAndBackIndividualTimeTrial almussafes 40.1
 
   -- Stage 9
-  plainStage xativa altoDeAitana 162.0
+  mountainStage (Left xativa) 162
+  addCol 162 altoDeAitana HC
 
   -- Stage 10
   plainStage alcoy xorretDeCati 174.2
@@ -4350,7 +4388,7 @@ vuelta2004' = do
 
   -- Stage 12
   mountainStage (Left almeria) 145
-  addCol 145 calarAltoObservatory C1
+  addCol 145 Mountains.SierraDeLosFilabres.calarAltoObservatory C1
 
   -- Stage 13
   plainStage elEjido malaga 172.0
@@ -4359,7 +4397,8 @@ vuelta2004' = do
   plainStage malaga granada 167.0
 
   -- Stage 15
-  individualTimeTrial granada sierraNevada 29.6
+  mountainTimeTrial (Left granada) 29.6
+  addCol 29.6 Mountains.SierraNevada.sierraNevada C1
 
   transferDay
 
@@ -4367,7 +4406,8 @@ vuelta2004' = do
   plainStage olivenza caceres 190.1
 
   -- Stage 17
-  plainStage plasencia laCovatilla 170.0
+  mountainStage (Left plasencia) 170
+  addCol 170 Mountains.SistemaCentral.laCovatilla C1
 
   -- Stage 18
   plainStage bejar avila 196.0
@@ -4376,7 +4416,8 @@ vuelta2004' = do
   plainStage avila colladoVillalba 142.0
 
   -- Stage 20
-  plainStage alcobendas puertoDeNavacerrada 178.0
+  mountainStage (Left alcobendas) 178
+  addCol 178 puertoDeNavacerrada C1
 
   -- Stage 21
   outAndBackIndividualTimeTrial madrid 28.0
@@ -4421,7 +4462,7 @@ vuelta2005' = do
 
   -- Stage 11
   mountainStage (Left andorraLaVella) 186.6
-  addCol 186.6 cerler C1
+  addCol 186.6 (Mountains.Pyrenees.cerler) C1
 
   transferDay
 
@@ -4480,8 +4521,9 @@ vuelta2006' = do
   plainStage almendralejo caceres 142.0
 
   -- Stage 5
-  let laCovatilla' = ParcoursDB.Location.vicinity laCovatilla "Estacion de Esqui"
-  plainStage plasencia laCovatilla' 178.0
+  let laCovatilla' = ParcoursDB.Location.vicinity Countries.Spain.laCovatilla "Estacion de Esqui"
+  mountainStage (Left plasencia) 178
+  addCol 178 (colFromLocation laCovatilla') C1
 
   -- Stage 6
   plainStage zamora leon 155.0
@@ -4495,7 +4537,8 @@ vuelta2006' = do
   plainStage ponferrada lugo 173.0
 
   -- Stage 9
-  plainStage aFonsagrada altoDeLaCobertoria 206.0
+  mountainStage (Left aFonsagrada) 206
+  addCol 206 altoDeLaCobertoria HC
 
   transferDay
 
@@ -4574,7 +4617,7 @@ vuelta2007' = do
 
   -- Stage 9
   mountainStage (Left huesca) 167.6
-  addCol 167.6 cerler C1
+  addCol 167.6 (Mountains.Pyrenees.cerler) C1
 
   -- Stage 10
   mountainStage (Left benasque) 214
@@ -4609,7 +4652,8 @@ vuelta2007' = do
   plainStage talaveraDeLaReina avila 153.5
 
   -- Stage 19
-  plainStage avila altoDeAbantos 133.0
+  mountainStage (Left avila) 133
+  addCol 133 altoDeAbantos C1
 
   -- Stage 20
   outAndBackIndividualTimeTrial colladoVillalba 20.0
@@ -4688,7 +4732,8 @@ vuelta2008' = do
   plainStage lasRozas segovia 145.5
 
   -- Stage 20
-  individualTimeTrial laGranjaDeSanIldefonso altoDeNavacerrada 17.1
+  mountainTimeTrial (Left laGranjaDeSanIldefonso) 17.1
+  addCol 17.1 puertoDeNavacerrada C1
 
   -- Stage 21
   plainStage sanSebastianDeLosReyes madrid 102.2
@@ -4725,7 +4770,8 @@ vuelta2009' = do
   outAndBackIndividualTimeTrial valencia 30.0
 
   -- Stage 8
-  plainStage alzira altoDeAitana 204.7
+  mountainStage (Left alzira) 204.7
+  addCol 204.7 altoDeAitana HC
 
   -- Stage 9
   plainStage alcoy xorretDeCati 188.8
@@ -4739,10 +4785,12 @@ vuelta2009' = do
   transferDay
 
   -- Stage 12
-  plainStage almeria altoDeVelefique 179.3
+  mountainStage (Left almeria) 179.3
+  addCol 179.3 altoDeVelefique HC
 
   -- Stage 13
-  plainStage berja sierraNevada 172.4
+  mountainStage (Left berja) 172.4
+  addCol 172.4 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 14
   mountainStage (Left granada) 157
@@ -4826,7 +4874,8 @@ vuelta2010' = do
   addCol 170 lagosDeCovadonga C1
 
   -- Stage 16
-  plainStage gijon altoDeCotobello 179.3
+  mountainStage (Left gijon) 179.3
+  addCol 179.3 altoDeCotobello C1
 
   transferDay
 
@@ -4863,10 +4912,11 @@ vuelta2011' = do
   plainStage petrer totana 163.0
 
   -- Stage 4
-  plainStage baza sierraNevada 170.2
+  mountainStage (Left baza) 170.2
+  addCol 170.2 Mountains.SierraNevada.sierraNevada C1
 
   -- Stage 5
-  plainStage sierraNevada valdepenasDeJaén 187.0
+  plainStage Countries.Spain.sierraNevada valdepenasDeJaén 187.0
 
   -- Stage 6
   plainStage ubeda cordoba 196.8
@@ -4878,7 +4928,8 @@ vuelta2011' = do
   plainStage talaveraDeLaReina sanLorenzoDeElEscorial 177.3
 
   -- Stage 9
-  plainStage villacastin laCovatilla 183.0
+  mountainStage (Left villacastin) 183
+  addCol 183 Mountains.SistemaCentral.laCovatilla C1
 
   -- Stage 10
   outAndBackIndividualTimeTrial salamanca 47.0
@@ -5033,13 +5084,15 @@ vuelta2013' = do
   plainStage almendralejo mairenaDelAljarafe 205.9
 
   -- Stage 8
-  plainStage jerezDeLaFrontera altoDePenasBlancas 166.6
+  mountainStage (Left jerezDeLaFrontera) 166.6
+  addCol 166.6 altoDePenasBlancas C1
 
   -- Stage 9
   plainStage antequera valdepenasDeJaén 163.7
 
   -- Stage 10
-  plainStage torredelcampo altoDeHazaLlana 186.8
+  mountainStage (Left torredelcampo) 186.8
+  addCol 186.8 altoDeHazaLlana HC
 
   transferDay
 
@@ -5061,7 +5114,8 @@ vuelta2013' = do
   addCol 224.9 peyragudes C1
 
   -- Stage 16
-  plainStage graus formigal 146.8
+  mountainStage (Left graus) 146.8
+  addCol 146.8 Mountains.Pyrenees.formigal C1
 
   transferDay
 
@@ -5072,7 +5126,8 @@ vuelta2013' = do
   plainStage burgos penaCabarga 186.5
 
   -- Stage 19
-  plainStage sanVicenteDeLaBarquera altoDelNaranco 181.0
+  mountainStage (Left sanVicenteDeLaBarquera) 181
+  addCol 181 altoDelNaranco C1
 
   -- Stage 20
   mountainStage (Left aviles) 142.2
@@ -5213,7 +5268,8 @@ vuelta2015' = do
   plainStage calatayud tarazona 178.0
 
   -- Stage 14
-  plainStage vitoriaGasteiz altoCampoo 215.0
+  mountainStage (Left vitoriaGasteiz) 215
+  addCol 215 Mountains.Cantabrian.altoCampoo HC
 
   -- Stage 15
   plainStage comillas sotres 175.8
@@ -5274,7 +5330,8 @@ vuelta2016' = do
   plainStage villalpando laCamperona' 181.5
 
   -- Stage 9
-  plainStage cistierna altoDelNaranco 164.5
+  mountainStage (Left cistierna) 164.5
+  addCol 164.5 altoDelNaranco C1
 
   -- Stage 10
   mountainStage (Left lugones) 188.7
@@ -5316,7 +5373,8 @@ vuelta2016' = do
   individualTimeTrial xabia calp 37.0
 
   -- Stage 20
-  plainStage benidorm altoDeAitana 193.2
+  mountainStage (Left benidorm) 193.2
+  addCol 193.2 altoDeAitana HC
 
   -- Stage 21
   plainStage lasRozas madrid 104.8
@@ -5363,7 +5421,7 @@ vuelta2017' = do
 
   -- Stage 11
   mountainStage (Left lorca) 187.5
-  addCol 187.5 calarAltoObservatory C1
+  addCol 187.5 Mountains.SierraDeLosFilabres.calarAltoObservatory C1
 
   -- Stage 12
   plainStage motril antequera 160.1
@@ -5434,7 +5492,8 @@ vuelta2018' = do
   plainStage linares almaden 195.5
 
   -- Stage 9
-  plainStage talaveraDeLaReina laCovatilla 195
+  mountainStage (Left talaveraDeLaReina) 195
+  addCol 195 Mountains.SistemaCentral.laCovatilla C1
 
   restDay (Left salamanca)
 

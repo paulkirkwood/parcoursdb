@@ -6,4 +6,4 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 sanMarino :: Location
-sanMarino = Location "San Marino" SanMarino
+sanMarino = Location "San Marino" SanMarino Nothing

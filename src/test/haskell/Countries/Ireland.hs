@@ -7,14 +7,11 @@ module Countries.Ireland
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-irishLocation :: String -> Location
-irishLocation loc = Location loc Ireland
-
 cork :: Location
-cork = irishLocation "Cork"
+cork = Location "Cork" Ireland Nothing
 
 dublin :: Location
-dublin = irishLocation "Dublin"
+dublin = Location "Dublin" Ireland Nothing
 
 enniscorthy :: Location
-enniscorthy = irishLocation "Enniscorthy"
+enniscorthy = Location "Enniscorthy" Ireland Nothing

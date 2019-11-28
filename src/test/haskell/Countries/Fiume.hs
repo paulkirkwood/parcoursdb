@@ -6,4 +6,4 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 fiume :: Location
-fiume = Location "Fiume" Fiume
+fiume = Location "Fiume" Fiume Nothing

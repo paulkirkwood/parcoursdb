@@ -31,7 +31,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 dutchLocation :: String -> Location
-dutchLocation loc = Location loc Netherlands
+dutchLocation loc = Location loc Netherlands Nothing
 
 -- A
 arnhem :: Location

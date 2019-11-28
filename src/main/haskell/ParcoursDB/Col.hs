@@ -1,7 +1,9 @@
 module ParcoursDB.Col where
 
+import Data.Maybe
 import ParcoursDB.Country
-import ParcoursDB.Location hiding (name,country)
+--import ParcoursDB.Location hiding (name,country)
+import ParcoursDB.Location
 
 data ColCategory = HC
                  | C4
@@ -35,7 +37,7 @@ clone :: Col -> String -> Col
 clone c@(Col n country h l aG mG) newName = Col (newName ++ " (" ++ n ++ ")" ) country h l aG mG
 
 jointFinish :: Col -> Location -> Col
-jointFinish c@(Col colName country h length aG mG) l@(Location locName locCountry) =
+jointFinish c@(Col colName country h length aG mG) l@(Location locName locCountry _) =
   Col (colName ++ " - " ++ locName ) country h length aG mG
 
 dualNameCol :: Col -> Col -> Col
@@ -43,7 +45,7 @@ dualNameCol c1@(Col n1 c h l aG mG) c2@(Col n2 _ _ _ _ _) = Col (n1 ++ "/" ++ n2
 
 qualifiedCol :: Col -> Country -> String
 qualifiedCol col raceCountry =
-  let colCountry = country(col)
+  let colCountry = ParcoursDB.Col.country(col)
   in if colCountry == raceCountry then
        ParcoursDB.Col.name col
      else
@@ -51,6 +53,20 @@ qualifiedCol col raceCountry =
 
 vicinity :: Col -> String -> Col
 vicinity (Col n c h l aG mG) s = Col (n ++ " (" ++ s ++ ")" ) c h l aG mG
+
+colFromLocation :: Location -> Col
+colFromLocation loc =
+  let n = ParcoursDB.Location.name loc
+      c = ParcoursDB.Location.country loc
+      e = fromJust(ParcoursDB.Location.elevation loc)
+  in Col n c e Nothing Nothing Nothing
+
+colFromLocation' :: Location -> Float -> Float -> Col
+colFromLocation' loc length averageGradient =
+  let n = ParcoursDB.Location.name loc
+      c = ParcoursDB.Location.country loc
+      e = fromJust(ParcoursDB.Location.elevation loc)
+  in Col n c e (Just length) (Just averageGradient) Nothing
 
 instance Eq Col where
   (Col n1 c1 h1 _ _ _) == (Col n2 c2 h2 _ _ _) = n1 == n2 && c1 == c2 && h1 == h2 
@@ -65,9 +81,9 @@ instance Ord Col where
     else
       countryComparison
     where
-      countryComparison = (country col2) `compare` (country col2)
+      countryComparison = (ParcoursDB.Col.country col1) `compare` (ParcoursDB.Col.country col2)
       heightComparison  = (height col1) `compare` (height col2)
-      nameComparison    = (name col1) `compare` (name col2)
+      nameComparison    = (ParcoursDB.Col.name col1) `compare` (ParcoursDB.Col.name col2)
 
 data IndexableCol = IndexableCol { km  :: Float
                                  , col :: Col

@@ -9,20 +9,17 @@ module Countries.Israel
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-israeliLocation :: String -> Location
-israeliLocation loc = Location loc Israel
-
 beersheba :: Location
-beersheba  = israeliLocation "Beersheba"
+beersheba  = Location "Beersheba" Israel Nothing
 
 eilat :: Location
-eilat = israeliLocation "Eilat"
+eilat = Location "Eilat" Israel Nothing
 
 haifa :: Location
-haifa = israeliLocation "Haifa"
+haifa = Location "Haifa" Israel Nothing
 
 jerusalem :: Location
-jerusalem = israeliLocation "Jerusalem"
+jerusalem = Location "Jerusalem" Israel Nothing
 
 telAviv :: Location
-telAviv = israeliLocation "Tel Aviv"
+telAviv = Location "Tel Aviv" Israel Nothing

@@ -10,20 +10,17 @@ where
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-portugueseLocation :: String -> Location
-portugueseLocation loc = Location loc Portugal
-
 evora :: Location
-evora = portugueseLocation "Evora"
+evora = Location "Evora" Portugal Nothing
 
 estoril :: Location
-estoril = portugueseLocation "Estoril"
+estoril = Location "Estoril" Portugal Nothing
 
 lisbon :: Location
-lisbon = portugueseLocation "Lisbon"
+lisbon = Location "Lisbon" Portugal Nothing
 
 loule :: Location
-loule = portugueseLocation "Loule"
+loule = Location "Loule" Portugal Nothing
 
 vilamoura :: Location
-vilamoura = portugueseLocation "Vilamoura"
+vilamoura = Location "Vilamoura" Portugal Nothing

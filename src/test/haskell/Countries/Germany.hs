@@ -13,7 +13,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 germanLocation :: String -> Location
-germanLocation location = Location location Germany
+germanLocation location = Location location Germany Nothing
 
 cologne :: Location
 cologne = germanLocation "Cologne"

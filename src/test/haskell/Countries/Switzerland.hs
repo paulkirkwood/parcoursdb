@@ -26,7 +26,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 swissLocation :: String -> Location
-swissLocation loc = Location loc Switzerland
+swissLocation loc = Location loc Switzerland Nothing
 
 -- B
 basel :: Location

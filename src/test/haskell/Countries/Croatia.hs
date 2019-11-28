@@ -6,11 +6,8 @@ where
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-croatianLocation :: String -> Location
-croatianLocation loc = Location loc Croatia
-
 porec :: Location
-porec = croatianLocation "Porec"
+porec = Location "Porec" Croatia Nothing
 
 pula :: Location
-pula = croatianLocation "Pula"
+pula = Location "Pula" Croatia Nothing

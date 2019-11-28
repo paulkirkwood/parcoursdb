@@ -27,7 +27,7 @@ dauphine2009 = evalState dauphine2009' (ParcoursDB.State.StageRace.init (Dauphin
 dauphine2009' = do
   outAndBackIndividualTimeTrial nancy 12.1
   plainStage nancy dijon 228
-  plainStage tournus saintÉTienne 182
+  plainStage tournus saintÉtienne 182
   individualTimeTrial bourgLesValence valence 42.4
   mountainStage (Left valence) 154
   addCol 154 montVentoux HC

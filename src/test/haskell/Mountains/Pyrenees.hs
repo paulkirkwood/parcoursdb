@@ -1,7 +1,11 @@
 module Mountains.Pyrenees where
 
+import Countries.France (cauterets,guzetNeige,laMongie,luzArdiden)
+import Countries.Spain (cerler,formigal)
+import Data.Maybe
 import ParcoursDB.Col
-import ParcoursDB.Country (Country(Andorra,France))
+import ParcoursDB.Country (Country(Andorra,France,Spain))
+import ParcoursDB.Location
 
 andorranCol :: String -> Int -> Col
 andorranCol name height = Col name Andorra height Nothing Nothing Nothing
@@ -54,11 +58,14 @@ puertoDelCanto :: Col
 puertoDelCanto = frenchPyreneanCol "Puerto del Canto" 1725
 
 -- C
+cerler :: Col
+cerler = colFromLocation Countries.Spain.cerler
+
 coteDeCapvernLesBains :: Col
 coteDeCapvernLesBains = Col "Cote de Capvern-les-Bains" France 604 (Just 3.4) (Just 5.1) Nothing
 
 cauterets :: Col
-cauterets = frenchPyreneanCol "Cauterets" 1320
+cauterets = colFromLocation Countries.France.cauterets
 
 colDuChioula :: Col
 colDuChioula = frenchPyreneanCol "Col du Chioula" 1450
@@ -74,6 +81,9 @@ portD'Envalira = frenchPyreneanCol "Port d'Envalira" 2407
 fontRomeu :: Col
 fontRomeu = frenchPyreneanCol "Font-Romeu" 1800
 
+formigal :: Col
+formigal = colFromLocation Countries.Spain.formigal
+
 coteDeFanjeaux :: Col
 coteDeFanjeaux = Col "Cote de Fanjeaux" France 348 (Just 2.4) (Just 4.9) Nothing
 
@@ -85,7 +95,7 @@ grauRoig :: Col
 grauRoig = andorranCol "Grau Roig" 2000
 
 guzetNeige :: Col
-guzetNeige = frenchPyreneanCol "Guzet-Neige" 1480
+guzetNeige = colFromLocation Countries.France.guzetNeige
 
 -- H
 hautacam :: Col
@@ -103,7 +113,7 @@ coteDeLoucrup :: Col
 coteDeLoucrup = Col "Cote de Loucrup" France 532 (Just 1.8) (Just 7.2) Nothing
 
 laMongie :: Col
-laMongie = frenchPyreneanCol "La Mongie" 1715
+laMongie = colFromLocation Countries.France.laMongie
 
 laPierreSaintMartin :: Col
 laPierreSaintMartin = frenchPyreneanCol "La Pierre Saint-Martin" 1610
@@ -112,7 +122,7 @@ colDeLatrape :: Col
 colDeLatrape = frenchPyreneanCol "Col de Latrape" 1110
 
 luzArdiden :: Col
-luzArdiden = frenchPyreneanCol "Luz Ardiden" 1715
+luzArdiden = colFromLocation Countries.France.luzArdiden
 
 -- M
 coteDeMadiran :: Col

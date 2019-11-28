@@ -1,10 +1,11 @@
 module Mountains.SierraDeLosFilabres where
 
+import Countries.Spain (calarAltoObservatory)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(Spain))
 
-sierraDeLosFilabresCol :: String -> Int -> Col
-sierraDeLosFilabresCol name height = Col name Spain height Nothing Nothing Nothing
+altoDeVelefique :: Col
+altoDeVelefique = Col "Alto de Velefique" Spain 1820 Nothing Nothing Nothing
 
 calarAltoObservatory :: Col
-calarAltoObservatory = sierraDeLosFilabresCol "Calar Alto Observatory" 2168
+calarAltoObservatory = colFromLocation Countries.Spain.calarAltoObservatory

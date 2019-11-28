@@ -8,7 +8,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 monaco :: Location
-monaco = Location "Monaco" Monaco
+monaco = Location "Monaco" Monaco Nothing
 
 monteCarlo :: Location
-monteCarlo = Location "Monte Carlo" Monaco
+monteCarlo = Location "Monte Carlo" Monaco Nothing

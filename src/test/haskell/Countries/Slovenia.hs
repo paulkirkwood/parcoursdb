@@ -8,14 +8,11 @@ where
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-slovenianLocation :: String -> Location
-slovenianLocation loc = Location loc Slovenia
-
 bled :: Location
-bled = slovenianLocation "Bled"
+bled = Location "Bled" Slovenia Nothing
 
 kranj :: Location
-kranj = slovenianLocation "Kranj"
+kranj = Location "Kranj" Slovenia Nothing
 
 ljubljana :: Location
-ljubljana = slovenianLocation "Ljubljana"
+ljubljana = Location "Ljubljana" Slovenia Nothing

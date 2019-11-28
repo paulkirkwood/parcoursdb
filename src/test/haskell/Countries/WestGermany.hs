@@ -15,35 +15,32 @@ where
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-westGermanLocation :: String -> Location
-westGermanLocation loc = Location loc WestGermany
-
 cologne :: Location
-cologne = westGermanLocation "Cologne"
+cologne = Location "Cologne" WestGermany Nothing
 
 felsberg :: Location
-felsberg = westGermanLocation "Felsberg"
+felsberg = Location "Felsberg" WestGermany Nothing
 
 saarlouis :: Location
-saarlouis = westGermanLocation "Saarlouis"
+saarlouis = Location "Saarlouis" WestGermany Nothing
 
 freiburg :: Location
-freiburg  = westGermanLocation "Freiburg"
+freiburg  = Location "Freiburg" WestGermany Nothing
 
 frankfurt :: Location
-frankfurt = westGermanLocation "Frankfurt"
+frankfurt = Location "Frankfurt" WestGermany Nothing
 
 wiesbaden :: Location
-wiesbaden = westGermanLocation "Wiesbaden"
+wiesbaden = Location "Wiesbaden" WestGermany Nothing
 
 westBerlin :: Location
-westBerlin = westGermanLocation "West Berlin"
+westBerlin = Location "West Berlin" WestGermany Nothing
 
 karlsruhe :: Location
-karlsruhe = westGermanLocation "Karlsruhe"
+karlsruhe = Location "Karlsruhe" WestGermany Nothing
 
 stuttgart :: Location
-stuttgart = westGermanLocation "Stuttgart"
+stuttgart = Location "Stuttgart" WestGermany Nothing
 
 pforzheim :: Location
-pforzheim  = westGermanLocation "Pforzheim"
+pforzheim  = Location "Pforzheim" WestGermany Nothing

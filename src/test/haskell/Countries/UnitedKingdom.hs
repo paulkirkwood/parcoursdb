@@ -18,7 +18,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 britishLocation :: String -> Location
-britishLocation loc = Location loc UnitedKingdom
+britishLocation loc = Location loc UnitedKingdom Nothing
 
 brighton :: Location
 brighton = britishLocation "Brighton"

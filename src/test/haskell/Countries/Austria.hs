@@ -12,7 +12,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 austrianLocation :: String -> Location
-austrianLocation location = Location location Austria
+austrianLocation location = Location location Austria Nothing
 
 grossglockner :: Location
 grossglockner = austrianLocation "Großglockner"

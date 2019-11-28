@@ -4,7 +4,7 @@ import ParcoursDB.Country
 import ParcoursDB.Location
 
 frenchLocation :: String -> Location
-frenchLocation loc = Location loc France
+frenchLocation loc = Location loc France Nothing
 
 -- A
 abbeville :: Location
@@ -48,6 +48,9 @@ alfortville = frenchLocation "Alfortville"
 
 altkirch :: Location
 altkirch = frenchLocation "Altkirch"
+
+alpeD'Huez :: Location
+alpeD'Huez = Location "Alpe d'Huez" France (Just 1850)
 
 amiens :: Location
 amiens = frenchLocation "Amiens"
@@ -153,6 +156,9 @@ avesnesSurHelpe = frenchLocation "Avesnes-sur-Helpe"
 
 avignon :: Location
 avignon = frenchLocation "Avignon"
+
+avoriaz :: Location
+avoriaz = Location "Avoriaz" France (Just 1800)
 
 avranches :: Location
 avranches = frenchLocation "Avranches"
@@ -375,6 +381,9 @@ castillonLaBataille = frenchLocation "Castillon-la-Bataille"
 castres :: Location
 castres = frenchLocation "Castres"
 
+cauterets :: Location
+cauterets = Location "Cauterets" France (Just 1320)
+
 cergyPontoise :: Location
 cergyPontoise = frenchLocation "Cergy-Pontoise"
 
@@ -518,6 +527,9 @@ correze = frenchLocation "Correze"
 
 cosneSurLoire :: Location
 cosneSurLoire = frenchLocation "Cosne-sur-Loire"
+
+courchevel :: Location
+courchevel = Location "Courchevel" France (Just 2004)
 
 creteil :: Location
 creteil = frenchLocation "Creteil"
@@ -724,6 +736,9 @@ gueret = frenchLocation "Gueret"
 gueugnon :: Location
 gueugnon = frenchLocation "Gueugnon"
 
+guzetNeige :: Location
+guzetNeige = Location "Guzet-Neige" France (Just 1480)
+
 guillestre :: Location
 guillestre = frenchLocation "Guillestre"
 
@@ -806,8 +821,14 @@ laGuercheDeBretagne = frenchLocation "La Guerche-de-Bretagne"
 laHaieFouassiere :: Location
 laHaieFouassiere = frenchLocation "La Haie-Fouassiere"
 
+laMongie :: Location
+laMongie = Location "La Mongie" France (Just 1715)
+
 laMure :: Location
 laMure = frenchLocation "La Mure"
+
+laPlagne :: Location
+laPlagne = Location "La Plagne" France (Just 1970)
 
 laRocheSurYon :: Location
 laRocheSurYon = frenchLocation "La Roche-sur-Yon"
@@ -926,6 +947,9 @@ leTouquetParisPlage = frenchLocation "Le Touquet-Paris-Plage"
 leTreport :: Location
 leTreport = frenchLocation "Le Treport"
 
+lesDeuxAlpes :: Location
+lesDeuxAlpes = Location "Les Deux Alpes" France (Just 1644)
+
 lesEchelles :: Location
 lesEchelles = frenchLocation "Les Echelles"
 
@@ -1009,6 +1033,9 @@ lugny = frenchLocation "Lugny"
 
 luneville :: Location
 luneville = frenchLocation "Luneville"
+
+luzArdiden :: Location
+luzArdiden = Location "Luz Ardiden" France (Just 1715)
 
 luzSaintSauveur :: Location
 luzSaintSauveur = frenchLocation "Luz-Saint-Sauveur"
@@ -1247,6 +1274,9 @@ orange = frenchLocation "Orange"
 orchies :: Location
 orchies = frenchLocation "Orchies"
 
+orcieresMerlette :: Location
+orcieresMerlette = Location "Orcières-Merlette" France (Just 1838)
+
 orleans :: Location
 orleans = frenchLocation "Orléans"
 
@@ -1446,8 +1476,8 @@ saintDizier = frenchLocation "Saint-Dizier"
 saintEmilion :: Location
 saintEmilion = frenchLocation "Saint-Emilion"
 
-saintÉTienne :: Location
-saintÉTienne = frenchLocation "Saint-Étienne"
+saintÉtienne :: Location
+saintÉtienne = frenchLocation "Saint-Étienne"
 
 saintFargeau :: Location
 saintFargeau = frenchLocation "Saint-Fargeau"
@@ -1728,6 +1758,9 @@ utahBeach = frenchLocation "Utah Beach (Sainte-Marie-du-Mont)"
 vaisonLaRomaine :: Location
 vaisonLaRomaine = frenchLocation "Vaison-la-Romaine"
 
+valD'Isere :: Location
+valD'Isere = Location "Val d'Isère" France (Just 1820)
+
 valLouron :: Location
 valLouron = frenchLocation "Val Louron"
 
@@ -1754,6 +1787,9 @@ valreas = frenchLocation "Valreas"
 
 valsLesBains :: Location
 valsLesBains = frenchLocation "Vals-les-Bains"
+
+valThorens :: Location
+valThorens = Location "Val Thorens" France (Just 2275)
 
 vannes :: Location
 vannes = frenchLocation "Vannes"

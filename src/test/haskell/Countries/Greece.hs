@@ -9,20 +9,17 @@ module Countries.Greece
 import ParcoursDB.Country
 import ParcoursDB.Location
 
-greekLocation :: String -> Location
-greekLocation location = Location location Greece
-
 athens :: Location
-athens = greekLocation "Athens"
+athens = Location "Athens" Greece Nothing
 
 eleusis :: Location
-eleusis = greekLocation "Eleusis"
+eleusis = Location "Eleusis" Greece Nothing
 
 ioannina :: Location
-ioannina = greekLocation "Ioannina"
+ioannina = Location "Ioannina" Greece Nothing
 
 missolonghi :: Location
-missolonghi = greekLocation "Missolonghi"
+missolonghi = Location "Missolonghi" Greece Nothing
 
 naupactus :: Location
-naupactus = greekLocation "Naupactus"
+naupactus = Location "Naupactus" Greece Nothing

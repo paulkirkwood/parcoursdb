@@ -1,5 +1,7 @@
 module Mountains.Alps where
 
+import Countries.France (alpeD'Huez,avoriaz,courchevel,laPlagne,lesDeuxAlpes,orcieresMerlette,valD'Isere,valThorens)
+import Countries.Italy (sestriere)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(France,Italy,Switzerland)) 
 
@@ -20,7 +22,7 @@ colD'Allos :: Col
 colD'Allos = frenchAlpineCol "Col d'Allos" 2250
 
 alpeD'Huez :: Col
-alpeD'Huez = Col "Alpe d'Huez" France 1850 (Just 13.8) (Just 8.1) Nothing
+alpeD'Huez = colFromLocation' Countries.France.alpeD'Huez 13.8 8.1
 
 aprica :: Col
 aprica = italianAlpineCol "Aprica" 1173
@@ -32,7 +34,7 @@ colDesAravis :: Col
 colDesAravis = frenchAlpineCol "Col des Aravis" 1498
 
 avoriaz :: Col
-avoriaz = frenchAlpineCol "Avoriaz" 1800
+avoriaz = colFromLocation Countries.France.avoriaz
 
 -- B
 colBayard :: Col
@@ -97,7 +99,7 @@ cormetDeRoselend :: Col
 cormetDeRoselend = Col "Cormet de Roselend" France 1968 (Just 5.7) (Just 6.5) Nothing
 
 courchevel :: Col
-courchevel = frenchAlpineCol "Courchevel" 2004
+courchevel = colFromLocation Countries.France.courchevel
 
 cransMontana :: Col
 cransMontana = swissAlpineCol "Crans-Montana" 1670
@@ -188,13 +190,13 @@ laToussuire :: Col
 laToussuire = frenchAlpineCol "La Toussuire" 1705
 
 lansEnVercors :: Col
-lansEnVercors = frenchAlpineCol "Lans en Vercors" 1410
+lansEnVercors = frenchAlpineCol "Lans-en-Vercors" 1410
 
 colDuLautaret :: Col
 colDuLautaret = frenchAlpineCol "Col du Lautaret" 2058
 
 lesDeuxAlpes :: Col
-lesDeuxAlpes = frenchAlpineCol "Les Deux Alpes" 1644
+lesDeuxAlpes = colFromLocation Countries.France.lesDeuxAlpes
 
 lesMenuires :: Col
 lesMenuires = frenchAlpineCol "Les Menuires" 1809
@@ -241,7 +243,7 @@ colDuNoyer = frenchAlpineCol "Col du Noyer" 1664
 
 -- O
 orcieresMerlette :: Col
-orcieresMerlette = frenchAlpineCol "Orcières-Merlette" 1838
+orcieresMerlette = colFromLocation Countries.France.orcieresMerlette
 
 colD'Ornon :: Col
 colD'Ornon = frenchAlpineCol "Col d'Ornon" 1371
@@ -275,7 +277,7 @@ colDePetitSaintBernard :: Col
 colDePetitSaintBernard = frenchAlpineCol "Col de Petit-Saint-Bernard" 2188
 
 laPlagne :: Col
-laPlagne = frenchAlpineCol "La Plagne" 1970
+laPlagne = colFromLocation Countries.France.laPlagne
 
 colDePlainpalais :: Col
 colDePlainpalais = frenchAlpineCol "Col de Plainpalais" 1173
@@ -355,7 +357,7 @@ passoDelloStelvio :: Col
 passoDelloStelvio = italianAlpineCol "Passo dello Stelvio" 2757
 
 sestriere :: Col
-sestriere = italianAlpineCol "Sestrière" 2035
+sestriere = colFromLocation Countries.Italy.sestriere
 
 colDeTamie :: Col
 colDeTamie = frenchAlpineCol "Col de Tamié" 907
@@ -377,10 +379,10 @@ trucD'Arbe = italianAlpineCol "Truc d'Arbe" 1256
 
 -- V
 valD'Isere :: Col
-valD'Isere = frenchAlpineCol "Val d'Isère" 1820
+valD'Isere = colFromLocation Countries.France.valD'Isere
 
 valThorens :: Col
-valThorens = frenchAlpineCol "Val Thorens" 2275
+valThorens = colFromLocation Countries.France.valThorens
 
 colDeVars :: Col
 colDeVars = frenchAlpineCol "Col de Vars" 2109

@@ -36,6 +36,7 @@ import Data.Time
 import Mountains.Alps
 import Mountains.Appennines
 import Mountains.Dolomites
+import Mountains.Sicily
 import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.Location
@@ -3290,10 +3291,10 @@ giro1973' = do
   plainStage verviers Countries.WestGermany.cologne 137.0
 
   -- Stage 2
-  plainStage Countries.WestGermany.cologne luxembourg 227.0
+  plainStage Countries.WestGermany.cologne luxembourgCity 227.0
 
   -- Stage 3
-  plainStage luxembourg strasbourg 239.0
+  plainStage luxembourgCity strasbourg 239.0
 
   -- Stage 4
   plainStage geneva aosta 163.0
@@ -4573,7 +4574,8 @@ giro1989' = do
   plainStage taormina catania 123.0
 
   -- Stage 2
-  plainStage catania mountEtna 132.0
+  mountainStage (Left catania) 132
+  addCol 132 mountEtna C1
 
   -- Stage 3
   teamTimeTrial villafranca messina 32.5
@@ -4762,7 +4764,7 @@ giro1991' = do
 
   -- Stage 13
   mountainStage (Left savigliano) 192
-  addCol 192 sestriere C1
+  addCol 192 Mountains.Alps.sestriere C1
 
   -- Stage 14
   plainStage turin morbegno 239.0
@@ -4933,7 +4935,7 @@ giro1993' = do
 
   -- Stage 19
   mountainTimeTrial (Left pinerolo) 55
-  addCol 55 sestriere C1
+  addCol 55 Mountains.Alps.sestriere C1
 
   -- Stage 20
   plainStage turin santuarioDiOropa 162.0
@@ -5012,11 +5014,11 @@ giro1994' = do
 
   -- Stage 20
   mountainStage (Left cuneo) 206
-  addCol 206 lesDeuxAlpes C1
+  addCol 206 Mountains.Alps.lesDeuxAlpes C1
 
   -- Stage 21
-  mountainStage (Right lesDeuxAlpes) 121
-  addCol 121 sestriere C1
+  mountainStage (Left Countries.France.lesDeuxAlpes) 121
+  addCol 121 Mountains.Alps.sestriere C1
 
   -- Stage 22
   plainStage turin milan 198.0
@@ -5477,7 +5479,7 @@ giro2000' = do
 
   -- Stage 20
   mountainTimeTrial (Left briancon) 32
-  addCol 32 sestriere C1
+  addCol 32 Mountains.Alps.sestriere C1
 
   -- Stage 21
   plainStage turin milan 189.0
@@ -5856,7 +5858,7 @@ giro2005' = do
 
   -- Stage 19
   mountainStage (Left savigliano) 190
-  addCol 190 sestriere C1
+  addCol 190 Mountains.Alps.sestriere C1
 
   -- Stage 20
   plainStage albeseConCassano milan 119.0
@@ -6315,7 +6317,7 @@ giro2011' = do
 
   -- Stage 20
   mountainStage (Left verbania) 242
-  addCol 242 sestriere C1
+  addCol 242 Mountains.Alps.sestriere C1
 
   -- Stage 21
   outAndBackIndividualTimeTrial milan 26.0
@@ -6621,7 +6623,7 @@ giro2015' = do
 
   -- Stage 20
   mountainStage (Left saintVincent) 196
-  addCol 196 sestriere C1
+  addCol 196 Mountains.Alps.sestriere C1
 
   -- Stage 21
   plainStage turin milan 185.0
@@ -6652,7 +6654,7 @@ giro2016' = do
   plainStage praiaAMare benevento 233
 
   -- Stage 6
-  let aremogna = Location "Roccaraso (Aremogna)" Italy
+  let aremogna = ParcoursDB.Location.vicinity roccaraso "Aremogna"
   plainStage ponte aremogna 157
 
   -- Stage 7
@@ -6662,7 +6664,7 @@ giro2016' = do
   plainStage foligno arezzo 186
 
   -- Stage 9
-  let chianti = Location "Chianti Classico Stage" Italy
+  let chianti = Location "Chianti Classico Stage" Italy Nothing
   outAndBackIndividualTimeTrial chianti 40.5
 
   transferDay
@@ -6680,11 +6682,11 @@ giro2016' = do
   plainStage palmanova cividaleDelFruili 170
 
   -- Stage 14
-  let farra = Location "Alpago (Farra)" Italy
+  let farra = ParcoursDB.Location.vicinity alpago "Farra"
   plainStage farra corvara 210
 
   -- Stage 15
-  let seiseralm = Location "Alpe di Siusi/Seiseralm" Italy
+  let seiseralm = ParcoursDB.Location.commune alpeDiSiusi "Seiseralm"
   individualTimeTrial castelrotto seiseralm 10.8
 
   transferDay
@@ -6736,11 +6738,9 @@ giro2017' = do
   -- Stage 6
   plainStage reggioCalabria termeLuigiane 217
 
-  -- Stage 6
-  let alberobello = Location "Alberobello (Valle D'Itria)" Italy
-
   -- Stage 7
-  plainStage castrovillari alberobello 224
+  let alberobello' = ParcoursDB.Location.vicinity alberobello "Valle D'Itria"
+  plainStage castrovillari alberobello' 224
 
   -- Stage 8
   plainStage molfetta peschici 189
@@ -6754,8 +6754,8 @@ giro2017' = do
   individualTimeTrial foligno montefalco 39.8
 
   -- Stage 11
-  let firenze = Location "Firenze (Ponte a Ema)" Italy
-  plainStage firenze bagnoDiRomagna 161
+  let ponte_a_ema = ParcoursDB.Location.vicinity firenze "Ponte a Ema"
+  plainStage ponte_a_ema bagnoDiRomagna 161
 
   -- Stage 12
   plainStage forli reggioEmilia 234
@@ -6764,8 +6764,8 @@ giro2017' = do
   plainStage reggioEmilia tortona 167
 
   -- Stage 14
-  let oropa = Location "Oropa (Biella)" Italy
-  plainStage castellania oropa 131
+  let oropa' = ParcoursDB.Location.vicinity oropa "Biella"
+  plainStage castellania oropa' 131
 
   -- Stage 15
   plainStage valdengo bergamo 199
@@ -6776,18 +6776,18 @@ giro2017' = do
   plainStage rovetta bormio 222
 
   -- Stage 17
-  let canazei = Location "Canazei (Val di Fassa)" Italy
-  plainStage tirano canazei 219
+  let canazei' = ParcoursDB.Location.vicinity canazei "Val di Fassa"
+  plainStage tirano canazei' 219
 
   -- Stage 18
-  let moena = Location "Moena (Val di Fassa)" Italy
-  let ortisei = Location "Ortisei/St. Ulrich (Val Gardena)" Italy
-  plainStage moena ortisei 137
+  let moena' = ParcoursDB.Location.vicinity moena "Val di Fassa"
+  let ortisei = Location "Ortisei/St. Ulrich (Val Gardena)" Italy Nothing
+  plainStage moena' ortisei 137
 
   -- Stage 19
-  let sanCandido = Location "San Candido/Innichen" Italy
-  let piancavallo = Location "Piancavallo (Monte Jafferau)" Italy
-  plainStage sanCandido piancavallo 191
+  let sanCandido' = ParcoursDB.Location.commune sanCandido "Innichen"
+  let piancavallo' = ParcoursDB.Location.vicinity piancavallo "Monte Jafferau"
+  plainStage sanCandido' piancavallo' 191
 
   -- Stage 20
   plainStage pordenone asiago 190
@@ -6822,25 +6822,25 @@ giro2018' = do
   c4' 154.5 "Vizzini" Italy 595
 
   -- Stage 5
-  let santaNinfa = Location "Santa Ninfa (Valle del Belice)" Italy
-  plainStage agrigento santaNinfa 153
+  let santaNinfa' = ParcoursDB.Location.vicinity santaNinfa "Valle del Belice"
+  plainStage agrigento santaNinfa' 153
   c4' 90.7 "Santa Margherita di Belice" Italy 430
   c4' 111.8 "Partanna" Italy 405
 
   -- Stage 6
   mountainStage (Left caltanissetta) 169
-  c1' 169 "Mount Etna" Italy 1736
+  addCol 169 mountEtna C1
 
   -- Stage 7
   plainStage pizzo praiaAMare 159
 
   -- Stage 8
   mountainStage (Left praiaAMare) 209
-  c2' 209 "Montevergine Di Mercogliano" Italy 1260
+  c2' 209 "Montevergine di Mercogliano" Italy 1260
 
   -- Stage 9
-  let granSasso = Location "Gran Sasso d'Italia (Campo Imperatore)" Italy
-  plainStage pescoSannita granSasso 225
+  let granSasso' = ParcoursDB.Location.vicinity granSassoD'Italia "Campo Imperatore"
+  plainStage pescoSannita granSasso' 225
   c2' 108.1 "Roccaraso" Italy 1252
   c2' 192.9 "Calascio" Italy 1190
 
