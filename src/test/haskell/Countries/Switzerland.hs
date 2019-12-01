@@ -1,6 +1,7 @@
 module Countries.Switzerland
 (basel
 ,bern
+,cransMontana
 ,fribourg
 ,geneva
 ,laChauxDeFonds
@@ -18,6 +19,7 @@ module Countries.Switzerland
 ,saasFee
 ,saintMoritz
 ,sion
+,verbier
 ,zurich
 )
 where
@@ -34,6 +36,10 @@ basel = swissLocation "Basel"
 
 bern :: Location
 bern = swissLocation "Bern"
+
+--C
+cransMontana :: Location
+cransMontana = Location "Crans-Montana" Switzerland (Just 1670)
 
 -- F
 fribourg :: Location
@@ -91,6 +97,10 @@ saintMoritz = swissLocation "Saint Moritz"
 
 sion :: Location
 sion = swissLocation "Sion"
+
+-- V
+verbier :: Location
+verbier = Location "Verbier" Switzerland (Just 1468)
 
 -- Z
 zurich :: Location

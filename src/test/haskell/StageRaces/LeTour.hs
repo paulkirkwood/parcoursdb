@@ -3801,7 +3801,8 @@ tdf1974' = do
   plainStage gaillard aixLesBains 131
 
   -- Stage 11
-  plainStage aixLesBains serreChevalier 199
+  mountainStage (Left aixLesBains) 199
+  addCol 199 Mountains.Alps.serreChevalier C1
 
   restDay (Left aixLesBains)
 
@@ -3917,10 +3918,11 @@ tdf1975' = do
 
   -- Stage 15
   mountainStage (Left nice) 217
-  addCol 217 praLoup C1
+  addCol 217 Mountains.Alps.praLoup C1
 
   -- Stage 16
-  plainStage barcelonette serreChevalier 107
+  mountainStage (Left barcelonette) 107
+  addCol 107 Mountains.Alps.serreChevalier C1
 
   -- Stage 17
   plainStage valloire morzineAvoriaz 225
@@ -4284,12 +4286,12 @@ tdf1979' = do
 
   -- Stage 16
   mountainStage (Left morzineAvoriaz) 201
-  addCol 201 lesMenuires C1
+  addCol 201 Mountains.Alps.lesMenuires C1
 
-  restDay (Right lesMenuires)
+  restDay (Left Countries.France.lesMenuires)
 
   -- Stage 17
-  mountainStage (Right lesMenuires) 167.0
+  mountainStage (Left Countries.France.lesMenuires) 167.0
   addCol 167 Mountains.Alps.alpeD'Huez HC
 
   -- Stage 18
@@ -4380,10 +4382,10 @@ tdf1980' = do
 
   -- Stage 17
   mountainStage (Left trets) 209
-  addCol 209 praLoup C1
+  addCol 209 Mountains.Alps.praLoup C1
 
   -- Stage 18
-  plainStage serreChevalier morzine 242
+  plainStage Countries.France.serreChevalier morzine 242
 
   restDay (Left morzine)
 
@@ -4732,10 +4734,10 @@ tdf1984' = do
 
   -- Stage 20
   mountainStage (Left morzine) 141
-  addCol 141 cransMontana C1
+  addCol 141 Mountains.Alps.cransMontana C1
 
   -- Stage 21
-  roadStage (Right cransMontana) (Just villefrancheSurSaone) 320.0
+  plainStage Countries.Switzerland.cransMontana villefrancheSurSaone 320.0
 
   -- Stage 22
   individualTimeTrial villieMorgon villefrancheSurSaone 51.0
@@ -4789,13 +4791,13 @@ tdf1985' = do
 
   -- Stage 12
   mountainStage (Left morzineAvoriaz) 269
-  addCol 269 lansEnVercors C1
+  addCol 269 Mountains.Alps.lansEnVercors C1
 
   -- Stage 13
-  mountainTimeTrial (Right villardDeLans) 32
-  addCol 32 villardDeLans C1
+  mountainTimeTrial (Left Countries.France.villardDeLans) 32
+  addCol 32 Mountains.Alps.villardDeLans C1
 
-  restDay (Right villardDeLans)
+  restDay (Left Countries.France.villardDeLans)
 
   -- Stage 14
   plainStage autrans saintÉtienne 179.0
@@ -4890,7 +4892,8 @@ tdf1986' = do
   plainStage nimes gap 246.5
 
   -- Stage 18
-  plainStage gap serreChevalier 190.0
+  mountainStage (Left gap) 190
+  addCol 190 Mountains.Alps.serreChevalier C1
 
   -- Stage 19
   mountainStage (Left briancon) 162.5
@@ -4899,7 +4902,7 @@ tdf1986' = do
   restDay (Left Countries.France.alpeD'Huez)
 
   -- Stage 20
-  roadStage (Right villardDeLans) (Just saintÉtienne) 179.5
+  plainStage Countries.France.villardDeLans saintÉtienne 179.5
 
   -- Stage 21
   outAndBackIndividualTimeTrial saintÉtienne 58.0
@@ -4989,10 +4992,10 @@ tdf1987' = do
 
   -- Stage 19
   mountainStage (Left valreas) 185
-  addCol 185 villardDeLans C1
+  addCol 185 Mountains.Alps.villardDeLans C1
 
   -- Stage 20
-  mountainStage (Right villardDeLans) 201
+  mountainStage (Left Countries.France.villardDeLans) 201
   addCol 201 Mountains.Alps.alpeD'Huez HC
 
   -- Stage 21
@@ -5062,7 +5065,7 @@ tdf1988' = do
 
   -- Stage 14
   mountainTimeTrial (Left grenoble) 38
-  addCol 38 villardDeLans C1
+  addCol 38 Mountains.Alps.villardDeLans C1
 
   restDay (Left blagnac)
 
@@ -5170,10 +5173,10 @@ tdf1989' = do
 
   -- Stage 18
   mountainStage (Left leBourgD'Oisans) 91.5
-  addCol 91.5 villardDeLans C1
+  addCol 91.5 Mountains.Alps.villardDeLans C1
 
   -- Stage 19
-  roadStage (Right villardDeLans) (Just aixLesBains) 125.0
+  plainStage Countries.France.villardDeLans aixLesBains 125.0
 
   -- Stage 20
   plainStage aixLesBains l'IsleD'Abeau 130.0
@@ -5231,12 +5234,12 @@ tdf1990' = do
 
   -- Stage 12
   mountainTimeTrial (Left fontaine) 33.5
-  addCol 33.5 villardDeLans C1
+  addCol 33.5 Mountains.Alps.villardDeLans C1
 
-  restDay (Right villardDeLans)
+  restDay (Left Countries.France.villardDeLans)
 
   -- Stage 13
-  roadStage (Right villardDeLans) (Just saintÉtienne) 149.0
+  plainStage Countries.France.villardDeLans saintÉtienne 149.0
 
   -- Stage 14
   plainStage lePuyEnVelay millau 205.0
@@ -5461,13 +5464,14 @@ tdf1993' = do
   -- Stage 9
   outAndBackIndividualTimeTrial lacDeMadine 59.0
 
-  restDay (Right villardDeLans)
+  restDay (Left Countries.France.villardDeLans)
 
   -- Stage 10
-  roadStage (Right villardDeLans) (Just serreChevalier) 203.0
+  mountainStage (Left Countries.France.villardDeLans) 203
+  addCol 203 Mountains.Alps.serreChevalier C1
 
   -- Stage 11
-  mountainStage (Left serreChevalier) 179
+  mountainStage (Left Countries.France.serreChevalier) 179
   addCol 179 isola2000 HC
 
   -- Stage 12
@@ -5690,7 +5694,7 @@ tdf1996' = do
 
   -- Stage 7
   mountainStage (Left chambery) 200
-  addCol 200 lesArcs C1
+  addCol 200 Mountains.Alps.lesArcs C1
 
   -- Stage 8
   mountainTimeTrial (Left bourgSaintMaurice) 30.5
@@ -6097,7 +6101,7 @@ tdf2001' = do
 
   -- Stage 11
   mountainTimeTrial (Left grenoble) 32
-  addCol 32 chamrousse C1
+  addCol 32 Mountains.Alps.chamrousse C1
 
   restDay (Left perpignan)
 
@@ -6350,7 +6354,7 @@ tdf2004' = do
 
   -- Stage 16
   mountainStage (Left valreas) 180.5
-  addCol 180.5 villardDeLans C1
+  addCol 180.5 Mountains.Alps.villardDeLans C1
 
   -- Stage 17
   mountainTimeTrial (Left leBourgD'Oisans) 15.5
@@ -6508,7 +6512,7 @@ tdf2006' = do
 
   -- Stage 17
   mountainStage (Left leBourgD'Oisans) 182
-  addCol 182 laToussuire C1
+  addCol 182 Mountains.Alps.laToussuire C1
 
   -- Stage 18
   plainStage saintJeanDeMaurienne morzine 200.5
@@ -6653,7 +6657,8 @@ tdf2008' = do
   plainStage nimes digneLesBains 194.5
 
   -- Stage 15
-  plainStage embrun pratoNevoso 183.0
+  mountainStage (Left embrun) 183
+  addCol 183 Mountains.Alps.pratoNevoso C1
 
   restDay (Left cuneo)
 
@@ -6731,9 +6736,9 @@ tdf2009' = do
 
   -- Stage 15
   mountainStage (Left pontarlier) 207.5
-  addCol 207.5 verbier C1
+  addCol 207.5 Mountains.Alps.verbier C1
 
-  restDay (Right verbier)
+  restDay (Left Countries.Switzerland.verbier)
 
   -- Stage 16
   plainStage martigny bourgSaintMaurice 159.0
@@ -6899,7 +6904,7 @@ tdf2011' = do
   plainStage gap pinerolo 179.0
 
   -- Stage 18
-  let colDuGalibierSerreChevalier = jointFinish colDuGalibier serreChevalier
+  let colDuGalibierSerreChevalier = jointFinish colDuGalibier Countries.France.serreChevalier
   mountainStage (Left pinerolo) 200.5
   addCol 200.5 colDuGalibierSerreChevalier HC
 
@@ -7116,7 +7121,7 @@ tdf2014' = do
 
   -- Stage 13
   mountainStage (Left saintÉtienne) 197.5
-  addCol 197.5 chamrousse C1
+  addCol 197.5 Mountains.Alps.chamrousse C1
 
   -- Stage 14
   mountainStage (Left grenoble) 177
@@ -7212,7 +7217,7 @@ tdf2015' = do
 
   -- Stage 17
   mountainStage (Left digneLesBains) 161
-  addCol 161 praLoup C1
+  addCol 161 Mountains.Alps.praLoup C1
 
   -- Stage 18
   plainStage gap saintJeanDeMaurienne 186.5
@@ -7368,7 +7373,8 @@ tdf2017' = do
   plainStage lePuyEnVelay romansSurIsere 165.0
 
   -- Stage 17
-  plainStage laMure serreChevalier 183.0
+  mountainStage (Left laMure) 183
+  addCol 183 Mountains.Alps.serreChevalier C1
 
   -- Stage 18
   mountainStage (Left briancon) 179.5

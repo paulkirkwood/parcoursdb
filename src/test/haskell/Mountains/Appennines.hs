@@ -36,3 +36,9 @@ monteluro = appennineCol "Monteluro" 222
 
 gabicceMonte :: Col
 gabicceMonte = appennineCol "Gabicce Monte" 120
+
+blockhaus :: Col
+blockhaus = appennineCol "Blockhaus" 1210
+
+monteTerminillo :: Col
+monteTerminillo = appennineCol "Monte Terminillo" 2217

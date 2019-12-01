@@ -1,7 +1,10 @@
 module Mountains.Alps where
 
-import Countries.France (alpeD'Huez,avoriaz,courchevel,laPlagne,lesDeuxAlpes,orcieresMerlette,valD'Isere,valThorens)
-import Countries.Italy (sestriere)
+import Countries.France (alpeD'Huez,avoriaz,courchevel,laPlagne,lesArcs,lesDeuxAlpes,orcieresMerlette,valD'Isere,valThorens)
+import Countries.France (leBettex,lesMenuires,laToussuire,lansEnVercors,chamrousse,villardDeLans,serreChevalier)
+import Countries.France (praLoup)
+import Countries.Italy (aprica,bormio,cortinaD'Ampezzo,ceresoleReale,cervinia,cevo,pratoNevoso,sestriere)
+import Countries.Switzerland (cransMontana,verbier)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(France,Italy,Switzerland)) 
 
@@ -25,7 +28,7 @@ alpeD'Huez :: Col
 alpeD'Huez = colFromLocation' Countries.France.alpeD'Huez 13.8 8.1
 
 aprica :: Col
-aprica = italianAlpineCol "Aprica" 1173
+aprica = colFromLocation Countries.Italy.aprica
 
 lesArcs :: Col
 lesArcs = frenchAlpineCol "Les Arcs" 1700
@@ -37,11 +40,14 @@ avoriaz :: Col
 avoriaz = colFromLocation Countries.France.avoriaz
 
 -- B
+bormio :: Col
+bormio = colFromLocation Countries.Italy.bormio
+
 colBayard :: Col
 colBayard = frenchAlpineCol "Col Bayard" 1264
 
 leBettex :: Col
-leBettex = frenchAlpineCol "Le Bettex, Saint-Gervais - Mont-Blanc" 1372
+leBettex = colFromLocation Countries.France.leBettex
 
 monteeDuBisanne :: Col
 monteeDuBisanne = Col "Montee de Bisanne" France 1723 (Just 12.4) (Just 8.2) Nothing
@@ -54,10 +60,13 @@ coteDeBrie = Col "Cote de Brie"  France 450 (Just 2.4) (Just 6.9) Nothing
 
 -- C
 ceresoleReale :: Col
-ceresoleReale = italianAlpineCol "Ceresole Reale" 2247
+ceresoleReale = colFromLocation Countries.Italy.ceresoleReale
+
+cervinia :: Col
+cervinia = colFromLocation Countries.Italy.cervinia
 
 cevo :: Col
-cevo = italianAlpineCol "Cevo" 1054
+cevo = colFromLocation Countries.Italy.cevo
 
 colDeLaCabre :: Col
 colDeLaCabre = frenchAlpineCol "Col de la Cabre" 1180
@@ -72,7 +81,7 @@ colDuChaussy :: Col
 colDuChaussy = frenchAlpineCol "Col du Chaussy" 1533
 
 chamrousse :: Col
-chamrousse = frenchAlpineCol "Chamrousse" 1730
+chamrousse = colFromLocation Countries.France.chamrousse
 
 colDesChamps :: Col
 colDesChamps = frenchAlpineCol "Col des Champs" 2095
@@ -98,11 +107,14 @@ colmaDiSormano = italianAlpineCol "Colman di Sormano" 1124
 cormetDeRoselend :: Col
 cormetDeRoselend = Col "Cormet de Roselend" France 1968 (Just 5.7) (Just 6.5) Nothing
 
+cortinaD'Ampezzo :: Col
+cortinaD'Ampezzo = colFromLocation Countries.Italy.cortinaD'Ampezzo
+
 courchevel :: Col
 courchevel = colFromLocation Countries.France.courchevel
 
 cransMontana :: Col
-cransMontana = swissAlpineCol "Crans-Montana" 1670
+cransMontana = colFromLocation Countries.Switzerland.cransMontana
 
 colDeLaCroix :: Col
 colDeLaCroix = swissAlpineCol "Col de la Croix" 1778
@@ -119,8 +131,8 @@ croixDeFer = Col "Croix de Fer" France 2067 (Just 29) (Just 5.2) Nothing
 colDeLaCroixFry :: Col
 colDeLaCroixFry = Col "Col de la Croix Fry" France 1477 (Just 11.3) (Just 7) Nothing
 
-cucheron :: Col
-cucheron = frenchAlpineCol "Cucheron" 1139
+colDuCucheron :: Col
+colDuCucheron = frenchAlpineCol "Col du Cucheron" 1139
 
 colDel'Epine :: Col
 colDel'Epine = frenchAlpineCol "Col de l’Épine" 947
@@ -129,8 +141,8 @@ colDel'Epine = frenchAlpineCol "Col de l’Épine" 947
 finhautEmosson :: Col
 finhautEmosson = swissAlpineCol "Finhaut-Emosson" 1960
 
-forclaz :: Col
-forclaz = swissAlpineCol "Forclaz" 1527
+colDeLaForclaz :: Col
+colDeLaForclaz = swissAlpineCol "Col de la Forclaz" 1527
 
 forclazDeMontmin :: Col
 forclazDeMontmin = frenchAlpineCol "Forclaz-de-Montmin" 1150
@@ -187,10 +199,10 @@ colDeLaLombarde :: Col
 colDeLaLombarde = frenchAlpineCol "Col de la Lombarde" 2351
 
 laToussuire :: Col
-laToussuire = frenchAlpineCol "La Toussuire" 1705
+laToussuire = colFromLocation Countries.France.laToussuire
 
 lansEnVercors :: Col
-lansEnVercors = frenchAlpineCol "Lans-en-Vercors" 1410
+lansEnVercors = colFromLocation Countries.France.lansEnVercors
 
 colDuLautaret :: Col
 colDuLautaret = frenchAlpineCol "Col du Lautaret" 2058
@@ -199,7 +211,7 @@ lesDeuxAlpes :: Col
 lesDeuxAlpes = colFromLocation Countries.France.lesDeuxAlpes
 
 lesMenuires :: Col
-lesMenuires = frenchAlpineCol "Les Menuires" 1809
+lesMenuires = colFromLocation Countries.France.lesMenuires
 
 colDuLuitel :: Col
 colDuLuitel = frenchAlpineCol "Luitel" 1262
@@ -261,6 +273,9 @@ monteeDuPlateauDesGlieres = Col "Montee du plateau des Glieres" France 1390 (Jus
 colDuPre :: Col
 colDuPre = Col "Col du Pre" France 1748 (Just 12.6) (Just 7.7) Nothing
 
+pratoNevoso :: Col
+pratoNevoso = colFromLocation Countries.Italy.pratoNevoso
+
 pasDeMorgins :: Col
 pasDeMorgins = frenchAlpineCol "Pas-de-Morgins" 1369
 
@@ -292,7 +307,7 @@ pianDelLupo :: Col
 pianDelLupo = italianAlpineCol "Pian del Lupo" 1405
 
 praLoup :: Col
-praLoup = frenchAlpineCol "Pra-Loup" 1630
+praLoup = colFromLocation Countries.France.praLoup
 
 prapoutelLesSeptLaux :: Col
 prapoutelLesSeptLaux = frenchAlpineCol "Prapoutel-les-Sept-Laux" 1358
@@ -356,6 +371,9 @@ colDeLaSentinelle = frenchAlpineCol "Col de la Sentinelle" 980
 passoDelloStelvio :: Col
 passoDelloStelvio = italianAlpineCol "Passo dello Stelvio" 2757
 
+serreChevalier :: Col
+serreChevalier = colFromLocation Countries.France.serreChevalier
+
 sestriere :: Col
 sestriere = colFromLocation Countries.Italy.sestriere
 
@@ -388,7 +406,7 @@ colDeVars :: Col
 colDeVars = frenchAlpineCol "Col de Vars" 2109
 
 verbier :: Col
-verbier = swissAlpineCol "Verbier" 1468
+verbier = colFromLocation Countries.Switzerland.verbier
 
 verrayes :: Col
 verrayes = italianAlpineCol "Verrayes" 1017
@@ -397,4 +415,4 @@ verrogne :: Col
 verrogne = italianAlpineCol "Verrogne" 1582
 
 villardDeLans :: Col
-villardDeLans = frenchAlpineCol "Villard-de-Lans" 1150
+villardDeLans = colFromLocation Countries.France.villardDeLans

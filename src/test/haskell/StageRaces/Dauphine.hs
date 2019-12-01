@@ -70,7 +70,7 @@ dauphine2018' = do
   mountainStage (Left chazey) 181
   c4' 102 "Col de Toutes Aures" France 620
   hc' 143.5 "Col du Mont Noir" France 1421
-  c2' 181 "Lans-en-Vercors" France 1409
+  addCol 181 Mountains.Alps.lansEnVercors C2
 
   -- Stage 5
   mountainStage (Left grenoble) 130

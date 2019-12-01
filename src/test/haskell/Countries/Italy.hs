@@ -71,7 +71,7 @@ alpago :: Location
 alpago = italianLocation "Alpago"
 
 alpeDiPampeago :: Location
-alpeDiPampeago = italianLocation "Alpe di Pampeago"
+alpeDiPampeago = Location "Alpe di Pampeago" Italy (Just 1983)
 
 alpeDiSiusi :: Location
 alpeDiSiusi = italianLocation "Alpe di Siusi"
@@ -99,6 +99,9 @@ andalo = italianLocation "Andalo"
 
 aosta :: Location
 aosta = italianLocation "Aosta"
+
+aprica :: Location
+aprica = Location "Aprica" Italy (Just 1173)
 
 arabba :: Location
 arabba = italianLocation "Arabba"
@@ -248,9 +251,6 @@ binago = italianLocation "Binago"
 bitonto :: Location
 bitonto = italianLocation "Bitonto"
 
-blockhaus :: Location
-blockhaus = italianLocation "Blockhaus"
-
 boarioTerme :: Location
 boarioTerme = italianLocation "Boario Terme"
 
@@ -285,7 +285,7 @@ borgomanero :: Location
 borgomanero = italianLocation "Borgomanero"
 
 bormio :: Location
-bormio = italianLocation "Bormio"
+bormio = Location "Bormio" Italy (Just 1225)
 
 bormio2000 :: Location
 bormio2000 = italianLocation "Bormio 2000"
@@ -540,6 +540,9 @@ cento = italianLocation "Cento"
 cepagatti :: Location
 cepagatti = italianLocation "Cepagatti"
 
+ceresoleReale :: Location
+ceresoleReale = Location "Ceresole Reale" Italy (Just 2247)
+
 certosaDiPavia :: Location
 certosaDiPavia = italianLocation "Certosa di Pavia"
 
@@ -550,7 +553,7 @@ cervia :: Location
 cervia = italianLocation "Cervia"
 
 cervinia :: Location
-cervinia = italianLocation "Cervinia"
+cervinia = Location "Cervinia" Italy (Just 2050)
 
 cesanaTorinese :: Location
 cesanaTorinese = italianLocation "Cesana Torinese"
@@ -563,6 +566,9 @@ cesena = italianLocation "Cesena"
 
 cesenatico :: Location
 cesenatico = italianLocation "Cesenatico"
+
+cevo :: Location
+cevo = Location "Cevo" Italy (Just 1054)
 
 cherasco :: Location
 cherasco = italianLocation "Cherasco"
@@ -679,7 +685,7 @@ cornoAlleScale :: Location
 cornoAlleScale = italianLocation "Corno alle Scale"
 
 cortinaD'Ampezzo :: Location
-cortinaD'Ampezzo = italianLocation "Cortina d'Ampezzo"
+cortinaD'Ampezzo = Location "Cortina d'Ampezzo" Italy (Just 1224)
 
 cortona :: Location
 cortona = italianLocation "Cortona"
@@ -1330,9 +1336,6 @@ montePetrano = italianLocation "Monte Petrano"
 monteSanVicino :: Location
 monteSanVicino = italianLocation "Monte San Vicino"
 
-monteTerminillo :: Location
-monteTerminillo = italianLocation "Monte Terminillo"
-
 monteTrebbio :: Location
 monteTrebbio = italianLocation "Monte Trebbio"
 
@@ -1640,7 +1643,7 @@ pizzoCalabro :: Location
 pizzoCalabro = italianLocation "Pizzo Calabro"
 
 planDeCorones :: Location
-planDeCorones = italianLocation "Plan de Corones"
+planDeCorones = Location "Plan de Corones" Italy (Just 2273)
 
 planDiMontecampione :: Location
 planDiMontecampione = italianLocation "Plan di Montecampione"
@@ -1742,7 +1745,7 @@ prato :: Location
 prato = italianLocation "Prato"
 
 pratoNevoso :: Location
-pratoNevoso = italianLocation "Prato Nevoso"
+pratoNevoso = Location "Prato Nevoso" Italy (Just 1480)
 
 predappio :: Location
 predappio = italianLocation "Predappio"
@@ -2236,9 +2239,6 @@ tramin = italianLocation "Tramin"
 
 trani :: Location
 trani = italianLocation "Trani"
-
-treCimeDiLavaredo :: Location
-treCimeDiLavaredo = italianLocation "Tre Cime di Lavaredo"
 
 trento :: Location
 trento = italianLocation "Trento"

@@ -10,6 +10,8 @@ module StageRaces.Tirreno
 import Control.Monad.State
 import Data.Time
 import Countries.Italy
+import Mountains.Appennines
+import ParcoursDB.Col
 import ParcoursDB.Country
 import ParcoursDB.StageRace
 import ParcoursDB.State.StageRace
@@ -60,7 +62,8 @@ tirreno2015' = do
   plainStage camaiore cascina 153
   plainStage cascina arezzo 203
   plainStage indicatore castelraimondo 226
-  plainStage esanatoglia monteTerminillo 196.9
+  mountainStage (Left esanatoglia) 196.9
+  addCol 196.9 Mountains.Appennines.monteTerminillo C1
   plainStage rieti portoSant'Elpidio 210
   outAndBackIndividualTimeTrial sanBenedettoDelTronto 10.1
   race <- build

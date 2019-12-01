@@ -417,6 +417,9 @@ chamonix = frenchLocation "Chamonix"
 champagnole :: Location
 champagnole = frenchLocation "Champagnole"
 
+chamrousse :: Location
+chamrousse = Location "Chamrousse" France (Just 1730)
+
 chaumont :: Location
 chaumont = frenchLocation "Chaumont"
 
@@ -839,6 +842,9 @@ laRochelle = frenchLocation "La Rochelle"
 laTourDuPin :: Location
 laTourDuPin = frenchLocation "La Tour-du-Pin"
 
+laToussuire :: Location
+laToussuire = Location "La Toussuire" France (Just 1705)
+
 laToussuireLesSybelles :: Location
 laToussuireLesSybelles = frenchLocation "La Toussuire - Les Sybelles"
 
@@ -868,6 +874,9 @@ lamballe = frenchLocation "Lamballe"
 
 lanester :: Location
 lanester = frenchLocation "Lanester"
+
+lansEnVercors :: Location
+lansEnVercors = Location "Lans-en-Vercors" France (Just 1410)
 
 langon :: Location
 langon = frenchLocation "Langon"
@@ -901,6 +910,9 @@ lavelanet = frenchLocation "Lavelanet"
 
 leBarcares :: Location
 leBarcares = frenchLocation "Le Barcarès"
+
+leBettex :: Location
+leBettex = Location "Le Bettex, Saint-Gervais - Mont-Blanc" France (Just 1372)
 
 leBlanc :: Location
 leBlanc = frenchLocation "Le Blanc"
@@ -947,6 +959,9 @@ leTouquetParisPlage = frenchLocation "Le Touquet-Paris-Plage"
 leTreport :: Location
 leTreport = frenchLocation "Le Treport"
 
+lesArcs :: Location
+lesArcs = Location "Les Arcs" France (Just 1700)
+
 lesDeuxAlpes :: Location
 lesDeuxAlpes = Location "Les Deux Alpes" France (Just 1644)
 
@@ -955,6 +970,9 @@ lesEchelles = frenchLocation "Les Echelles"
 
 lesEssarts :: Location
 lesEssarts = frenchLocation "Les Essarts"
+
+lesMenuires :: Location
+lesMenuires = Location "Les Menuires" France (Just 1809)
 
 lesSablesD'Olonne :: Location
 lesSablesD'Olonne = frenchLocation "Les Sables-d'Olonne"
@@ -1377,6 +1395,9 @@ pouillyEnAuxois = frenchLocation "Pouilly-en-Auxois"
 prades :: Location
 prades = frenchLocation "Prades"
 
+praLoup :: Location
+praLoup = Location "Pra-Loup" France (Just 1630)
+
 prapoutel :: Location
 prapoutel = frenchLocation "Prapoutel"
 
@@ -1666,7 +1687,7 @@ sens :: Location
 sens = frenchLocation "Sens"
 
 serreChevalier :: Location
-serreChevalier = frenchLocation "Serre Chevalier"
+serreChevalier = Location "Serre Chevalier" France (Just 1200)
 
 sete :: Location
 sete = frenchLocation "Sete"
@@ -1823,6 +1844,9 @@ vichy = frenchLocation "Vichy"
 
 vierzon :: Location
 vierzon = frenchLocation "Vierzon"
+
+villardDeLans :: Location
+villardDeLans = Location "Villard-de-Lans" France (Just 1150)
 
 villarLesDombes :: Location
 villarLesDombes = frenchLocation "Villar-les-Dombes (Parc des Oiseaux)"

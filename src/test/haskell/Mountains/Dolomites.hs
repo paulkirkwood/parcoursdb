@@ -1,5 +1,6 @@
 module Mountains.Dolomites where
 
+import Countries.Italy (alpeDiPampeago,planDeCorones)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(Italy)) 
 
@@ -12,6 +13,9 @@ anterselva = dolomatianCol "Anterselva" 1635
 
 antholz :: Col
 antholz = alias anterselva "Antholz"
+
+alpeDiPampeago :: Col
+alpeDiPampeago = colFromLocation Countries.Italy.alpeDiPampeago
 
 -- C
 cimaCampo :: Col
@@ -52,6 +56,9 @@ passoPordoi = dolomatianCol "Passo Pordoi" 2239
 pieveDiAlpago :: Col
 pieveDiAlpago = dolomatianCol "Pieve di Alpago" 691
 
+planDeCorones :: Col
+planDeCorones = colFromLocation Countries.Italy.planDeCorones
+
 -- S
 sanMartinoDiCastrozza :: Col
 sanMartinoDiCastrozza = dolomatianCol "San Martino di Castrozza" 1478
@@ -62,6 +69,9 @@ torricelle = dolomatianCol "Torricelle" 277
 
 terento :: Col
 terento = dolomatianCol "Terento" 1244
+
+treCimeDiLavaredo :: Col
+treCimeDiLavaredo = dolomatianCol "Tre Cime di Lavaredo" 2333
 
 -- Z
 monteZoncolan :: Col

@@ -872,7 +872,8 @@ giro1936' = do
   plainStage l'Aquila rieti 117.0
 
   -- Stage 11
-  individualTimeTrial rieti monteTerminillo 20.0
+  mountainTimeTrial (Left rieti) 20
+  addCol 20 Mountains.Appennines.monteTerminillo C1
 
   -- Stage 12
   plainStage rieti florence 292.0
@@ -942,7 +943,8 @@ giro1937' = do
 
   -- Stages 8a & 8b
   enableSplitStages
-  individualTimeTrial rieti monteTerminillo 20.0
+  mountainTimeTrial (Left rieti) 20
+  addCol 20 Mountains.Appennines.monteTerminillo C1
   plainStage rieti rome 152.0
   disableSplitStages
 
@@ -1024,7 +1026,8 @@ giro1938' = do
 
   -- Stages 7a & 7b
   enableSplitStages
-  individualTimeTrial rieti monteTerminillo 19.8
+  mountainTimeTrial (Left rieti) 19.8
+  addCol 19.8 Mountains.Appennines.monteTerminillo C1
   plainStage rieti rome 152.0
   disableSplitStages
 
@@ -1100,7 +1103,8 @@ giro1939' = do
   -- Stages 6a & 6b
   enableSplitStages
   plainStage rome rieti 85.7
-  individualTimeTrial rieti monteTerminillo 14.0
+  mountainTimeTrial (Left rieti) 14
+  addCol 14 Mountains.Appennines.monteTerminillo C1
   disableSplitStages
 
   -- Stage 7
@@ -1132,10 +1136,11 @@ giro1939' = do
   individualTimeTrial trieste gorizia 39.8
 
   -- Stage 14
-  plainStage gorizia cortinaD'Ampezzo 195.0
+  mountainStage (Left gorizia) 195
+  addCol 195 Mountains.Alps.cortinaD'Ampezzo C1
 
   -- Stage 15
-  plainStage cortinaD'Ampezzo trento 256.2
+  plainStage Countries.Italy.cortinaD'Ampezzo trento 256.2
 
   transferDay
 
@@ -1439,10 +1444,11 @@ giro1948' = do
   transferDay
 
   -- Stage 16
-  plainStage auronzoDiCadore cortinaD'Ampezzo 90.0
+  mountainStage (Left auronzoDiCadore) 90
+  addCol 90 Mountains.Alps.cortinaD'Ampezzo C1
 
   -- Stage 17
-  plainStage cortinaD'Ampezzo trento 160.0
+  plainStage Countries.Italy.cortinaD'Ampezzo trento 160.0
 
   -- Stage 18
   plainStage trento brescia 239.0
@@ -1654,10 +1660,11 @@ giro1951' = do
   transferDay
 
   -- Stage 17
-  plainStage trieste cortinaD'Ampezzo 255.0
+  mountainStage (Left trieste) 255
+  addCol 255 Mountains.Alps.cortinaD'Ampezzo C1
 
   -- Stage 18
-  plainStage cortinaD'Ampezzo bolzano 242.0
+  plainStage Countries.Italy.cortinaD'Ampezzo bolzano 242.0
 
   -- Stage 19
   plainStage bolzano saintMoritz 166.0
@@ -1809,10 +1816,11 @@ giro1953' = do
   plainStage auronzoDiCadore bolzano 164.0
 
   -- Stage 19
-  plainStage bolzano bormio 125.0
+  mountainStage (Left bolzano) 125
+  addCol 125 Mountains.Alps.bormio C1
 
   -- Stage 20
-  plainStage bormio milan 220.0
+  plainStage Countries.Italy.bormio milan 220.0
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
@@ -1957,10 +1965,11 @@ giro1955' = do
   transferDay
 
   -- Stage 18
-  plainStage trieste cortinaD'Ampezzo 236.0
+  mountainStage (Left trieste) 236
+  addCol 236 Mountains.Alps.cortinaD'Ampezzo C1
 
   -- Stage 19
-  plainStage cortinaD'Ampezzo trento 227.0
+  plainStage Countries.Italy.cortinaD'Ampezzo trento 227.0
 
   -- Stage 20
   plainStage trento sanPellegrinoTerme 216.0
@@ -2322,7 +2331,8 @@ giro1960' = do
   plainStage sestriLevante asti 180.0
 
   -- Stage 12
-  plainStage asti cervinia 176.0
+  mountainStage (Left asti) 176
+  addCol 176 Mountains.Alps.cervinia C1
 
   -- Stage 13
   plainStage saintVincent milan 225.0
@@ -2348,10 +2358,11 @@ giro1960' = do
   plainStage belluno trento 110.0
 
   -- Stage 20
-  plainStage trento bormio 229.0
+  mountainStage (Left trento) 229
+  addCol 229 Mountains.Alps.bormio C1
 
   -- Stage 21
-  plainStage bormio milan 225.0
+  plainStage Countries.Italy.bormio milan 225.0
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
@@ -2423,10 +2434,11 @@ giro1961' = do
   plainStage vittorioVeneto trento 249.0
 
   -- Stage 20
-  plainStage trento bormio 275.0
+  mountainStage (Left trento) 275
+  addCol 275 Mountains.Alps.bormio C1
 
   -- Stage 21
-  plainStage bormio milan 214.0
+  plainStage Countries.Italy.bormio milan 214.0
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
@@ -2483,10 +2495,10 @@ giro1962' = do
 
   -- Stage 15
   mountainStage (Left moena) 215
-  addCol 215 aprica C3
+  addCol 215 Mountains.Alps.aprica C3
 
   -- Stage 16
-  roadStage (Right aprica) (Just pianDelResinelli) 123.0
+  plainStage Countries.Italy.aprica pianDelResinelli 123.0
 
   -- Stage 17
   plainStage lecco casaleMonferrato 194.0
@@ -2724,7 +2736,7 @@ giro1965' = do
   addCol 160 passoDelloStelvio C1
 
   -- Stage 21
-  plainStage bormio brescia 179.0
+  plainStage Countries.Italy.bormio brescia 179.0
 
   -- Stage 22
   plainStage brescia florence 295.0
@@ -2847,7 +2859,8 @@ giro1967' = do
   plainStage potenza salerno 160.0
 
   -- Stage 12
-  plainStage caserta blockhaus 220.0
+  mountainStage (Left caserta) 220
+  addCol 220 Mountains.Appennines.blockhaus C1
 
   -- Stage 13
   plainStage chieti riccione 253.0
@@ -2870,10 +2883,11 @@ giro1967' = do
   plainStage vicenza udine 167.0
 
   -- Stage 19
-  plainStage udine treCimeDiLavaredo 170.0
+  mountainStage (Left udine) 170
+  addCol 170 Mountains.Dolomites.treCimeDiLavaredo C1
 
   -- Stage 20
-  plainStage cortinaD'Ampezzo trento 235.0
+  plainStage Countries.Italy.cortinaD'Ampezzo trento 235.0
 
   -- Stage 21
   plainStage trento tirano 153.0
@@ -2931,10 +2945,11 @@ giro1968' = do
   plainStage bassanoDelGrappa trieste 197.0
 
   -- Stage 12
-  plainStage gorizia treCimeDiLavaredo 213.0
+  mountainStage (Left gorizia) 213
+  addCol 213 Mountains.Dolomites.treCimeDiLavaredo C1
 
   -- Stage 13
-  plainStage cortinaD'Ampezzo vittorioVeneto 163.0
+  plainStage Countries.Italy.cortinaD'Ampezzo vittorioVeneto 163.0
 
   -- Stage 14
   plainStage vittorioVeneto marinaRomea 199.0
@@ -2960,7 +2975,8 @@ giro1968' = do
   plainStage rome roccaDiCambio 215.0
 
   -- Stage 21
-  plainStage roccaDiCambio blockhaus 198.0
+  mountainStage (Left roccaDiCambio) 198
+  addCol 198 Mountains.Appennines.blockhaus C1
 
   -- Stage 22
   plainStage chieti naples 235.0
@@ -3212,8 +3228,9 @@ giro1972' = do
 
   -- Stages 4a & 4b
   enableSplitStages
-  plainStage francavillaAlMare blockhaus 48.0
-  plainStage blockhaus foggia 210.0
+  mountainStage (Left francavillaAlMare) 48
+  addCol 48 Mountains.Appennines.blockhaus C1
+  roadStage (Right Mountains.Appennines.blockhaus) (Just foggia) 210.0
   disableSplitStages
 
   -- Stage 5
@@ -3424,7 +3441,8 @@ giro1974' = do
   plainStage borgoValsugana pordenone 146.0
 
   -- Stage 20
-  plainStage pordenone treCimeDiLavaredo 163.0
+  mountainStage (Left pordenone) 163
+  addCol 163 Mountains.Dolomites.treCimeDiLavaredo C1
 
   -- Stage 21
   plainStage misurina bassanoDelGrappa 194.0
@@ -3668,10 +3686,11 @@ giro1977' = do
   disableSplitStages
 
   -- Stage 18
-  plainStage conegliano cortinaD'Ampezzo 220.0
+  mountainStage (Left conegliano) 220
+  addCol 220 Mountains.Alps.cortinaD'Ampezzo C1
 
   -- Stage 19
-  plainStage cortinaD'Ampezzo pinzolo 223.0
+  plainStage Countries.Italy.cortinaD'Ampezzo pinzolo 223.0
 
   -- Stage 20
   plainStage pinzolo sanPellegrinoTerme 205.0
@@ -3988,7 +4007,8 @@ giro1981' = do
   plainStage dimaro sanVigilloDiMarebbe 208.0
 
   -- Stage 20
-  plainStage sanVigilloDiMarebbe treCimeDiLavaredo 100.0
+  mountainStage (Left sanVigilloDiMarebbe) 100
+  addCol 100 Mountains.Dolomites.treCimeDiLavaredo C1
 
   -- Stage 21
   plainStage auronzoDiCadore arzignano 197.0
@@ -4186,7 +4206,8 @@ giro1984' = do
   plainStage bologna numana 238.0
 
   -- Stage 5
-  plainStage numana blockhaus 194.0
+  mountainStage (Left numana) 194
+  addCol 194 Mountains.Appennines.blockhaus C1
 
   -- Stage 6
   plainStage chieti foggia 193.0
@@ -4433,7 +4454,8 @@ giro1987' = do
   plainStage montalcino terni 208.0
 
   -- Stage 6
-  plainStage terni monteTerminillo 134.0
+  mountainStage (Left terni) 134
+  addCol 134 Mountains.Appennines.monteTerminillo C1
 
   -- Stage 7
   plainStage rieti roccaraso 205.0
@@ -4536,7 +4558,8 @@ giro1988' = do
   plainStage bergamo chiesaInValmalenco 129
 
   -- Stage 14
-  plainStage chiesaInValmalenco bormio 120
+  mountainStage (Left chiesaInValmalenco) 120
+  addCol 120 Mountains.Alps.bormio C1
 
   -- Stage 15
   plainStage spondigna merano2000 83
@@ -4702,10 +4725,10 @@ giro1990' = do
 
   -- Stage 16
   mountainStage (Left moena) 223
-  addCol 223 aprica C3
+  addCol 223 Mountains.Alps.aprica C3
 
   -- Stage 17
-  roadStage (Right aprica) (Just gallarate) 180.0
+  plainStage Countries.Italy.aprica gallarate 180.0
 
   -- Stage 18
   individualTimeTrial gallarate sacroMonteDiVarese 39.0
@@ -4771,7 +4794,7 @@ giro1991' = do
 
   -- Stage 15
   mountainStage (Left morbegno) 132
-  addCol 132 aprica C3
+  addCol 132 Mountains.Alps.aprica C3
 
   -- Stage 16
   plainStage tirano selvaDiValGardena 220.0
@@ -4828,7 +4851,8 @@ giro1992' = do
   plainStage aversa latina 165.0
 
   -- Stage 10
-  plainStage latina monteTerminillo 196.0
+  mountainStage (Left latina) 196
+  addCol 196 Mountains.Appennines.monteTerminillo C1
 
   -- Stage 11
   plainStage montepulciano imola 233.0
@@ -4998,7 +5022,7 @@ giro1994' = do
 
   -- Stage 15
   mountainStage (Left merano) 195
-  addCol 195 aprica C3
+  addCol 195 Mountains.Alps.aprica C3
 
   -- Stage 16
   plainStage sondrio stradella 220.0
@@ -5146,7 +5170,8 @@ giro1996' = do
   plainStage aulla loano 195.0
 
   -- Stage 13
-  plainStage loano pratoNevoso 115.0
+  mountainStage (Left loano) 115
+  addCol 115 Mountains.Alps.pratoNevoso C1
 
   -- Stage 14
   plainStage sanctuarioDiVicoforte briancon 202.0
@@ -5172,7 +5197,7 @@ giro1996' = do
 
   -- Stage 21
   mountainStage (Left cavalese) 250
-  addCol 250 aprica C3
+  addCol 250 Mountains.Alps.aprica C3
 
   -- Stage 22
   plainStage sondrio milan 176.0
@@ -5198,7 +5223,8 @@ giro1997' = do
   plainStage sanMarino arezzo 156.0
 
   -- Stage 5
-  plainStage arezzo monteTerminillo 215.0
+  mountainStage (Left arezzo) 215
+  addCol 215 Mountains.Appennines.monteTerminillo C1
 
   -- Stage 6
   plainStage rieti lanciano 210.0
@@ -5395,14 +5421,15 @@ giro1999' = do
   outAndBackIndividualTimeTrial treviso 45.0
 
   -- Stage 19
-  plainStage castelfrancoVeneto alpeDiPampeago 166.0
+  mountainStage (Left castelfrancoVeneto) 166
+  addCol 166 Mountains.Dolomites.alpeDiPampeago C1
 
   -- Stage 20
   plainStage predazzo madonnaDiCampiglio 175.0
 
   -- Stage 21
   mountainStage (Left madonnaDiCampiglio) 190
-  addCol 190 aprica C3
+  addCol 190 Mountains.Alps.aprica C3
 
   -- Stage 22
   plainStage darfoBoarioTerme milan 170.0
@@ -5460,10 +5487,11 @@ giro2000' = do
   plainStage feltre selva 186.0
 
   -- Stage 14
-  plainStage selva bormio 203.0
+  mountainStage (Left selva) 203
+  addCol 203 Mountains.Alps.bormio C1
 
   -- Stage 15
-  plainStage bormio brescia 180.0
+  plainStage Countries.Italy.bormio brescia 180.0
 
   -- Stage 16
   plainStage brescia meda 102.0
@@ -5472,7 +5500,8 @@ giro2000' = do
   plainStage meda genoa 236.0
 
   -- Stage 18
-  plainStage genoa pratoNevoso 173.0
+  mountainStage (Left genoa) 173
+  addCol 173 Mountains.Alps.pratoNevoso C1
 
   -- Stage 19
   plainStage saluzzo briancon 176.0
@@ -5665,7 +5694,8 @@ giro2003' = do
   plainStage maddaloni avezzano 222.0
 
   -- Stage 7
-  plainStage avezzano monteTerminillo 146.0
+  mountainStage (Left avezzano) 146
+  addCol 146 Mountains.Appennines.monteTerminillo C1
 
   -- Stage 8
   plainStage rieti arezzo 214.0
@@ -5687,7 +5717,8 @@ giro2003' = do
   plainStage pordenone marostica 149.0
 
   -- Stage 14
-  plainStage marostica alpeDiPampeago 162.0
+  mountainStage (Left marostica) 162
+  addCol 162 Mountains.Dolomites.alpeDiPampeago C1
 
   -- Stage 15
   individualTimeTrial merano bolzano 42.5
@@ -5782,7 +5813,7 @@ giro2004' = do
   plainStage cles bormio2000 118.0
 
   -- Stage 19
-  plainStage bormio presolana 122.0
+  plainStage Countries.Italy.bormio presolana 122.0
 
   -- Stage 20
   plainStage clusone milan 149.0
@@ -5924,7 +5955,8 @@ giro2006' = do
   plainStage rovato trento 173.0
 
   -- Stage 17
-  plainStage tramin planDeCorones 133.0
+  mountainStage (Left tramin) 133
+  addCol 133 Mountains.Dolomites.planDeCorones C1
 
   -- Stage 18
   plainStage sillian gemonaDelFriuli 210.0
@@ -5934,7 +5966,7 @@ giro2006' = do
 
   -- Stage 20
   mountainStage (Left trento) 211
-  addCol 211 aprica C3
+  addCol 211 Mountains.Alps.aprica C3
 
   -- Stage 21
   plainStage museoDelGhisallo milan 140.0
@@ -5992,7 +6024,8 @@ giro2007' = do
   plainStage cantu bergamo 192.0
 
   -- Stage 15
-  plainStage trento treCimeDiLavaredo 184.0
+  mountainStage (Left trento) 184
+  addCol 184 Mountains.Dolomites.treCimeDiLavaredo C1
 
   transferDay
 
@@ -6065,13 +6098,15 @@ giro2008' = do
   plainStage modena cittadella 177.0
 
   -- Stage 14
-  plainStage verona alpeDiPampeago 195.0
+  mountainStage (Left verona) 195
+  addCol 195 Mountains.Dolomites.alpeDiPampeago C1
 
   -- Stage 15
   plainStage arabba passoFedaia 153.0
 
   -- Stage 16
-  individualTimeTrial sanVigilloDiMarebbe planDeCorones 12.8
+  mountainTimeTrial (Left sanVigilloDiMarebbe) 12.8
+  addCol 12.8 Mountains.Dolomites.planDeCorones C1
 
   transferDay
 
@@ -6152,7 +6187,8 @@ giro2009' = do
   transferDay
 
   -- Stage 17
-  plainStage chieti blockhaus 83.0
+  mountainStage (Left chieti) 83
+  addCol 83 Mountains.Appennines.blockhaus C1
 
   -- Stage 18
   plainStage sulmona benevento 182.0
@@ -6198,7 +6234,8 @@ giro2010' = do
   plainStage carrara montalcino 215.0
 
   -- Stage 8
-  plainStage chianciano monteTerminillo 189.0
+  mountainStage (Left chianciano) 189
+  addCol 189 Mountains.Appennines.monteTerminillo C1
 
   -- Stage 9
   plainStage frosinone cavaDe'Tirreni 188.0
@@ -6227,7 +6264,8 @@ giro2010' = do
   transferDay
 
   -- Stage 16
-  individualTimeTrial mareo planDeCorones 12.9
+  mountainTimeTrial (Left mareo) 12.9
+  addCol 12.9 Mountains.Dolomites.planDeCorones C1
 
   -- Stage 17
   plainStage bruneck peioTerme 173.0
@@ -6237,10 +6275,10 @@ giro2010' = do
 
   -- Stage 19
   mountainStage (Left brescia) 195
-  addCol 195 aprica C3
+  addCol 195 Mountains.Alps.aprica C3
 
   -- Stage 20
-  plainStage bormio passoDelTonale 178.0
+  plainStage Countries.Italy.bormio passoDelTonale 178.0
 
   -- Stage 21
   outAndBackIndividualTimeTrial verona 15.3
@@ -6372,7 +6410,8 @@ giro2012' = do
   plainStage savona cervere 121.0
 
   -- Stage 14
-  plainStage cherasco cervinia 206.0
+  mountainStage (Left cherasco) 206
+  addCol 206 Mountains.Alps.cervinia C1
 
   -- Stage 15
   plainStage bustoArsizio leccoPianDeiResinelli 169.0
@@ -6383,13 +6422,15 @@ giro2012' = do
   plainStage limoneSulGarda pfalzen 173.0
 
   -- Stage 17
-  plainStage pfalzen cortinaD'Ampezzo 186.0
+  mountainStage (Left pfalzen) 186
+  addCol 186 Mountains.Alps.cortinaD'Ampezzo C1
 
   -- Stage 18
   plainStage sanVitoDiCadore vedelago 149.0
 
   -- Stage 19
-  plainStage treviso alpeDiPampeago 198.0
+  mountainStage (Left treviso) 198
+  addCol 198 Mountains.Dolomites.alpeDiPampeago C1
 
   -- Stage 20
   mountainStage (Left caldesValDiSole) 219
@@ -6468,7 +6509,8 @@ giro2013' = do
   plainStage ponteDiLegno martell 139.0
 
   -- Stage 20
-  plainStage schlanders treCimeDiLavaredo 203.0
+  mountainStage (Left schlanders) 203
+  addCol 203 Mountains.Dolomites.treCimeDiLavaredo C1
 
   -- Stage 21
   plainStage riesePioX brescia 197.0
@@ -6610,7 +6652,7 @@ giro2015' = do
 
   -- Stage 16
   mountainStage (Left pinzolo) 174
-  addCol 174 aprica C3
+  addCol 174 Mountains.Alps.aprica C3
 
   -- Stage 17
   plainStage tirano lugano 134.0
@@ -6619,7 +6661,8 @@ giro2015' = do
   plainStage melide verbania 170.0
 
   -- Stage 19
-  plainStage gravellonaToce cervinia 236.0
+  mountainStage (Left gravellonaToce) 236
+  addCol 236 Mountains.Alps.cervinia C1
 
   -- Stage 20
   mountainStage (Left saintVincent) 196
@@ -6746,7 +6789,8 @@ giro2017' = do
   plainStage molfetta peschici 189
 
   -- Stage 9
-  plainStage monteneroDiBisaccia blockhaus 149
+  mountainStage (Left monteneroDiBisaccia) 149
+  addCol 149 Mountains.Appennines.blockhaus C1
 
   transferDay
 
@@ -6773,7 +6817,8 @@ giro2017' = do
   transferDay
 
   -- Stage 16
-  plainStage rovetta bormio 222
+  mountainStage (Left rovetta) 222
+  addCol 222 Mountains.Alps.bormio C1
 
   -- Stage 17
   let canazei' = ParcoursDB.Location.vicinity canazei "Val di Fassa"
@@ -6967,7 +7012,7 @@ giro2019' = do
   addCol 125.9 montoso C1
 
   -- Stage 13
-  let ceresoleReale' = ParcoursDB.Col.vicinity ceresoleReale "Lago Serrù"
+  let ceresoleReale' = ParcoursDB.Col.vicinity Mountains.Alps.ceresoleReale "Lago Serrù"
   mountainStage (Left pinerolo) 196
   addCol 54.3 colleDelLys C1
   addCol 134.3 pianDelLupo C2
@@ -6990,8 +7035,8 @@ giro2019' = do
 
   -- Stage 16
   plainStage lovere ponteDiLegno 194
-  addCol 89.6 cevo C3
-  addCol 128.2 aprica C3
+  addCol 89.6 Mountains.Alps.cevo C3
+  addCol 128.2 Mountains.Alps.aprica C3
   addCol 166.3 passoDelMortirolo C1
 
   -- Stage 17
