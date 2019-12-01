@@ -4,7 +4,7 @@ import Countries.France (alpeD'Huez,avoriaz,courchevel,laPlagne,lesArcs,lesDeuxA
 import Countries.France (leBettex,lesMenuires,laToussuire,lansEnVercors,chamrousse,villardDeLans,serreChevalier)
 import Countries.France (praLoup)
 import Countries.Italy (aprica,bormio,cortinaD'Ampezzo,ceresoleReale,cervinia,cevo,pratoNevoso,sestriere)
-import Countries.Switzerland (cransMontana,verbier)
+import Countries.Switzerland (cransMontana,saintMoritz,verbier)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(France,Italy,Switzerland)) 
 
@@ -349,6 +349,9 @@ coteDeSainteEulalie = Col "Cote de Sainte-Eulalie" France 298 (Just 1.5) (Just 4
 
 saintGervaisMontBlanc :: Col
 saintGervaisMontBlanc = frenchAlpineCol "Saint-Gervais Mont-Blanc" 970
+
+saintMoritz :: Col
+saintMoritz = colFromLocation Countries.Switzerland.saintMoritz
 
 saintNizier :: Col
 saintNizier = frenchAlpineCol "Saint-Nizier" 1180

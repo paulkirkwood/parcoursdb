@@ -93,7 +93,7 @@ saasFee :: Location
 saasFee = swissLocation "Saas Fee"
 
 saintMoritz :: Location
-saintMoritz = swissLocation "Saint Moritz"
+saintMoritz = Location "Saint Moritz" Switzerland (Just 1822)
 
 sion :: Location
 sion = swissLocation "Sion"

@@ -1667,10 +1667,11 @@ giro1951' = do
   plainStage Countries.Italy.cortinaD'Ampezzo bolzano 242.0
 
   -- Stage 19
-  plainStage bolzano saintMoritz 166.0
+  mountainStage (Left bolzano) 166
+  addCol 166 Mountains.Alps.saintMoritz C1
 
   -- Stage 20
-  plainStage saintMoritz milan 172.0
+  plainStage Countries.Switzerland.saintMoritz milan 172.0
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
@@ -1896,10 +1897,11 @@ giro1954' = do
   roadStage (Right sanMartinoDiCastrozza) (Just bolzano) 152.0
 
   -- Stage 21
-  plainStage bolzano saintMoritz 222.0
+  mountainStage (Left bolzano) 220
+  addCol 220 Mountains.Alps.saintMoritz C1
 
   -- Stage 22
-  plainStage saintMoritz milan 222.0
+  plainStage Countries.Switzerland.saintMoritz milan 222.0
 
   edition <- ParcoursDB.State.StageRace.build
   return edition
