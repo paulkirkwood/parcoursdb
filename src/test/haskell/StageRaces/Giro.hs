@@ -1897,8 +1897,8 @@ giro1954' = do
   roadStage (Right sanMartinoDiCastrozza) (Just bolzano) 152.0
 
   -- Stage 21
-  mountainStage (Left bolzano) 220
-  addCol 220 Mountains.Alps.saintMoritz C1
+  mountainStage (Left bolzano) 222
+  addCol 222 Mountains.Alps.saintMoritz C1
 
   -- Stage 22
   plainStage Countries.Switzerland.saintMoritz milan 222.0
