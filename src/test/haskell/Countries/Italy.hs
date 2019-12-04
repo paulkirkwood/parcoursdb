@@ -74,7 +74,7 @@ alpeDiPampeago :: Location
 alpeDiPampeago = Location "Alpe di Pampeago" Italy (Just 1983)
 
 alpeDiSiusi :: Location
-alpeDiSiusi = italianLocation "Alpe di Siusi"
+alpeDiSiusi = Location "Alpe di Siusi" Italy (Just 1844)
 
 altopianoDelMontasio :: Location
 altopianoDelMontasio = italianLocation "Altopiano del Montasio"
@@ -553,7 +553,7 @@ cervia :: Location
 cervia = italianLocation "Cervia"
 
 cervinia :: Location
-cervinia = Location "Cervinia" Italy (Just 2050)
+cervinia = Location "Cervinia" Italy (Just 2001)
 
 cesanaTorinese :: Location
 cesanaTorinese = italianLocation "Cesana Torinese"
@@ -1920,6 +1920,9 @@ sanLuca = italianLocation "San Luca"
 
 sanMarcelloPistoiese :: Location
 sanMarcelloPistoiese = italianLocation "San Marcello Pistoiese"
+
+sanMartinoDiCastrozza :: Location
+sanMartinoDiCastrozza = Location "San Martino di Castrozza" Italy (Just 1487)
 
 sanPellegrinoTerme :: Location
 sanPellegrinoTerme = italianLocation "San Pellegrino Terme"

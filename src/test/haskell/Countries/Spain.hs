@@ -122,7 +122,7 @@ alqueriasDelNinoPerdido :: Location
 alqueriasDelNinoPerdido = spanishLocation "Alquerias del Nino Perdido"
 
 altoCampoo :: Location
-altoCampoo = spanishLocation "Alto Campoo"
+altoCampoo = Location "Alto Campoo" Spain (Just 1650)
 
 alzira :: Location
 alzira = spanishLocation "Alzira"

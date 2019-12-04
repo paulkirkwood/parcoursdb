@@ -1,6 +1,6 @@
 module Mountains.Dolomites where
 
-import Countries.Italy (alpeDiPampeago,planDeCorones)
+import Countries.Italy (alpeDiPampeago,alpeDiSiusi,planDeCorones,sanMartinoDiCastrozza)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(Italy)) 
 
@@ -16,6 +16,9 @@ antholz = alias anterselva "Antholz"
 
 alpeDiPampeago :: Col
 alpeDiPampeago = colFromLocation Countries.Italy.alpeDiPampeago
+
+alpeDiSiusi :: Col
+alpeDiSiusi = colFromLocation Countries.Italy.alpeDiSiusi
 
 -- C
 cimaCampo :: Col
@@ -61,7 +64,7 @@ planDeCorones = colFromLocation Countries.Italy.planDeCorones
 
 -- S
 sanMartinoDiCastrozza :: Col
-sanMartinoDiCastrozza = dolomatianCol "San Martino di Castrozza" 1478
+sanMartinoDiCastrozza = colFromLocation Countries.Italy.sanMartinoDiCastrozza
 
 -- T
 torricelle :: Col

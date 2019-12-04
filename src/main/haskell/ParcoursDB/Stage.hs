@@ -162,7 +162,7 @@ profile' (IndexableCol km col@(ParcoursDB.Col.Col name country height Nothing No
   let kms            = printf "%.1f km" km
       heightInMetres = printf "%dm" height
   in intercalate "," [ kms, name, show(category), heightInMetres ]
-profile' (IndexableCol km col@(ParcoursDB.Col.Col name country height length averageGradient Nothing) category) =
+profile' (IndexableCol km col@(ParcoursDB.Col.Col name country height length averageGradient _) category) =
   let kms            = printf "%.1f km" km
       desc           = printf "%s (%.1f km @ %.1f%%)" name (fromJust length) (fromJust averageGradient)
       heightInMetres = printf "%dm" height

@@ -1,6 +1,7 @@
 -- file StageRaces.Giro.hs
 module StageRaces.Giro
-(giro1980
+(giro1936
+,giro1980
 ,giro1981
 ,giro1987
 ,giro2016
@@ -1891,10 +1892,10 @@ giro1954' = do
 
   -- Stage 19
   mountainStage (Left grado) 247
-  addCol 247 sanMartinoDiCastrozza C2
+  addCol 247 Mountains.Dolomites.sanMartinoDiCastrozza C2
 
   -- Stage 20
-  roadStage (Right sanMartinoDiCastrozza) (Just bolzano) 152.0
+  plainStage Countries.Italy.sanMartinoDiCastrozza bolzano 152.0
 
   -- Stage 21
   mountainStage (Left bolzano) 222
@@ -4080,7 +4081,7 @@ giro1982' = do
 
   -- Stage 16
   mountainStage (Left comacchio) 243
-  addCol 243 sanMartinoDiCastrozza C2
+  addCol 243 Mountains.Dolomites.sanMartinoDiCastrozza C2
 
   -- Stage 17
   plainStage fieraDiPrimiero boarioTerme 235.0
@@ -6146,10 +6147,11 @@ giro2009' = do
 
   -- Stage 4
   mountainStage (Left padua) 162
-  addCol 162 sanMartinoDiCastrozza C2
+  addCol 162 Mountains.Dolomites.sanMartinoDiCastrozza C2
 
   -- Stage 5
-  roadStage (Right sanMartinoDiCastrozza) (Just alpeDiSiusi) 125.0
+  mountainStage (Left Countries.Italy.sanMartinoDiCastrozza) 125
+  addCol 125 Mountains.Dolomites.alpeDiSiusi C1
 
   -- Stage 6
   plainStage brixen mayrhofen 248.0
@@ -6731,8 +6733,9 @@ giro2016' = do
   plainStage farra corvara 210
 
   -- Stage 15
-  let seiseralm = ParcoursDB.Location.commune alpeDiSiusi "Seiseralm"
-  individualTimeTrial castelrotto seiseralm 10.8
+  let alpeDiSiusi' = ParcoursDB.Location.commune Countries.Italy.alpeDiSiusi "Seiseralm"
+  mountainTimeTrial (Left castelrotto) 10.8
+  addCol 10.8 (colFromLocation alpeDiSiusi') C1
 
   transferDay
 
@@ -6903,6 +6906,7 @@ giro2018' = do
   plainStage assisi osimo 156
   c3' 41.7 "Passo Cornello" Italy 814
   c3' 97.5 "Valico di Pietra Rossa" Italy 674
+  c4' 156 "Osimo" Italy 265
 
   -- Stage 12
   plainStage osimo imola 214
@@ -6942,16 +6946,16 @@ giro2018' = do
 
   -- Stage 19
   mountainStage (Left veneriaReale) 185
-  c2' 48.9 "Colle del Lys" Italy 1311
-  c1' 110.7 "Colle delle Finestre" Italy 2178
-  c3' 138.4 "Sestriere" Italy 2035
+  addCol 48.9 Mountains.Alps.colleDelLys C2
+  addCol 110.7 Mountains.Alps.colleDelleFinestre C1
+  addCol 138.4 Mountains.Alps.sestriere C3
   addCol 185 (ParcoursDB.Col.clone monteJafferau "Bardonecchia") C1
 
   -- Stage 20
   mountainStage (Left susa) 214
   c1' 146.5 "Col Tsecore (Col du Mont-Tseuc)" Italy 1623
   c1' 185.8 "Col de Saint-Pantaleon" Italy 1664
-  c1' 214 "Cervinia" Italy 2001
+  addCol 214 Mountains.Alps.cervinia C1
 
   -- Stage 21
   criterium rome 115
@@ -7058,7 +7062,7 @@ giro2019' = do
   mountainStage (Left treviso) 151
   addCol 66.6 passoDiSanBoldo C3
   addCol 116.5 lamon C4
-  addCol 151 sanMartinoDiCastrozza C2
+  addCol 151 Mountains.Dolomites.sanMartinoDiCastrozza C2
 
   -- Stage 20
   let croceD'AuneMonteAvena = clone monteAvena "Croce d'Aune-Monte Avena"

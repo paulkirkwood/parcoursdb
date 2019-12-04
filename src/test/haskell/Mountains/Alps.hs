@@ -125,8 +125,8 @@ colleDelMorte = frenchAlpineCol "Colle del Morte" 710
 colleSanCarlo :: Col
 colleSanCarlo = italianAlpineCol "Colle San Carlo" 1951
 
-croixDeFer :: Col
-croixDeFer = Col "Croix de Fer" France 2067 (Just 29) (Just 5.2) Nothing
+colDeLaCroixDeFer :: Col
+colDeLaCroixDeFer = Col "Col de la Croix de Fer" France 2067 (Just 29) (Just 5.2) Nothing
 
 colDeLaCroixFry :: Col
 colDeLaCroixFry = Col "Col de la Croix Fry" France 1477 (Just 11.3) (Just 7) Nothing
@@ -136,6 +136,9 @@ colDuCucheron = frenchAlpineCol "Col du Cucheron" 1139
 
 colDel'Epine :: Col
 colDel'Epine = frenchAlpineCol "Col de l’Épine" 947
+
+colleDelleFinestre :: Col
+colleDelleFinestre = italianAlpineCol "Colle delle Finestre" 2178
 
 -- F
 finhautEmosson :: Col
@@ -180,7 +183,7 @@ colD'Izoard = frenchAlpineCol "Col d'Izoard" 2360
 
 -- J
 monteJafferau :: Col
-monteJafferau = italianAlpineCol "Monte Jafferau" 1980
+monteJafferau = italianAlpineCol "Monte Jafferau" 1908
 
 colDeLaJouxPlane :: Col
 colDeLaJouxPlane = frenchAlpineCol "Col de la Joux Plane" 1700

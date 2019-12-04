@@ -142,7 +142,10 @@ monteeDePal :: Col
 monteeDePal = andorranCol "Montée de Pal" 1870
 
 peyragudes :: Col
-peyragudes = Col "Peyragudes" France 1645 (Just 14.9) (Just 6.7) Nothing
+peyragudes = Col "Peyragudes" France 1580 (Just 14.9) (Just 6.7) Nothing
+
+montéeDePeyragudes :: Col
+montéeDePeyragudes = Col "Montée de Peyragudes" France 1645 (Just 14.9) (Just 6.7) Nothing
 
 colDuPeyresourde :: Col
 colDuPeyresourde = frenchPyreneanCol "Col du Peyresourde" 1569

@@ -5022,7 +5022,8 @@ vuelta2012' = do
   individualTimeTrial cambados pontevedra 39.4
 
   -- Stage 12
-  plainStage vilagarcia miradorDeEzaro 190.5
+  mountainStage (Left vilagarcia) 190.5
+  addCol 190.5 Mountains.Galicia.miradorDeÉzaro C1
 
   -- Stage 13
   plainStage santiagoDeCompostela ferrol 172.8

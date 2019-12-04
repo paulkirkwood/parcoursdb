@@ -284,3 +284,13 @@ highPoint' :: [Col] -> Col
 highPoint' []     = error "No cols"
 highPoint' [x]    = x
 highPoint' (x:xs) = highPoint' xs
+
+stagesWithCols :: StageRace -> [Stage]
+stagesWithCols stageRace = filter hasCols $ stages stageRace
+
+hasCols :: Stage -> Bool
+hasCols (Road _ _ _ _ _ _)                    = True
+hasCols (TeamTimeTrial _ _ _ _ _ _)           = True
+hasCols (ThreeManTeamTimeTrial _ _ _ _ _ _)   = True
+hasCols (IndividualTimeTrial _ _ _ _ _ _)     = True
+hasCols _ = False

@@ -2110,10 +2110,10 @@ tdf1954' = do
   plainStage mulhouse millau 225.0
 
   -- Stage 15
-  plainStage millau lePuy 197.0
+  plainStage millau lePuyEnVelay 197.0
 
   -- Stage 16
-  plainStage lePuy lyon 194.0
+  plainStage lePuyEnVelay lyon 194.0
 
   restDay (Left lyon)
 
@@ -7453,14 +7453,14 @@ tdf2018' = do
   mountainStage (Left albertville) 108.5
   addCol 26 monteeDuBisanne HC
   addCol 57.5 colDuPre HC
-  addCol 70 cormetDeRoselend C1
+  addCol 70 cormetDeRoselend C2
   addCol 108.5 laRosiere C1
 
   -- Stage 12
   mountainStage (Left bourgSaintMaurice) 175.5
   addCol 53.5 colDeLaMadeleine HC
   addCol 83 lacetsDeMontvernier C2
-  addCol 121 croixDeFer HC
+  addCol 121 colDeLaCroixDeFer HC
   addCol 175.5 Mountains.Alps.alpeD'Huez HC
 
   -- Stage 13
@@ -7494,7 +7494,7 @@ tdf2018' = do
   -- Stage 17
   let colDePortet' = clone colDePortet "Saint-Lary-Soulan"
   mountainStage (Left bagneresDeLuchon) 65
-  addCol 15 peyragudes C1
+  addCol 15 montéeDePeyragudes C1
   addCol 37 colDeValLouronAzet C1
   addCol 65 colDePortet' HC
 

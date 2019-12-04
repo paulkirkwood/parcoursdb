@@ -4,10 +4,12 @@ module StageRaceStateSpec where
 import Control.Monad.State
 import Data.Maybe
 import Data.Time
-import StageRaces.Dauphine (dauphine2018)
-import StageRaces.Giro (giro2018)
-import StageRaces.LeTour (tdf2018)
+import StageRaces.Dauphine  (dauphineEditions)
+import StageRaces.Giro      (giroEditions)
+import StageRaces.LeTour    (tourDeFranceEditions)
 import StageRaces.ParisNice (parisNiceEditions)
+import StageRaces.Tirreno   (tirrenoAdriaticoEditions)
+import StageRaces.Vuelta    (vueltaEditions)
 import ParcoursDB.Country
 import ParcoursDB.Stage
 import ParcoursDB.StageRace
@@ -16,7 +18,12 @@ import System.IO
 import Test.Hspec
 import Text.Printf
 
-editions = parisNiceEditions ++ [dauphine2018] ++ [giro2018] ++ [tdf2018]
+editions = dauphineEditions ++
+           giroEditions ++
+           parisNiceEditions ++
+           tirrenoAdriaticoEditions ++
+           tourDeFranceEditions ++
+           vueltaEditions
 
 main :: IO ()
 main = hspec $ do
@@ -26,9 +33,9 @@ main = hspec $ do
       let raceName   = ParcoursDB.StageRace.name edition
       let (year,_,_) = startDate edition
       let ctx = printf "%s %d" raceName year
-      let roadStagesWithCols = filter(\s -> length(cols s) > 0) $ roadStages edition
+      let stagesContainingCols = filter(\s -> length(cols s) > 0) $ stagesWithCols edition
       context ctx $ do
-        forM_ roadStagesWithCols $ \(stage) -> do
+        forM_ stagesContainingCols $ \(stage) -> do
           let stageId = ParcoursDB.Stage.id stage
           let fileName =printf "../resources/%s/%d/%s/cols.csv" raceName year stageId
           let description = printf "%s stage cols as expected" stageId
