@@ -2052,7 +2052,8 @@ giro1956' = do
   plainStage sondrio merano 163.0
 
   -- Stage 18
-  plainStage merano monteBondone 242.0
+  mountainStage (Left merano) 242
+  addCol 242 monteBondone C1
 
   -- Stage 19
   plainStage trento sanPellegrinoTerme 191.0
@@ -2127,7 +2128,8 @@ giro1957' = do
   transferDay
 
   -- Stage 18
-  plainStage como monteBondone 242.0
+  mountainStage (Left como) 242
+  addCol 242 monteBondone C1
 
   -- Stage 19
   plainStage trento levicoTerme 199.0
@@ -2237,7 +2239,8 @@ giro1959' = do
   plainStage rome naples 213.0
 
   -- Stage 7
-  individualTimeTrial ercolano mountVesuvius 8.0
+  mountainTimeTrial (Left ercolano) 8
+  addCol 8 mountVesuvius C1
 
   -- Stage 8
   individualTimeTrial ischia ischia 31.0
@@ -3331,7 +3334,8 @@ giro1973' = do
   plainStage iseo lidoDelleNazioni 248.0
 
   -- Stage 8
-  plainStage lidoDelleNazioni monteCarpegna 156.0
+  mountainStage (Left lidoDelleNazioni) 156
+  addCol 156 monteCarpegna C1
 
   -- Stage 9
   plainStage carpegna albaAdriatica 243.0
@@ -3432,7 +3436,8 @@ giro1974' = do
   transferDay
 
   -- Stage 16
-  plainStage valenza Countries.Italy.monteGeneroso 158.0
+  mountainStage (Left valenza) 158
+  addCol 158 monteGeneroso C1
 
   -- Stage 17
   plainStage como iseo 158.0
@@ -3517,7 +3522,8 @@ giro1975' = do
   -- Stages 17a & 17b
   enableSplitStages
   plainStage ortaSanGiulio pontoglio 167.0
-  plainStage pontoglio monteMaddalena 46.0
+  mountainStage (Left pontoglio) 46
+  addCol 46 monteMaddalena C1
   disableSplitStages
 
   -- Stage 18
@@ -3755,7 +3761,8 @@ giro1978' = do
   disableSplitStages
 
   -- Stage 12
-  plainStage poggibonsi monteTrebbio 204.0
+  mountainStage (Left poggibonsi) 204
+  addCol 204 monteTrebbio C1
 
   -- Stage 13
   plainStage modigiliana padua 183.0
@@ -3772,7 +3779,8 @@ giro1978' = do
   individualTimeTrial mazzin cavalese 48.0
 
   -- Stage 17
-  plainStage cavalese monteBondone 205.0
+  mountainStage (Left cavalese) 205
+  addCol 205 monteBondone C1
 
   -- Stage 18
   plainStage mezzolombardo sarezzo 245.0
@@ -4652,7 +4660,8 @@ giro1989' = do
   plainStage sondrio meda 137.0
 
   -- Stage 18
-  individualTimeTrial mendrisio Countries.Switzerland.monteGeneroso 10.7
+  mountainTimeTrial (Left mendrisio) 10.7
+  addCol 10.7 monteGeneroso C1
 
   -- Stage 19
   plainStage meda tortona 198.0
@@ -4681,7 +4690,8 @@ giro1990' = do
   plainStage bari salaConsilina 239.0
 
   -- Stage 2
-  plainStage salaConsilina mountVesuvius 190.0
+  mountainStage (Left salaConsilina) 190
+  addCol 190 mountVesuvius C1
 
   -- Stages 3a & 3b
   enableSplitStages
@@ -4867,7 +4877,8 @@ giro1992' = do
   plainStage bassanoDelGrappa corvara 204.0
 
   -- Stage 14
-  plainStage corvara monteBondone 205.0
+  mountainStage (Left corvara) 205
+  addCol 205 monteBondone C1
 
   -- Stage 15
   plainStage rivaDelGarda palazzoloSull'Oglio 171.0
@@ -6186,7 +6197,8 @@ giro2009' = do
   plainStage forli faenza 161.0
 
   -- Stage 16
-  plainStage pergola montePetrano 237.0
+  mountainStage (Left pergola) 237
+  addCol 237 montePetrano C1
 
   transferDay
 
@@ -6198,7 +6210,8 @@ giro2009' = do
   plainStage sulmona benevento 182.0
 
   -- Stage 19
-  plainStage avellino mountVesuvius 164.0
+  mountainStage (Left avellino) 164
+  addCol 164 mountVesuvius C1
 
   -- Stage 20
   plainStage naples anagi 203.0

@@ -63,7 +63,7 @@ tirreno2015' = do
   plainStage cascina arezzo 203
   plainStage indicatore castelraimondo 226
   mountainStage (Left esanatoglia) 196.9
-  addCol 196.9 Mountains.Appennines.monteTerminillo C1
+  addCol 196.9 Mountains.Appennines.monteTerminillo UC
   plainStage rieti portoSant'Elpidio 210
   outAndBackIndividualTimeTrial sanBenedettoDelTronto 10.1
   race <- build
@@ -78,7 +78,8 @@ tirreno2016' = do
   plainStage camaiore pomarance 207
   plainStage castelnuouvoDiValDiCecina montaltoDiCastro 176
   plainStage montaltoDiCastro foligno 216
-  plainStage foligno monteSanVicino 178
+  mountainStage (Left foligno) 178
+  addCol 178 monteSanVicino UC
   plainStage castelraimondo cepagatti 210
   outAndBackIndividualTimeTrial sanBenedettoDelTronto 10.1
   race <- build

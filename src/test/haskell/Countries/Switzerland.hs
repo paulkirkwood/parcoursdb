@@ -14,7 +14,6 @@ module Countries.Switzerland
 ,melide
 ,mendrisio
 ,mohin
-,monteGeneroso
 ,neuchatel
 ,saasFee
 ,saintMoritz
@@ -80,9 +79,6 @@ mendrisio = swissLocation "Mendrisio"
 
 mohin :: Location
 mohin = swissLocation "Mohin"
-
-monteGeneroso :: Location
-monteGeneroso = swissLocation "Monte Generoso"
 
 -- N
 neuchatel :: Location

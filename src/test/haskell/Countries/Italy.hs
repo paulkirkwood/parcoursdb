@@ -1315,29 +1315,8 @@ montaltoDiCastro = italianLocation "Montalto di Castro"
 monteArgentario :: Location
 monteArgentario = italianLocation "Monte Argentario"
 
-monteBondone :: Location
-monteBondone = italianLocation "Monte Bondone"
-
-monteCarpegna :: Location
-monteCarpegna = italianLocation "Monte Carpegna"
-
 monteDiProcida :: Location
 monteDiProcida = italianLocation "Monte di Procida"
-
-monteGeneroso :: Location
-monteGeneroso = italianLocation "Monte Generoso"
-
-monteMaddalena :: Location
-monteMaddalena = italianLocation "Monte Maddalena"
-
-montePetrano :: Location
-montePetrano = italianLocation "Monte Petrano"
-
-monteSanVicino :: Location
-monteSanVicino = italianLocation "Monte San Vicino"
-
-monteTrebbio :: Location
-monteTrebbio = italianLocation "Monte Trebbio"
 
 montebelluna :: Location
 montebelluna = italianLocation "Montebelluna"
@@ -1404,9 +1383,6 @@ morbegno = italianLocation "Morbegno"
 
 mori :: Location
 mori = italianLocation "Mori"
-
-mountVesuvius :: Location
-mountVesuvius = italianLocation "Mount Vesuvius"
 
 muggio :: Location
 muggio = italianLocation "Muggio"
