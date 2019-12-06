@@ -1,11 +1,15 @@
 module Mountains.Appennines
 where
 
+import Countries.Italy (abetone)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(Italy))
 
 appennineCol :: String -> Int -> Col
 appennineCol name height = Col name Italy height Nothing Nothing Nothing
+
+abetone :: Col
+abetone = colFromLocation Countries.Italy.abetone
 
 blockhaus :: Col
 blockhaus = appennineCol "Blockhaus" 1210
@@ -45,6 +49,9 @@ monteTrebbio = appennineCol "Monte Trebbio" 575
 
 monteluro :: Col
 monteluro = appennineCol "Monteluro" 222
+
+montevergineDiMercogliano :: Col
+montevergineDiMercogliano = appennineCol "Montevergine di Mercogliano" 1260
 
 mountVesuvius :: Col
 mountVesuvius = appennineCol "Mount Vesuvius" 1030

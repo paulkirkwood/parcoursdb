@@ -20,7 +20,7 @@ abbiategrasso :: Location
 abbiategrasso = italianLocation "Abbiategrasso"
 
 abetone :: Location
-abetone = italianLocation "Abetone"
+abetone = Location "Abetone" Italy (Just 1386)
 
 acquappesa :: Location
 acquappesa = italianLocation "Acquappesa"
@@ -95,7 +95,7 @@ ancona :: Location
 ancona = italianLocation "Ancona"
 
 andalo :: Location
-andalo = italianLocation "Andalo"
+andalo = Location "Andalo" Italy (Just 1024)
 
 aosta :: Location
 aosta = italianLocation "Aosta"
@@ -1079,7 +1079,7 @@ lissone :: Location
 lissone = italianLocation "Lissone"
 
 livigno :: Location
-livigno = italianLocation "Livigno"
+livigno = Location "Livigno" Italy (Just 1816)
 
 livorno :: Location
 livorno = italianLocation "Livorno"
@@ -1134,7 +1134,7 @@ madesimo :: Location
 madesimo = italianLocation "Madesimo"
 
 madonnaDiCampiglio :: Location
-madonnaDiCampiglio = italianLocation "Madonna di Campiglio"
+madonnaDiCampiglio = Location "Madonna di Campiglio" Italy (Just 1715)
 
 madonnaDiSanLuca :: Location
 madonnaDiSanLuca = italianLocation "Madonna di San Luca"
@@ -1322,7 +1322,7 @@ montebelluna :: Location
 montebelluna = italianLocation "Montebelluna"
 
 montecampione :: Location
-montecampione = italianLocation "Montecampione"
+montecampione = Location "Montecampione" Italy (Just 1200)
 
 montecassino :: Location
 montecassino = italianLocation "Montecassino"
@@ -1368,9 +1368,6 @@ montesilvano = italianLocation "Montesilvano"
 
 montevarchi :: Location
 montevarchi = italianLocation "Montevarchi"
-
-montevergineDiMercogliano :: Location
-montevergineDiMercogliano = italianLocation "Montevergine di Mercogliano"
 
 monticelloBrianza :: Location
 monticelloBrianza = italianLocation "Monticello Brianza"
@@ -1513,9 +1510,6 @@ passoDiPampeagno = italianLocation "Passo di Pampeagno"
 passoDiSanPellegrino :: Location
 passoDiSanPellegrino = italianLocation "Passo di San Pellegrino"
 
-passoFedaia :: Location
-passoFedaia = italianLocation "Passo Fedaia"
-
 pavia :: Location
 pavia = italianLocation "Pavia"
 
@@ -1622,7 +1616,7 @@ planDeCorones :: Location
 planDeCorones = Location "Plan de Corones" Italy (Just 2273)
 
 planDiMontecampione :: Location
-planDiMontecampione = italianLocation "Plan di Montecampione"
+planDiMontecampione = Location "Plan di Montecampione" Italy (Just 1732)
 
 poggibonsi :: Location
 poggibonsi = italianLocation "Poggibonsi"
@@ -2386,6 +2380,3 @@ voghera = italianLocation "Voghera"
 -- Z
 zingonia :: Location
 zingonia = italianLocation "Zingonia"
-
-zoldoAlto :: Location
-zoldoAlto = italianLocation "Zoldo Alto"

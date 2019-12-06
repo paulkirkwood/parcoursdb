@@ -3,10 +3,14 @@ module Mountains.Alps where
 import Countries.France (alpeD'Huez,avoriaz,courchevel,laPlagne,lesArcs,lesDeuxAlpes,orcieresMerlette,valD'Isere,valThorens)
 import Countries.France (leBettex,lesMenuires,laToussuire,lansEnVercors,chamrousse,villardDeLans,serreChevalier)
 import Countries.France (praLoup)
-import Countries.Italy (aprica,bormio,cortinaD'Ampezzo,ceresoleReale,cervinia,cevo,pratoNevoso,sestriere)
+import Countries.Italy (aprica,bormio,cortinaD'Ampezzo,ceresoleReale,cervinia,cevo)
+import Countries.Italy (livigno,montecampione,planDiMontecampione,pratoNevoso,sestriere)
 import Countries.Switzerland (cransMontana,saintMoritz,verbier)
 import ParcoursDB.Col
-import ParcoursDB.Country (Country(France,Italy,Switzerland)) 
+import ParcoursDB.Country (Country(Austria,France,Italy,Switzerland)) 
+
+austrianAlpineCol :: String -> Int -> Col
+austrianAlpineCol name height = Col name Austria height Nothing Nothing Nothing
 
 frenchAlpineCol :: String -> Int -> Col
 frenchAlpineCol name height = Col name France height Nothing Nothing Nothing
@@ -266,6 +270,9 @@ grandCucheron = frenchAlpineCol "Grand Cucheron" 1188
 grandSaintBernard :: Col
 grandSaintBernard = frenchAlpineCol "Grand-Saint-Bernard" 2470
 
+grossglockner :: Col
+grossglockner = austrianAlpineCol "Großglockner" 1908
+
 laPlagne :: Col
 laPlagne = colFromLocation Countries.France.laPlagne
 
@@ -302,6 +309,9 @@ lesMenuires = colFromLocation Countries.France.lesMenuires
 lesOrres :: Col
 lesOrres = frenchAlpineCol "Les Orres" 1496
 
+livigno :: Col
+livigno = colFromLocation Countries.Italy.livigno
+
 madonnaDelGhisallo :: Col
 madonnaDelGhisallo = italianAlpineCol "Madonna del Ghisallo" 754
 
@@ -328,6 +338,9 @@ monteJafferau = italianAlpineCol "Monte Jafferau" 1908
 
 monteMaddalena :: Col 
 monteMaddalena = italianAlpineCol "Monte Maddalena" 844
+
+montecampione :: Col
+montecampione = colFromLocation Countries.Italy.montecampione
 
 monteeD'Hauteville :: Col
 monteeD'Hauteville = frenchAlpineCol "Montée d’Hauteville" 1639
@@ -361,6 +374,9 @@ passoDelloStelvio = italianAlpineCol "Passo dello Stelvio" 2757
 
 pianDelLupo :: Col
 pianDelLupo = italianAlpineCol "Pian del Lupo" 1405
+
+planDiMontecampione :: Col
+planDiMontecampione = colFromLocation Countries.Italy.planDiMontecampione
 
 praLoup :: Col
 praLoup = colFromLocation Countries.France.praLoup

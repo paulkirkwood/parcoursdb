@@ -1,6 +1,6 @@
 module Mountains.Dolomites where
 
-import Countries.Italy (alpeDiPampeago,alpeDiSiusi,planDeCorones,sanMartinoDiCastrozza)
+import Countries.Italy (alpeDiPampeago,alpeDiSiusi,andalo,madonnaDiCampiglio,planDeCorones,sanMartinoDiCastrozza)
 import ParcoursDB.Col
 import ParcoursDB.Country (Country(Italy)) 
 
@@ -8,6 +8,9 @@ dolomatianCol :: String -> Int -> Col
 dolomatianCol name height = Col name Italy height Nothing Nothing Nothing
 
 -- A
+andalo :: Col
+andalo = colFromLocation Countries.Italy.andalo
+
 anterselva :: Col
 anterselva = dolomatianCol "Anterselva" 1635
 
@@ -40,10 +43,16 @@ lamon :: Col
 lamon = dolomatianCol "Lamon" 594
 
 -- M
+madonnaDiCampiglio :: Col
+madonnaDiCampiglio = colFromLocation Countries.Italy.madonnaDiCampiglio
+
 monteAvena :: Col
 monteAvena = dolomatianCol "Monte Avena" 1225
 
 -- P
+passoFedaia :: Col
+passoFedaia = dolomatianCol "Passo Fedaia" 2057
+
 passoManghen :: Col
 passoManghen = dolomatianCol "Passo Manghen" 2047
 
@@ -79,3 +88,6 @@ treCimeDiLavaredo = dolomatianCol "Tre Cime di Lavaredo" 2333
 -- Z
 monteZoncolan :: Col
 monteZoncolan = dolomatianCol "Monte Zoncolan" 1730
+
+zoldoAlto :: Col
+zoldoAlto = dolomatianCol "Zoldo Alto" 1514

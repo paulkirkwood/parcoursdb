@@ -1865,10 +1865,11 @@ giro1954' = do
   plainStage florence cesenatico 211.0
 
   -- Stage 11
-  plainStage cesenatico abetone 230.0
+  mountainStage (Left cesenatico) 230
+  addCol 230 Mountains.Appennines.abetone C2
 
   -- Stage 12
-  plainStage abetone genoa 251.0
+  plainStage Countries.Italy.abetone genoa 251.0
 
   -- Stage 13
   plainStage genoa turin 211.0
@@ -2227,10 +2228,11 @@ giro1959' = do
   individualTimeTrial salsomaggioreTerme salsomaggioreTerme 22.0
 
   -- Stage 3
-  plainStage salsomaggioreTerme abetone 180.0
+  mountainStage (Left salsomaggioreTerme) 180
+  addCol 180 Mountains.Appennines.abetone C2
 
   -- Stage 4
-  plainStage abetone arezzo 178.0
+  plainStage Countries.Italy.abetone arezzo 178.0
 
   -- Stage 5
   plainStage arezzo rome 243.0
@@ -2473,7 +2475,8 @@ giro1962' = do
   plainStage rieti fiuggi 193.0
 
   -- Stage 7
-  plainStage fiuggi montevergineDiMercogliano 224.0
+  mountainStage (Left fiuggi) 224
+  addCol 224 montevergineDiMercogliano C2
 
   -- Stage 8
   plainStage avellino foggia 110.0
@@ -3201,7 +3204,8 @@ giro1971' = do
   plainStage Countries.Yugoslavia.ljubljana tarvisio 100.0
 
   -- Stage 17
-  plainStage tarvisio grossglockner 206.0
+  mountainStage (Left tarvisio) 206
+  addCol 206 grossglockner C1
 
   -- Stage 18
   plainStage lienz falcade 195.0
@@ -3281,10 +3285,11 @@ giro1972' = do
   criterium parabiago 168.0
 
   -- Stage 16
-  plainStage parabiago livigno 256.0
+  mountainStage (Left parabiago) 256
+  addCol 256 Mountains.Alps.livigno C1
 
   -- Stage 17
-  mountainStage (Left livigno) 88
+  mountainStage (Left Countries.Italy.livigno) 88
   addCol 88 passoDelloStelvio C1
 
   -- Stage 18
@@ -3367,10 +3372,11 @@ giro1973' = do
   plainStage forteDeiMarmi verona 244.0
 
   -- Stage 18
-  plainStage verona andalo 173.0
+  mountainStage (Left verona) 173
+  addCol 173 Mountains.Dolomites.andalo C3
 
   -- Stage 19
-  plainStage andalo auronzoDiCadore 208.0
+  plainStage Countries.Italy.andalo auronzoDiCadore 208.0
 
   -- Stage 20
   plainStage auronzoDiCadore trieste 197.0
@@ -3926,7 +3932,8 @@ giro1980' = do
   plainStage gatteoAMare sirmione 237.0
 
   -- Stage 18
-  plainStage sirmione zoldoAlto 239.0
+  mountainStage (Left sirmione) 239
+  addCol 239 zoldoAlto C2
 
   -- Stage 19
   plainStage longarone cles 241.0
@@ -4095,7 +4102,8 @@ giro1982' = do
   plainStage fieraDiPrimiero boarioTerme 235.0
 
   -- Stage 18
-  plainStage piancogno montecampione 85.0
+  mountainStage (Left piancogno) 85
+  addCol 85 Mountains.Alps.montecampione C1
 
   -- Stage 19
   plainStage boarioTerme vigevano 162.0
@@ -5359,7 +5367,8 @@ giro1998' = do
   plainStage selva passoDiPampeagno 115.0
 
   -- Stage 19
-  plainStage cavalese planDiMontecampione 239.0
+  mountainStage (Left cavalese) 239
+  addCol 239 Mountains.Alps.planDiMontecampione C1
 
   -- Stage 20
   plainStage darfoBoarioTerme mendrisio 137.0
@@ -5439,10 +5448,11 @@ giro1999' = do
   addCol 166 Mountains.Dolomites.alpeDiPampeago C1
 
   -- Stage 20
-  plainStage predazzo madonnaDiCampiglio 175.0
+  mountainStage (Left predazzo) 175
+  addCol 175 Mountains.Dolomites.madonnaDiCampiglio C1
 
   -- Stage 21
-  mountainStage (Left madonnaDiCampiglio) 190
+  mountainStage (Left Countries.Italy.madonnaDiCampiglio) 190
   addCol 190 Mountains.Alps.aprica C3
 
   -- Stage 22
@@ -5484,7 +5494,8 @@ giro2000' = do
   plainStage corinaldo prato 265.0
 
   -- Stage 9
-  plainStage prato abetone 138.0
+  mountainStage (Left prato) 138
+  addCol 138 Mountains.Appennines.abetone C2
 
   -- Stage 10
   plainStage sanMarcelloPistoiese padua 253.0
@@ -5787,7 +5798,8 @@ giro2004' = do
   plainStage spoleto valmontone 164.0
 
   -- Stage 7
-  plainStage frosinone montevergineDiMercogliano 214.0
+  mountainStage (Left frosinone) 214
+  addCol 214 montevergineDiMercogliano C2
 
   -- Stage 8
   plainStage giffoniVallePiana policoro 214.0
@@ -5876,7 +5888,8 @@ giro2005' = do
   plainStage ravenna rossantoVeneto 212.0
 
   -- Stage 11
-  plainStage marostica zoldoAlto 150.0
+  mountainStage (Left marostica) 150
+  addCol 150 zoldoAlto C2
 
   -- Stage 12
   plainStage alleghe rovereto 178.0
@@ -5885,7 +5898,8 @@ giro2005' = do
   plainStage mezzocorona urtijei 218.0
 
   -- Stage 14
-  plainStage neumarkt livigno 210.0
+  mountainStage (Left neumarkt) 210
+  addCol 210 Mountains.Alps.livigno C1
 
   -- Stage 15
   plainStage villaDiTirano lissone 154.0
@@ -6005,7 +6019,8 @@ giro2007' = do
   transferDay
 
   -- Stage 4
-  plainStage salerno montevergineDiMercogliano 153.0
+  mountainStage (Left salerno) 153
+  addCol 153 montevergineDiMercogliano C2
 
   -- Stage 5
   plainStage teano frascati 173.0
@@ -6116,7 +6131,8 @@ giro2008' = do
   addCol 195 Mountains.Dolomites.alpeDiPampeago C1
 
   -- Stage 15
-  plainStage arabba passoFedaia 153.0
+  mountainStage (Left arabba) 153
+  addCol 153 passoFedaia C1
 
   -- Stage 16
   mountainTimeTrial (Left sanVigilloDiMarebbe) 12.8
@@ -6327,7 +6343,8 @@ giro2011' = do
   plainStage orvieto fiuggi 216.0
 
   -- Stage 7
-  plainStage maddaloni montevergineDiMercogliano 110.0
+  mountainStage (Left maddaloni) 110
+  addCol 110 montevergineDiMercogliano C2
 
   -- Stage 8
   plainStage sapri tropea 217.0
@@ -6347,7 +6364,8 @@ giro2011' = do
   plainStage castelfidardo ravenna 184.0
 
   -- Stage 13
-  plainStage spilimbergo grossglockner 167.0
+  mountainStage (Left spilimbergo) 167
+  addCol 167 grossglockner C1
 
   -- Stage 14
   mountainStage (Left lienz) 170
@@ -6587,7 +6605,8 @@ giro2014' = do
   plainStage agile oropa 164.0
 
   -- Stage 15
-  plainStage valdengo montecampione 225.0
+  mountainStage (Left valdengo) 225
+  addCol 255 Mountains.Alps.montecampione C1
 
   transferDay
 
@@ -6631,7 +6650,8 @@ giro2015' = do
   plainStage chiavari laSpezia 150.0
 
   -- Stage 5
-  plainStage laSpezia abetone 152.0
+  mountainStage (Left laSpezia) 152
+  addCol 152 Mountains.Appennines.abetone C2
 
   -- Stage 6
   plainStage montecatiniTerme castiglioneDellaPescaia 183.0
@@ -6663,7 +6683,8 @@ giro2015' = do
   individualTimeTrial treviso valdobbiadene 59.4
 
   -- Stage 15
-  plainStage marostica madonnaDiCampiglio 165.0
+  mountainStage (Left marostica) 165
+  addCol 165 Mountains.Dolomites.madonnaDiCampiglio C1
 
   transferDay
 
@@ -6753,7 +6774,8 @@ giro2016' = do
   transferDay
 
   -- Stage 16
-  plainStage bressanone andalo 132
+  mountainStage (Left bressanone) 132
+  addCol 132 Mountains.Dolomites.andalo C3
 
   -- Stage 17
   plainStage molveno cassanoDAdda 196
@@ -6899,7 +6921,7 @@ giro2018' = do
 
   -- Stage 8
   mountainStage (Left praiaAMare) 209
-  c2' 209 "Montevergine di Mercogliano" Italy 1260
+  addCol 209 montevergineDiMercogliano C2
 
   -- Stage 9
   let granSasso' = ParcoursDB.Location.vicinity granSassoD'Italia "Campo Imperatore"
