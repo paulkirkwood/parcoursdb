@@ -6977,7 +6977,7 @@ giro2018' = do
 
   -- Stage 18
   mountainStage (Left abbiategrasso) 196
-  c1' 196 "Prato Nevoso" Italy 1607
+  addCol 196 Mountains.Alps.pratoNevoso C1
 
   -- Stage 19
   mountainStage (Left veneriaReale) 185

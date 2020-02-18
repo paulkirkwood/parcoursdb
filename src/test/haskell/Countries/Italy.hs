@@ -1715,7 +1715,7 @@ prato :: Location
 prato = italianLocation "Prato"
 
 pratoNevoso :: Location
-pratoNevoso = Location "Prato Nevoso" Italy (Just 1480)
+pratoNevoso = Location "Prato Nevoso" Italy (Just 1607)
 
 predappio :: Location
 predappio = italianLocation "Predappio"

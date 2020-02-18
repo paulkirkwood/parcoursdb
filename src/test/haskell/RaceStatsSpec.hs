@@ -33,7 +33,7 @@ matchLongestStage g@(Giro _)
   | year `elem` [1960,2016]                                    = "18"
   | year `elem` [1952,1992,2003,2008]                          = "19"
   | year `elem` [1957,1959,1982,1996]                          = "21"
-  | year `elem` [1957,1959,1965,1968]                          = "22"
+  | year `elem` [1965,1968]                                    = "22"
   | year `elem` [1969]                                         = "23"
   | otherwise                                                  = "5"
   where (year,_,_) = startDate g

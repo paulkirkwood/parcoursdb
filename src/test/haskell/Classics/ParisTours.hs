@@ -1,6 +1,7 @@
 -- file Classics.ParisTours.hs
 module Classics.ParisTours
 (parisToursEditions
+,parisTours2018
 ) where
 
 import Control.Monad.State

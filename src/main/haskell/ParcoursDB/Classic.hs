@@ -86,115 +86,115 @@ name (GrandPrixDePlouay d _)
   where (year,_,_) = toGregorian d
 
 start :: Classic -> Location
-start (MilanoSanRemo _ _ _)         = Location "Milan" Italy
-start (LiegeBastogneLiege _ _ _)    = Location "Liège" Belgium
-start (OmloopHetVolk _ _ _ _)       = Location "Ghent" Belgium
-start (E3Harelbeke _ _ _)           = Location "Harelbeke" Belgium
-start (GentWevelgem _ _ _)          = Location "Ghent" Belgium
-start (GrandPrixDePlouay _ _ )      = Location "Plouay" France
-start (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium
+start (MilanoSanRemo _ _ _)         = Location "Milan" Italy Nothing
+start (LiegeBastogneLiege _ _ _)    = Location "Liège" Belgium Nothing
+start (OmloopHetVolk _ _ _ _)       = Location "Ghent" Belgium Nothing
+start (E3Harelbeke _ _ _)           = Location "Harelbeke" Belgium Nothing
+start (GentWevelgem _ _ _)          = Location "Ghent" Belgium Nothing
+start (GrandPrixDePlouay _ _ )      = Location "Plouay" France Nothing
+start (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium Nothing
 start (ParisRoubaix d _ _)
-  | year `elem` [1896,1897,1901] ++ [1929..1937] ++ [1939] = Location "Porte Maillot, Paris" France
-  | year == 1900                                           = Location "Saint-Germain" France
-  | year `elem` [1898,1899] ++ [1902..1913]                = Location "Chatou" France
-  | year `elem` [1914] ++ [1919..1928]                     = Location "Suresnes, Paris" France
-  | year == 1938                                           = Location "Argenteuil" France
-  | year `elem` [1943..1965]                               = Location "Saint-Denis" France
-  | year `elem` [1966..1976]                               = Location "Chantilly" France
-  | otherwise                                              = Location "Compiegne" France
+  | year `elem` [1896,1897,1901] ++ [1929..1937] ++ [1939] = Location "Porte Maillot, Paris" France Nothing
+  | year == 1900                                           = Location "Saint-Germain" France Nothing
+  | year `elem` [1898,1899] ++ [1902..1913]                = Location "Chatou" France Nothing
+  | year `elem` [1914] ++ [1919..1928]                     = Location "Suresnes, Paris" France Nothing
+  | year == 1938                                           = Location "Argenteuil" France Nothing
+  | year `elem` [1943..1965]                               = Location "Saint-Denis" France Nothing
+  | year `elem` [1966..1976]                               = Location "Chantilly" France Nothing
+  | otherwise                                              = Location "Compiegne" France Nothing
   where (year,_,_) = toGregorian d
 start (TourOfFlanders d _ _ _)
-  | year `elem` [1977..1997] = Location "Sint-Niklaas" Belgium
-  | year `elem` [1998..2016] = Location "Bruges" Belgium
-  | year > 2016              = Location "Antwerp" Belgium
-  | otherwise                = Location "Ghent" Belgium
+  | year `elem` [1977..1997] = Location "Sint-Niklaas" Belgium Nothing
+  | year `elem` [1998..2016] = Location "Bruges" Belgium Nothing
+  | year > 2016              = Location "Antwerp" Belgium Nothing
+  | otherwise                = Location "Ghent" Belgium Nothing
   where (year,_,_) = toGregorian d
 start (TourOfLombardy d _ _)
-  | year `elem` [1905..1984] ++ [1990..1994] ++ [2010,2011] = Location "Milan" Italy
-  | year `elem` [1985,1986,1987,1988,1989,2003,2014,2016]   = Location "Como" Italy
-  | year `elem` [1995..2001] ++ [2007..2009]                = Location "Varese" Italy
-  | year `elem` [2004..2006]                                = Location "Mendrisio" Italy
-  | year == 2002                                            = Location "Cantu" Italy
-  | otherwise                                               = Location "Bergamo" Italy
+  | year `elem` [1905..1984] ++ [1990..1994] ++ [2010,2011] = Location "Milan" Italy Nothing
+  | year `elem` [1985,1986,1987,1988,1989,2003,2014,2016]   = Location "Como" Italy Nothing
+  | year `elem` [1995..2001] ++ [2007..2009]                = Location "Varese" Italy Nothing
+  | year `elem` [2004..2006]                                = Location "Mendrisio" Italy Nothing
+  | year == 2002                                            = Location "Cantu" Italy Nothing
+  | otherwise                                               = Location "Bergamo" Italy Nothing
   where (year,_,_) = toGregorian d
 start (ParisTours d _ _ _)
-  | year `elem` [1974..1975] = Location "Tours" France
-  | year `elem` [1976..1979] = Location "Blois" France
-  | year `elem` [1985..1987] = Location "Créteil" France
-  | otherwise                = Location "Paris" France
+  | year `elem` [1974..1975] = Location "Tours" France Nothing
+  | year `elem` [1976..1979] = Location "Blois" France Nothing
+  | year `elem` [1985..1987] = Location "Créteil" France Nothing
+  | otherwise                = Location "Paris" France Nothing
   where (year,_,_) = toGregorian d
 start (AmstelGoldRace d _ _)
-  | year == 1966             = Location "Breda" Netherlands
-  | year `elem` [1967..1970] = Location "Helmond" Netherlands
-  | year `elem` [1971..1997] = Location "Heerlen" Netherlands
-  | otherwise                = Location "Maastricht" Netherlands
+  | year == 1966             = Location "Breda" Netherlands Nothing
+  | year `elem` [1967..1970] = Location "Helmond" Netherlands Nothing
+  | year `elem` [1971..1997] = Location "Heerlen" Netherlands Nothing
+  | otherwise                = Location "Maastricht" Netherlands Nothing
   where (year,_,_) = toGregorian d
 start (LaFlecheWallonne d _ _)
-  | year `elem` [1936..1938]           = Location "Tournai" Belgium
-  | year `elem` [1939..1947] ++ [1980] = Location "Mons" Belgium
-  | year `elem` [1948..1959] ++ [1982..1984] = Location "Charleroi" Belgium
-  | year `elem` [1960..1971] = Location "Liège" Belgium
-  | year `elem` [1972..1978] = Location "Verviers" Belgium
-  | year `elem` [1979]       = Location "Esneux" Belgium
-  | year `elem` [1982..1984] = Location "Charleroi" Belgium
-  | year `elem` [1985]       = Location "Huy" Belgium
-  | otherwise                = Location "Spa" Belgium
+  | year `elem` [1936..1938]           = Location "Tournai" Belgium Nothing
+  | year `elem` [1939..1947] ++ [1980] = Location "Mons" Belgium Nothing
+  | year `elem` [1948..1959] ++ [1982..1984] = Location "Charleroi" Belgium Nothing
+  | year `elem` [1960..1971] = Location "Liège" Belgium Nothing
+  | year `elem` [1972..1978] = Location "Verviers" Belgium Nothing
+  | year `elem` [1979]       = Location "Esneux" Belgium Nothing
+  | year `elem` [1982..1984] = Location "Charleroi" Belgium Nothing
+  | year `elem` [1985]       = Location "Huy" Belgium Nothing
+  | otherwise                = Location "Spa" Belgium Nothing
   where (year,_,_) = toGregorian d
 
 finish :: Classic -> Location
-finish (ParisRoubaix _ _ _)          = Location "Roubaix" France
-finish (MilanoSanRemo _ _ _)         = Location "San Remo" Italy
-finish (GrandPrixDePlouay _ _)       = Location "Plouay" France
-finish (GentWevelgem _ _ _)          = Location "Wevelgem" Belgium
-finish (E3Harelbeke _ _ _)           = Location "Harelbeke" Belgium
-finish (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium
+finish (ParisRoubaix _ _ _)          = Location "Roubaix" France Nothing
+finish (MilanoSanRemo _ _ _)         = Location "San Remo" Italy Nothing
+finish (GrandPrixDePlouay _ _)       = Location "Plouay" France Nothing
+finish (GentWevelgem _ _ _)          = Location "Wevelgem" Belgium Nothing
+finish (E3Harelbeke _ _ _)           = Location "Harelbeke" Belgium Nothing
+finish (KuurneBrusselsKuurne _ _ _ ) = Location "Kuurne" Belgium Nothing
 finish (TourOfFlanders d _ _ _)
-  | year == 1913                             = Location "Mariakerke" Belgium
-  | year == 1914                             = Location "Evergem" Belgium
-  | year `elem` [1919..1923] ++ [1962..1972] = Location "Gentbrugge" Belgium
-  | year `elem` [1928..1941] ++ [1945..1961] = Location "Wetteren" Belgium
-  | year `elem` [1973..2011]                 = Location "Meerbeke" Belgium
-  | year > 2011                              = Location "Oudenaarde" Belgium
-  | otherwise                                = Location "Ghent" Belgium
+  | year == 1913                             = Location "Mariakerke" Belgium Nothing
+  | year == 1914                             = Location "Evergem" Belgium Nothing
+  | year `elem` [1919..1923] ++ [1962..1972] = Location "Gentbrugge" Belgium Nothing
+  | year `elem` [1928..1941] ++ [1945..1961] = Location "Wetteren" Belgium Nothing
+  | year `elem` [1973..2011]                 = Location "Meerbeke" Belgium Nothing
+  | year > 2011                              = Location "Oudenaarde" Belgium Nothing
+  | otherwise                                = Location "Ghent" Belgium Nothing
   where (year,_,_) = toGregorian d
 finish (LiegeBastogneLiege d _ _)
-  | year `elem` [1992..2018] = Location "Ans" Belgium
-  | otherwise                = Location "Liège" Belgium
+  | year `elem` [1992..2018] = Location "Ans" Belgium Nothing
+  | otherwise                = Location "Liège" Belgium Nothing
   where (year,_,_) = toGregorian d
 finish (TourOfLombardy d _ _)
-  | year `elem` [1990..1994]                 = Location "Monza" Italy
-  | year `elem` [2011..2013]                 = Location "Lecco" Italy
-  | year `elem` [1905..1960] ++ [1985..1989] = Location "Milan" Italy
-  | year `elem` [1995..2003] ++ [2014,2016]  = Location "Bergamo" Italy
-  | otherwise                                = Location "Como" Italy
+  | year `elem` [1990..1994]                 = Location "Monza" Italy Nothing
+  | year `elem` [2011..2013]                 = Location "Lecco" Italy Nothing
+  | year `elem` [1905..1960] ++ [1985..1989] = Location "Milan" Italy Nothing
+  | year `elem` [1995..2003] ++ [2014,2016]  = Location "Bergamo" Italy Nothing
+  | otherwise                                = Location "Como" Italy Nothing
   where (year,_,_) = toGregorian d
 finish (OmloopHetVolk d _ _ _)
-  | year `elem` [1996..2007] = Location "Lokeren" Belgium
-  | otherwise                = Location "Ghent" Belgium
+  | year `elem` [1996..2007] = Location "Lokeren" Belgium Nothing
+  | otherwise                = Location "Ghent" Belgium Nothing
   where (year,_,_) = toGregorian d
 finish (ParisTours d _ _ _)
-  | year `elem` [1974,1975]                 = Location "Versailles" France
-  | year == 1978                            = Location "Autodrome de Montlhéry" France
-  | year `elem` [1976,1977] ++ [1979..1987] = Location "Chaville" France
-  | otherwise                               = Location "Tours" France
+  | year `elem` [1974,1975]                 = Location "Versailles" France Nothing
+  | year == 1978                            = Location "Autodrome de Montlhéry" France Nothing
+  | year `elem` [1976,1977] ++ [1979..1987] = Location "Chaville" France Nothing
+  | otherwise                               = Location "Tours" France Nothing
   where (year,_,_) = toGregorian d
 finish (AmstelGoldRace d _ _)
-  | year `elem` [1966,1967] ++ [1969..1990] = Location "Meerssen" Netherlands
-  | year == 1968                            = Location "Elsloo" Netherlands
-  | year `elem` [1991..2002]                = Location "Maastricht" Netherlands
-  | year `elem` [2003..2012]                = Location "Valkenburg" Netherlands
-  | otherwise                               = Location "Berg en Terblijt" Netherlands
+  | year `elem` [1966,1967] ++ [1969..1990] = Location "Meerssen" Netherlands Nothing
+  | year == 1968                            = Location "Elsloo" Netherlands Nothing
+  | year `elem` [1991..2002]                = Location "Maastricht" Netherlands Nothing
+  | year `elem` [2003..2012]                = Location "Valkenburg" Netherlands Nothing
+  | otherwise                               = Location "Berg en Terblijt" Netherlands Nothing
   where (year,_,_) = toGregorian d
 finish (LaFlecheWallonne d _ _)
-  | year `elem` [1936] ++ [1946..1959]           = Location "Liège" Belgium
-  | year `elem` [1937]                           = Location "Ans" Belgium
-  | year `elem` [1938..1941]                     = Location "Rocourt" Belgium
-  | year `elem` [1942] ++ [1965..1973] ++ [1979] = Location "Marcinelle" Belgium
-  | year `elem` [1943..1945] ++ [1960..1964]     = Location "Charleroi" Belgium
-  | year `elem` [1974..1978]                     = Location "Verviers" Belgium
-  | year `elem` [1980,1982]                      = Location "Spa" Belgium
-  | year `elem` [1981]                           = Location "Mons" Belgium
-  | otherwise                                    = Location "Huy" Belgium
+  | year `elem` [1936] ++ [1946..1959]           = Location "Liège" Belgium Nothing
+  | year `elem` [1937]                           = Location "Ans" Belgium Nothing
+  | year `elem` [1938..1941]                     = Location "Rocourt" Belgium Nothing
+  | year `elem` [1942] ++ [1965..1973] ++ [1979] = Location "Marcinelle" Belgium Nothing
+  | year `elem` [1943..1945] ++ [1960..1964]     = Location "Charleroi" Belgium Nothing
+  | year `elem` [1974..1978]                     = Location "Verviers" Belgium Nothing
+  | year `elem` [1980,1982]                      = Location "Spa" Belgium Nothing
+  | year `elem` [1981]                           = Location "Mons" Belgium Nothing
+  | otherwise                                    = Location "Huy" Belgium Nothing
   where (year,_,_) = toGregorian d
 
 pave :: Classic -> [String]

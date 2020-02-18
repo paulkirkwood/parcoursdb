@@ -9,7 +9,7 @@ import Classics.E3Harelbeke (e3HarelbekeEditions)
 import Classics.GentWevelgem (gentWevelgemEditions)
 import Classics.GrandPrixDePlouay (grandPrixDePlouayEditions)
 import Classics.KuurneBrusselsKuurne (kuurneBrusselsKuurneEditions)
-import Classics.LaFlecheWallonne (flecheWallonneEditions)
+import Classics.LaFlecheWallonne (laFlecheWallonneEditions)
 import Classics.LiegeBastogneLiege (liegeBastogneLiegeEditions)
 import Classics.MilanoSanRemo (milanoSanRemoEditions)
 import Classics.OmloopHetVolk (omloopHetVolkEditions)
@@ -26,7 +26,7 @@ editions = amstelGoldRaceEditions ++
            gentWevelgemEditions ++
            grandPrixDePlouayEditions ++
            kuurneBrusselsKuurneEditions ++
-           flecheWallonneEditions ++
+           laFlecheWallonneEditions ++
            liegeBastogneLiegeEditions ++
            milanoSanRemoEditions ++
            omloopHetVolkEditions ++
