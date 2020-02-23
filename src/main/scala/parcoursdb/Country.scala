@@ -271,12 +271,12 @@ object FrenchLocations {
     def chateaulin:Location = { Location("Châteaulin") }
     def chateauroux:Location = { Location("Chateauroux") }
     def chatel:Location = { Location("Châtel") }
-    def chatel_guyon:Location = { Location("Chatel-Guyon") }
+    def chatelGuyon:Location = { Location("Chatel-Guyon") }
     def chatellerault:Location = { Location("Chatellerault") }
     def chatou:Location = { Location("Chatou") }
     def chaumeil:Location = { Location("Chaumeil") }
     def chaville:Location = { Location("Chaville") }
-    def chazey_sur_ain:Location = { Location("Chazey-sur-Ain") }
+    def chazeySurAin:Location = { Location("Chazey-sur-Ain") }
     def cherbourg:Location = { Location("Cherbourg") }
     def cherbourg_en_cotentin:Location = { Location("Cherbourg-en-Cotentin") }
     def cholet:Location = { Location("Cholet") }
@@ -422,7 +422,7 @@ object FrenchLocations {
     def langon:Location = { Location("Langon") }
     def lannemezan:Location = { Location("Lannemezan") }
     def lannion:Location = { Location("Lannion") }
-    def lans_en_vercors:Location = { Location("Lans-en-Vercors", Some(1410)) }
+    def lansEnVercors:Location = { Location("Lans-en-Vercors", Some(1410)) }
     def laon:Location = { Location("Laon") }
     def laplume:Location = { Location("Laplume") }
     def laruns:Location = { Location("Laruns") }
@@ -642,7 +642,7 @@ object FrenchLocations {
     def saintGermain:Location = { Location("Saint-Germain") }
     def saintGermainEnLaye:Location = { Location("Saint-Germain-en-Laye") }
     def saintGervais:Location = { Location("Saint-Gervais") }
-    def saintGervais_mont_blanc:Location = { Location("Saint-Gervais Mont-Blanc", Some(970)) }
+    def saintGervaisMontBlanc:Location = { Location("Saint-Gervais Mont-Blanc", Some(970)) }
     def saintGervais_les_bains:Location = { Location("Saint Gervais-les-Bains") }
     def saintGildas_des_bois:Location = { Location("Saint-Gildas-des-Bois") }
     def saintGilles_croix_de_vie:Location = { Location("Saint-Gilles-Croix-de-Vie") }
@@ -653,7 +653,7 @@ object FrenchLocations {
     def saint_jean_de_maurienne:Location = { Location("Saint-Jean-de-Maurienne") }
     def saintJeanDeMonts:Location = { Location("Saint-Jean-de-Monts") }
     def saint_julien_en_genevois:Location = { Location("Saint-Julien-en-Genevois") }
-    def saint_just_saint_rambert:Location = { Location("Saint-Just-Saint-Rambert") }
+    def saintJustSaintRambert:Location = { Location("Saint-Just-Saint-Rambert") }
     def saint_lary_pla_d_adet:Location = { Location("Saint-Lary Pla d'Adet") }
     def saint_lary_soulan:Location = { Location("Saint-Lary-Soulan") }
     def saint_lary_soulan_pla_d_adet:Location = { Location("Saint-Lary-Soulan Pla d'Adet", Some(1680)) }
@@ -681,7 +681,7 @@ object FrenchLocations {
     def saintes:Location = { Location("Saintes") }
     def salies_de_bearn:Location = { Location("Salies-de-Bearn") }
     def sallanches:Location = { Location("Sallanches") }
-    def salon_de_provence:Location = { Location("Salon-de-Provence") }
+    def salonDeProvence:Location = { Location("Salon-de-Provence") }
     def samatan:Location = { Location("Samatan") }
     def santennay:Location = { Location("Santennay") }
     def sarran:Location = { Location("Sarran") }
@@ -773,11 +773,13 @@ object FrenchLocations {
 
     // French cols
 
-    def leLioran:Location = { Location("Le Lioran", Some(1326)) }
-    def laRuchere         = { Location("La Ruchère", Some(1160)) }
-    def montVentoux       = { Location("Mont Ventoux", Some(1912)) }
-    def puyDeDome         = { Location("Puy de Dôme", Some(1415)) }
-    def superbagneres     = { Location("Superbagnères", Some(1804)) }
+    def leLioran          = Location("Le Lioran", Some(1326))
+    def laRosiere         = Location("La Rosiere", Some(1855))
+    def laRuchere         = Location("La Ruchère", Some(1160))
+    def montVentoux       = Location("Mont Ventoux", Some(1912))
+    def puyDeDome         = Location("Puy de Dôme", Some(1415))
+    def superbagneres     = Location("Superbagnères", Some(1804))
+    def valdebloreLaColmiane = Location("Valdeblore La Colmiane", Some(1500))
 }
 
 object GermanLocations {
@@ -851,7 +853,7 @@ object ItalianLocations {
     def arosio:Location = { Location("Arosio") }
     def arta_terme:Location = { Location("Arta Terme") }
     def arzignano:Location = { Location("Arzignano") }
-    def ascoli_piceno:Location = { Location("Ascoli Piceno") }
+    def ascoliPiceno:Location = { Location("Ascoli Piceno") }
     def asiago:Location = { Location("Asiago") }
     def asolo:Location = { Location("Asolo") }
     def assisi:Location = { Location("Assisi") }
@@ -966,13 +968,13 @@ object ItalianLocations {
     def castellamonte:Location = { Location("Castellamonte") }
     def castellana_grotte:Location = { Location("Castellana Grotte") }
     def castellania:Location = { Location("Castellania") }
-    def castelnuouvo_di_val_di_cecina:Location = { Location("Castelnuouvo di Val di Cecina") }
+    def castelnuouvoDiValDiCecina:Location = { Location("Castelnuouvo di Val di Cecina") }
     def castelraimondo:Location = { Location("Castelraimondo") }
     def castelrotto:Location = { Location( "Castelrotto" ) }
     def castigilione_della_pescaia:Location = { Location("Castiglione della Pescaia") }
     def castiglione_del_lago:Location = { Location("Castiglione del Lago") }
     def castiglione_della_pescaia:Location = { Location("Castiglione della Pescaia") }
-    def castrocaro_terme:Location = { Location("Castrocaro Terme") }
+    def castrocaroTerme:Location = { Location("Castrocaro Terme") }
     def castrovillari:Location = { Location("Castrovillari") }
     def catania:Location = { Location("Catania") }
     def catanzaro:Location = { Location("Catanzaro") }
@@ -1020,7 +1022,7 @@ object ItalianLocations {
     def cittadella:Location = { Location("Cittadella") }
     def cittareale:Location = { Location("Cittareale") }
     def cividale_del_fruili:Location = { Location("Cividale del Friuli") }
-    def civitanova_marche:Location = { Location("Civitanova Marche") }
+    def civitanovaMarche:Location = { Location("Civitanova Marche") }
     def civitavecchia:Location = { Location("Civitavecchia") }
     def civitella_di_val_di_chiana:Location = { Location("Civitella di Val di Chiana") }
     def cles:Location = { Location("Cles") }
@@ -1081,6 +1083,7 @@ object ItalianLocations {
     def ferrara:Location = { Location("Ferrara") }
     def fidenza:Location = { Location("Fidenza") }
     def fiera_di_primiero:Location = { Location("Fiera di Primiero") }
+    def filottrano:Location = { Location("Filottrano") }
     def fiorano_modenese:Location = { Location("Fiorano Modenese") }
     def firenze:Location = { Location("Firenze") }
     def firenze_ponte_a_ema:Location = { Location("Firenze (Ponte a Ema)") }
@@ -1260,10 +1263,10 @@ object ItalianLocations {
     def mondragone:Location = { Location("Mondragone") }
     def monesi:Location = { Location("Monesi") }
     def montalcino:Location = { Location("Montalcino") }
-    def montalto_di_castro:Location = { Location("Montalto di Castro") }
+    def montaltoDiCastro:Location = { Location("Montalto di Castro") }
     def monte_argentario:Location = { Location("Monte Argentario") }
     def monte_di_procida:Location = { Location("Monte di Procida") }
-    def monte_san_vicino:Location = { Location("Monte San Vicino") }
+    def monteSanVicino:Location = { Location("Monte San Vicino") }
     def montebelluna:Location = { Location("Montebelluna") }
     def montecampione:Location = { Location("Montecampione", Some(1200)) }
     def montecassino:Location = { Location("Montecassino") }
@@ -1280,6 +1283,7 @@ object ItalianLocations {
     def monteluco_di_spoleto:Location = { Location("Monteluco di Spoleto") }
     def montenero_di_bisaccia:Location = { Location("Montenero di Bisaccia") }
     def montepulciano:Location = { Location("Montepulciano") }
+    def monterotondoMarittimo:Location = Location("Monterotondo Marittimo")
     def montesano_sulla_marcellana:Location = { Location("Montesano sulla Marcellana") }
     def montesilvano:Location = { Location("Montesilvano") }
     def monticelloBrianza:Location = { Location("Monticello Brianza") }
@@ -1290,7 +1294,7 @@ object ItalianLocations {
     def museo_del_ghisallo:Location = { Location("Museo del Ghisallo") }
 
     def naples:Location = { Location("Naples") }
-    def narni_scalo:Location = { Location("Narni Scalo") }
+    def narniScalo:Location = { Location("Narni Scalo") }
     def nervesa_della_battaglia:Location = { Location("Nervesa della Battaglia") }
     def nettuno:Location = { Location("Nettuno") }
     def neumarkt:Location = { Location("Neumarkt") }
@@ -1399,7 +1403,7 @@ object ItalianLocations {
     def potenza:Location = { Location("Potenza") }
     def pozza_di_fassa:Location = { Location("Pozza di Fassa") }
     def praia_a_mare:Location = { Location("Praia a Mare") }
-    def prati_di_tivo:Location = { Location("Prati di Tivo") }
+    def pratiDiTivo:Location = { Location("Prati di Tivo") }
     def prato:Location = { Location("Prato") }
     def pratoNevoso:Location = { Location("Prato Nevoso", Some(1607)) }
     def predappio:Location = { Location("Predappio") }
@@ -1491,6 +1495,7 @@ object ItalianLocations {
     def sappada:Location = { Location("Sappada") }
     def sapri:Location = { Location("Sapri") }
     def sarezzo:Location = { Location("Sarezzo") }
+    def sarnanoSassotetto:Location = Location("Sarnano Sassotetto")
     def sarnico:Location = { Location("Sarnico") }
     def sarnonico:Location = { Location("Sarnonico") }
     def saronno:Location = { Location("Saronno") }
@@ -1574,6 +1579,7 @@ object ItalianLocations {
     def trento:Location = { Location("Trento") }
     def trescore:Location = { Location("Trescore Balneario") }
     def trescore_balneario:Location = { Location("Trescore Balneario") }
+    def trevi:Location = Location("Trevi")
     def treviglio:Location = { Location("Treviglio") }
     def treviso:Location = { Location("Treviso") }
     def trieste:Location = { Location("Trieste") }
@@ -1631,6 +1637,9 @@ object ItalianLocations {
     def voghera:Location = { Location("Voghera") }
 
     def zingonia:Location = { Location("Zingonia") }
+
+    // Italian mountains
+    def monteTerminillo = Location("Monte Terminillo", Some(2217))
 }
 
 object DutchLocations {

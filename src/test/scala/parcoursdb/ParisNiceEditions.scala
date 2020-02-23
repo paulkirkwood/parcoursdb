@@ -2,27 +2,26 @@ package parcoursdb
 
 import FrenchLocations._
 import java.time.LocalDate
-import StageRaceState._
+import ParisNiceState._
 
 object ParisNiceEditions {
 
   implicit val country:Country = France
-  val nice:Location = Location("Nice")
 
   def parisNice2018:StageRaceEdition = {
 
     val composition = for {
       // Stage 1
-      _ <- roadStage(start="Chatou", finish="Meudon", length=134.5)
+      _ <- roadStage(chatou, meudon, 134.5)
       _ <- c3("Cote des Tournants", 172, 79 )
       _ <- c3("Cote de Meridon", 160, 85.5 )
       _ <- c3("Cote de Meridon", 160, 134.5 )
 
       // Stage 2
-      _ <- roadStage(start="Orsonville", finish="Vierzon", length=187.5)
+      _ <- roadStage(orsonville, vierzon, 187.5)
 
       // Stage 3
-      _ <- roadStage(start="Bourges", finish="Chatel-Guyon", length=210)
+      _ <- roadStage(bourges, chatelGuyon, 210)
       _ <- c3("Cote de la Bosse", 702, 123)
       _ <- c3("Cote des Boulards", 564, 143.5)
       _ <- c3("Cote des Charbonnieres", 716, 187.5)
@@ -31,14 +30,14 @@ object ParisNiceEditions {
       _ <- individualTimeTrial(laFouillouse, saintEtienne, 18.4)
 
       // Stage 5
-      _ <- roadStage(start="Salon-de-Provence", finish="Sisteron", length=165)
+      _ <- roadStage(salonDeProvence, sisteron, 165)
       _ <- c2("Cote du Pointu", 500, 49 )
       _ <- c1("Col de Lagarde-d'Apt", 1097, 76.5)
       _ <- c3("Col du Negron", 1242, 1060)
       _ <- c3("Cote de la Marquise", 569, 152)
 
       // Stage 6
-      _ <- roadStage(start="Sisteron", finish="Vence", length=198)
+      _ <- roadStage(sisteron, vence, 198)
       _ <- c2("Col de Luens", 1062, 101)
       _ <- c2("Col Bas", 1024, 121)
       _ <- c2("Cote de Cipieres", 744, 149)
@@ -46,7 +45,7 @@ object ParisNiceEditions {
       _ <- c1("Cote de la Colle sur Loup", 273, 189.5)
 
       // Stage 7
-      _ <- roadStage(start=nice, finish=Location("Valdeblore La Colmiane"), length=175)
+      _ <- roadStage(nice, valdebloreLaColmiane, 175)
       _ <- c2("Cote de Gattieres", 264, 10)
       _ <- c1("Cote de la Sainte-Baume", 1118, 84.5)
       _ <- c2("Col Saint-Raphael", 833, 108)
@@ -64,7 +63,7 @@ object ParisNiceEditions {
 
     } yield()
 
-    val result = composition.exec(StageRaceState.init(ParisNice,LocalDate.of(2018,3,4)))
+    val result = composition.exec(ParisNiceState.init(LocalDate.of(2018,3,4)))
     StageRaceEdition(ParisNice, result.stages)
   }
 }
