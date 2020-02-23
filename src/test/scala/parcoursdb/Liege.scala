@@ -2,17 +2,13 @@ package parcoursdb
 
 import java.time.LocalDate
 import OneDayRaceState._
+import parcoursdb.BelgianLocations.{ans,liege}
 
 object LiegeBastogneLiegeEditions {
 
-  implicit val country:Country = Belgium
-
-  val ans   = Location("Ans")
-  val liege = Location("Liege")
-
   def finish(year:Int) : Location = year match {
     case year if 1992 to 2018 contains year => ans
-    case _ => liege,
+    case _ => liege
   }
 
   def lbl2018:OneDayRaceEdition = {

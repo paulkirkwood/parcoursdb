@@ -13,7 +13,7 @@ object RaceUtils {
     case ParisRoubaix         => "Paris-Roubaix"
     case AmstelGoldRace       => "Amstel Gold Race"
     case FlecheWallonne       => "Fleche Wallonne"
-    case LiegeBastogneLiege   => "Liege-Bastogne-Liege"
+    case LiegeBastogneLiege   => "Liège-Bastogne-Liège"
     case SanSebastianClassic  => "Clasica de San Sebastian"
     case GrandPrixDePoulay    => "Grand Prix de Poulay"
     case GrandPrixDeQuebec    => "Grand Prix de Quebec"
@@ -22,10 +22,10 @@ object RaceUtils {
     case TourOfLombardy       => "Il Lombardia"
     case ParisNice            => "Paris-Nice"
     case TirrenoAdriatico     => "Tirreno Adriatico"
-    case CriteriumDuDauphine  => "Criterium du Dauphine"
+    case CriteriumDuDauphine  => "Critérium du Dauphiné"
     case TourDeFrance         => "Le Tour de France"
     case TourOfItaly          => "Giro d'Italia"
-    case TourOfSpain          => "Vuelta a Espana"
+    case TourOfSpain          => "Vuelta a España"
   }
 
   def country(r:Race): Country = r match {

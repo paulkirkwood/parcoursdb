@@ -66,25 +66,17 @@ object StageRaceState {
     if (s.splitStages) s"${s.stageID}${s.splitStageID}" else s"${s.stageID}"
   }
 
-  def prologue(start:String, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    prologue(Location(start), Location(start), length)
-  }
-
-  def prologue(start:String, finish:String, length:Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    prologue(Location(start), Location(finish), length)
-  }
-
   def prologue(start:Location, length: Double) : State[StageRaceState, Unit] = {
     prologue(start, start, length)
-   }
+  }
  
-   def prologue(start:Location, finish:Location, length:Double) : State[StageRaceState, Unit] = {
-     for {
-       s <- get[StageRaceState]
-       stage = Prologue(s.date, start, finish, length)
-       producedValue <- put(s.copy(date=nextStageDate(s), stages=s.stages :+ stage))
-     } yield producedValue
-   }
+  def prologue(start:Location, finish:Location, length:Double) : State[StageRaceState, Unit] = {
+    for {
+      s <- get[StageRaceState]
+      stage = Prologue(s.date, start, finish, length)
+      producedValue <- put(s.copy(date=nextStageDate(s), stages=s.stages :+ stage))
+    } yield producedValue
+  }
  
   def roadStage(start:String, finish:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
     roadStage(Location(start),Location(finish),length)
@@ -109,24 +101,12 @@ object StageRaceState {
     } yield producedValue
   }
 
-  def criterium(start:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    roadStage(Location(start),Location(start),length)
-  }
-
   def criterium(start: Location, length: Double) : State[StageRaceState, Unit] = {
     roadStage(start,start,length)
   }
 
-  def teamTimeTrial(start:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    teamTimeTrial(Location(start),Location(start),length)
-  }
-
   def teamTimeTrial(start:Location, length: Double) : State[StageRaceState, Unit] = {
     teamTimeTrial(start,start,length)
-  }
-
-  def teamTimeTrial(start:String, finish:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    teamTimeTrial(Location(start), Location(finish), length)
   }
 
   def teamTimeTrial(start:Location, finish:Location, length: Double) : State[StageRaceState, Unit] = {
@@ -138,22 +118,6 @@ object StageRaceState {
 				  splitStageID=nextSplitStageID(s),
 				  stages=s.stages :+ stage))
     } yield producedValue
-  }
-
-  def individualTimeTrial(start:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    individualTimeTrial(Location(start),Location(start),length)
-  }
-
-  def individualTimeTrial(start:String, finish:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    individualTimeTrial(Location(start),Location(finish),length)
-  }
-
-  def individualTimeTrial(start:Location, finish:String, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    individualTimeTrial(start,Location(finish),length)
-  }
-
-  def individualTimeTrial(start:String, finish:Location, length: Double)(implicit country:Country) : State[StageRaceState, Unit] = {
-    individualTimeTrial(Location(start),finish,length)
   }
 
   def individualTimeTrial(start:Location, length: Double) : State[StageRaceState, Unit] = {
@@ -177,10 +141,6 @@ object StageRaceState {
       stage = RestDay(s.date,None)
       producedValue <- put(s.copy(date=nextStageDate(s), stages=s.stages :+ stage))
     } yield producedValue
-  }
-
-  def restDay(location:String)(implicit country:Country) : State[StageRaceState, Unit] = {
-    restDay(Location(location))
   }
 
   def restDay(location:Location): State[StageRaceState, Unit] = {

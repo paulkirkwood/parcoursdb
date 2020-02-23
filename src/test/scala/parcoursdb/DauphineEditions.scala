@@ -1,5 +1,6 @@
 package parcoursdb
 
+import FrenchLocations._
 import java.time.LocalDate
 import StageRaceState._
 
@@ -10,7 +11,7 @@ object DauphineEditions {
   def dauphine2018:StageRaceEdition = {
     val composition = for {
       // Prologue
-      _ <- prologue("Valence", 6.6)
+      _ <- prologue(valence, 6.6)
 
       // Stage 1
       _ <- roadStage(start="Valence", finish="Saint-Just-Saint-Rambert", length=179)
@@ -31,10 +32,10 @@ object DauphineEditions {
       _ <- c3(name="Col du Fut d'Avenas", height=740, summitKM=151)
 
       // Stage 3
-      _ <- teamTimeTrial(start="Pont-de-Vaux", finish="Louhans-Chateaurenaud", length=35)
+      _ <- teamTimeTrial(pontDeVaux, louhansChateaurenaud, 35)
 
       // Stage 4
-      _ <- roadStage(start="Chazey-sur-Ain", finish="Lan-en-Vercors", length=181)
+      _ <- roadStage(start="Chazey-sur-Ain", finish="Lans-en-Vercors", length=181)
       _ <- c4(name="Col de Toutes Aures", height=620, summitKM=102)
       _ <- hc(name="Col du Mont Noir", height=1421, summitKM=143.5)
       _ <- c2(name="Lans-en-Vercors", height=1409, summitKM=181)
@@ -46,14 +47,14 @@ object DauphineEditions {
       _ <- hc(name="Valmorel", height=1369, summitKM=130)
 
       // Stage 6
-      _ <- roadStage(start="Frontenex", finish="La Rosiere Espace San Bernardo", length=110)
+      _ <- roadStage(start="Frontenex", finish="La Rosiere", length=110)
       _ <- hc(name="Monte de Bisanne", height=1723, summitKM=27.5)
       _ <- hc(name="Col du Pre", height=1748, summitKM=59.5)
       _ <- c2(name="Cormet de Roselend", height=1968, summitKM=72)
       _ <- c1(name="La Rosiere", height=1855, summitKM=110)
 
       // Stage 7
-      _ <- roadStage(start="Moutiers", finish="Saint-Gervais Mont Blanc", length=136)
+      _ <- roadStage(start="Moûtiers", finish="Saint-Gervais Mont-Blanc", length=136)
       _ <- c1(name="Cormet de Roselend", height=1968, summitKM=43)
       _ <- c3(name="Cote de la route des Villes", height=1078, summitKM=64.5)
       _ <- c1(name="Col des Saisies", height=1663, summitKM=88.5)

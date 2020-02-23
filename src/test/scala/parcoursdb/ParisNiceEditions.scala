@@ -1,5 +1,6 @@
 package parcoursdb
 
+import FrenchLocations._
 import java.time.LocalDate
 import StageRaceState._
 
@@ -27,7 +28,7 @@ object ParisNiceEditions {
       _ <- c3("Cote des Charbonnieres", 716, 187.5)
 
       // Stage 4
-      _ <- individualTimeTrial(start="La Fouillouse", finish="Saint-Etienne", length=18.4)
+      _ <- individualTimeTrial(laFouillouse, saintEtienne, 18.4)
 
       // Stage 5
       _ <- roadStage(start="Salon-de-Provence", finish="Sisteron", length=165)

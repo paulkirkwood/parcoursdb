@@ -26,7 +26,7 @@ class OneDayRaceEditionTests extends FunSuite with Matchers with TableDrivenProp
       (lbl2018)
     ).forEvery {case (edition) =>
       val raceName:String = RaceUtils.name(edition.race)
-      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${edition.date.getYear}/cols.csv"))
+      val source = Source.fromURL(getClass.getResource(s"/${raceName}/${edition.date.getYear}/cotes.csv"))
       val result = source.getLines.toList
       source.close()
       edition.climbs shouldEqual result }
