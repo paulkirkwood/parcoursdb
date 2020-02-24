@@ -3,7 +3,7 @@ package parcoursdb
 import FrenchLocations.{briancon,lesDeuxAlpes};
 import ItalianLocations._  
 import java.time.LocalDate
-import StageRaceState._
+import GiroState._
 import SwissLocations.{lugano,mendrisio,monteGeneroso};
 
 object GiroEditions {
@@ -19,7 +19,7 @@ object GiroEditions {
       _ <- roadStage(start="Turin", finish="Parma", length=243)
       _ <- roadStage(start="Parma", finish="Marina di Pisa", length=193)
       _ <- individualTimeTrial(pontedera, pisa, 36)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Rio Marina", finish="Portoferraio", length=126)
       _ <- roadStage(start="Castiglione della Pescaia", finish="Orvieto", length=200)
       _ <- roadStage(start="Orvieto", finish="Fiuggi", length=216)
@@ -38,7 +38,7 @@ object GiroEditions {
       _ <- individualTimeTrial(saronno, turbigo, 50)
       _ <- criterium(milano, 114.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1980,5,15)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1980,5,15)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -51,14 +51,14 @@ object GiroEditions {
       _ <- disableSplitStages
       _ <- roadStage("Bibione", "Ferrara",211)
       _ <- roadStage("Bologna", "Recanati",255)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage("Recanati", "Lanciano",214)
       _ <- roadStage("Marina di San Vito", "Rodi Garganico",180)
       _ <- roadStage("Rodi Garganico", "Bari",225)
       _ <- roadStage("Bari", "Potenza",143)
       _ <- roadStage("Sala Consilina", "Cosenza",202)
       _ <- roadStage("Cosenza", "Reggio Calabria",231)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage("Rome", "Cascia",166)
       _ <- roadStage("Cascia", "Arezzo",199)
       _ <- roadStage("Arezzo", "Livorno",224)
@@ -68,13 +68,13 @@ object GiroEditions {
       _ <- roadStage("Milan", "Mantua",178)
       _ <- roadStage("Mantua", "Borno",215)
       _ <- roadStage("Borno", "Dimaro",127)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage("Dimaro", "San Vigillo di Marebbe",208)
       _ <- roadStage("San Vigillo di Marebbe", "Tre Cime di Lavaredo",100)
       _ <- roadStage("Auronzo di Cadore", "Arzignano",197)
       _ <- individualTimeTrial(soave, verona,42)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1981,5,13)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1981,5,13)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -88,12 +88,12 @@ object GiroEditions {
       _ <- roadStage(start="Rome", finish="Caserta", length=213.0)
       _ <- roadStage(start="Caserta", finish="Castellammare di Stabia", length=130.0)
       _ <- roadStage(start="Castellammare di Stabia", finish="Diamante", length=226.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Taormina", finish="Agrigento", length=248.0)
       _ <- roadStage(start="Agrigento", finish="Palermo", length=151.0)
       _ <- roadStage(start="Cefalu", finish="Messina", length=197.0)
       _ <- roadStage(start="Palmi", finish="Camigliatello Silano", length=229.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Cava de'Tirreni", finish="Campitello Matese", length=171.0)
       _ <- roadStage(start="Campitello Matese", finish="Pescara", length=164.0)
       _ <- roadStage(start="Pescara", finish="Urbino", length=248.0)
@@ -106,7 +106,7 @@ object GiroEditions {
       _ <- roadStage(start="Cuneo", finish="Pinerolo", length=254.0)
       _ <- individualTimeTrial(pinerolo, turin, 42.5)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1982,5,13)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1982,5,13)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -124,7 +124,7 @@ object GiroEditions {
       _ <- roadStage(start="Terracina", finish="Montefiascone", length=225.0)
       _ <- roadStage(start="Montefiascone", finish="Bibbiena", length=232.0)
       _ <- roadStage(start="Bibbiena", finish="Pietrasanta", length=202.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Pietrasanta", finish="Reggio Emilia", length=180.0)
       _ <- individualTimeTrial(reggioEmilia, parma, 38.0)
       _ <- roadStage(start="Parma", finish="Savona", length=243.0)
@@ -135,13 +135,13 @@ object GiroEditions {
       _ <- disableSplitStages
       _ <- roadStage(start="Bergamo", finish="Colli di San Fermo", length=91.0)
       _ <- roadStage(start="Sarnico", finish="Vicenza", length=178.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Vicenza", finish="Selva di Val Gardena", length=224.0)
       _ <- roadStage(start="Selva di Val Gardena", finish="Arabba", length=169.0)
       _ <- roadStage(start="Arabba", finish="Gorizia", length=232.0)
       _ <- individualTimeTrial(gorizia, udine, 40.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1983,5,12)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1983,5,12)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -157,14 +157,14 @@ object GiroEditions {
       _ <- roadStage(start="Foggia", finish="Marconia di Pisticci", length=226.0)
       _ <- roadStage(start="Policoro", finish="Agropoli", length=228.0)
       _ <- roadStage(start="Agropoli", finish="Cava de'Tirreni", length=104.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Cava de'Tirreni", finish="Isernia", length=209.0)
       _ <- roadStage(start="Isernia", finish="Rieti", length=243.0)
       _ <- roadStage(start="Rieti", finish="Citta di Castello", length=175.0)
       _ <- roadStage(start="Citta di Castello", finish="Lerici", length=269.0)
       _ <- roadStage(start="Lerici", finish="Alessandria", length=204.0)
       _ <- individualTimeTrial(certosaDiPavia, milano, 38.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Alessandria", finish="Bardonecchia", length=198.0)
       _ <- roadStage(start="Bardonecchia", finish="Lecco", length=249.0)
       _ <- roadStage(start="Lecco", finish="Merano", length=252.0)
@@ -173,7 +173,7 @@ object GiroEditions {
       _ <- roadStage(start="Arabba", finish="Treviso", length=208.0)
       _ <- individualTimeTrial(soave, verona, 42.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1984,5,17)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1984,5,17)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -187,7 +187,7 @@ object GiroEditions {
       _ <- roadStage(start="Selva di Val Gardena", finish="Vittorio Veneto", length=225.0)
       _ <- roadStage(start="Vittorio Veneto", finish="Cervia", length=237.0)
       _ <- roadStage(start="Cervia", finish="Jesi", length=185.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- enableSplitStages
       _ <- roadStage(start="Foggia", finish="Foggia", length=45.0)
       _ <- roadStage(start="Foggia", finish="Matera", length=167.0)
@@ -201,14 +201,14 @@ object GiroEditions {
       _ <- roadStage(start="L'Aquila", finish="Peruiga", length=208.0)
       _ <- roadStage(start="Peruiga", finish="Cecina", length=217.0)
       _ <- roadStage(start="Cecina", finish="Modena", length=248.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Monza", finish="Domodossola", length=128.0)
       _ <- roadStage(start="Domodossola", finish="Saint-Vincent", length=247.0)
       _ <- roadStage(start="Saint-Vincent", finish="Valnontey di Cogne", length=58.0)
       _ <- roadStage(start="Saint-Vincent", finish="Genoa", length=229.0)
       _ <- individualTimeTrial(lidoDiCamaiore, lucca, 48.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1985,5,16)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1985,5,16)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -240,7 +240,7 @@ object GiroEditions {
       _ <- roadStage(start="Bassano del Grappa", finish="Bolzano", length=234.0)
       _ <- criterium(merano, 108.6)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1986,5,12)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1986,5,12)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -260,7 +260,7 @@ object GiroEditions {
       _ <- roadStage(start="Roccaraso", finish="San Giorgio del Sannio", length=168.0)
       _ <- roadStage(start="San Giorgio del Sannio", finish="Bari", length=257.0)
       _ <- roadStage(start="Bari", finish="Termoli", length=210.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Giulianova", finish="Osimo", length=245.0)
       _ <- roadStage(start="Osimo", finish="Bellaria", length=197.0)
       _ <- individualTimeTrial(rimini, sanMarino, length=46.0)
@@ -274,7 +274,7 @@ object GiroEditions {
       _ <- roadStage(start="Como", finish="Pila", length=252.0)
       _ <- individualTimeTrial(aosta, saintVincent, 32.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1987,5,21)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1987,5,21)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -309,7 +309,7 @@ object GiroEditions {
       _ <- individualTimeTrial(vittorioVeneto, 43)
       _ <- disableSplitStages
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1988,5,23)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1988,5,23)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -341,7 +341,7 @@ object GiroEditions {
       _ <- roadStage(start="La Spezia", finish="Prato", length=216.0)
       _ <- individualTimeTrial(prato, florence, 53.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1989,5,21)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1989,5,21)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -371,7 +371,7 @@ object GiroEditions {
       _ <- individualTimeTrial(gallarate, sacroMonteDiVarese, 39.0)
       _ <- criterium(milano, 90.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1990,5,18)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1990,5,18)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -383,7 +383,7 @@ object GiroEditions {
       _ <- individualTimeTrial(sassari, 7.0)
       _ <- disableSplitStages
       _ <- roadStage(start="Sassari", finish="Cagliari", length=231.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- criterium(sorrento, 170.0)
       _ <- roadStage(start="Sorrento", finish="Scanno", length=246.0)
       _ <- roadStage(start="Scanno", finish="Rieti", length=205.0)
@@ -403,7 +403,7 @@ object GiroEditions {
       _ <- individualTimeTrial(brescia, casteggio, 66.0)
       _ <- roadStage(start="Pavia", finish="Milan", length=153.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1991,5,26)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1991,5,26)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -432,7 +432,7 @@ object GiroEditions {
       _ <- roadStage(start="Verbania", finish="Vigevano", length=95.0)
       _ <- individualTimeTrial(vigevano, milano, 66.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1992,5,24)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1992,5,24)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -449,7 +449,7 @@ object GiroEditions {
       _ <- roadStage(start="Villafranca Tirrena", finish="Messina", length=130.0)
       _ <- roadStage(start="Capo d'Orlando", finish="Agrigento", length=240.0)
       _ <- roadStage(start="Agrigento", finish="Palermo", length=140.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Montelibretti", finish="Fabriano", length=216.0)
       _ <- individualTimeTrial(senigallia, 28.0)
       _ <- roadStage(start="Senigallia", finish="Dozza", length=184.0)
@@ -464,7 +464,7 @@ object GiroEditions {
       _ <- roadStage(start="Turin", finish="Santuario di Oropa", length=162.0)
       _ <- roadStage(start="Biella", finish="Milan", length=166.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1993,5,23)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1993,5,23)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -498,7 +498,7 @@ object GiroEditions {
       _ <- roadStage(start=lesDeuxAlpes, finish="Sestriere", length=121.0)
       _ <- roadStage(start="Turin", finish="Milan", length=198.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1994,5,22)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1994,5,22)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -514,7 +514,7 @@ object GiroEditions {
       _ <- roadStage(start="Acquappesa", finish="Massiccio del Sirino", length=209.0)
       _ <- roadStage(start="Terme La Calda", finish="Salerno", length=165.0)
       _ <- individualTimeTrial(teleseTerme, maddaloni, 42.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Pietrasanta", finish="Il Ciocco", length=175.0)
       _ <- roadStage(start="Borgo a Mozzano", finish="Cento", length=195.0)
       _ <- roadStage(start="Pieve di Cento", finish="Rovereto", length=218.0)
@@ -528,7 +528,7 @@ object GiroEditions {
       _ <- roadStage(start="Pont-Saint-Martin", finish="Luino", length=190.0)
       _ <- roadStage(start="Luino", finish="Milan", length=148.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1995,5,13)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1995,5,13)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -537,7 +537,7 @@ object GiroEditions {
       _ <- criterium(Location("Athens")(Greece), length=170.0)
       _ <- roadStage(start=Location("Eleusis")(Greece), finish=Location("Naupactus")(Greece), length=235.0)
       _ <- roadStage(start=Location("Missolonghi")(Greece), finish=Location("Ioannina")(Greece), length=199.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- criterium(ostuni, 147.0)
       _ <- roadStage(start="Metaponto", finish="Crotone", length=196.0)
       _ <- roadStage(start="Crotone", finish="Catanzaro", length=176.0)
@@ -558,7 +558,7 @@ object GiroEditions {
       _ <- roadStage(start="Cavalese", finish="Aprica", length=250.0)
       _ <- roadStage(start="Sondrio", finish="Milan", length=176.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1996,5,18)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1996,5,18)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -574,7 +574,7 @@ object GiroEditions {
       _ <- roadStage(start="Mondragone", finish="Cava de'Tirreni", length=212.0)
       _ <- roadStage(start="Cava de'Tirreni", finish="Castrovillari", length=232.0)
       _ <- roadStage(start="Castrovillari", finish="Taranto", length=195.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- criterium(lidoDiCamaiore, 155.0)
       _ <- roadStage(start="La Spezia", finish="Varazze", length=214.0)
       _ <- roadStage(start="Varazze", finish="Cuneo", length=150.0)
@@ -588,7 +588,7 @@ object GiroEditions {
       _ <- roadStage(start="Male", finish="Edolo", length=238.0)
       _ <- roadStage(start="Boario Terme", finish="Milan", length=165.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1997,5,17)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1997,5,17)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -619,7 +619,7 @@ object GiroEditions {
       _ <- individualTimeTrial(mendrisio, lugano, 34.0)
       _ <- roadStage(lugano, milano, 173.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1998,5,16)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1998,5,16)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -638,7 +638,7 @@ object GiroEditions {
       _ <- roadStage(start="Sansepolcro", finish="Cesenatico", length=125.0)
       _ <- roadStage(start="Cesenatico", finish="Sassuolo", length=168.0)
       _ <- roadStage(start="Sassuolo", finish="Rapallo", length=243.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Bra", finish="Borgo San Dalmazzo", length=187.0)
       _ <- roadStage(start="Racconigi", finish="Sanctuario di Oropa", length=160.0)
       _ <- roadStage(start="Biella", finish="Lumezzane", length=232.0)
@@ -649,7 +649,7 @@ object GiroEditions {
       _ <- roadStage(start="Madonna di Campiglio", finish="Aprica", length=190.0)
       _ <- roadStage(start="Darfo Boario Terme", finish="Milan", length=170.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(1999,5,15)))
+    val result = composition.exec(GiroState.init(LocalDate.of(1999,5,15)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -667,7 +667,7 @@ object GiroEditions {
       _ <- roadStage(start="Prato", finish="Abetone", length=138.0)
       _ <- roadStage(start="San Marcello Pistoiese", finish="Padua", length=253.0)
       _ <- individualTimeTrial(lignanoSabbiadoro, bibione, 45.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Bibione", finish="Feltre", length=184.0)
       _ <- roadStage(start="Feltre", finish="Selva", length=186.0)
       _ <- roadStage(start="Selva", finish="Bormio", length=203.0)
@@ -679,7 +679,7 @@ object GiroEditions {
       _ <- individualTimeTrial(briancon, sestriere, 32.0)
       _ <- roadStage(start="Turin", finish="Milan", length=189.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(2000,5,13)))
+    val result = composition.exec(GiroState.init(LocalDate.of(2000,5,13)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -702,14 +702,14 @@ object GiroEditions {
       _ <- roadStage(start="Cavalese", finish="Arco", length=160.0)
       _ <- individualTimeTrial(sirmione, salo, 55.0)
       _ <- roadStage(start="Erbusco", finish="Parma", length=142.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- criterium(sanRemo, 123.0)
       _ <- roadStage(start="Imperia", finish="Sant'Anna di Vinadio", length=230.0)
       _ <- roadStage(start="Alba", finish="Busto Arsizio", length=163.0)
       _ <- roadStage(start="Busto Arsizio", finish="Arona", length=181.0)
       _ <- roadStage(start="Arona", finish="Milan", length=125.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(2001,5,19)))
+    val result = composition.exec(GiroState.init(LocalDate.of(2001,5,19)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -720,7 +720,7 @@ object GiroEditions {
       _ <- roadStage(start=Location("Cologne")(Germany), finish=Location("Ans")(Belgium), length=209.0)
       _ <- roadStage(start=Location("Verviers")(Belgium), finish=Location("Esch-sur-Alzette")(Luxembourg), length=206.0)
       _ <- roadStage(start=Location("Esch-sur-Alzette")(Luxembourg), finish=Location("Strasbourg")(France), length=232.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Fossano", finish="Limone Piemonte", length=150.0)
       _ <- roadStage(start="Cuneo", finish="Varazze", length=190.0)
       _ <- roadStage(start="Viareggio", finish="Lido di Camaiore", length=159.0)
@@ -731,7 +731,7 @@ object GiroEditions {
       _ <- roadStage(start="Campobasso", finish="Chieti", length=200.0)
       _ <- roadStage(start="Chieti", finish="San Giacomo di Valle Castellana", length=190.0)
       _ <- individualTimeTrial(numana, 30.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Terme Euganee", finish="Conegliano", length=156.0)
       _ <- roadStage(start="Conegliano", finish="Corvara", length=163.0)
       _ <- roadStage(start="Corvara", finish="Folgaria", length=222.0)
@@ -739,7 +739,7 @@ object GiroEditions {
       _ <- individualTimeTrial(cambiago, monticelloBrianza, 46.0)
       _ <- roadStage(start="Cantu", finish="Milan", length=141.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(2002,5,11)))
+    val result = composition.exec(GiroState.init(LocalDate.of(2002,5,11)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -750,7 +750,7 @@ object GiroEditions {
       _ <- roadStage(start="Policoro", finish="Term Luigiane", length=145.0)
       _ <- roadStage(start="Term Luigiane", finish="Vibo Valentia", length=170.0)
       _ <- roadStage(start="Messina", finish="Catania", length=176.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Maddaloni", finish="Avezzano", length=222.0)
       _ <- roadStage(start="Avezzano", finish="Monte Terminillo", length=146.0)
       _ <- roadStage(start="Rieti", finish="Arezzo", length=214.0)
@@ -762,14 +762,14 @@ object GiroEditions {
       _ <- roadStage(start="Marostica", finish="Alpe di Pampeago", length=162.0)
       _ <- individualTimeTrial(merano, bolzano, 42.5)
       _ <- roadStage(start="Arco", finish="Pavia", length=207.0)
-      _ <- restDay
+      _ <- transferDay
       _ <- roadStage(start="Salice Terme", finish="Asti", length=117.0)
       _ <- roadStage(start="Sanuario di Vicoforte", finish="Chianale", length=174.0)
       _ <- roadStage(start="Canelli", finish="Cascata del Toce", length=239.0)
       _ <- roadStage(start="Cannobio", finish="Cantu", length=133.0)
       _ <- individualTimeTrial(milano, 33.0)
     } yield()
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(2003,5,10)))
+    val result = composition.exec(GiroState.init(LocalDate.of(2003,5,10)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -789,7 +789,7 @@ object GiroEditions {
       _ <- c4("Faran River", height=322, summitKM=127.8)
   
       // Rest Day #1
-      _ <- restDay()
+      _ <- transferDay
   
       // Stage 4 08-05-2018
       _ <- roadStage("Catania", "Caltagirone", 202)
@@ -818,7 +818,7 @@ object GiroEditions {
       _ <- c2("Calascio", height=1190, summitKM=192.9)
   
       // Rest Day #2
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 10 15-05-2018
       _ <- roadStage("Penne", "Gualdo Tadino", 244)
@@ -856,7 +856,7 @@ object GiroEditions {
       _ <- c2("Costalissoio (Bosco dei Giavi)", height=1300, summitKM=160.6)
   
       // Rest Day #3
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 16 22-05-2018
       _ <- individualTimeTrial(trento, rovereto, 34.2)
@@ -886,7 +886,7 @@ object GiroEditions {
       _ <- criterium(rome, 115)
     } yield()
 
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(2018,5,4)))
+    val result = composition.exec(GiroState.init(LocalDate.of(2018,5,4)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -909,7 +909,7 @@ object GiroEditions {
       _ <- c4("Capo Boi", height=126, summitKM=107)
 
       // Rest Day #1
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 4
       _ <- roadStage("Cefalu", "Etna", 181)
@@ -939,7 +939,7 @@ object GiroEditions {
       _ <- c1("Blockhaus", height=1665, summitKM=149)
 
       // Rest Day #2
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 10
       _ <- individualTimeTrial(foligno, montefalco, 39.8)
@@ -969,7 +969,7 @@ object GiroEditions {
       _ <- c2("Selvino", height=948, summitKM=170.8)
 
       // Rest Day #3
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 16
       _ <- roadStage("Rovetta", "Bormio", 222)
@@ -1007,7 +1007,7 @@ object GiroEditions {
       _ <- individualTimeTrial(monza, milano, 29.3)
     } yield()
 
-    val result = composition.exec(StageRaceState.init(TourOfItaly, LocalDate.of(2017,5,5)))
+    val result = composition.exec(GiroState.init(LocalDate.of(2017,5,5)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 
@@ -1029,7 +1029,7 @@ object GiroEditions {
       _ <- roadStage(nijmegen,arnhem,190)
       _ <- c4("Posbank", height=88, summitKM=136.9)
 
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 4
       _ <- roadStage("Catanzaro", "Praia a Mare", 200)
@@ -1058,7 +1058,7 @@ object GiroEditions {
       // Stage 9
       _ <- individualTimeTrial(chiantiClassicoStage, 40.5)
 
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 10
       _ <- roadStage("Campi Bisenzio", "Sestola", 219)
@@ -1095,7 +1095,7 @@ object GiroEditions {
       _ <- individualTimeTrial(castelrotto, alpeDiSiusiCommune, 10.8)
       _ <- c1("Alpe di Siusi", height=1844, summitKM=10.8)
 
-      _ <- restDay()
+      _ <- transferDay
 
       // Stage 16
       _ <- roadStage("Bressanone", "Andalo", 132)
@@ -1128,7 +1128,7 @@ object GiroEditions {
 
     } yield()
 
-    val result = composition.exec(StageRaceState.init(TourOfItaly,LocalDate.of(2016,5,6)))
+    val result = composition.exec(GiroState.init(LocalDate.of(2016,5,6)))
     StageRaceEdition(TourOfItaly, result.stages)
   }
 }
