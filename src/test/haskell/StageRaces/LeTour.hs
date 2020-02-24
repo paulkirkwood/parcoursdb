@@ -3612,7 +3612,7 @@ tdf1972' = do
   plainStage luchon colomiers 179.0
 
   -- Stage 11
-  plainStage castres laGrandMotte 210.0
+  plainStage castres laGrandeMotte 210.0
 
   -- Stage 12
   mountainStage (Left carnonPlage) 207.0

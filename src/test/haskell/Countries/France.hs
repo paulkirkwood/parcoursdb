@@ -812,9 +812,6 @@ laFerteSousJouarre = frenchLocation "La Ferte-sous-Jouarre"
 laFouillouse :: Location
 laFouillouse = frenchLocation "La Fouillouse"
 
-laGrandMotte :: Location
-laGrandMotte = frenchLocation "La Grand-Motte"
-
 laGrandeMotte :: Location
 laGrandeMotte = frenchLocation "La Grande-Motte"
 
