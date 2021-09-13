@@ -716,7 +716,7 @@ object GiroEditions {
   def giro2002:StageRaceEdition = {
     val composition = for {
       _ <- prologue(Location("Groningen")(Netherlands), 6.5)
-      _ <- roadStage(start=Location("Groningen")(Netherlands), finish=Location("Munster")(Germany), length=215.0)
+      _ <- roadStage(start=Location("Groningen")(Netherlands), finish=Location("Münster")(Germany), length=215.0)
       _ <- roadStage(start=Location("Cologne")(Germany), finish=Location("Ans")(Belgium), length=209.0)
       _ <- roadStage(start=Location("Verviers")(Belgium), finish=Location("Esch-sur-Alzette")(Luxembourg), length=206.0)
       _ <- roadStage(start=Location("Esch-sur-Alzette")(Luxembourg), finish=Location("Strasbourg")(France), length=232.0)
@@ -809,7 +809,7 @@ object GiroEditions {
       _ <- roadStage("Pizzo", "Praia a Mare", 159)
   
       // Stage 8 12-05-2018
-      _ <- roadStage("Praia a Mare", "Montevergine Di Mercogliano", 209)
+      _ <- roadStage("Praia a Mare", "Montevergine di Mercogliano", 209)
       _ <- c2("Montevergine Di Mercogliano", height=1260, summitKM=209)
   
       // Stage 9 13-05-2018
@@ -1016,6 +1016,8 @@ object GiroEditions {
     val apeldoorn = Location("Apeldoorn")(Netherlands)
     val arnhem    = Location("Arnhem")(Netherlands)
     val nijmegen  = Location("Nijmegen")(Netherlands)
+    val guillestre = Location("Guillestre")(France)
+    val risoul = Location("Risoul")(France)
 
     val composition = for {
       // Stage 1
@@ -1112,12 +1114,12 @@ object GiroEditions {
       _ <- c2("Pramartino", height=925, summitKM=220.5)
 
       // Stage 19
-      _ <- roadStage("Pinerolo", "Risoul", 162)
+      _ <- roadStage("Pinerolo", risoul, 162)
       _ <- c1("Colle dell'Agnello", height=2744, summitKM=106.4)
       _ <- c1("Risoul", height=1862, summitKM=162)
 
       // Stage 20
-      _ <- roadStage("Guillestre", "Sant'Anna di Vinadio", 134)
+      _ <- roadStage(guillestre, "Sant'Anna di Vinadio", 134)
       _ <- c1("Col de Vars", height=2108, summitKM=19)
       _ <- c1("Col de la Bonette", height=2715, summitKM=63.1)
       _ <- c1("Colle della Lombardia", height=2530, summitKM=123.7)

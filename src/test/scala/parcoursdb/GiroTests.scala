@@ -271,10 +271,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
       (giro1997),
       (giro1998),
       (giro1999),
-      //(giro2000), (giro2001), (giro2002), (giro2003),
-      //(giro2016),
-      //(giro2017),
-      //(giro2018),
+      (giro2000),
+      (giro2001),
+      (giro2002),
+      (giro2003),
+      (giro2016),
+      (giro2017),
+      (giro2018),
     ).forEvery {case (edition) =>
       val raceName:String = RaceUtils.name(edition.stageRace)
       val source = Source.fromURL(getClass.getResource(s"/${raceName}/${edition.year}/route.csv"))
