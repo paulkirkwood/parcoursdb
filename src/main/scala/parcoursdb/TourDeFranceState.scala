@@ -4,6 +4,23 @@ import java.time.LocalDate
 import scalaz._
 import Scalaz._
 
+case class NonConsecutiveStageRaceState(year: Int, stageID: Int, stages: Seq[Stage])
+
+object NonConsecutiveStageRaceState {
+
+  def init(year:Int) = NonConsecutiveStageRaceState(year=year, stageID=1, stages=Seq[Stage]())
+
+  def getStageID(s:NonConsecutiveStageRaceState) : String = s"${s.stageID}"
+
+  def roadStage(month: Int, day: Int, start:Location, finish:Location, length: Double) : State[NonConsecutiveStageRaceState, Unit] = {
+    for {
+      s <- get[NonConsecutiveStageRaceState]
+      stage = RoadStage(LocalDate.of(s.year, month, day),getStageID(s), start, finish, length, Set.empty[Col])
+      producedValue <- put(s.copy(year=s.year, stageID=s.stageID + 1, stages=s.stages :+ stage))
+    } yield producedValue
+  }
+}
+
 case class EarlyTourDeFranceState(date: LocalDate, stageID: Int, stages: Seq[Stage])
 
 object EarlyTourDeFranceState {

@@ -1,7 +1,8 @@
 package parcoursdb
 
 import java.time.LocalDate
-import EarlyTourDeFranceState.{addDays, init, roadStage => flatStage, teamTimeTrial => ttt}
+//import NonConsecutiveStageRaceState.{init, roadStage => flatStage, teamTimeTrial => ttt}
+import NonConsecutiveStageRaceState.{init, roadStage => flatStage}
 import ModernTourDeFranceState._
 import BelgianLocations.{rochefort => belgianRochefort}
 import BelgianLocations.{arlon,antwerp}
@@ -51,19 +52,45 @@ object TourDeFranceEditions {
 
   def tdf1903:StageRaceEdition = {
     val composition = for {
-      _ <- flatStage(paris, lyon, 467.0)
-      - <- addDays(4)
-      _ <- flatStage(lyon, marseille, 374.0)
-      - <- addDays(3)
-      _ <- flatStage(marseille, toulouse, 423.0)
-      - <- addDays(4)
-      _ <- flatStage(toulouse, bordeaux, 268.0)
-      - <- addDays(1)
-      _ <- flatStage(bordeaux, nantes, 425.0)
-      - <- addDays(5)
-      _ <- flatStage(nantes, paris, 471.0)
+      _ <- flatStage(7, 1, paris, lyon, 467.0)
+      _ <- flatStage(7, 5, lyon, marseille, 374.0)
+      _ <- flatStage(7, 8, marseille, toulouse, 423.0)
+      _ <- flatStage(7, 12, toulouse, bordeaux, 268.0)
+      _ <- flatStage(7, 13, bordeaux, nantes, 425.0)
+      _ <- flatStage(7, 18, nantes, paris, 471.0)
     } yield()
-    val result = composition.exec(EarlyTourDeFranceState.init(LocalDate.of(1903,7,1)))
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1903))
+    StageRaceEdition(TourDeFrance, result.stages)
+  }
+
+  def tdf1904:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(7, 2, montgeron, lyon, 467.0)
+      _ <- flatStage(7, 9, lyon, marseille, 374.0)
+      _ <- flatStage(7, 13, marseille, toulouse, 424.0)
+      _ <- flatStage(7, 17, toulouse, bordeaux, 268.0)
+      _ <- flatStage(7, 20, bordeaux, nantes, 425.0)
+      _ <- flatStage(7, 23, nantes, paris, 471.0)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1904))
+    StageRaceEdition(TourDeFrance, result.stages)
+  }
+
+  def tdf1905:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(7,  9, paris, nancy, 340.0)
+      _ <- flatStage(7, 11, nancy, besancon, 299.0)
+      _ <- flatStage(7, 14, besancon, grenoble, 327.0)
+      _ <- flatStage(7, 16, grenoble, toulon, 348.0)
+      _ <- flatStage(7, 18, toulon, nimes, 192.0)
+      _ <- flatStage(7, 20, nimes, toulouse, 307.0)
+      _ <- flatStage(7, 22, toulouse, bordeaux, 268.0)
+      _ <- flatStage(7, 24, bordeaux, laRochelle, 257.0)
+      _ <- flatStage(7, 26, laRochelle, rennes, 263.0)
+      _ <- flatStage(7, 28, rennes, caen, 167.0)
+      _ <- flatStage(7, 29, caen, paris, 253.0)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1905))
     StageRaceEdition(TourDeFrance, result.stages)
   }
 

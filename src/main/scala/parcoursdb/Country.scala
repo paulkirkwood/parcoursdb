@@ -1574,6 +1574,7 @@ object ItalianLocations {
     def tramin:Location = { Location("Tramin") }
     def trani:Location = { Location("Trani") }
     def trento:Location = { Location("Trento") }
+    def treCimeDiLavaredo:Location = { Location("Tre Cime di Lavaredo") }
     def trescore:Location = { Location("Trescore Balneario") }
     def trescoreBalneario:Location = { Location("Trescore Balneario") }
     def trevi:Location = Location("Trevi")
@@ -1634,6 +1635,7 @@ object ItalianLocations {
     def voghera:Location = { Location("Voghera") }
 
     def zingonia:Location = { Location("Zingonia") }
+    def zoldoAlto:Location = { Location("Zoldo Alto") }
 
     // Italian mountains
     def monteTerminillo = Location("Monte Terminillo", Some(2217))
