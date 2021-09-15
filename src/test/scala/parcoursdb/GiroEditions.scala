@@ -4,12 +4,128 @@ import FrenchLocations.{briancon,lesDeuxAlpes};
 import ItalianLocations._  
 import java.time.LocalDate
 import GiroState._
+import NonConsecutiveStageRaceState.{init, roadStage => flatStage}
 import SwissLocations.{lugano,mendrisio,monteGeneroso};
 
 object GiroEditions {
   
   implicit val country:Country = Italy
   val sanMarino = Location("San Marino")(SanMarino)
+
+  def giro1909:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(5, 13, milano, bologna, 397)
+      _ <- flatStage(5, 16, bologna, chieti, 375.8)
+      _ <- flatStage(5, 18, chieti, naples, 242.8)
+      _ <- flatStage(5, 20, naples, rome, 228.1)
+      _ <- flatStage(5, 23, rome, florence, 346.5)
+      _ <- flatStage(5, 25, florence, genoa, 294.1)
+      _ <- flatStage(5, 27, genoa, turin, 354.9)
+      _ <- flatStage(5, 30, turin, milano, 206)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1909))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
+  def giro1910:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(5, 18, milano, udine, 388)
+      _ <- flatStage(5, 20, udine, bologna, 322.4)
+      _ <- flatStage(5, 22, bologna, teramo, 345.2)
+      _ <- flatStage(5, 24, teramo, naples, 319.5)
+      _ <- flatStage(5, 26, naples, rome, 192.3)
+      _ <- flatStage(5, 28, rome, florence, 327.5)
+      _ <- flatStage(5, 30, florence, genoa, 263.5)
+      _ <- flatStage(6,  1, genoa, mondovi, 218.1)
+      _ <- flatStage(6,  2, mondovi, turin, 333.4)
+      _ <- flatStage(6,  5, turin, milano, 277.5)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1910))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
+  def giro1911:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(5, 15, rome, florence, 394.1)
+      _ <- flatStage(5, 17, florence, genoa, 261.5)
+      _ <- flatStage(5, 19, genoa, oneglia, 274.9)
+      _ <- flatStage(5, 21, oneglia, mondovi, 190.3)
+      _ <- flatStage(5, 23, mondovi, turin, 302)
+      _ <- flatStage(5, 25, turin, milano, 236.2)
+      _ <- flatStage(5, 27, milano, bologna, 394)
+      _ <- flatStage(5, 29, bologna, ancona, 283.4)
+      _ <- flatStage(5, 31, ancona, sulmona, 218.7)
+      _ <- flatStage(6,  2, sulmona, bari, 363.1)
+      _ <- flatStage(6,  4, bari, pompeii, 345.2)
+      _ <- flatStage(6,  6, naples, rome, 266.9)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1911))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
+  def giro1912:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(5, 19, milano, padua, 398.8)
+      _ <- flatStage(5, 21, padua, bologna, 328.8)
+      _ <- flatStage(5, 23, bologna, pescara, 362.5)
+      _ <- flatStage(5, 25, pescara, rome, 294)
+      _ <- flatStage(5, 27, rome, florence, 337)
+      _ <- flatStage(5, 29, florence, genoa, 267.5)
+      _ <- flatStage(5, 31, genoa, turin, 230)
+      _ <- flatStage(6,  2, turin, milano, 280)
+      _ <- flatStage(6,  4, milano, bergamo, 235)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1912))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
+  def giro1913:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(5,  6, milano, genoa, 341)
+      _ <- flatStage(5,  8, genoa, siena, 332)
+      _ <- flatStage(5, 10, siena, rome, 317.9)
+      _ <- flatStage(5, 12, rome, salerno, 341)
+      _ <- flatStage(5, 14, salerno, bari, 295.6)
+      _ <- flatStage(5, 16, bari, campobasso, 256)
+      _ <- flatStage(5, 18, campobasso, ascoliPiceno, 313.2)
+      _ <- flatStage(5, 20, ascoliPiceno, rovigo, 413.8)
+      _ <- flatStage(5, 22, rovigo, milano, 321.5)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1913))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
+  def giro1914:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(5, 24, milano, cuneo, 420)
+      _ <- flatStage(5, 26, cuneo, lucca, 340.5)
+      _ <- flatStage(5, 28, lucca, rome, 430)
+      _ <- flatStage(5, 30, rome, avellino, 365.4)
+      _ <- flatStage(6,  1, avellino, bari, 328.7)
+      _ <- flatStage(6,  3, bari, lAquila, 428)
+      _ <- flatStage(6,  5, lAquila, lugo, 429.1)
+      _ <- flatStage(6,  7, lugo, milano, 420.3)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1914))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
+
+  def giro1919:StageRaceEdition = {
+    val composition = for {
+      _ <- flatStage(5, 21, milano, trento, 302.8)
+      _ <- flatStage(5, 23, trento, trieste, 334.3)
+      _ <- flatStage(5, 25, trieste, ferrara, 282)
+      _ <- flatStage(5, 27, ferrara, pescara, 411.2)
+      _ <- flatStage(5, 29, pescara, naples, 312.5)
+      _ <- flatStage(5, 31, naples, rome, 203.8)
+      _ <- flatStage(6,  2, rome, florence, 350.8)
+      _ <- flatStage(6,  4, florence, genoa, 261.8)
+      _ <- flatStage(6,  6, genoa, turin, 248)
+      _ <- flatStage(6,  8, turin, milano, 277)
+    } yield()
+    val result = composition.exec(NonConsecutiveStageRaceState.init(1919))
+    StageRaceEdition(TourOfItaly, result.stages)
+  }
 
   def giro1980:StageRaceEdition = {
     val composition = for {

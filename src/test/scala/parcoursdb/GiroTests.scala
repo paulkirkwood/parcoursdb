@@ -7,6 +7,13 @@ import scala.io.Source
 
 class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
 
+  val giro1909      = GiroEditions.giro1909
+  val giro1910      = GiroEditions.giro1910
+  val giro1911      = GiroEditions.giro1911
+  val giro1912      = GiroEditions.giro1912
+  val giro1913      = GiroEditions.giro1913
+  val giro1914      = GiroEditions.giro1914
+  val giro1919      = GiroEditions.giro1919
   val giro1980      = GiroEditions.giro1980
   val giro1981      = GiroEditions.giro1981
   val giro1982      = GiroEditions.giro1982
@@ -38,6 +45,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
   test("Race dates") {
     Table[StageRaceEdition, String](
       ("Race", "Dates"),
+      (giro1909, "13-30 May"),
+      (giro1910, "18 May-5 June"),
+      (giro1911, "15 May-6 June"),
+      (giro1912, "19 May-4 June"),
+      (giro1913, "6-22 May"),
+      (giro1914, "24 May-7 June"),
+      (giro1919, "21 May-8 June"),
       (giro1980, "15 May-7 June"),
       (giro1981, "13 May-7 June"),
       (giro1982, "13 May-6 June"),
@@ -71,6 +85,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
   test("Race length") {
     Table[StageRaceEdition, Double](
       ("Race", "Length"),
+      (giro1909, 2445.2),
+      (giro1910, 2987.3),
+      (giro1911, 3530.2),
+      (giro1912, 2733.6),
+      (giro1913, 2932.0),
+      (giro1914, 3162.0),
+      (giro1919, 2984.2),
       (giro1980, 4026.0),
       (giro1981, 3895.6),
       (giro1982, 3994.5),
@@ -106,6 +127,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
   test("Stage types") {
     Table[StageRaceEdition, Int, Int, Int, Int](
       ("Race", "Road stages", "Team Time Trials", "Individual Time Trials", "Rest Days"),
+      (giro1909,  8, 0, 0, 0),
+      (giro1910, 10, 0, 0, 0),
+      (giro1911, 12, 0, 0, 0),
+      (giro1912,  9, 0, 0, 0),
+      (giro1913,  9, 0, 0, 0),
+      (giro1914,  8, 0, 0, 0),
+      (giro1919, 10, 0, 0, 0),
       (giro1980, 20, 0, 2, 1),
       (giro1981, 20, 1, 2, 3),
       (giro1982, 20, 0, 2, 2),
@@ -143,6 +171,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
   test("Race summary") {
     Table[StageRaceEdition, String](
       ("Race", "Summary"),
+      (giro1909, "8 stages"),
+      (giro1910, "10 stages"),
+      (giro1911, "12 stages"),
+      (giro1912, "9 stages"),
+      (giro1913, "9 stages"),
+      (giro1914, "8 stages"),
+      (giro1919, "10 stages"),
       (giro1980, "22 stages + Prologue"),
       (giro1981, "22 stages + Prologue including 1 split stage"),
       (giro1982, "22 stages + Prologue"),
@@ -175,6 +210,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
   test("Stage composition") {
     Table[StageRaceEdition, String](
       ("Race", "Composition"),
+      (giro1909, "8 road stages"),
+      (giro1910, "10 road stages"),
+      (giro1911, "12 road stages"),
+      (giro1912, "9 road stages"),
+      (giro1913, "9 road stages"),
+      (giro1914, "8 road stages"),
+      (giro1919, "10 road stages"),
       (giro1980, "20 road stages, 2 Individual Time Trials, 1 rest day"),
       (giro1981, "20 road stages, 3 Time Trials (1 Team Time Trial; 2 Individual Time Trials), 3 rest days"),
       (giro1982, "20 road stages, 2 Individual Time Trials, 2 rest days"),
@@ -210,6 +252,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
   test("Longest stage") {
     Table[StageRaceEdition, Double](
       ("Race", "Longest stage length"),
+      (giro1909, 397),
+      (giro1910, 388),
+      (giro1911, 394.1),
+      (giro1912, 398.8),
+      (giro1913, 413.8),
+      (giro1914, 430),
+      (giro1919, 411.2),
       (giro1980, 247),
       (giro1981, 255),
       (giro1982, 254),
@@ -251,6 +300,13 @@ class GiroTests extends FunSuite with Matchers with TableDrivenPropertyChecks {
   test("Race route") {
     Table[StageRaceEdition](
       ("Race"),
+      (giro1909),
+      (giro1910),
+      (giro1911),
+      (giro1912),
+      (giro1913),
+      (giro1914),
+      (giro1919),
       (giro1980),
       (giro1981),
       (giro1982),
